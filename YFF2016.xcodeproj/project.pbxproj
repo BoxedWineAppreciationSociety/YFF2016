@@ -15,6 +15,7 @@
 		43C5A61D1C25295600222D23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C5A61B1C25295600222D23 /* LaunchScreen.storyboard */; };
 		43C5A6281C25295600222D23 /* YFF2016Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6271C25295600222D23 /* YFF2016Tests.swift */; };
 		43C5A6331C25295600222D23 /* YFF2016UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6321C25295600222D23 /* YFF2016UITests.swift */; };
+		838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		43C5A62E1C25295600222D23 /* YFF2016UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YFF2016UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A6321C25295600222D23 /* YFF2016UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFF2016UITests.swift; sourceTree = "<group>"; };
 		43C5A6341C25295600222D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistListTableViewController.swift; path = ../ArtistListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				43C5A61B1C25295600222D23 /* LaunchScreen.storyboard */,
 				43C5A61E1C25295600222D23 /* Info.plist */,
 				43C5A6161C25295600222D23 /* YFF2016.xcdatamodeld */,
+				838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
 				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
@@ -488,6 +492,7 @@
 				43C5A6391C25295600222D23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43C5A63A1C25295600222D23 /* Build configuration list for PBXNativeTarget "YFF2016Tests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +501,7 @@
 				43C5A63C1C25295600222D23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43C5A63D1C25295600222D23 /* Build configuration list for PBXNativeTarget "YFF2016UITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +510,7 @@
 				43C5A63F1C25295600222D23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
