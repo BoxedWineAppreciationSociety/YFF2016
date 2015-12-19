@@ -47,7 +47,10 @@ class ArtistListTableViewController: UITableViewController {
         let sectionString = artistSectionTitles[section]
         return artists[sectionString as String]!.count
     }
-
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return (artistSectionTitles[section] as String).capitalizedString
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
@@ -58,6 +61,7 @@ class ArtistListTableViewController: UITableViewController {
 
         return cell
     }
+    
 
 
     /*
