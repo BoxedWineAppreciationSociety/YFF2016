@@ -9,10 +9,20 @@
 import UIKit
 
 class ArtistListTableViewController: UITableViewController {
+    var artistSectionTitles:Array<NSString> = []
+    var artists = [
+        "a" : ["Avril Lavigne", "AC/DC"],
+        "b" : ["Boomtown Rats", "Bullet for my Valentine", "Boral"],
+        "h" : ["Hell on Earth"]
+    ]
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        artistSectionTitles = artists.keys.sort()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,22 +39,29 @@ class ArtistListTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return artistSectionTitles.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        let sectionString = artistSectionTitles[section]
+        return artists[sectionString as String]!.count
     }
-
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return (artistSectionTitles[section] as String).capitalizedString
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
-
-        cell.textLabel?.text = "Folk \(indexPath.row) Number \(indexPath.section)"
+        let sectionString = artistSectionTitles[indexPath.section]
+        let sectionArtists = artists[sectionString as String]?.sort()
+        
+        cell.textLabel?.text = sectionArtists![indexPath.row]
 
         return cell
     }
+    
 
 
     /*
