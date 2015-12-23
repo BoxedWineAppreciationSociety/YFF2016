@@ -8,27 +8,31 @@
         <!--Map-->
         <scene sceneID="Zp9-Of-ibJ">
             <objects>
-                <viewController title="Map" id="aBm-93-GZr" sceneMemberID="viewController">
+                <viewController title="Map" id="aBm-93-GZr" customClass="MapViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Qa1-Iq-Awr"/>
-                        <viewControllerLayoutGuide type="bottom" id="gAk-Df-gbO"/>
+                        <viewControllerLayoutGuide type="top" id="h01-Yn-ZdV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pem-3q-JxK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kqU-0c-1Sh">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" id="0yp-mT-eeR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iro-C2-4er">
-                                <rect key="frame" x="268" y="121" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outlet property="delegate" destination="aBm-93-GZr" id="UyC-fT-oNh"/>
+                            <outletCollection property="gestureRecognizers" destination="iZF-97-GEt" appends="YES" id="G50-Qg-iyg"/>
+                        </connections>
+                    </scrollView>
                     <tabBarItem key="tabBarItem" title="Map" id="2mW-4V-N9n"/>
+                    <connections>
+                        <outlet property="scrollView" destination="0yp-mT-eeR" id="56e-aQ-86J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94r-Ha-mNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iZF-97-GEt">
+                    <connections>
+                        <action selector="tapped:" destination="aBm-93-GZr" id="6Oo-sx-NlB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="527" y="-350"/>
         </scene>
