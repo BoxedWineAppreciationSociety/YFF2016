@@ -16,6 +16,11 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup Navigation Controller
+        self.navigationItem.title = "EVENT MAP"
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 228.0/255.0, green: 117.0/255.0, blue: 48.0/255.0, alpha: 1.0)
+        
+        
         //Set up the image inside the scroll view
         let mapImage = UIImage(named: "mapImage")
         mapImageView = UIImageView(image: mapImage)

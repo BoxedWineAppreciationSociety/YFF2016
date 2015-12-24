@@ -16,6 +16,16 @@
 		43C5A6281C25295600222D23 /* YFF2016Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6271C25295600222D23 /* YFF2016Tests.swift */; };
 		43C5A6331C25295600222D23 /* YFF2016UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6321C25295600222D23 /* YFF2016UITests.swift */; };
 		43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6411C276F8E00222D23 /* MapViewController.swift */; };
+		43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */; };
+		43E17BDD1C2B96420075F92B /* Archer Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BD61C2B96420075F92B /* Archer Bold.ttf */; };
+		43E17BDE1C2B96420075F92B /* BebasNeueBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BD71C2B96420075F92B /* BebasNeueBold.otf */; };
+		43E17BDF1C2B96420075F92B /* BebasNeueBook.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BD81C2B96420075F92B /* BebasNeueBook.otf */; };
+		43E17BE01C2B96420075F92B /* BebasNeueLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BD91C2B96420075F92B /* BebasNeueLight.otf */; };
+		43E17BE11C2B96420075F92B /* BebasNeueRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BDA1C2B96420075F92B /* BebasNeueRegular.otf */; };
+		43E17BE21C2B96420075F92B /* BebasNeueThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BDB1C2B96420075F92B /* BebasNeueThin.otf */; };
+		43E17BE31C2B96420075F92B /* BebasNeue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BDC1C2B96420075F92B /* BebasNeue.otf */; };
+		43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE41C2B98250075F92B /* FeedViewController.swift */; };
+		43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE61C2B99450075F92B /* YFFTabBarController.swift */; };
 		838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +62,16 @@
 		43C5A6321C25295600222D23 /* YFF2016UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFF2016UITests.swift; sourceTree = "<group>"; };
 		43C5A6341C25295600222D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C5A6411C276F8E00222D23 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFNavigationController.swift; sourceTree = "<group>"; };
+		43E17BD61C2B96420075F92B /* Archer Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Archer Bold.ttf"; sourceTree = "<group>"; };
+		43E17BD71C2B96420075F92B /* BebasNeueBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeueBold.otf; sourceTree = "<group>"; };
+		43E17BD81C2B96420075F92B /* BebasNeueBook.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeueBook.otf; sourceTree = "<group>"; };
+		43E17BD91C2B96420075F92B /* BebasNeueLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeueLight.otf; sourceTree = "<group>"; };
+		43E17BDA1C2B96420075F92B /* BebasNeueRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeueRegular.otf; sourceTree = "<group>"; };
+		43E17BDB1C2B96420075F92B /* BebasNeueThin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeueThin.otf; sourceTree = "<group>"; };
+		43E17BDC1C2B96420075F92B /* BebasNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeue.otf; sourceTree = "<group>"; };
+		43E17BE41C2B98250075F92B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		43E17BE61C2B99450075F92B /* YFFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFTabBarController.swift; sourceTree = "<group>"; };
 		838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistListTableViewController.swift; path = ../ArtistListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +123,7 @@
 		43C5A60E1C25295600222D23 /* YFF2016 */ = {
 			isa = PBXGroup;
 			children = (
+				43E17BD51C2B962F0075F92B /* Fonts */,
 				43C5A60F1C25295600222D23 /* AppDelegate.swift */,
 				43C5A6111C25295600222D23 /* ViewController.swift */,
 				43C5A6131C25295600222D23 /* Main.storyboard */,
@@ -112,6 +133,9 @@
 				43C5A6161C25295600222D23 /* YFF2016.xcdatamodeld */,
 				838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */,
 				43C5A6411C276F8E00222D23 /* MapViewController.swift */,
+				43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */,
+				43E17BE41C2B98250075F92B /* FeedViewController.swift */,
+				43E17BE61C2B99450075F92B /* YFFTabBarController.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -132,6 +156,20 @@
 				43C5A6341C25295600222D23 /* Info.plist */,
 			);
 			path = YFF2016UITests;
+			sourceTree = "<group>";
+		};
+		43E17BD51C2B962F0075F92B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				43E17BD61C2B96420075F92B /* Archer Bold.ttf */,
+				43E17BD71C2B96420075F92B /* BebasNeueBold.otf */,
+				43E17BD81C2B96420075F92B /* BebasNeueBook.otf */,
+				43E17BD91C2B96420075F92B /* BebasNeueLight.otf */,
+				43E17BDA1C2B96420075F92B /* BebasNeueRegular.otf */,
+				43E17BDB1C2B96420075F92B /* BebasNeueThin.otf */,
+				43E17BDC1C2B96420075F92B /* BebasNeue.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,8 +276,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43E17BE11C2B96420075F92B /* BebasNeueRegular.otf in Resources */,
+				43E17BE01C2B96420075F92B /* BebasNeueLight.otf in Resources */,
+				43E17BDF1C2B96420075F92B /* BebasNeueBook.otf in Resources */,
+				43E17BDE1C2B96420075F92B /* BebasNeueBold.otf in Resources */,
+				43E17BE21C2B96420075F92B /* BebasNeueThin.otf in Resources */,
 				43C5A61D1C25295600222D23 /* LaunchScreen.storyboard in Resources */,
+				43E17BDD1C2B96420075F92B /* Archer Bold.ttf in Resources */,
 				43C5A61A1C25295600222D23 /* Assets.xcassets in Resources */,
+				43E17BE31C2B96420075F92B /* BebasNeue.otf in Resources */,
 				43C5A6151C25295600222D23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,10 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
+				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
+				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,
 				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,
 				43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */,
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
+				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
