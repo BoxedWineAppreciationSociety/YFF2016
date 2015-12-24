@@ -25,6 +25,7 @@
 		43E17BE21C2B96420075F92B /* BebasNeueThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BDB1C2B96420075F92B /* BebasNeueThin.otf */; };
 		43E17BE31C2B96420075F92B /* BebasNeue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BDC1C2B96420075F92B /* BebasNeue.otf */; };
 		43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE41C2B98250075F92B /* FeedViewController.swift */; };
+		43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE61C2B99450075F92B /* YFFTabBarController.swift */; };
 		838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		43E17BDB1C2B96420075F92B /* BebasNeueThin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeueThin.otf; sourceTree = "<group>"; };
 		43E17BDC1C2B96420075F92B /* BebasNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeue.otf; sourceTree = "<group>"; };
 		43E17BE41C2B98250075F92B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		43E17BE61C2B99450075F92B /* YFFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFTabBarController.swift; sourceTree = "<group>"; };
 		838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistListTableViewController.swift; path = ../ArtistListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				43C5A6411C276F8E00222D23 /* MapViewController.swift */,
 				43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */,
 				43E17BE41C2B98250075F92B /* FeedViewController.swift */,
+				43E17BE61C2B99450075F92B /* YFFTabBarController.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
+				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
 				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,
 				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,

@@ -12,8 +12,12 @@ class YFFTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Set tab bar color and text color
+        tabBar.barTintColor = UIColor.whiteColor()
+        tabBar.tintColor = UIColor(red: 53.0/255.0, green: 43.0/255.0, blue: 31.0/255.0, alpha: 1.0)
+        // Set the font and size
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName:UIFont(name: "BebasNeue", size: 10)!], forState: .Normal)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +35,4 @@ class YFFTabBarController: UITabBarController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

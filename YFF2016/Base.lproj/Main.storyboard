@@ -133,7 +133,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">
             <objects>
-                <tabBarController id="IUe-Z7-fzU" sceneMemberID="viewController">
+                <tabBarController id="IUe-Z7-fzU" customClass="YFFTabBarController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="iph-nX-E83">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
