@@ -79,7 +79,7 @@
         <!--Feed-->
         <scene sceneID="jUM-bY-hI8">
             <objects>
-                <viewController title="Feed" id="JZJ-dw-xFd" sceneMemberID="viewController">
+                <viewController title="Feed" id="JZJ-dw-xFd" customClass="FeedViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kc5-0J-K2g"/>
                         <viewControllerLayoutGuide type="bottom" id="pFP-W0-ulm"/>
@@ -142,8 +142,8 @@
                     <connections>
                         <segue destination="a7w-lA-qPx" kind="relationship" relationship="viewControllers" id="sEl-8C-9Sw"/>
                         <segue destination="UEm-XZ-c2K" kind="relationship" relationship="viewControllers" id="oXa-2g-t9V"/>
-                        <segue destination="ExG-rk-uSX" kind="relationship" relationship="viewControllers" id="FkY-3x-U4E"/>
                         <segue destination="IDX-0e-miA" kind="relationship" relationship="viewControllers" id="Xil-tr-5CW"/>
+                        <segue destination="ExG-rk-uSX" kind="relationship" relationship="viewControllers" id="FkY-3x-U4E"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-co-tWB" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,5 +1,5 @@
 //
-//  YFFNavigationController.swift
+//  FeedViewController.swift
 //  YFF2016
 //
 //  Created by Isaac Norman on 24/12/2015.
@@ -8,12 +8,15 @@
 
 import UIKit
 
-class YFFNavigationController: UINavigationController {
+class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "BebasNeue", size: 22)!]
+        // Change title for NavBar
+        // Setup Navigation Controller
+        self.navigationItem.title = "FEED"
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 76.0/255.0, green: 133.0/255.0, blue: 121.0/255.0, alpha: 1.0)
 
         // Do any additional setup after loading the view.
     }
