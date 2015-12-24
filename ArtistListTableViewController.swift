@@ -21,6 +21,10 @@ class ArtistListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup Navigation Controller
+        self.navigationItem.title = "ARTISTS"
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 154.0/255.0, green: 155.0/255.0, blue: 82.0/255.0, alpha: 1.0)
+        
         artistSectionTitles = artists.keys.sort()
         
         // Uncomment the following line to preserve selection between presentations

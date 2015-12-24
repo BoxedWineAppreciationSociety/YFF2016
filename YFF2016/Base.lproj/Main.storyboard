@@ -153,7 +153,7 @@
         <!--Artists-->
         <scene sceneID="5lK-Er-x2Y">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IDX-0e-miA" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IDX-0e-miA" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Artists" id="2DQ-H5-WHL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Tt-7K-WVv">
@@ -172,7 +172,7 @@
         <!--Program-->
         <scene sceneID="pTt-71-UMQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a7w-lA-qPx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a7w-lA-qPx" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Program" id="oFo-aA-3e3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rdH-YT-AO3">
@@ -191,7 +191,7 @@
         <!--Map-->
         <scene sceneID="9GH-1Q-7Yr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UEm-XZ-c2K" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UEm-XZ-c2K" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="2mW-4V-N9n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qRi-9V-BCj">
@@ -210,7 +210,7 @@
         <!--Feed-->
         <scene sceneID="b3I-vi-3rA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ExG-rk-uSX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ExG-rk-uSX" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" id="CT3-xF-Bfc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aXk-TY-bz9">
