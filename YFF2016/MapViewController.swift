@@ -66,20 +66,11 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     
     // Helper method for centering the image
     func centerScrollViewContents() {
-        let boundsSize = scrollView.bounds.size
         var contentsFrame = mapImageView.frame
-        
-        if contentsFrame.size.width < boundsSize.width {
-            contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0
-        } else {
-            contentsFrame.origin.x = 0.0
-        }
-        
-        if contentsFrame.size.height < boundsSize.height {
-            contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0
-        } else {
-            contentsFrame.origin.y = 0.0
-        }
+
+        contentsFrame.origin.x = 0.0
+
+        contentsFrame.origin.y = 0.0
         
         mapImageView.frame = contentsFrame
     }
