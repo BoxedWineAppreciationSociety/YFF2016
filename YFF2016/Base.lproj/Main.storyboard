@@ -8,13 +8,13 @@
         <!--Map-->
         <scene sceneID="Zp9-Of-ibJ">
             <objects>
-                <viewController title="Map" id="aBm-93-GZr" customClass="MapViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" title="Map" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="aBm-93-GZr" customClass="MapViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h01-Yn-ZdV"/>
                         <viewControllerLayoutGuide type="bottom" id="Pem-3q-JxK"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" id="0yp-mT-eeR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <gestureRecognizers/>
                         <connections>
@@ -22,6 +22,7 @@
                             <outletCollection property="gestureRecognizers" destination="iZF-97-GEt" appends="YES" id="G50-Qg-iyg"/>
                         </connections>
                     </scrollView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="zoW-7H-bKD"/>
                     <connections>
                         <outlet property="scrollView" destination="0yp-mT-eeR" id="56e-aQ-86J"/>
