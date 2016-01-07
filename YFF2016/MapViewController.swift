@@ -13,10 +13,13 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     
     var mapImageView: UIImageView!
     
+    let enhanceFactor: CGFloat = 1.75
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Setup Navigation Controller
+
         self.navigationItem.title = "EVENT MAP"
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 228.0/255.0, green: 117.0/255.0, blue: 48.0/255.0, alpha: 1.0)
         
@@ -127,8 +130,8 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         // Where are we zooming to?
         let pointInView = recognizer.locationInView(mapImageView)
         
-        // How far arewe zooming?
-        var newZoomScale = scrollView.zoomScale * 1.5
+        // How far are we zooming?
+        var newZoomScale = scrollView.zoomScale * enhanceFactor
         newZoomScale = min(newZoomScale, scrollView.maximumZoomScale)
         
         // What do we want to show?
