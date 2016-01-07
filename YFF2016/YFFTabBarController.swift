@@ -11,6 +11,13 @@ import UIKit
 class YFFTabBarController: UITabBarController {
     
     var incomingSegueIdentifier: String?
+    
+    var incomingSegueDestinationIndex: [String:Int] = [
+        "Program Segue": 0,
+        "Map Segue": 1,
+        "Artists Segue": 2,
+        "Feed Segue": 3
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +29,8 @@ class YFFTabBarController: UITabBarController {
         
         // Select tab based on which launch button was used to get here
         if let identifier = incomingSegueIdentifier {
-            switch identifier {
-            case "Program Segue":
-                self.selectedIndex = 0
-            case "Map Segue":
-                self.selectedIndex = 1
-            case "Artists Segue":
-                self.selectedIndex = 2
-            case "Feed Segue":
-                self.selectedIndex = 3
-            default: break
+            if let destinationIndex = incomingSegueDestinationIndex[identifier] {
+                self.selectedIndex = destinationIndex
             }
         }
     }
