@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IUe-Z7-fzU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8oA-xK-UUq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -131,6 +131,54 @@
             </objects>
             <point key="canvasLocation" x="953" y="-1040"/>
         </scene>
+        <!--First Launch View Controller-->
+        <scene sceneID="fHb-rU-FOS">
+            <objects>
+                <viewController title="First Launch View Controller" id="8oA-xK-UUq" customClass="FirstLaunchViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VX0-H7-3Kn"/>
+                        <viewControllerLayoutGuide type="bottom" id="ytt-WQ-b6e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xEz-5L-WBZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I">
+                                <rect key="frame" x="220" y="261" width="161" height="78"/>
+                                <state key="normal" title="Program"/>
+                                <connections>
+                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Program Segue" id="0gS-nP-AoY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX">
+                                <rect key="frame" x="220" y="347" width="161" height="78"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Map Segue" id="TOW-rU-DPh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V">
+                                <rect key="frame" x="220" y="433" width="161" height="78"/>
+                                <state key="normal" title="Artists"/>
+                                <connections>
+                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB">
+                                <rect key="frame" x="220" y="519" width="161" height="78"/>
+                                <state key="normal" title="Feed"/>
+                                <connections>
+                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Feed Segue" id="f9F-Uz-FVe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbk-7l-Da4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="1975"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">
             <objects>
@@ -228,4 +276,7 @@
             <point key="canvasLocation" x="541" y="527"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="f9F-Uz-FVe"/>
+    </inferredMetricsTieBreakers>
 </document>
