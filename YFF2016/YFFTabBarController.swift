@@ -18,7 +18,7 @@ class YFFTabBarController: UITabBarController {
         "Artists Segue": 2,
         "Feed Segue": 3
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set tab bar color and text color
