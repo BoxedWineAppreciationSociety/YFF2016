@@ -16,7 +16,7 @@ class FeedViewController: UIViewController {
         // Change title for NavBar
         // Setup Navigation Controller
         self.navigationItem.title = "FEED"
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 76.0/255.0, green: 133.0/255.0, blue: 121.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = YFFTeal
 
         // Do any additional setup after loading the view.
     }

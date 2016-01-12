@@ -28,10 +28,10 @@ class FirstLaunchViewController: UIViewController {
         artistsButton.titleLabel?.font = UIFont(name: "SourceSansPro-Semibold", size: 18)
         feedButton.titleLabel?.font = UIFont(name: "SourceSansPro-Semibold", size: 18)
         
-        programButton.backgroundColor = UIColor(red: 199.0/255/0, green: 86.0/255.0, blue: 61.0/255.0, alpha: 1.0)
-        mapButton.backgroundColor = UIColor(red: 228.0/255.0, green: 117.0/255.0, blue: 48.0/255.0, alpha: 1.0)
-        artistsButton.backgroundColor = UIColor(red: 154.0/255.0, green: 155.0/255.0, blue: 82.0/255.0, alpha: 1.0)
-        feedButton.backgroundColor = UIColor(red: 76.0/255.0, green: 133.0/255.0, blue: 121.0/255.0, alpha: 1.0)
+        programButton.backgroundColor = YFFRed
+        mapButton.backgroundColor = YFFOrange
+        artistsButton.backgroundColor = YFFOlive
+        feedButton.backgroundColor = YFFTeal
     }
 
     override func didReceiveMemoryWarning() {
