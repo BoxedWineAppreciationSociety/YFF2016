@@ -29,6 +29,7 @@
 		43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE41C2B98250075F92B /* FeedViewController.swift */; };
 		43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE61C2B99450075F92B /* YFFTabBarController.swift */; };
 		43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */; };
+		43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA491C44F8B1005E937F /* ProgramViewController.swift */; };
 		835CE5861C3E6CBE0044AA86 /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */; };
 		838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		43E17BE41C2B98250075F92B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		43E17BE61C2B99450075F92B /* YFFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFTabBarController.swift; sourceTree = "<group>"; };
 		43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+YFFMain.swift"; sourceTree = "<group>"; };
+		43F2DA491C44F8B1005E937F /* ProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewController.swift; sourceTree = "<group>"; };
 		838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistListTableViewController.swift; path = ../ArtistListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +148,7 @@
 				43E17BE41C2B98250075F92B /* FeedViewController.swift */,
 				43E17BE61C2B99450075F92B /* YFFTabBarController.swift */,
 				43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */,
+				43F2DA491C44F8B1005E937F /* ProgramViewController.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,
 				43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */,
 				43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */,
+				43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */,
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,
 			);
