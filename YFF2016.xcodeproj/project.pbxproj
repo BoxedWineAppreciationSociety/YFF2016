@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
+		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
 		43C5A6121C25295600222D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6111C25295600222D23 /* ViewController.swift */; };
 		43C5A6151C25295600222D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C5A6131C25295600222D23 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 		43E17BE31C2B96420075F92B /* BebasNeue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BDC1C2B96420075F92B /* BebasNeue.otf */; };
 		43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE41C2B98250075F92B /* FeedViewController.swift */; };
 		43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE61C2B99450075F92B /* YFFTabBarController.swift */; };
+		43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */; };
+		43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA491C44F8B1005E937F /* ProgramViewController.swift */; };
 		835CE5861C3E6CBE0044AA86 /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */; };
 		838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C5A6111C25295600222D23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +79,8 @@
 		43E17BDC1C2B96420075F92B /* BebasNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeue.otf; sourceTree = "<group>"; };
 		43E17BE41C2B98250075F92B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		43E17BE61C2B99450075F92B /* YFFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFTabBarController.swift; sourceTree = "<group>"; };
+		43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+YFFMain.swift"; sourceTree = "<group>"; };
+		43F2DA491C44F8B1005E937F /* ProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewController.swift; sourceTree = "<group>"; };
 		838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistListTableViewController.swift; path = ../ArtistListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +147,8 @@
 				43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */,
 				43E17BE41C2B98250075F92B /* FeedViewController.swift */,
 				43E17BE61C2B99450075F92B /* YFFTabBarController.swift */,
+				43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */,
+				43F2DA491C44F8B1005E937F /* ProgramViewController.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -164,6 +174,8 @@
 		43E17BD51C2B962F0075F92B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */,
+				43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */,
 				43E17BD61C2B96420075F92B /* Archer Bold.ttf */,
 				43E17BD71C2B96420075F92B /* BebasNeueBold.otf */,
 				43E17BD81C2B96420075F92B /* BebasNeueBook.otf */,
@@ -243,7 +255,7 @@
 				TargetAttributes = {
 					43C5A60B1C25295600222D23 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = F5RQPDZ9NB;
+						DevelopmentTeam = 8EZG5WE5N9;
 					};
 					43C5A6221C25295600222D23 = {
 						CreatedOnToolsVersion = 7.2;
@@ -285,7 +297,9 @@
 				43E17BDF1C2B96420075F92B /* BebasNeueBook.otf in Resources */,
 				43E17BDE1C2B96420075F92B /* BebasNeueBold.otf in Resources */,
 				43E17BE21C2B96420075F92B /* BebasNeueThin.otf in Resources */,
+				43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */,
 				43C5A61D1C25295600222D23 /* LaunchScreen.storyboard in Resources */,
+				43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */,
 				43E17BDD1C2B96420075F92B /* Archer Bold.ttf in Resources */,
 				43C5A61A1C25295600222D23 /* Assets.xcassets in Resources */,
 				43E17BE31C2B96420075F92B /* BebasNeue.otf in Resources */,
@@ -320,7 +334,9 @@
 				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
 				835CE5861C3E6CBE0044AA86 /* FirstLaunchViewController.swift in Sources */,
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,
+				43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */,
 				43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */,
+				43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */,
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,
 			);

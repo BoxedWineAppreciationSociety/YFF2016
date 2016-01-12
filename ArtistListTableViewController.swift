@@ -23,7 +23,7 @@ class ArtistListTableViewController: UITableViewController {
         
         // Setup Navigation Controller
         self.navigationItem.title = "ARTISTS"
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 154.0/255.0, green: 155.0/255.0, blue: 82.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = YFFOlive
         
         artistSectionTitles = artists.keys.sort()
         

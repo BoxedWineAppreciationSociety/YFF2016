@@ -51,11 +51,11 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iJ0-P7-iup" id="oQa-a1-Wn0">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9GG-M7-WN5">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,7 +107,7 @@
         <!--Program-->
         <scene sceneID="eQc-tB-puE">
             <objects>
-                <viewController title="Program" id="UPc-SU-Dkc" sceneMemberID="viewController">
+                <viewController title="Program" id="UPc-SU-Dkc" customClass="ProgramViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5No-OV-WG4"/>
                         <viewControllerLayoutGuide type="bottom" id="xI8-KK-ybK"/>
@@ -143,41 +143,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I">
                                 <rect key="frame" x="220" y="261" width="161" height="78"/>
                                 <state key="normal" title="Program"/>
                                 <connections>
                                     <segue destination="IUe-Z7-fzU" kind="show" identifier="Program Segue" id="0gS-nP-AoY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX">
-                                <rect key="frame" x="220" y="347" width="161" height="78"/>
-                                <state key="normal" title="Map"/>
-                                <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Map Segue" id="TOW-rU-DPh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V">
                                 <rect key="frame" x="220" y="433" width="161" height="78"/>
                                 <state key="normal" title="Artists"/>
                                 <connections>
                                     <segue destination="IUe-Z7-fzU" kind="show" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB">
                                 <rect key="frame" x="220" y="519" width="161" height="78"/>
                                 <state key="normal" title="Feed"/>
                                 <connections>
                                     <segue destination="IUe-Z7-fzU" kind="show" identifier="Feed Segue" id="f9F-Uz-FVe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX">
+                                <rect key="frame" x="220" y="347" width="161" height="78"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Map Segue" id="TOW-rU-DPh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ibr-Vd-cjX" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="7d9-qW-7rb"/>
+                            <constraint firstItem="c4B-Nv-f3V" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="S9f-ZL-sG4"/>
+                            <constraint firstItem="MDM-pO-XIB" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="pgz-JA-Hjw"/>
+                            <constraint firstItem="AFe-pM-Y2I" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="zs0-Je-a8W"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artistsButton" destination="c4B-Nv-f3V" id="oS1-JN-uRp"/>
+                        <outlet property="feedButton" destination="MDM-pO-XIB" id="h84-Bl-95R"/>
+                        <outlet property="mapButton" destination="Ibr-Vd-cjX" id="7wo-Xv-IRa"/>
+                        <outlet property="programButton" destination="AFe-pM-Y2I" id="ijA-zW-9vn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbk-7l-Da4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="1975"/>
+            <point key="canvasLocation" x="-2069" y="164"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">
