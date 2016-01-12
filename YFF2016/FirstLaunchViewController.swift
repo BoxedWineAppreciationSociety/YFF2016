@@ -14,6 +14,10 @@ class FirstLaunchViewController: UIViewController {
     @IBOutlet weak var artistsButton: UIButton!
     @IBOutlet weak var feedButton: UIButton!
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
