@@ -143,7 +143,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="249" y="361" width="103" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mGD-c7-A18"/>
@@ -154,7 +154,7 @@
                                     <segue destination="IUe-Z7-fzU" kind="show" identifier="Program Segue" id="0gS-nP-AoY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="221" y="419" width="160" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Kgw-Rj-w8H"/>
@@ -165,7 +165,7 @@
                                     <segue destination="IUe-Z7-fzU" kind="show" identifier="Map Segue" id="TOW-rU-DPh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="221" y="477" width="160" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Eay-4u-6O1"/>
@@ -179,7 +179,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchHeader" translatesAutoresizingMaskIntoConstraints="NO" id="l9V-oz-F51">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="269"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="221" y="535" width="160" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="BAQ-HM-yry"/>
