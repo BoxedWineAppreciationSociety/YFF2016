@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
+		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
 		43C5A6121C25295600222D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6111C25295600222D23 /* ViewController.swift */; };
 		43C5A6151C25295600222D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C5A6131C25295600222D23 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C5A6111C25295600222D23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 		43E17BD51C2B962F0075F92B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */,
+				43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */,
 				43E17BD61C2B96420075F92B /* Archer Bold.ttf */,
 				43E17BD71C2B96420075F92B /* BebasNeueBold.otf */,
 				43E17BD81C2B96420075F92B /* BebasNeueBook.otf */,
@@ -243,7 +249,7 @@
 				TargetAttributes = {
 					43C5A60B1C25295600222D23 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = F5RQPDZ9NB;
+						DevelopmentTeam = 8EZG5WE5N9;
 					};
 					43C5A6221C25295600222D23 = {
 						CreatedOnToolsVersion = 7.2;
@@ -285,7 +291,9 @@
 				43E17BDF1C2B96420075F92B /* BebasNeueBook.otf in Resources */,
 				43E17BDE1C2B96420075F92B /* BebasNeueBold.otf in Resources */,
 				43E17BE21C2B96420075F92B /* BebasNeueThin.otf in Resources */,
+				43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */,
 				43C5A61D1C25295600222D23 /* LaunchScreen.storyboard in Resources */,
+				43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */,
 				43E17BDD1C2B96420075F92B /* Archer Bold.ttf in Resources */,
 				43C5A61A1C25295600222D23 /* Assets.xcassets in Resources */,
 				43E17BE31C2B96420075F92B /* BebasNeue.otf in Resources */,

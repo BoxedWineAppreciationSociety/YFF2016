@@ -8,6 +8,8 @@
 	<array>
 		<string>Archer Bold.ttf</string>
 		<string>BebasNeue.otf</string>
+		<string>SourceSansPro-Regular.ttf</string>
+		<string>SourceSansPro-Semibold.ttf</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
