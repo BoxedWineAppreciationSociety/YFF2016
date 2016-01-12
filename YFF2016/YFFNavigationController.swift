@@ -9,6 +9,14 @@
 import UIKit
 
 class YFFNavigationController: UINavigationController {
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

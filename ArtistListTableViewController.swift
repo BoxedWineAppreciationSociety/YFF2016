@@ -15,8 +15,15 @@ class ArtistListTableViewController: UITableViewController {
         "b" : ["Boomtown Rats", "Bullet for my Valentine", "Boral"],
         "h" : ["Hell on Earth"]
     ]
-
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        // Set status bar for update
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
