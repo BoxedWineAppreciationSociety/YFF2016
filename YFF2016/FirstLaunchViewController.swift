@@ -36,6 +36,11 @@ class FirstLaunchViewController: UIViewController {
         mapButton.backgroundColor = YFFOrange
         artistsButton.backgroundColor = YFFOlive
         feedButton.backgroundColor = YFFTeal
+        
+        programButton.layer.cornerRadius = 6
+        mapButton.layer.cornerRadius = 6
+        artistsButton.layer.cornerRadius = 6
+        feedButton.layer.cornerRadius = 6
     }
 
     override func didReceiveMemoryWarning() {
