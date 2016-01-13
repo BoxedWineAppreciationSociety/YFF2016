@@ -21,17 +21,7 @@ class FirstLaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set Button Colors
-        programButton.tintColor = UIColor.whiteColor()
-        mapButton.tintColor = UIColor.whiteColor()
-        artistsButton.tintColor = UIColor.whiteColor()
-        feedButton.tintColor = UIColor.whiteColor()
-        
-        programButton.titleLabel?.font = UIFont(name: "SourceSansPro-Semibold", size: 18)
-        mapButton.titleLabel?.font = UIFont(name: "SourceSansPro-Semibold", size: 18)
-        artistsButton.titleLabel?.font = UIFont(name: "SourceSansPro-Semibold", size: 18)
-        feedButton.titleLabel?.font = UIFont(name: "SourceSansPro-Semibold", size: 18)
-        
+        // Set Button Colours
         programButton.backgroundColor = YFFRed
         mapButton.backgroundColor = YFFOrange
         artistsButton.backgroundColor = YFFOlive
