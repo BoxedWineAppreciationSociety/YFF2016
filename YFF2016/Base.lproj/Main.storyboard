@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8oA-xK-UUq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8oA-xK-UUq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Pem-3q-JxK"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" id="0yp-mT-eeR">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <gestureRecognizers/>
                         <connections>
@@ -35,27 +35,27 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1339" y="-350"/>
+            <point key="canvasLocation" x="714.13333333333333" y="-331.33333333333331"/>
         </scene>
         <!--Artists View Controller-->
         <scene sceneID="p8e-9S-gXa">
             <objects>
                 <tableViewController title="Artists View Controller" id="cYW-H7-CqF" customClass="ArtistListTableViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="f5i-ng-JhR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="9GG-M7-WN5" style="IBUITableViewCellStyleDefault" id="iJ0-P7-iup">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="9GG-M7-WN5" style="IBUITableViewCellStyleDefault" id="iJ0-P7-iup">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iJ0-P7-iup" id="oQa-a1-Wn0">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9GG-M7-WN5">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,6 +63,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="wsM-4u-j0Y" kind="push" id="4YQ-Q2-l4F"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -75,7 +78,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKo-iL-5nl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="1251"/>
+            <point key="canvasLocation" x="285.33333333333331" y="1184.28"/>
         </scene>
         <!--Feed-->
         <scene sceneID="jUM-bY-hI8">
@@ -86,7 +89,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pFP-W0-ulm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0mB-PW-U6e">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaO-x2-uOa">
@@ -102,7 +105,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26x-i6-eLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="527"/>
+            <point key="canvasLocation" x="721.60000000000002" y="498.89333333333332"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="c1y-di-Mwy">
+            <objects>
+                <viewController id="wsM-4u-j0Y" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XP8-Or-wKh"/>
+                        <viewControllerLayoutGuide type="bottom" id="WgC-Hf-P10"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mzR-ns-5Ca">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gWd-t5-MCG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBG-MW-eNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721.60000000000002" y="1184.28"/>
         </scene>
         <!--Program-->
         <scene sceneID="eQc-tB-puE">
@@ -113,7 +135,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xI8-KK-ybK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uap-3d-iGW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Program" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-Fw-YME">
@@ -129,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyo-Oh-ZZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="-1040"/>
+            <point key="canvasLocation" x="508.26666666666665" y="-984.5333333333333"/>
         </scene>
         <!--First Launch View Controller-->
         <scene sceneID="fHb-rU-FOS">
@@ -140,7 +162,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ytt-WQ-b6e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xEz-5L-WBZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
@@ -151,7 +173,7 @@
                                 </constraints>
                                 <state key="normal" title="Program"/>
                                 <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Program Segue" id="0gS-nP-AoY"/>
+                                    <segue destination="IUe-Z7-fzU" kind="modal" identifier="Program Segue" id="0gS-nP-AoY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
@@ -162,7 +184,7 @@
                                 </constraints>
                                 <state key="normal" title="Map"/>
                                 <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Map Segue" id="TOW-rU-DPh"/>
+                                    <segue destination="IUe-Z7-fzU" kind="modal" identifier="Map Segue" id="TOW-rU-DPh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
@@ -173,11 +195,11 @@
                                 </constraints>
                                 <state key="normal" title="Artists"/>
                                 <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
+                                    <segue destination="IUe-Z7-fzU" kind="modal" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchHeader" translatesAutoresizingMaskIntoConstraints="NO" id="l9V-oz-F51">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="269"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="269"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="221" y="535" width="160" height="50"/>
@@ -187,7 +209,7 @@
                                 </constraints>
                                 <state key="normal" title="Feed"/>
                                 <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Feed Segue" id="f9F-Uz-FVe"/>
+                                    <segue destination="IUe-Z7-fzU" kind="modal" identifier="Feed Segue" id="f9F-Uz-FVe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -211,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbk-7l-Da4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2069" y="186"/>
+            <point key="canvasLocation" x="-1103.4666666666667" y="176.07999999999998"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">
@@ -231,13 +253,19 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-co-tWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1253" y="164"/>
+            <point key="canvasLocation" x="-668.26666666666665" y="155.25333333333333"/>
         </scene>
         <!--Artists-->
         <scene sceneID="5lK-Er-x2Y">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IDX-0e-miA" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Artists" id="2DQ-H5-WHL"/>
+                    <tabBarItem key="tabBarItem" title="Artists" image="artistsTabBarImage" id="2DQ-H5-WHL">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.53333333333333333" green="0.55294117647058827" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Tt-7K-WVv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -250,13 +278,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egZ-iG-WBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-277" y="1251"/>
+            <point key="canvasLocation" x="-147.73333333333332" y="1184.28"/>
         </scene>
         <!--Program-->
         <scene sceneID="pTt-71-UMQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a7w-lA-qPx" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Program" id="oFo-aA-3e3"/>
+                    <tabBarItem key="tabBarItem" title="Program" image="programTabBarImage" id="oFo-aA-3e3">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.74509803921568629" green="0.25490196078431371" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rdH-YT-AO3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -269,13 +303,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YhN-Vj-pAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="-1040"/>
+            <point key="canvasLocation" x="75.200000000000003" y="-984.5333333333333"/>
         </scene>
         <!--Map-->
         <scene sceneID="9GH-1Q-7Yr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UEm-XZ-c2K" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="2mW-4V-N9n"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="mapTabBarImage" id="2mW-4V-N9n">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.88235294117647056" green="0.38039215686274508" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qRi-9V-BCj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -288,13 +328,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ws-SL-pxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="-350"/>
+            <point key="canvasLocation" x="281.06666666666666" y="-331.33333333333331"/>
         </scene>
         <!--Feed-->
         <scene sceneID="b3I-vi-3rA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ExG-rk-uSX" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" id="CT3-xF-Bfc"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feedTabBarImage" id="CT3-xF-Bfc">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.2196078431372549" green="0.45490196078431372" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aXk-TY-bz9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -307,11 +353,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iea-jM-Kxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="527"/>
+            <point key="canvasLocation" x="288.5333333333333" y="498.89333333333332"/>
         </scene>
     </scenes>
     <resources>
         <image name="YFFLaunchHeader" width="320" height="269"/>
+        <image name="artistsTabBarImage" width="20" height="27"/>
+        <image name="feedTabBarImage" width="20" height="20"/>
+        <image name="mapTabBarImage" width="20" height="27"/>
+        <image name="programTabBarImage" width="16" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f9F-Uz-FVe"/>
