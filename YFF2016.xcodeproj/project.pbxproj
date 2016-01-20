@@ -28,6 +28,8 @@
 		43E17BE31C2B96420075F92B /* BebasNeue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BDC1C2B96420075F92B /* BebasNeue.otf */; };
 		43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE41C2B98250075F92B /* FeedViewController.swift */; };
 		43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE61C2B99450075F92B /* YFFTabBarController.swift */; };
+		43EBB8031C4F82690024E713 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */; };
+		43EBB8051C4F91260024E713 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBB8041C4F91260024E713 /* Artist.swift */; };
 		43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */; };
 		43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA491C44F8B1005E937F /* ProgramViewController.swift */; };
 		43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */; };
@@ -80,6 +82,8 @@
 		43E17BDC1C2B96420075F92B /* BebasNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeue.otf; sourceTree = "<group>"; };
 		43E17BE41C2B98250075F92B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		43E17BE61C2B99450075F92B /* YFFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFTabBarController.swift; sourceTree = "<group>"; };
+		43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
+		43EBB8041C4F91260024E713 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+YFFMain.swift"; sourceTree = "<group>"; };
 		43F2DA491C44F8B1005E937F /* ProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewButton.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		43C5A6031C25295600222D23 = {
 			isa = PBXGroup;
 			children = (
+				43EBB8041C4F91260024E713 /* Artist.swift */,
 				43C5A60E1C25295600222D23 /* YFF2016 */,
 				43C5A6261C25295600222D23 /* YFF2016Tests */,
 				43C5A6311C25295600222D23 /* YFF2016UITests */,
@@ -152,6 +157,7 @@
 				43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */,
 				43F2DA491C44F8B1005E937F /* ProgramViewController.swift */,
 				43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */,
+				43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -337,9 +343,11 @@
 				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
 				835CE5861C3E6CBE0044AA86 /* FirstLaunchViewController.swift in Sources */,
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,
+				43EBB8051C4F91260024E713 /* Artist.swift in Sources */,
 				43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */,
 				43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */,
 				43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */,
+				43EBB8031C4F82690024E713 /* ArtistDetailViewController.swift in Sources */,
 				43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */,
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,

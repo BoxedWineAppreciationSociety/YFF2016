@@ -10,10 +10,11 @@ import UIKit
 
 class ArtistListTableViewController: UITableViewController {
     var artistSectionTitles:Array<NSString> = []
-    var artists = [
-        "a" : ["Avril Lavigne", "AC/DC"],
-        "b" : ["Boomtown Rats", "Bullet for my Valentine", "Boral"],
-        "h" : ["Hell on Earth"]
+    
+    let artists = [
+        Artist(id: "1", name: "The Kite String Tangle"),
+        Artist(id: "2", name: "Meg Mac", summary: "Melbourne artist"),
+        Artist(id: "3", name: "Chris Isaak", summary: "Coffee house favourite")
     ]
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -32,8 +33,6 @@ class ArtistListTableViewController: UITableViewController {
         self.navigationItem.title = "ARTISTS"
         self.navigationController?.navigationBar.barTintColor = YFFOlive
         
-        artistSectionTitles = artists.keys.sort()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -50,31 +49,49 @@ class ArtistListTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return artistSectionTitles.count
+        return 1
     }
-
+//
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let sectionString = artistSectionTitles[section]
-        return artists[sectionString as String]!.count
+        return artists.count
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (artistSectionTitles[section] as String).capitalizedString
-    }
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return (artistSectionTitles[section] as String).capitalizedString
+//    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
-        let sectionString = artistSectionTitles[indexPath.section]
-        let sectionArtists = artists[sectionString as String]?.sort()
+        let artist = artistFor(indexPath)
         
-        cell.textLabel?.text = sectionArtists![indexPath.row]
+        cell.textLabel?.text = artist?.name
 
         return cell
     }
+   
+    var selectedArtistId: String?
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showView", sender: self)
+        print("You selected cell #\(indexPath.row)!")
+        
+        // Get Cell Label
+        let indexPath = tableView.indexPathForSelectedRow!;
+        
+        self.selectedArtistId = artistFor(indexPath)!.id
+        
+        performSegueWithIdentifier("artistDetailSegue", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
+            viewController.artistId = self.selectedArtistId
+        }
+    }
+    
+    func artistFor(indexPath: NSIndexPath) -> Artist? {
+        return artists[indexPath.item]
     }
 
 

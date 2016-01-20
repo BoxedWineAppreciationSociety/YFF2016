@@ -63,9 +63,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="wsM-4u-j0Y" kind="show" id="4YQ-Q2-l4F"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -75,6 +72,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="dYV-oS-gvg"/>
+                    <connections>
+                        <segue destination="wsM-4u-j0Y" kind="push" identifier="artistDetailSegue" id="6VO-9p-S81"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKo-iL-5nl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="1353" y="527"/>
         </scene>
-        <!--View Controller-->
+        <!--Artist Detail View Controller-->
         <scene sceneID="c1y-di-Mwy">
             <objects>
-                <viewController id="wsM-4u-j0Y" sceneMemberID="viewController">
+                <viewController id="wsM-4u-j0Y" customClass="ArtistDetailViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XP8-Or-wKh"/>
                         <viewControllerLayoutGuide type="bottom" id="WgC-Hf-P10"/>
@@ -118,13 +118,32 @@
                     <view key="view" contentMode="scaleToFill" id="mzR-ns-5Ca">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
+                                <rect key="frame" x="20" y="154" width="580" height="343"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bm-6i-ds1">
+                                <rect key="frame" x="20" y="64" width="580" height="82"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="gWd-t5-MCG"/>
+                    <connections>
+                        <outlet property="artistDescriptionView" destination="FHK-Wj-6pB" id="h4G-mG-ydd"/>
+                        <outlet property="artistNameLabel" destination="9bm-6i-ds1" id="bSu-zo-Lcz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBG-MW-eNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="1250.9999999999998"/>
+            <point key="canvasLocation" x="1353" y="1250"/>
         </scene>
         <!--Program-->
         <scene sceneID="eQc-tB-puE">
@@ -172,6 +191,9 @@
                                     <constraint firstAttribute="width" constant="230" id="pPo-VO-GGB"/>
                                 </constraints>
                                 <state key="normal" title="Program"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="149" y="352" width="103" height="50"/>
+                                </variation>
                                 <connections>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Program Segue" id="0gS-nP-AoY"/>
                                 </connections>
@@ -183,6 +205,9 @@
                                     <constraint firstAttribute="width" constant="230" id="VOd-xM-R4g"/>
                                 </constraints>
                                 <state key="normal" title="Map"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="120" y="419" width="160" height="50"/>
+                                </variation>
                                 <connections>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Map Segue" id="TOW-rU-DPh"/>
                                 </connections>
@@ -194,6 +219,9 @@
                                     <constraint firstAttribute="width" constant="230" id="ElW-rW-SCX"/>
                                 </constraints>
                                 <state key="normal" title="Artists"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="120" y="482" width="160" height="50"/>
+                                </variation>
                                 <connections>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
                                 </connections>
@@ -208,6 +236,9 @@
                                     <constraint firstAttribute="height" constant="50" id="dc8-yg-kll"/>
                                 </constraints>
                                 <state key="normal" title="Feed"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="120" y="542" width="160" height="50"/>
+                                </variation>
                                 <connections>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Feed Segue" id="f9F-Uz-FVe"/>
                                 </connections>
