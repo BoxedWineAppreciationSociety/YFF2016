@@ -9,7 +9,9 @@
 import UIKit
 
 class ArtistListTableViewController: UITableViewController {
+    
     var artistSectionTitles:Array<NSString> = []
+    var selectedArtistId: String?
     
     let artists = [
         Artist(id: "1", name: "The Kite String Tangle"),
@@ -63,14 +65,15 @@ class ArtistListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
-        let artist = artistFor(indexPath)
         
+        // Style the cell
+        
+        // Setup the artist
+        let artist = artistFor(indexPath)
         cell.textLabel?.text = artist?.name
 
         return cell
     }
-   
-    var selectedArtistId: String?
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")

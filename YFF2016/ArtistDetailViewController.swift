@@ -28,7 +28,7 @@ class ArtistDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // Find the artist to display.
         if let id = artistId {
             self.artist = findArtist(id)
         }
