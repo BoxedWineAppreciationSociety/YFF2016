@@ -13,11 +13,9 @@ class ArtistListTableViewController: UITableViewController {
     var artistSectionTitles:Array<NSString> = []
     var selectedArtistId: String?
     
-    let artists = [
-        Artist(id: "1", name: "The Kite String Tangle"),
-        Artist(id: "2", name: "Meg Mac", summary: "Melbourne artist"),
-        Artist(id: "3", name: "Chris Isaak", summary: "Coffee house favourite")
-    ]
+    let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json")
+    
+    var artists = [Artist]()
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -31,6 +29,18 @@ class ArtistListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let jsonData = NSData(contentsOfURL: jsonFile!)
+        
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+            if let artistsDictionary = json as? [String: AnyObject] {
+                generateArtists(artistsDictionary)
+            }
+        } catch {
+            // TODO
+        }
+
         // Setup Navigation Controller
         self.navigationItem.title = "ARTISTS"
         self.navigationController?.navigationBar.barTintColor = YFFOlive
@@ -40,6 +50,14 @@ class ArtistListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func generateArtists(dictionary: [String: AnyObject]) {
+        let artistsDictionary = dictionary["artists"] as! [[String: AnyObject]]
+        
+        for artist in artistsDictionary {
+            artists.append(Artist(attributes: artist))
+        }
     }
 
     override func didReceiveMemoryWarning() {

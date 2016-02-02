@@ -20,4 +20,10 @@ class Artist {
         self.name = name
         self.summary = summary
     }
+    
+    init(attributes: [String: AnyObject]) {
+        self.id = attributes["id"] as! String
+        self.name = attributes["name"] as! String
+        self.summary = attributes["summary"] as! String
+    }
 }
