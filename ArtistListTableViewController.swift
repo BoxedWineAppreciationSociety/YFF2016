@@ -9,12 +9,13 @@
 import UIKit
 
 class ArtistListTableViewController: UITableViewController {
+    
     var artistSectionTitles:Array<NSString> = []
-    var artists = [
-        "a" : ["Avril Lavigne", "AC/DC"],
-        "b" : ["Boomtown Rats", "Bullet for my Valentine", "Boral"],
-        "h" : ["Hell on Earth"]
-    ]
+    var selectedArtistId: String?
+    
+    let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json")
+    
+    var artists = [Artist]()
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -28,17 +29,35 @@ class ArtistListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let jsonData = NSData(contentsOfURL: jsonFile!)
+        
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+            if let artistsDictionary = json as? [String: AnyObject] {
+                generateArtists(artistsDictionary)
+            }
+        } catch {
+            // TODO
+        }
+
         // Setup Navigation Controller
         self.navigationItem.title = "ARTISTS"
         self.navigationController?.navigationBar.barTintColor = YFFOlive
-        
-        artistSectionTitles = artists.keys.sort()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func generateArtists(dictionary: [String: AnyObject]) {
+        let artistsDictionary = dictionary["artists"] as! [[String: AnyObject]]
+        
+        for artist in artistsDictionary {
+            artists.append(Artist(attributes: artist))
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,29 +69,51 @@ class ArtistListTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return artistSectionTitles.count
+        return 1
     }
-
+//
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let sectionString = artistSectionTitles[section]
-        return artists[sectionString as String]!.count
+        return artists.count
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (artistSectionTitles[section] as String).capitalizedString
-    }
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return (artistSectionTitles[section] as String).capitalizedString
+//    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
-        let sectionString = artistSectionTitles[indexPath.section]
-        let sectionArtists = artists[sectionString as String]?.sort()
         
-        cell.textLabel?.text = sectionArtists![indexPath.row]
+        // Style the cell
+        
+        // Setup the artist
+        let artist = artistFor(indexPath)
+        cell.textLabel?.text = artist?.name
 
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("You selected cell #\(indexPath.row)!")
+        
+        // Get Cell Label
+        let indexPath = tableView.indexPathForSelectedRow!;
+        
+        self.selectedArtistId = artistFor(indexPath)!.id
+        
+        performSegueWithIdentifier("artistDetailSegue", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
+            viewController.artistId = self.selectedArtistId
+        }
+    }
+    
+    func artistFor(indexPath: NSIndexPath) -> Artist? {
+        return artists[indexPath.item]
+    }
 
 
     /*

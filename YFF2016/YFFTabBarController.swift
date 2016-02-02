@@ -26,7 +26,7 @@ class YFFTabBarController: UITabBarController {
         tabBar.tintColor = UIColor(red: 53.0/255.0, green: 43.0/255.0, blue: 31.0/255.0, alpha: 1.0)
         // Set the font and size
         UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName:UIFont(name: "BebasNeue", size: 10)!], forState: .Normal)
-        
+
         // Select tab based on which launch button was used to get here
         if let identifier = incomingSegueIdentifier {
             if let destinationIndex = incomingSegueDestinationIndex[identifier] {

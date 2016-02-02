@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8oA-xK-UUq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8oA-xK-UUq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="BebasNeue.otf">
+            <string>BebasNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Map-->
         <scene sceneID="Zp9-Of-ibJ">
@@ -35,29 +40,29 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1339" y="-350"/>
+            <point key="canvasLocation" x="1339" y="-349.99999999999994"/>
         </scene>
         <!--Artists View Controller-->
         <scene sceneID="p8e-9S-gXa">
             <objects>
                 <tableViewController title="Artists View Controller" id="cYW-H7-CqF" customClass="ArtistListTableViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="f5i-ng-JhR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" sectionIndexMinimumDisplayRowCount="1" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="f5i-ng-JhR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="9GG-M7-WN5" style="IBUITableViewCellStyleDefault" id="iJ0-P7-iup">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="9GG-M7-WN5" style="IBUITableViewCellStyleDefault" id="iJ0-P7-iup">
+                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iJ0-P7-iup" id="oQa-a1-Wn0">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9GG-M7-WN5">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="550" height="59"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="BebasNeue" family="Bebas Neue" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -72,10 +77,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="dYV-oS-gvg"/>
+                    <connections>
+                        <segue destination="wsM-4u-j0Y" kind="push" identifier="artistDetailSegue" id="6VO-9p-S81"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKo-iL-5nl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="1251"/>
+            <point key="canvasLocation" x="535" y="1250.9999999999998"/>
         </scene>
         <!--Feed-->
         <scene sceneID="jUM-bY-hI8">
@@ -103,6 +111,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26x-i6-eLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1353" y="527"/>
+        </scene>
+        <!--Artist Detail View Controller-->
+        <scene sceneID="c1y-di-Mwy">
+            <objects>
+                <viewController id="wsM-4u-j0Y" customClass="ArtistDetailViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XP8-Or-wKh"/>
+                        <viewControllerLayoutGuide type="bottom" id="WgC-Hf-P10"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mzR-ns-5Ca">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
+                                <rect key="frame" x="20" y="154" width="580" height="343"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bm-6i-ds1">
+                                <rect key="frame" x="20" y="64" width="580" height="82"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gWd-t5-MCG"/>
+                    <connections>
+                        <outlet property="artistDescriptionView" destination="FHK-Wj-6pB" id="h4G-mG-ydd"/>
+                        <outlet property="artistNameLabel" destination="9bm-6i-ds1" id="bSu-zo-Lcz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBG-MW-eNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="1250"/>
         </scene>
         <!--Program-->
         <scene sceneID="eQc-tB-puE">
@@ -150,8 +196,11 @@
                                     <constraint firstAttribute="width" constant="230" id="pPo-VO-GGB"/>
                                 </constraints>
                                 <state key="normal" title="Program"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="149" y="352" width="103" height="50"/>
+                                </variation>
                                 <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Program Segue" id="0gS-nP-AoY"/>
+                                    <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Program Segue" id="0gS-nP-AoY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
@@ -161,8 +210,11 @@
                                     <constraint firstAttribute="width" constant="230" id="VOd-xM-R4g"/>
                                 </constraints>
                                 <state key="normal" title="Map"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="120" y="419" width="160" height="50"/>
+                                </variation>
                                 <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Map Segue" id="TOW-rU-DPh"/>
+                                    <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Map Segue" id="TOW-rU-DPh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
@@ -172,8 +224,11 @@
                                     <constraint firstAttribute="width" constant="230" id="ElW-rW-SCX"/>
                                 </constraints>
                                 <state key="normal" title="Artists"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="120" y="482" width="160" height="50"/>
+                                </variation>
                                 <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
+                                    <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchHeader" translatesAutoresizingMaskIntoConstraints="NO" id="l9V-oz-F51">
@@ -186,8 +241,11 @@
                                     <constraint firstAttribute="height" constant="50" id="dc8-yg-kll"/>
                                 </constraints>
                                 <state key="normal" title="Feed"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="120" y="542" width="160" height="50"/>
+                                </variation>
                                 <connections>
-                                    <segue destination="IUe-Z7-fzU" kind="show" identifier="Feed Segue" id="f9F-Uz-FVe"/>
+                                    <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Feed Segue" id="f9F-Uz-FVe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -211,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbk-7l-Da4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2069" y="186"/>
+            <point key="canvasLocation" x="-2069" y="185.99999999999997"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">
@@ -231,13 +289,19 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-co-tWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1253" y="164"/>
+            <point key="canvasLocation" x="-1253" y="163.99999999999997"/>
         </scene>
         <!--Artists-->
         <scene sceneID="5lK-Er-x2Y">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IDX-0e-miA" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Artists" id="2DQ-H5-WHL"/>
+                    <tabBarItem key="tabBarItem" title="Artists" image="artistsTabBarImage" id="2DQ-H5-WHL">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.53333333333333333" green="0.55294117647058827" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Tt-7K-WVv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -250,13 +314,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egZ-iG-WBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-277" y="1251"/>
+            <point key="canvasLocation" x="-277" y="1250.9999999999998"/>
         </scene>
         <!--Program-->
         <scene sceneID="pTt-71-UMQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a7w-lA-qPx" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Program" id="oFo-aA-3e3"/>
+                    <tabBarItem key="tabBarItem" title="Program" image="programTabBarImage" id="oFo-aA-3e3">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.74509803921568629" green="0.25490196078431371" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rdH-YT-AO3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -275,7 +345,13 @@
         <scene sceneID="9GH-1Q-7Yr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UEm-XZ-c2K" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="2mW-4V-N9n"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="mapTabBarImage" id="2mW-4V-N9n">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.88235294117647056" green="0.38039215686274508" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qRi-9V-BCj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -288,13 +364,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ws-SL-pxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="-350"/>
+            <point key="canvasLocation" x="527" y="-349.99999999999994"/>
         </scene>
         <!--Feed-->
         <scene sceneID="b3I-vi-3rA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ExG-rk-uSX" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" id="CT3-xF-Bfc"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feedTabBarImage" id="CT3-xF-Bfc">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.2196078431372549" green="0.45490196078431372" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aXk-TY-bz9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -312,6 +394,10 @@
     </scenes>
     <resources>
         <image name="YFFLaunchHeader" width="320" height="269"/>
+        <image name="artistsTabBarImage" width="20" height="27"/>
+        <image name="feedTabBarImage" width="20" height="20"/>
+        <image name="mapTabBarImage" width="20" height="27"/>
+        <image name="programTabBarImage" width="16" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f9F-Uz-FVe"/>
