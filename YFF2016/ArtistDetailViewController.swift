@@ -10,28 +10,14 @@ import UIKit
 
 class ArtistDetailViewController: UIViewController {
     
-    let artists = [
-        Artist(id: "1", name: "The Kite String Tangle"),
-        Artist(id: "2", name: "Meg Mac", summary: "Melbourne artist"),
-        Artist(id: "3", name: "Chris Isaak", summary: "Coffee house favourite")
-    ]
-    
-    var artistId: String?
+    var artist: Artist?
     
     @IBOutlet weak var artistNameLabel: UILabel!
 
     @IBOutlet weak var artistDescriptionView: UITextView!
-
-    var artist: Artist?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Find the artist to display.
-        if let id = artistId {
-            self.artist = findArtist(id)
-        }
         
         displayArtist()
     }
@@ -44,10 +30,6 @@ class ArtistDetailViewController: UIViewController {
     func displayArtist() {
         self.artistNameLabel.text = artist?.name
         self.artistDescriptionView.text = artist?.summary
-    }
-    
-    func findArtist(id: String) -> Artist? {
-        return artists.filter{ $0.id == id }.first
     }
 
     /*

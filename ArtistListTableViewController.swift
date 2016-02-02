@@ -11,7 +11,7 @@ import UIKit
 class ArtistListTableViewController: UITableViewController {
     
     var artistSectionTitles:Array<NSString> = []
-    var selectedArtistId: String?
+    var selectedArtist: Artist?
     
     let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json")
     
@@ -94,12 +94,11 @@ class ArtistListTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row)!")
         
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!;
         
-        self.selectedArtistId = artistFor(indexPath)!.id
+        self.selectedArtist = artistFor(indexPath)
         
         performSegueWithIdentifier("artistDetailSegue", sender: self)
         
@@ -107,7 +106,7 @@ class ArtistListTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? ArtistDetailViewController {
-            viewController.artistId = self.selectedArtistId
+            viewController.artist = self.selectedArtist
         }
     }
     
