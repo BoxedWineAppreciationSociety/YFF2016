@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4324437A1C61F14D0045A661 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432443791C61F14D0045A661 /* Performance.swift */; };
+		4324437C1C6200890045A661 /* friday_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 4324437B1C6200890045A661 /* friday_performances.json */; };
+		4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324437D1C6203650045A661 /* PerformanceCell.swift */; };
 		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
 		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
@@ -56,6 +59,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		432443791C61F14D0045A661 /* Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
+		4324437B1C6200890045A661 /* friday_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friday_performances.json; sourceTree = "<group>"; };
+		4324437D1C6203650045A661 /* PerformanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
@@ -143,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				43B3667E1C60AA680097F956 /* artist_json.json */,
+				4324437B1C6200890045A661 /* friday_performances.json */,
 				43E17BD51C2B962F0075F92B /* Fonts */,
 				43C5A60F1C25295600222D23 /* AppDelegate.swift */,
 				43C5A6111C25295600222D23 /* ViewController.swift */,
@@ -161,6 +168,8 @@
 				43F2DA491C44F8B1005E937F /* ProgramViewController.swift */,
 				43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */,
 				43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */,
+				432443791C61F14D0045A661 /* Performance.swift */,
+				4324437D1C6203650045A661 /* PerformanceCell.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -308,6 +317,7 @@
 				43E17BE01C2B96420075F92B /* BebasNeueLight.otf in Resources */,
 				43E17BDF1C2B96420075F92B /* BebasNeueBook.otf in Resources */,
 				43E17BDE1C2B96420075F92B /* BebasNeueBold.otf in Resources */,
+				4324437C1C6200890045A661 /* friday_performances.json in Resources */,
 				43E17BE21C2B96420075F92B /* BebasNeueThin.otf in Resources */,
 				43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */,
 				43C5A61D1C25295600222D23 /* LaunchScreen.storyboard in Resources */,
@@ -343,10 +353,12 @@
 			files = (
 				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
+				4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */,
 				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,
 				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
 				835CE5861C3E6CBE0044AA86 /* FirstLaunchViewController.swift in Sources */,
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,
+				4324437A1C61F14D0045A661 /* Performance.swift in Sources */,
 				43EBB8051C4F91260024E713 /* Artist.swift in Sources */,
 				43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */,
 				43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */,

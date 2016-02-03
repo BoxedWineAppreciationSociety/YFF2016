@@ -10,6 +10,8 @@ import UIKit
 
 class ArtistDetailViewController: UIViewController {
     
+    @IBOutlet weak var artistImage: UIImageView!
+    
     var artist: Artist?
     
     @IBOutlet weak var artistNameLabel: UILabel!
@@ -30,6 +32,7 @@ class ArtistDetailViewController: UIViewController {
     func displayArtist() {
         self.artistNameLabel.text = artist?.name
         self.artistDescriptionView.text = artist?.summary
+        self.artistImage.image = UIImage(named: (artist?.imageName)!)
     }
 
     /*
