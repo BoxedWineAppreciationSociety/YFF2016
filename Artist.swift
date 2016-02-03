@@ -9,21 +9,40 @@
 import UIKit
 
 class Artist {
-    var id = "" // No need for :String, if you the value is non-optional, then type inference will kick in
+    var id = ""
     var name = ""
-    var summary = "" // You'll probably end up using CoreData for the DB, which means NSManagedObjects, and description is a reserved word
-    
-    // Custom init function for one line creation
-    // Like Rails, we can provide some default values
-    init(id: String, name: String, summary: String = "No summary provided") {
-        self.id = id
-        self.name = name
-        self.summary = summary
-    }
+    var summary = ""
+    var imageName: String?
     
     init(attributes: [String: AnyObject]) {
         self.id = attributes["id"] as! String
         self.name = attributes["name"] as! String
         self.summary = attributes["summary"] as! String
+        self.imageName = attributes["image_name"] as? String
+    }
+    
+    init() {
+        assert(false)
+    }
+    
+    convenience init(id: String) {
+        let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json")
+        let jsonData = NSData(contentsOfURL: jsonFile!)
+        
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+            if let artistsDictionary = json["artists"] as? [[String: String]] {
+                let attributes = artistsDictionary.filter({ (dic: [String: String]) -> Bool in
+                    return dic["id"] == id
+                })
+                let foundArtist = attributes[0]
+
+                self.init(attributes: foundArtist)
+            } else {
+                self.init()
+            }
+        } catch {
+            self.init()
+        }
     }
 }
