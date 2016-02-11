@@ -10,6 +10,15 @@ import UIKit
 
 class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBAction func selectDay(sender: programDayButton) {
+        if let dayIdentifier = sender.titleLabel?.text?.lowercaseString {
+            clearPerformances()
+            generatePerformances(dictionaryForDay(dayIdentifier)!)
+            programTableView.reloadData()
+            scrollToTop()
+        }
+    }
+    
     @IBOutlet weak var programTableView: UITableView!
     
     var performances = [Performance]()
@@ -25,17 +34,20 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         programTableView.dataSource = self
         programTableView.delegate = self
         
-        let jsonData = NSData(contentsOfURL: fridayJsonFile!)
-        
-        do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
-            if let performancesDictionary = json as? [String: AnyObject] {
-                generatePerformances(performancesDictionary)
-            }
-        } catch {
-            // TODO
+        if let performancesForDay = dictionaryForDay("FRI".lowercaseString) {
+            generatePerformances(performancesForDay)
         }
-//
+//        
+//        let jsonData = NSData(contentsOfURL: fridayJsonFile!)
+//        
+//        do {
+//            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+//            if let performancesDictionary = json as? [String: AnyObject] {
+//                generatePerformances(performancesDictionary)
+//            }
+//        } catch {
+//            //
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,12 +55,34 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func dictionaryForDay(day: String) -> [String:AnyObject]? {
+        if let jsonFile = NSBundle.mainBundle().URLForResource("\(day)_performances", withExtension: "json") {
+            
+            let jsonData = NSData(contentsOfURL: jsonFile)
+            
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+                if let performancesDictionary = json as? [String: AnyObject] {
+                    return performancesDictionary
+                }
+            } catch {
+                //
+            }
+
+            
+        }
+        return nil
+    }
+            
     func generatePerformances(dictionary: [String: AnyObject]) {
         let performancesDictionary = dictionary["performances"] as! [[String: AnyObject]]
         for performance in performancesDictionary {
             performances.append(Performance(attributes: performance))
         }
+    }
+    
+    func clearPerformances() {
+        performances.removeAll()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -65,6 +99,10 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return performances.count
+    }
+    
+    private func scrollToTop() {
+        programTableView.setContentOffset(CGPoint.zero, animated:true)
     }
 
     /*

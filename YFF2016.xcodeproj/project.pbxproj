@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4324437A1C61F14D0045A661 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432443791C61F14D0045A661 /* Performance.swift */; };
-		4324437C1C6200890045A661 /* friday_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 4324437B1C6200890045A661 /* friday_performances.json */; };
+		4324437C1C6200890045A661 /* fri_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 4324437B1C6200890045A661 /* fri_performances.json */; };
 		4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324437D1C6203650045A661 /* PerformanceCell.swift */; };
 		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
 		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
 		439680AC1C6C6BD0008E35A4 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AB1C6C6BD0008E35A4 /* json.swift */; };
 		439680B01C6C870C008E35A4 /* InstagramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */; };
+		439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680B11C6C900D008E35A4 /* programDayButton.swift */; };
+		439680B41C6C99FF008E35A4 /* sat_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 439680B31C6C99FF008E35A4 /* sat_performances.json */; };
+		439680B61C6C9B01008E35A4 /* sun_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 439680B51C6C9B01008E35A4 /* sun_performances.json */; };
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
 		43C5A6121C25295600222D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6111C25295600222D23 /* ViewController.swift */; };
@@ -62,12 +65,15 @@
 
 /* Begin PBXFileReference section */
 		432443791C61F14D0045A661 /* Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
-		4324437B1C6200890045A661 /* friday_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friday_performances.json; sourceTree = "<group>"; };
+		4324437B1C6200890045A661 /* fri_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fri_performances.json; sourceTree = "<group>"; };
 		4324437D1C6203650045A661 /* PerformanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		439680AB1C6C6BD0008E35A4 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramCollectionViewCell.swift; sourceTree = "<group>"; };
+		439680B11C6C900D008E35A4 /* programDayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = programDayButton.swift; sourceTree = "<group>"; };
+		439680B31C6C99FF008E35A4 /* sat_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sat_performances.json; sourceTree = "<group>"; };
+		439680B51C6C9B01008E35A4 /* sun_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sun_performances.json; sourceTree = "<group>"; };
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,7 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				43B3667E1C60AA680097F956 /* artist_json.json */,
-				4324437B1C6200890045A661 /* friday_performances.json */,
+				4324437B1C6200890045A661 /* fri_performances.json */,
+				439680B31C6C99FF008E35A4 /* sat_performances.json */,
+				439680B51C6C9B01008E35A4 /* sun_performances.json */,
 				43E17BD51C2B962F0075F92B /* Fonts */,
 				43C5A60F1C25295600222D23 /* AppDelegate.swift */,
 				43C5A6111C25295600222D23 /* ViewController.swift */,
@@ -176,6 +184,7 @@
 				432443791C61F14D0045A661 /* Performance.swift */,
 				4324437D1C6203650045A661 /* PerformanceCell.swift */,
 				439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */,
+				439680B11C6C900D008E35A4 /* programDayButton.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -323,9 +332,11 @@
 				43E17BE01C2B96420075F92B /* BebasNeueLight.otf in Resources */,
 				43E17BDF1C2B96420075F92B /* BebasNeueBook.otf in Resources */,
 				43E17BDE1C2B96420075F92B /* BebasNeueBold.otf in Resources */,
-				4324437C1C6200890045A661 /* friday_performances.json in Resources */,
+				439680B61C6C9B01008E35A4 /* sun_performances.json in Resources */,
+				4324437C1C6200890045A661 /* fri_performances.json in Resources */,
 				43E17BE21C2B96420075F92B /* BebasNeueThin.otf in Resources */,
 				43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */,
+				439680B41C6C99FF008E35A4 /* sat_performances.json in Resources */,
 				43C5A61D1C25295600222D23 /* LaunchScreen.storyboard in Resources */,
 				43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */,
 				43E17BDD1C2B96420075F92B /* Archer Bold.ttf in Resources */,
@@ -374,6 +385,7 @@
 				43EBB8031C4F82690024E713 /* ArtistDetailViewController.swift in Sources */,
 				43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */,
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
+				439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

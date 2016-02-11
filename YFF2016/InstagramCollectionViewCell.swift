@@ -18,7 +18,6 @@ class InstagramCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    
     override func prepareForReuse() {
         self.instagramImage.image = nil
     }
