@@ -12,6 +12,8 @@
 		4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324437D1C6203650045A661 /* PerformanceCell.swift */; };
 		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
 		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
+		439680AC1C6C6BD0008E35A4 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AB1C6C6BD0008E35A4 /* json.swift */; };
+		439680B01C6C870C008E35A4 /* InstagramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */; };
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
 		43C5A6121C25295600222D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6111C25295600222D23 /* ViewController.swift */; };
@@ -64,6 +66,8 @@
 		4324437D1C6203650045A661 /* PerformanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
+		439680AB1C6C6BD0008E35A4 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+		439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramCollectionViewCell.swift; sourceTree = "<group>"; };
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				43C5A6411C276F8E00222D23 /* MapViewController.swift */,
 				43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */,
 				43E17BE41C2B98250075F92B /* FeedViewController.swift */,
+				439680AB1C6C6BD0008E35A4 /* json.swift */,
 				43E17BE61C2B99450075F92B /* YFFTabBarController.swift */,
 				43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */,
 				43F2DA491C44F8B1005E937F /* ProgramViewController.swift */,
@@ -170,6 +175,7 @@
 				43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */,
 				432443791C61F14D0045A661 /* Performance.swift */,
 				4324437D1C6203650045A661 /* PerformanceCell.swift */,
+				439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -353,12 +359,14 @@
 			files = (
 				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
+				439680AC1C6C6BD0008E35A4 /* json.swift in Sources */,
 				4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */,
 				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,
 				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
 				835CE5861C3E6CBE0044AA86 /* FirstLaunchViewController.swift in Sources */,
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,
 				4324437A1C61F14D0045A661 /* Performance.swift in Sources */,
+				439680B01C6C870C008E35A4 /* InstagramCollectionViewCell.swift in Sources */,
 				43EBB8051C4F91260024E713 /* Artist.swift in Sources */,
 				43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */,
 				43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */,
