@@ -208,9 +208,60 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xg7-IH-blI">
                                 <rect key="frame" x="0.0" y="64" width="600" height="94"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bunting" translatesAutoresizingMaskIntoConstraints="NO" id="wXC-KJ-id3">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="94"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X61-39-lxu" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
+                                        <rect key="frame" x="277" y="10" width="80" height="74"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="OqL-OA-eGy"/>
+                                        </constraints>
+                                        <state key="normal" title="SAT"/>
+                                        <connections>
+                                            <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="eef-Wb-HMs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1di-tp-iXz" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
+                                        <rect key="frame" x="512" y="10" width="80" height="74"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="9if-N3-NOO"/>
+                                        </constraints>
+                                        <state key="normal" title="SUN"/>
+                                        <connections>
+                                            <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="dtE-pw-KaJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="98x-YB-d23" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="10" width="80" height="74"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="lc7-O8-Se0"/>
+                                        </constraints>
+                                        <state key="normal" title="FRI"/>
+                                        <connections>
+                                            <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="eF0-s4-ouP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="1di-tp-iXz" firstAttribute="top" secondItem="xg7-IH-blI" secondAttribute="top" constant="10" id="0R3-U3-SQp"/>
+                                    <constraint firstAttribute="trailing" secondItem="1di-tp-iXz" secondAttribute="trailing" constant="40" id="86l-U7-M0T"/>
                                     <constraint firstAttribute="height" constant="94" id="FAW-5n-PXf"/>
+                                    <constraint firstAttribute="trailing" secondItem="wXC-KJ-id3" secondAttribute="trailing" id="K3Q-rw-TiQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="X61-39-lxu" secondAttribute="bottom" constant="10" id="U2n-Mi-xyN"/>
+                                    <constraint firstAttribute="bottom" secondItem="1di-tp-iXz" secondAttribute="bottom" constant="10" id="agF-70-LQ9"/>
+                                    <constraint firstItem="wXC-KJ-id3" firstAttribute="leading" secondItem="xg7-IH-blI" secondAttribute="leading" id="ccw-Cb-mua"/>
+                                    <constraint firstItem="wXC-KJ-id3" firstAttribute="top" secondItem="xg7-IH-blI" secondAttribute="top" id="drh-Sr-uuB"/>
+                                    <constraint firstAttribute="bottom" secondItem="98x-YB-d23" secondAttribute="bottom" constant="10" id="jkl-RY-K6P"/>
+                                    <constraint firstItem="98x-YB-d23" firstAttribute="top" secondItem="xg7-IH-blI" secondAttribute="top" constant="10" id="p6Z-aE-oLN"/>
+                                    <constraint firstAttribute="bottom" secondItem="wXC-KJ-id3" secondAttribute="bottom" id="phQ-ic-wHQ"/>
+                                    <constraint firstItem="98x-YB-d23" firstAttribute="leading" secondItem="xg7-IH-blI" secondAttribute="leading" constant="40" id="uDi-Y7-iep"/>
+                                    <constraint firstItem="X61-39-lxu" firstAttribute="top" secondItem="xg7-IH-blI" secondAttribute="top" constant="10" id="waX-TG-3hG"/>
+                                    <constraint firstItem="X61-39-lxu" firstAttribute="centerX" secondItem="xg7-IH-blI" secondAttribute="centerX" id="zl5-8V-Fm9"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7By-1j-Swu">
@@ -505,6 +556,7 @@
     <resources>
         <image name="YFFLaunchHeader" width="320" height="269"/>
         <image name="artistsTabBarImage" width="20" height="27"/>
+        <image name="bunting" width="320" height="92"/>
         <image name="feedTabBarImage" width="20" height="20"/>
         <image name="mapTabBarImage" width="20" height="27"/>
         <image name="programTabBarImage" width="16" height="27"/>
