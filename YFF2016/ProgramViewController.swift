@@ -89,7 +89,6 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath) as! PerformanceCell
     
         cell.setup(performanceFor(indexPath))
-        
         return cell
     }
     
