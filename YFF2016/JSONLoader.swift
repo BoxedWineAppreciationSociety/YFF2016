@@ -14,9 +14,9 @@ class JSONLoader: NSObject {
     
     class func loadPerformancesJSON() {
 //        
-        loadFridayPerformances()
-        loadSaturdayPerformances()
-        loadSundayPerformances()
+//        loadFridayPerformances()
+//        loadSaturdayPerformances()
+//        loadSundayPerformances()
         
     }
     

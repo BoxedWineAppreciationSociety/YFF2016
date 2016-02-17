@@ -19,6 +19,7 @@ class Performance {
         self.id = attributes["id"] as! String
         self.stage = attributes["stage"] as! String
         self.artist = Artist(id: attributes["artistId"] as! String)
+        self.time = NSDate(timeIntervalSince1970: (attributes["time"] as? Double)!)
         // TODO time
     }
 
