@@ -20,7 +20,7 @@ class ArtistDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavBar()
         displayArtist()
     }
 
@@ -29,10 +29,24 @@ class ArtistDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupNavBar(){
+        // Setup Back Button
+        let backButtonImage = UIImage(named: "icon_arrow_back")
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icon_arrow_back")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icon_arrow_back")
+        self.navigationController
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        // Setup title
+        self.navigationItem.title = "ARTIST"
+    }
+    
     func displayArtist() {
+        artistImage.contentMode = .ScaleAspectFill
+        
         self.artistNameLabel.text = artist?.name
         self.artistDescriptionView.text = artist?.summary
-        self.artistImage.image = UIImage(named: (artist?.imageName)!)
+        self.artistImage.image = UIImage(named: (artist?.imageName!)!)
     }
 
     /*

@@ -8,6 +8,8 @@
 //
 
 import Foundation
+    
+let artistsJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/artists_remote.json"
 
 let friPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/fri_performances_remote.json"
 let satPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/sat_performances_remote.json"

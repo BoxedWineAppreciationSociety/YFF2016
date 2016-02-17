@@ -9,6 +9,9 @@
 import UIKit
 
 class ArtistListTableViewController: UITableViewController {
+    static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true).first!
+    let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+
     
     var artistSectionTitles:Array<NSString> = []
     var selectedArtist: Artist?
@@ -29,8 +32,18 @@ class ArtistListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let fileName = "artists_remote.json"
+        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
+        let fileManager = NSFileManager.defaultManager()
+        var jsonData: NSData?
         
-        let jsonData = NSData(contentsOfURL: jsonFile!)
+        if (fileManager.fileExistsAtPath(jsonFilePath)) {
+            jsonData = NSData(contentsOfFile: jsonFilePath)
+        } else {
+            if let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json") {
+                jsonData = NSData(contentsOfURL: jsonFile)
+            }
+        }
         
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
@@ -38,12 +51,13 @@ class ArtistListTableViewController: UITableViewController {
                 generateArtists(artistsDictionary)
             }
         } catch {
-            // TODO
+            //
         }
 
         // Setup Navigation Controller
         self.navigationItem.title = "ARTISTS"
         self.navigationController?.navigationBar.barTintColor = YFFOlive
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -112,6 +126,12 @@ class ArtistListTableViewController: UITableViewController {
     
     func artistFor(indexPath: NSIndexPath) -> Artist? {
         return artists[indexPath.item]
+    }
+    
+    private func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
 
 
