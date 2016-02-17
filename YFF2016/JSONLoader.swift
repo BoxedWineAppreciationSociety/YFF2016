@@ -13,10 +13,11 @@ class JSONLoader: NSObject {
     static let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
     
     class func loadPerformancesJSON() {
-        
+//        
         loadFridayPerformances()
         loadSaturdayPerformances()
         loadSundayPerformances()
+        
     }
     
     class func loadFridayPerformances() {
@@ -27,7 +28,7 @@ class JSONLoader: NSObject {
             if error != nil {
                 print(error!)
             } else {
-                writeStringToFile(data, fileName: "fri_perfomances_remote.json")
+                writeStringToFile(data, fileName: "fri_performances_remote.json")
             }
         }
     }
@@ -40,7 +41,7 @@ class JSONLoader: NSObject {
             if error != nil {
                 print(error!)
             } else {
-                writeStringToFile(data, fileName: "sat_perfomances_remote.json")
+                writeStringToFile(data, fileName: "sat_performances_remote.json")
             }
         }
     }
@@ -54,33 +55,30 @@ class JSONLoader: NSObject {
             if error != nil {
                 print(error!)
             } else {
-                writeStringToFile(data, fileName: "sun_perfomances_remote.json")
+                writeStringToFile(data, fileName: "sun_performances_remote.json")
             }
         }
     }
     
+    class func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
     
     class func writeStringToFile(data: String, fileName: String) {
-        let jsonFilePath = documentsDirectoryPath.URLByAppendingPathComponent(fileName)
-        let fileManager = NSFileManager.defaultManager()
+        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
         
-//        if fileManager.fileExistsAtPath("\(jsonFilePath)") {
-//            print("Much success")
-//        } else {
-//            print("fail")
-//        }
-//        var isDirectory: ObjCBool = false
-        
-        let created = fileManager.createFileAtPath("\(jsonFilePath)", contents: data.dataUsingEncoding(NSUTF8StringEncoding), attributes: nil)
-        if created {
-            print("File created ")
+        do {
+            try data.writeToFile(jsonFilePath, atomically: true, encoding: NSUTF8StringEncoding)
             do {
-                try print(String(contentsOfFile: "\(jsonFilePath)", encoding: NSUTF8StringEncoding))
+                try print(String(contentsOfFile: jsonFilePath, encoding: NSUTF8StringEncoding))
             } catch {
                 
             }
-        } else {
-            print("Couldn't create file for some reason")
+        } catch {
+            print("Failed to write file")
         }
     }
     
