@@ -9,4 +9,6 @@
 
 import Foundation
 
-let friPerformancesJsonUrl = "https://gist.githubusercontent.com/RustComet/4d8cf186c4d256fb825e/raw/edd070496b3f96a57dd7ef9349f3c938e549f9bc/json_performances.json"
+let friPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/fri_performances_remote.json"
+let satPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/sat_performances_remote.json"
+let sunPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/sun_performances_remote.json"
