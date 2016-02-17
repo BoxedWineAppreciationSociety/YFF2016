@@ -77,6 +77,12 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         for performance in performancesDictionary {
             performances.append(Performance(attributes: performance))
         }
+        performances.sortInPlace {
+            item1, item2 in
+            let time1 = item1.time
+            let time2 = item2.time
+            return time1!.compare(time2!) == NSComparisonResult.OrderedAscending
+        }
     }
     
     func clearPerformances() {
