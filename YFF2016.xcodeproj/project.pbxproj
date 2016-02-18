@@ -12,6 +12,7 @@
 		4324437A1C61F14D0045A661 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432443791C61F14D0045A661 /* Performance.swift */; };
 		4324437C1C6200890045A661 /* fri_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 4324437B1C6200890045A661 /* fri_performances.json */; };
 		4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324437D1C6203650045A661 /* PerformanceCell.swift */; };
+		4343CE5D1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */; };
 		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
 		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
 		439680AC1C6C6BD0008E35A4 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AB1C6C6BD0008E35A4 /* json.swift */; };
@@ -71,6 +72,7 @@
 		432443791C61F14D0045A661 /* Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
 		4324437B1C6200890045A661 /* fri_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fri_performances.json; sourceTree = "<group>"; };
 		4324437D1C6203650045A661 /* PerformanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
+		4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionHeaderViewCollectionReusableView.swift; sourceTree = "<group>"; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		439680AB1C6C6BD0008E35A4 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
@@ -105,7 +107,7 @@
 		43E17BE41C2B98250075F92B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		43E17BE61C2B99450075F92B /* YFFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFTabBarController.swift; sourceTree = "<group>"; };
 		43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
-		43EBB8041C4F91260024E713 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		43EBB8041C4F91260024E713 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = ../Artist.swift; sourceTree = "<group>"; };
 		43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+YFFMain.swift"; sourceTree = "<group>"; };
 		43F2DA491C44F8B1005E937F /* ProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewButton.swift; sourceTree = "<group>"; };
@@ -141,7 +143,6 @@
 		43C5A6031C25295600222D23 = {
 			isa = PBXGroup;
 			children = (
-				43EBB8041C4F91260024E713 /* Artist.swift */,
 				43C5A60E1C25295600222D23 /* YFF2016 */,
 				43C5A6261C25295600222D23 /* YFF2016Tests */,
 				43C5A6311C25295600222D23 /* YFF2016UITests */,
@@ -191,6 +192,7 @@
 				439680B11C6C900D008E35A4 /* programDayButton.swift */,
 				4322FE611C732BFF003B0775 /* Constants.swift */,
 				4322FE631C732EBD003B0775 /* JSONLoader.swift */,
+				4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -216,6 +218,7 @@
 		43E17BD51C2B962F0075F92B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				43EBB8041C4F91260024E713 /* Artist.swift */,
 				43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */,
 				43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */,
 				43E17BD61C2B96420075F92B /* Archer Bold.ttf */,
@@ -375,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
+				4343CE5D1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
 				439680AC1C6C6BD0008E35A4 /* json.swift in Sources */,
 				4322FE621C732BFF003B0775 /* Constants.swift in Sources */,

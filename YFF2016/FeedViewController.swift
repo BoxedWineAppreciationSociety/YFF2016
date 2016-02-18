@@ -10,6 +10,7 @@ import UIKit
 
 class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var instagramFeedCollectionView: UICollectionView!
+    let refreshControl = UIRefreshControl()
     
     let url = "https://api.instagram.com/v1/tags/yff15/media/recent?access_token=3212807.1677ed0.e19c549707764af7a71e8a8445e1534d"
     var imageUrls = [String]()
@@ -28,6 +29,17 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view.
         loadInstagram()
         
+        refreshControl.addTarget(self, action: "startRefresh:", forControlEvents: .ValueChanged)
+        
+        self.instagramFeedCollectionView.addSubview(refreshControl)
+        
+    }
+    
+    func startRefresh(sender: AnyObject?) {
+        clearInstagramCells()
+        loadInstagram()
+        self.instagramFeedCollectionView.reloadData()
+        refreshControl.performSelector("endRefreshing", withObject: nil, afterDelay: 0.05)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,12 +51,37 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("InstagramCell", forIndexPath: indexPath) as! InstagramCollectionViewCell
         
         cell.setup(imageUrls[indexPath.row])
+        
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let cellWidth = screenWidth * 0.42
+        
+        return CGSizeMake(cellWidth, cellWidth)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageUrls.count
     }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let headerView =
+            collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! FeedCollectionHeaderViewCollectionReusableView
+            
+            headerView.headerLabel.text = "POST YOUR PHOTOS ON INSTAGRAM WITH #YFF16"
+            headerView.headerLabel.font = UIFont(name: "BebasNeueRegular", size: 30)
+            return headerView
+        default:
+            assert(false, "Unexpected Element Kind")
+        }
+    }
+    
+    
     
     
     func loadInstagram() {
@@ -58,6 +95,11 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
             imageUrls.append(imageUrl!)
         }
     }
+    
+    func clearInstagramCells() {
+        imageUrls.removeAll()
+    }
+    
     /*
     // MARK: - Navigation
 
