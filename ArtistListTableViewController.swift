@@ -72,6 +72,13 @@ class ArtistListTableViewController: UITableViewController {
         for artist in artistsDictionary {
             artists.append(Artist(attributes: artist))
         }
+        
+        artists.sortInPlace {
+            artist1, artist2 in
+            let name1 = artist1.name
+            let name2 = artist2.name
+            return name1 < name2
+        }
     }
 
     override func didReceiveMemoryWarning() {
