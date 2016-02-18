@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "YFF.png",
+      "filename" : "YFF-website-header-3 + Rectangle 28.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "YFF@2x.png",
+      "filename" : "YFF-website-header-3 + Rectangle 28@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "YFF@3x.png",
+      "filename" : "YFF-website-header-3 + Rectangle 28@3x.png",
       "scale" : "3x"
     }
   ],
