@@ -170,9 +170,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-v6-1Fe">
-                                <rect key="frame" x="0.0" y="64" width="600" height="221"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
                                 <rect key="frame" x="0.0" y="359" width="580" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,8 +177,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-v6-1Fe">
+                                <rect key="frame" x="0.0" y="64" width="600" height="221"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="221" id="PIQ-1N-uBF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Srp-v6-1Fe" firstAttribute="top" secondItem="XP8-Or-wKh" secondAttribute="bottom" id="TSQ-oP-3qC"/>
+                            <constraint firstItem="Srp-v6-1Fe" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="mS9-02-UoA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Srp-v6-1Fe" secondAttribute="trailing" constant="-20" id="yjW-rF-tz7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gWd-t5-MCG"/>
                     <connections>
@@ -275,7 +283,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="103.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-nZ-2eG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-nZ-2eG">
                                                     <rect key="frame" x="8" y="0.0" width="103" height="103"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nY-OE-KJT">

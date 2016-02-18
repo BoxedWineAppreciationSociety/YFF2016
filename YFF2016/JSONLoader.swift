@@ -12,12 +12,26 @@ class JSONLoader: NSObject {
     static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true).first!
     static let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
     
-    class func loadPerformancesJSON() {
-//        
+    class func loadRemoteJSON() {
+        loadArtists()
+        
         loadFridayPerformances()
         loadSaturdayPerformances()
         loadSundayPerformances()
         
+    }
+    
+    class func loadArtists() {
+        let request = NSMutableURLRequest(URL: NSURL(string: artistsJsonUrl)!)
+        
+        httpGet(request){
+            (data, error) -> Void in
+            if error != nil {
+                print(error!)
+            } else {
+                writeStringToFile(data, fileName: "artists_remote.json")
+            }
+        }
     }
     
     class func loadFridayPerformances() {

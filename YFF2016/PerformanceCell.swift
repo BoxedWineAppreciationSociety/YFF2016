@@ -35,10 +35,13 @@ class PerformanceCell: UITableViewCell {
     }
     
     func setup(performance: Performance) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "h:mm a d MMM yyyy"
+        
         self.performanceCellThumb.image = UIImage(named: (performance.artist?.imageName)!)
         self.artistNameLabel.text = performance.artist?.name
-        self.performanceTimeLabel.text = "4.00pm #TOE-DOE"
         self.performanceStageLabel.text = performance.stage
+        self.performanceTimeLabel.text = dateFormatter.stringFromDate(performance.time!)
     }
     
 }
