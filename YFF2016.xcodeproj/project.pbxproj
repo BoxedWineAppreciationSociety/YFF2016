@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4322FE621C732BFF003B0775 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322FE611C732BFF003B0775 /* Constants.swift */; };
+		4322FE641C732EBD003B0775 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322FE631C732EBD003B0775 /* JSONLoader.swift */; };
 		4324437A1C61F14D0045A661 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432443791C61F14D0045A661 /* Performance.swift */; };
 		4324437C1C6200890045A661 /* fri_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 4324437B1C6200890045A661 /* fri_performances.json */; };
 		4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324437D1C6203650045A661 /* PerformanceCell.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4322FE611C732BFF003B0775 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4322FE631C732EBD003B0775 /* JSONLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		432443791C61F14D0045A661 /* Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
 		4324437B1C6200890045A661 /* fri_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fri_performances.json; sourceTree = "<group>"; };
 		4324437D1C6203650045A661 /* PerformanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				4324437D1C6203650045A661 /* PerformanceCell.swift */,
 				439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */,
 				439680B11C6C900D008E35A4 /* programDayButton.swift */,
+				4322FE611C732BFF003B0775 /* Constants.swift */,
+				4322FE631C732EBD003B0775 /* JSONLoader.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
 				439680AC1C6C6BD0008E35A4 /* json.swift in Sources */,
+				4322FE621C732BFF003B0775 /* Constants.swift in Sources */,
 				4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */,
 				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,
 				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
@@ -387,6 +394,7 @@
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
 				439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,
+				4322FE641C732EBD003B0775 /* JSONLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

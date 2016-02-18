@@ -21,13 +21,16 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var programTableView: UITableView!
     
+    static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true).first!
+    let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+    
     var performances = [Performance]()
     let fridayJsonFile = NSBundle.mainBundle().URLForResource("friday_performances", withExtension: "json")
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.title = "PROGRAM"
         self.navigationController?.navigationBar.barTintColor = YFFRed
         
@@ -37,43 +40,38 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         if let performancesForDay = dictionaryForDay("FRI".lowercaseString) {
             generatePerformances(performancesForDay)
         }
-//        
-//        let jsonData = NSData(contentsOfURL: fridayJsonFile!)
-//        
-//        do {
-//            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
-//            if let performancesDictionary = json as? [String: AnyObject] {
-//                generatePerformances(performancesDictionary)
-//            }
-//        } catch {
-//            //
-//        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func dictionaryForDay(day: String) -> [String:AnyObject]? {
-        if let jsonFile = NSBundle.mainBundle().URLForResource("\(day)_performances", withExtension: "json") {
-            
-            let jsonData = NSData(contentsOfURL: jsonFile)
-            
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
-                if let performancesDictionary = json as? [String: AnyObject] {
-                    return performancesDictionary
-                }
-            } catch {
-                //
+        let fileName = "\(day.lowercaseString)_performances_remote.json"
+        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
+        let fileManager = NSFileManager.defaultManager()
+        var jsonData: NSData?
+        
+        if (fileManager.fileExistsAtPath(jsonFilePath)) {
+            jsonData = NSData(contentsOfFile: jsonFilePath)
+        } else {
+            if let jsonFile = NSBundle.mainBundle().URLForResource("\(day)_performances", withExtension: "json") {
+                jsonData = NSData(contentsOfURL: jsonFile)
             }
-
-            
+        }
+        
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+            if let performancesDictionary = json as? [String: AnyObject] {
+                return performancesDictionary
+            }
+        } catch {
+            //
         }
         return nil
     }
-            
+    
     func generatePerformances(dictionary: [String: AnyObject]) {
         let performancesDictionary = dictionary["performances"] as! [[String: AnyObject]]
         for performance in performancesDictionary {
@@ -87,9 +85,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath) as! PerformanceCell
-    
-        cell.setup(performanceFor(indexPath))
         
+        cell.setup(performanceFor(indexPath))
         return cell
     }
     
@@ -104,15 +101,22 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     private func scrollToTop() {
         programTableView.setContentOffset(CGPoint.zero, animated:true)
     }
-
+    
+    
+    private func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
