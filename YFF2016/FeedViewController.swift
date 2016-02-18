@@ -39,7 +39,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         clearInstagramCells()
         loadInstagram()
         self.instagramFeedCollectionView.reloadData()
-        refreshControl.endRefreshing()
+        refreshControl.performSelector("endRefreshing", withObject: nil, afterDelay: 0.05)
     }
 
     override func didReceiveMemoryWarning() {
