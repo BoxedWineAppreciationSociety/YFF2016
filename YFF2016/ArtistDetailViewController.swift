@@ -21,6 +21,7 @@ class ArtistDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        setupView()
         displayArtist()
     }
 
@@ -39,6 +40,14 @@ class ArtistDetailViewController: UIViewController {
 
         // Setup title
         self.navigationItem.title = "ARTIST"
+    }
+    
+    func setupView() {
+        self.artistNameLabel.tintColor = UIColor.whiteColor()
+        self.artistNameLabel.font = UIFont(name: "BebasNeue", size: 30)
+        
+        self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 13)
+        self.artistDescriptionView.
     }
 
     func displayArtist() {
