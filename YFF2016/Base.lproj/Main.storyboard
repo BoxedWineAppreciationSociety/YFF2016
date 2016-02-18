@@ -400,13 +400,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="249" y="361" width="103" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchBunting" translatesAutoresizingMaskIntoConstraints="NO" id="SXD-8Z-vgb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="197"/>
+                                <color key="backgroundColor" red="0.11052503436803818" green="0.082952462136745453" blue="0.028040485456585884" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
+                                <rect key="frame" x="185" y="330" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mGD-c7-A18"/>
                                     <constraint firstAttribute="width" constant="230" id="pPo-VO-GGB"/>
                                 </constraints>
-                                <state key="normal" title="Program"/>
+                                <inset key="imageEdgeInsets" minX="-100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Program" image="programIconWhite">
+                                    <color key="titleShadowColor" red="0.99195677042007446" green="0.99622899293899536" blue="0.99192315340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="149" y="352" width="103" height="50"/>
                                 </variation>
@@ -414,13 +421,14 @@
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Program Segue" id="0gS-nP-AoY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="221" y="419" width="160" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
+                                <rect key="frame" x="185" y="390" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Kgw-Rj-w8H"/>
                                     <constraint firstAttribute="width" constant="230" id="VOd-xM-R4g"/>
                                 </constraints>
-                                <state key="normal" title="Map"/>
+                                <inset key="imageEdgeInsets" minX="-130" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Map" image="mapIconWhite"/>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="120" y="419" width="160" height="50"/>
                                 </variation>
@@ -428,13 +436,14 @@
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Map Segue" id="TOW-rU-DPh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="221" y="477" width="160" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
+                                <rect key="frame" x="185" y="450" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Eay-4u-6O1"/>
                                     <constraint firstAttribute="width" constant="230" id="ElW-rW-SCX"/>
                                 </constraints>
-                                <state key="normal" title="Artists"/>
+                                <inset key="imageEdgeInsets" minX="-112" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Artists" image="artistsIconWhite"/>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="120" y="482" width="160" height="50"/>
                                 </variation>
@@ -442,16 +451,20 @@
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchHeader" translatesAutoresizingMaskIntoConstraints="NO" id="l9V-oz-F51">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="269"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchHeader" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-ff-yVg">
+                                <rect key="frame" x="192" y="70" width="237" height="230"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="221" y="535" width="160" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
+                                <rect key="frame" x="185" y="510" width="230" height="50"/>
+                                <accessibility key="accessibilityConfiguration" label="Feed">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="BAQ-HM-yry"/>
                                     <constraint firstAttribute="height" constant="50" id="dc8-yg-kll"/>
                                 </constraints>
-                                <state key="normal" title="Feed"/>
+                                <inset key="imageEdgeInsets" minX="-126" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Feed" image="feedIconWhite"/>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="120" y="542" width="160" height="50"/>
                                 </variation>
@@ -462,12 +475,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MDM-pO-XIB" firstAttribute="top" secondItem="c4B-Nv-f3V" secondAttribute="bottom" constant="10" id="7MH-by-zNG"/>
                             <constraint firstItem="Ibr-Vd-cjX" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="7d9-qW-7rb"/>
-                            <constraint firstItem="c4B-Nv-f3V" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="S9f-ZL-sG4"/>
-                            <constraint firstItem="l9V-oz-F51" firstAttribute="top" secondItem="xEz-5L-WBZ" secondAttribute="top" id="ace-NN-Vb2"/>
-                            <constraint firstItem="l9V-oz-F51" firstAttribute="leading" secondItem="xEz-5L-WBZ" secondAttribute="leading" id="dGH-wZ-3XJ"/>
-                            <constraint firstAttribute="trailing" secondItem="l9V-oz-F51" secondAttribute="trailing" id="jYv-Tr-j5X"/>
+                            <constraint firstItem="Ibr-Vd-cjX" firstAttribute="top" secondItem="AFe-pM-Y2I" secondAttribute="bottom" constant="10" id="Azy-h1-eSy"/>
+                            <constraint firstItem="eDW-ff-yVg" firstAttribute="top" secondItem="VX0-H7-3Kn" secondAttribute="bottom" constant="50" id="Hdv-ro-TDn"/>
+                            <constraint firstItem="SXD-8Z-vgb" firstAttribute="top" secondItem="xEz-5L-WBZ" secondAttribute="top" id="SzU-vb-xYo"/>
+                            <constraint firstItem="eDW-ff-yVg" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" constant="10" id="f2O-lo-FLA"/>
+                            <constraint firstItem="c4B-Nv-f3V" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="fFD-cn-cow"/>
+                            <constraint firstItem="c4B-Nv-f3V" firstAttribute="top" secondItem="Ibr-Vd-cjX" secondAttribute="bottom" constant="10" id="fw5-sL-9mt"/>
+                            <constraint firstAttribute="trailing" secondItem="SXD-8Z-vgb" secondAttribute="trailing" id="lpo-bS-aEV"/>
                             <constraint firstItem="MDM-pO-XIB" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="pgz-JA-Hjw"/>
+                            <constraint firstItem="AFe-pM-Y2I" firstAttribute="top" secondItem="eDW-ff-yVg" secondAttribute="bottom" constant="30" id="vdh-CP-KC9"/>
+                            <constraint firstItem="ytt-WQ-b6e" firstAttribute="top" secondItem="MDM-pO-XIB" secondAttribute="bottom" constant="40" id="vqR-T6-xPv"/>
+                            <constraint firstItem="SXD-8Z-vgb" firstAttribute="leading" secondItem="xEz-5L-WBZ" secondAttribute="leading" id="zCM-gx-BR7"/>
                             <constraint firstItem="AFe-pM-Y2I" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="zs0-Je-a8W"/>
                         </constraints>
                     </view>
@@ -480,7 +500,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbk-7l-Da4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2069" y="185.99999999999997"/>
+            <point key="canvasLocation" x="-2069" y="185"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">
@@ -604,11 +624,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="YFFLaunchHeader" width="320" height="269"/>
+        <image name="YFFLaunchBunting" width="320" height="197"/>
+        <image name="YFFLaunchHeader" width="237" height="185"/>
+        <image name="artistsIconWhite" width="18" height="24"/>
         <image name="artistsTabBarImage" width="20" height="27"/>
         <image name="bunting" width="320" height="121"/>
+        <image name="feedIconWhite" width="14" height="14"/>
         <image name="feedTabBarImage" width="20" height="20"/>
+        <image name="mapIconWhite" width="17" height="22"/>
         <image name="mapTabBarImage" width="20" height="27"/>
+        <image name="programIconWhite" width="12" height="19"/>
         <image name="programTabBarImage" width="16" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
