@@ -9,15 +9,15 @@
 import UIKit
 
 class ArtistDetailViewController: UIViewController {
-    
+
     @IBOutlet weak var artistImage: UIImageView!
-    
+
     var artist: Artist?
-    
+
     @IBOutlet weak var artistNameLabel: UILabel!
 
     @IBOutlet weak var artistDescriptionView: UITextView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
@@ -28,7 +28,7 @@ class ArtistDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func setupNavBar(){
         // Setup Back Button
         let backButtonImage = UIImage(named: "icon_arrow_back")
@@ -36,17 +36,23 @@ class ArtistDetailViewController: UIViewController {
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icon_arrow_back")
         self.navigationController
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
+
         // Setup title
         self.navigationItem.title = "ARTIST"
     }
-    
+
     func displayArtist() {
         artistImage.contentMode = .ScaleAspectFill
-        
+
         self.artistNameLabel.text = artist?.name
         self.artistDescriptionView.text = artist?.summary
-        self.artistImage.image = UIImage(named: (artist?.imageName!)!)
+
+        if let imageFileName = artist?.imageName {
+            if let imageForArtist = UIImage(named: imageFileName) {
+                self.artistImage.image = imageForArtist
+            }
+        }
+
     }
 
     /*
