@@ -63,12 +63,12 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath)
         
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
 
     func setupNavBar(){
         // Setup Back Button
-        let backButtonImage = UIImage(named: "icon_arrow_back")
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icon_arrow_back")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icon_arrow_back")
         self.navigationController
