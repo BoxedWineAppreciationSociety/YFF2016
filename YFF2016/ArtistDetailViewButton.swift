@@ -11,6 +11,8 @@ import UIKit
 class ArtistDetailViewButton: UIButton {
     let screenWidth = UIScreen.mainScreen().bounds.width
     
+    var lineView: UIView?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -37,13 +39,20 @@ class ArtistDetailViewButton: UIButton {
     
     func setUnderline() {
         let lineView = UIView(frame: CGRectMake(0, self.frame.size.height, self.frame.size.width, 3))
+        removeUnderline()
         lineView.backgroundColor = YFFOlive
         lineView.tag = 100
         self.addSubview(lineView)
+        self.lineView = lineView
     }
     
     func removeUnderline() {
        self.viewWithTag(100)?.removeFromSuperview()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.lineView?.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, 3)
     }
     
 }

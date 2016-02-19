@@ -46,10 +46,16 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         setupView()
     }
     
-    override func viewDidLayoutSubviews() {
-//        self.artistAboutButton.setAsActive()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.artistAboutButton.setAsActive()
+        self.artistPlayingTimesButton.setAsInactive()
+        self.artistDescriptionView.hidden = false
+        self.artistPerformanceTableView.hidden = true
+        
         artistDescriptionView.setContentOffset(CGPoint.zero, animated:false)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

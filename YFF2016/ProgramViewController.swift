@@ -34,6 +34,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.navigationItem.title = "PROGRAM"
         self.navigationController?.navigationBar.barTintColor = YFFRed
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
         programTableView.dataSource = self
         programTableView.delegate = self
