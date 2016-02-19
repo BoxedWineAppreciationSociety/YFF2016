@@ -16,6 +16,9 @@
         <mutableArray key="BebasNeueRegular.otf">
             <string>BebasNeueRegular</string>
         </mutableArray>
+        <mutableArray key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--Map-->
@@ -239,15 +242,15 @@
                                     <action selector="playingTimesButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="JgA-ba-b77"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
-                                <rect key="frame" x="20" y="328" width="560" height="272"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
+                                <rect key="frame" x="20" y="311" width="560" height="289"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances" customClass="ArtistPer">
-                                <rect key="frame" x="20" y="328" width="560" height="272"/>
+                                <rect key="frame" x="20" y="311" width="560" height="289"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PerformanceCell" id="g76-tb-AZ4">
@@ -275,7 +278,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="20" id="0Ob-U7-AZx"/>
+                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="0Ob-U7-AZx"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="5lC-Yh-okp"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="bottom" secondItem="mzR-ns-5Ca" secondAttribute="bottomMargin" id="7UB-yX-rHB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gdc-n6-vv3" secondAttribute="trailing" id="9aB-ia-eRs"/>
@@ -291,7 +294,7 @@
                             <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="fZX-HY-Alm"/>
                             <constraint firstAttribute="bottomMargin" secondItem="FHK-Wj-6pB" secondAttribute="bottom" id="hw5-nz-LA1"/>
                             <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="i0n-aN-cat"/>
-                            <constraint firstItem="Gdc-n6-vv3" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="20" id="ltO-ct-jHI"/>
+                            <constraint firstItem="Gdc-n6-vv3" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="ltO-ct-jHI"/>
                             <constraint firstItem="Srp-v6-1Fe" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="mS9-02-UoA"/>
                             <constraint firstItem="qnk-BB-aKr" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" constant="10" id="pq5-BO-4zF"/>
                             <constraint firstItem="gHY-9R-a8R" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" constant="10" id="stu-qW-CkU"/>

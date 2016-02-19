@@ -42,8 +42,13 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         artistPerformanceTableView.delegate = self
         
         setupNavBar()
-        setupView()
         displayArtist()
+        setupView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        self.artistAboutButton.setAsActive()
+        artistDescriptionView.setContentOffset(CGPoint.zero, animated:false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,7 +85,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistNameLabel.layer.shadowOffset = CGSizeMake(0, 0)
         self.artistNameLabel.layer.shadowOpacity = 1.0
         
-        self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 13)
+        self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 16)
     }
 
     func displayArtist() {
