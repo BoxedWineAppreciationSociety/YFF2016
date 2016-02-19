@@ -339,9 +339,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-nZ-2eG">
-                                                    <rect key="frame" x="8" y="0.0" width="103" height="103"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nY-OE-KJT">
                                                     <rect key="frame" x="136" y="41" width="464" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -360,10 +357,13 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-nZ-2eG">
+                                                    <rect key="frame" x="8" y="8" width="103" height="87"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="6Yw-nZ-2eG" secondAttribute="bottom" id="40P-a7-Pbu"/>
-                                                <constraint firstItem="6Yw-nZ-2eG" firstAttribute="top" secondItem="qg1-7C-PwD" secondAttribute="top" id="LHr-cE-VSn"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Yw-nZ-2eG" secondAttribute="bottom" constant="8" id="40P-a7-Pbu"/>
+                                                <constraint firstItem="6Yw-nZ-2eG" firstAttribute="top" secondItem="qg1-7C-PwD" secondAttribute="top" constant="8" id="LHr-cE-VSn"/>
                                                 <constraint firstItem="6Yw-nZ-2eG" firstAttribute="width" secondItem="qg1-7C-PwD" secondAttribute="height" multiplier="1:1" id="ZtH-d6-taE"/>
                                                 <constraint firstItem="6Yw-nZ-2eG" firstAttribute="leading" secondItem="qg1-7C-PwD" secondAttribute="leading" constant="8" id="nzv-x3-ZuF"/>
                                             </constraints>

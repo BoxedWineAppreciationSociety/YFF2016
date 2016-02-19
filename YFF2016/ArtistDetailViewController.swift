@@ -47,7 +47,6 @@ class ArtistDetailViewController: UIViewController {
         self.artistNameLabel.font = UIFont(name: "BebasNeue", size: 30)
         
         self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 13)
-        self.artistDescriptionView.
     }
 
     func displayArtist() {
