@@ -8,18 +8,39 @@
 
 import UIKit
 
-class ArtistDetailViewController: UIViewController {
+class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var artistImage: UIImageView!
-
-    var artist: Artist?
-
     @IBOutlet weak var artistNameLabel: UILabel!
-
     @IBOutlet weak var artistDescriptionView: UITextView!
+    @IBOutlet weak var artistAboutButton: ArtistDetailViewButton!
+    @IBOutlet weak var artistPlayingTimesButton: ArtistDetailViewButton!
+    @IBOutlet weak var artistPerformanceTableView: UITableView!
+    
+
+    @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
+        sender.setAsActive()
+        artistPlayingTimesButton.setAsInactive()
+        self.artistDescriptionView.hidden = false
+        self.artistPerformanceTableView.hidden = true
+    }
+    
+    
+    @IBAction func playingTimesButtonTouchedUp(sender: ArtistDetailViewButton!) {
+        sender.setAsActive()
+        artistAboutButton.setAsInactive()
+        self.artistDescriptionView.hidden = true
+        self.artistPerformanceTableView.hidden = false
+    }
+    
+    var artist: Artist?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        artistPerformanceTableView.dataSource = self
+        artistPerformanceTableView.delegate = self
+        
         setupNavBar()
         setupView()
         displayArtist()
@@ -28,6 +49,16 @@ class ArtistDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath)
+        
+        return cell
     }
 
     func setupNavBar(){
@@ -45,6 +76,9 @@ class ArtistDetailViewController: UIViewController {
     func setupView() {
         self.artistNameLabel.tintColor = UIColor.whiteColor()
         self.artistNameLabel.font = UIFont(name: "BebasNeue", size: 30)
+        self.artistNameLabel.layer.shadowRadius = 3.0
+        self.artistNameLabel.layer.shadowOffset = CGSizeMake(0, 0)
+        self.artistNameLabel.layer.shadowOpacity = 1.0
         
         self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 13)
     }
