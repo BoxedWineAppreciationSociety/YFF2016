@@ -61,11 +61,11 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iJ0-P7-iup" id="oQa-a1-Wn0">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9GG-M7-WN5">
-                                            <rect key="frame" x="15" y="0.0" width="550" height="59"/>
+                                            <rect key="frame" x="15" y="0.0" width="550" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="BebasNeue" family="Bebas Neue" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -322,7 +322,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HFO-kL-1s0" id="qg1-7C-PwD">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="103"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="103.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-nZ-2eG">
@@ -382,6 +382,7 @@
                     <navigationItem key="navigationItem" id="CMs-V6-rvX"/>
                     <connections>
                         <outlet property="programTableView" destination="7By-1j-Swu" id="cCC-AP-6wF"/>
+                        <segue destination="wsM-4u-j0Y" kind="show" identifier="programArtistDetailSegue" id="U7J-LC-bvT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyo-Oh-ZZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -638,5 +639,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f9F-Uz-FVe"/>
+        <segue reference="U7J-LC-bvT"/>
     </inferredMetricsTieBreakers>
 </document>

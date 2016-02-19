@@ -9,7 +9,8 @@
 import UIKit
 
 class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+    var selectedArtist: Artist?
+
     @IBAction func selectDay(sender: programDayButton) {
         if let dayIdentifier = sender.titleLabel?.text?.lowercaseString {
             clearPerformances()
@@ -94,6 +95,29 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         cell.setup(performanceFor(indexPath))
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Get Cell Label
+        let indexPath = tableView.indexPathForSelectedRow!;
+        
+        self.selectedArtist = artistFor(indexPath)
+        
+        performSegueWithIdentifier("programArtistDetailSegue", sender: self)
+        
+    }
+    
+    func artistFor(indexPath: NSIndexPath) -> Artist? {
+        let performance = performances[indexPath.item]
+        return performance.artist
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
+            viewController.artist = self.selectedArtist
+        }
     }
     
     func performanceFor(indexPath: NSIndexPath) -> Performance! {
