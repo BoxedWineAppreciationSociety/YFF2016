@@ -33,6 +33,11 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistPerformanceTableView.hidden = false
     }
     
+    @IBAction func facebookButtonTouchedUp(sender: UIButton) {
+        if let url = NSURL(string: (artist?.facebookURL)!) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
     var artist: Artist?
 
     override func viewDidLoad() {

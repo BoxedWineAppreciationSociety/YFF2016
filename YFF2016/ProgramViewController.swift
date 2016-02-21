@@ -95,6 +95,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath) as! PerformanceCell
         
         cell.setup(performanceFor(indexPath))
+        cell.performanceTimeLabel.tintColor = YFFOlive
+        cell.performanceStageLabel.tintColor = YFFOlive
         return cell
     }
     
