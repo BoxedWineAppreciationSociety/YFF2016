@@ -52,7 +52,10 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistPlayingTimesButton.setAsInactive()
         self.artistDescriptionView.hidden = false
         self.artistPerformanceTableView.hidden = true
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         artistDescriptionView.setContentOffset(CGPoint.zero, animated:false)
     }
     
