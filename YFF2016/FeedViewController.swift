@@ -13,8 +13,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     let refreshControl = UIRefreshControl()
     
     let url = "https://api.instagram.com/v1/tags/yff15/media/recent?access_token=3212807.1677ed0.e19c549707764af7a71e8a8445e1534d"
+    
     var imageUrls = [String]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +26,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Setup Navigation Controller
         self.navigationItem.title = "FEED"
         self.navigationController?.navigationBar.barTintColor = YFFTeal
-
+        
         // Do any additional setup after loading the view.
         loadInstagram()
         
@@ -41,7 +42,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.instagramFeedCollectionView.reloadData()
         refreshControl.performSelector("endRefreshing", withObject: nil, afterDelay: 0.05)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,8 +86,22 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     
     func loadInstagram() {
-        let json = JSON(url: url)
-        let imagesJson = json["data"] as JSON
+        let fileName = "instagram_remote.json"
+        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
+        let fileManager = NSFileManager.defaultManager()
+        var json: JSON?
+        
+        if (fileManager.fileExistsAtPath(jsonFilePath)) {
+            do {
+                json = try JSON(string: String(contentsOfFile: jsonFilePath, encoding: NSUTF8StringEncoding))
+            } catch {
+                json = JSON(url: url)
+            }
+        } else {
+            json = JSON(url: url)
+        }
+        
+        let imagesJson = json!["data"] as JSON
         for imageJson in imagesJson {
             let image = imageJson.1
             
@@ -100,14 +115,20 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         imageUrls.removeAll()
     }
     
+    private func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

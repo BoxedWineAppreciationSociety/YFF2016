@@ -34,6 +34,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.navigationItem.title = "PROGRAM"
         self.navigationController?.navigationBar.barTintColor = YFFRed
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
         programTableView.dataSource = self
         programTableView.delegate = self
@@ -94,6 +95,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath) as! PerformanceCell
         
         cell.setup(performanceFor(indexPath))
+        cell.performanceTimeLabel.tintColor = YFFOlive
+        cell.performanceStageLabel.tintColor = YFFOlive
         return cell
     }
     

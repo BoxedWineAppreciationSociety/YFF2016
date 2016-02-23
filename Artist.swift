@@ -13,12 +13,14 @@ class Artist {
     var name = ""
     var summary = ""
     var imageName: String?
+    var facebookURL: String?
     
     init(attributes: [String: AnyObject]) {
         self.id = attributes["id"] as! String
         self.name = attributes["name"] as! String
         self.summary = attributes["summary"] as! String
         self.imageName = attributes["image_name"] as? String
+        self.facebookURL = attributes["facebook"] as? String
     }
     
     init() {

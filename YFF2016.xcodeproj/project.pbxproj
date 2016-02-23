@@ -20,6 +20,7 @@
 		439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680B11C6C900D008E35A4 /* programDayButton.swift */; };
 		439680B41C6C99FF008E35A4 /* sat_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 439680B31C6C99FF008E35A4 /* sat_performances.json */; };
 		439680B61C6C9B01008E35A4 /* sun_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 439680B51C6C9B01008E35A4 /* sun_performances.json */; };
+		43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */; };
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
 		43C5A6121C25295600222D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6111C25295600222D23 /* ViewController.swift */; };
@@ -80,6 +81,7 @@
 		439680B11C6C900D008E35A4 /* programDayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = programDayButton.swift; sourceTree = "<group>"; };
 		439680B31C6C99FF008E35A4 /* sat_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sat_performances.json; sourceTree = "<group>"; };
 		439680B51C6C9B01008E35A4 /* sun_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sun_performances.json; sourceTree = "<group>"; };
+		43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewButton.swift; sourceTree = "<group>"; };
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				4322FE611C732BFF003B0775 /* Constants.swift */,
 				4322FE631C732EBD003B0775 /* JSONLoader.swift */,
 				4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */,
+				43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -300,7 +303,7 @@
 				TargetAttributes = {
 					43C5A60B1C25295600222D23 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = F5RQPDZ9NB;
+						DevelopmentTeam = 8EZG5WE5N9;
 					};
 					43C5A6221C25295600222D23 = {
 						CreatedOnToolsVersion = 7.2;
@@ -395,6 +398,7 @@
 				43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */,
 				43EBB8031C4F82690024E713 /* ArtistDetailViewController.swift in Sources */,
 				43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */,
+				43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */,
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
 				439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,
@@ -538,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = YFF2016/Info.plist;
@@ -553,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = YFF2016/Info.plist;

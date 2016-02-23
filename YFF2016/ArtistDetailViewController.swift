@@ -8,30 +8,81 @@
 
 import UIKit
 
-class ArtistDetailViewController: UIViewController {
+class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var artistImage: UIImageView!
-
-    var artist: Artist?
-
     @IBOutlet weak var artistNameLabel: UILabel!
-
     @IBOutlet weak var artistDescriptionView: UITextView!
+    @IBOutlet weak var artistAboutButton: ArtistDetailViewButton!
+    @IBOutlet weak var artistPlayingTimesButton: ArtistDetailViewButton!
+    @IBOutlet weak var artistPerformanceTableView: UITableView!
+    
+
+    @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
+        sender.setAsActive()
+        artistPlayingTimesButton.setAsInactive()
+        self.artistDescriptionView.hidden = false
+        self.artistPerformanceTableView.hidden = true
+    }
+    
+    
+    @IBAction func playingTimesButtonTouchedUp(sender: ArtistDetailViewButton!) {
+        sender.setAsActive()
+        artistAboutButton.setAsInactive()
+        self.artistDescriptionView.hidden = true
+        self.artistPerformanceTableView.hidden = false
+    }
+    
+    @IBAction func facebookButtonTouchedUp(sender: UIButton) {
+        if let url = NSURL(string: (artist?.facebookURL)!) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    var artist: Artist?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        artistPerformanceTableView.dataSource = self
+        artistPerformanceTableView.delegate = self
+        
         setupNavBar()
         displayArtist()
+        setupView()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.artistAboutButton.setAsActive()
+        self.artistPlayingTimesButton.setAsInactive()
+        self.artistDescriptionView.hidden = false
+        self.artistPerformanceTableView.hidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        artistDescriptionView.setContentOffset(CGPoint.zero, animated:false)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath)
+        
+        cell.backgroundColor = UIColor.clearColor()
+        return cell
+    }
 
     func setupNavBar(){
         // Setup Back Button
-        let backButtonImage = UIImage(named: "icon_arrow_back")
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icon_arrow_back")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icon_arrow_back")
         self.navigationController
@@ -39,6 +90,16 @@ class ArtistDetailViewController: UIViewController {
 
         // Setup title
         self.navigationItem.title = "ARTIST"
+    }
+    
+    func setupView() {
+        self.artistNameLabel.tintColor = UIColor.whiteColor()
+        self.artistNameLabel.font = UIFont(name: "BebasNeue", size: 30)
+        self.artistNameLabel.layer.shadowRadius = 3.0
+        self.artistNameLabel.layer.shadowOffset = CGSizeMake(0, 0)
+        self.artistNameLabel.layer.shadowOpacity = 1.0
+        
+        self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 16)
     }
 
     func displayArtist() {

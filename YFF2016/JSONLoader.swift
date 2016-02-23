@@ -14,6 +14,7 @@ class JSONLoader: NSObject {
     
     class func loadRemoteJSON() {
         loadArtists()
+        loadInstagram()
         
         loadFridayPerformances()
         loadSaturdayPerformances()
@@ -32,6 +33,20 @@ class JSONLoader: NSObject {
                 writeStringToFile(data, fileName: "artists_remote.json")
             }
         }
+    }
+    
+    class func loadInstagram() {
+        let request = NSMutableURLRequest(URL: NSURL(string: instagramUrl)!)
+        
+        httpGet(request){
+            (data, error) -> Void in
+            if error != nil {
+                print(error!)
+            } else {
+                writeStringToFile(data, fileName: "instagram_remote.json")
+            }
+        }
+        
     }
     
     class func loadFridayPerformances() {
