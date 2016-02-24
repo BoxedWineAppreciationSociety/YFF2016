@@ -12,7 +12,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     var selectedArtist: Artist?
 
     @IBAction func selectDay(sender: programDayButton) {
-        if let dayIdentifier = sender.titleLabel?.text?.lowercaseString {
+        if let dayIdentifier = sender.restorationIdentifier {
             clearPerformances()
             clearActiveButton()
             generatePerformances(dictionaryForDay(dayIdentifier)!)
@@ -23,13 +23,9 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBOutlet weak var programTableView: UITableView!
-    
     @IBOutlet weak var fridayPerformancesButton: programDayButton!
     @IBOutlet weak var saturdayPerformancesButton: programDayButton!
     @IBOutlet weak var sundayPerformancesButton: programDayButton!
-    
-    @IBOutlet weak var fridayPerformanceDateLabel: UILabel!
-    
     
     
     static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true).first!
@@ -56,6 +52,10 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //applying the line break mode
+        fridayPerformancesButton?.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping;
+        
         
     }
     

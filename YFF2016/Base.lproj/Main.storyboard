@@ -362,37 +362,46 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bunting" translatesAutoresizingMaskIntoConstraints="NO" id="wXC-KJ-id3">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="94"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X61-39-lxu" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="SAT" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="X61-39-lxu" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
                                         <rect key="frame" x="260" y="10" width="80" height="74"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="OqL-OA-eGy"/>
                                         </constraints>
-                                        <state key="normal" title="SAT"/>
+                                        <state key="normal">
+                                            <string key="title">SAT
+MAR 19</string>
+                                        </state>
                                         <connections>
                                             <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="eef-Wb-HMs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1di-tp-iXz" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="FRI" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="98x-YB-d23" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="10" width="80" height="74"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="lc7-O8-Se0"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <string key="title">FRI
+MAR 18</string>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="eF0-s4-ouP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="SUN" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1di-tp-iXz" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
                                         <rect key="frame" x="480" y="10" width="80" height="74"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="9if-N3-NOO"/>
                                         </constraints>
-                                        <state key="normal" title="SUN"/>
+                                        <state key="normal">
+                                            <string key="title">SUN
+MAR 20</string>
+                                        </state>
                                         <connections>
                                             <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="dtE-pw-KaJ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="98x-YB-d23" customClass="programDayButton" customModule="YFF2016" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="10" width="80" height="74"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="lc7-O8-Se0"/>
-                                        </constraints>
-                                        <state key="normal" title="FRI"/>
-                                        <connections>
-                                            <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="eF0-s4-ouP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -519,7 +528,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyo-Oh-ZZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="-1040"/>
+            <point key="canvasLocation" x="956" y="-1024"/>
         </scene>
         <!--First Launch View Controller-->
         <scene sceneID="fHb-rU-FOS">

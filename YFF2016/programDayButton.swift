@@ -18,6 +18,7 @@ class programDayButton: UIButton {
         
         // Font
         self.titleLabel?.font = UIFont(name: "BebasNeueRegular", size: 26)
+        self.titleLabel?.textAlignment = .Center
         
         // Border
         self.layer.borderWidth = 1
@@ -25,13 +26,49 @@ class programDayButton: UIButton {
         
         //Background
         self.backgroundColor = UIColor.whiteColor()
+        
+        // Find the button's label
+        let buttonText: NSString = self.titleLabel!.text!
+        
+        //getting the range to separate the button title strings
+        let newlineRange: NSRange = buttonText.rangeOfString("\n")
+        
+        //getting both substrings
+        var substring1: NSString = ""
+        var substring2: NSString = ""
+        
+        if(newlineRange.location != NSNotFound) {
+            substring1 = buttonText.substringToIndex(newlineRange.location)
+            substring2 = buttonText.substringFromIndex(newlineRange.location)
+        }
+        
+        //assigning diffrent fonts to both substrings
+        let font:UIFont? = UIFont(name: "BebasNeueRegular", size: 30)
+        let attrString = NSMutableAttributedString(
+            string: substring1 as String,
+            attributes: NSDictionary(
+                object: font!,
+                forKey: NSFontAttributeName) as? [String : AnyObject])
+        
+        let font1:UIFont? = UIFont(name: "BebasNeueRegular", size: 16.0)
+        let attrString1 = NSMutableAttributedString(
+            string: substring2 as String,
+            attributes: NSDictionary(
+                object: font1!,
+                forKey: NSFontAttributeName) as? [String : AnyObject])
+        
+        //appending both attributed strings
+        attrString.appendAttributedString(attrString1)
+        
+        //assigning the resultant attributed strings to the button
+        self.setAttributedTitle(attrString, forState: UIControlState.Normal)
     }
     
     func setActive() {
-        self.tintColor = YFFRed
+        self.titleLabel?.textColor = YFFRed
     }
     
     func setInactive() {
-        self.tintColor = UIColor.blackColor()
+        self.titleLabel?.textColor = UIColor.blackColor()
     }
 }
