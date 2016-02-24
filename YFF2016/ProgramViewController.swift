@@ -62,21 +62,10 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func dictionaryForDay(day: String) -> [String:AnyObject]? {
-        let fileName = "\(day.lowercaseString)_performances_remote.json"
-        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
-        let fileManager = NSFileManager.defaultManager()
-        var jsonData: NSData?
-        
-        if (fileManager.fileExistsAtPath(jsonFilePath)) {
-            jsonData = NSData(contentsOfFile: jsonFilePath)
-        } else {
-            if let jsonFile = NSBundle.mainBundle().URLForResource("\(day)_performances", withExtension: "json") {
-                jsonData = NSData(contentsOfURL: jsonFile)
-            }
-        }
-        
+        let jsonData = JSONLoader.fetchPerformanceJSONForDay(day)
+
         do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
             if let performancesDictionary = json as? [String: AnyObject] {
                 return performancesDictionary
             }
@@ -151,13 +140,6 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.fridayPerformancesButton.setInactive()
         self.saturdayPerformancesButton.setInactive()
         self.sundayPerformancesButton.setInactive()
-    }
-    
-    
-    private func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
     }
     
     /*

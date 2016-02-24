@@ -38,7 +38,9 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
             UIApplication.sharedApplication().openURL(url)
         }
     }
+    
     var artist: Artist?
+    var artistPerformances = [Performance]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,10 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         setupNavBar()
         displayArtist()
         setupView()
+        
+        loadPerformances()
+        sortPerformances()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -100,6 +106,41 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistNameLabel.layer.shadowOpacity = 1.0
         
         self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 16)
+    }
+    
+    func loadPerformances() {
+        let jsonData = JSONLoader.fetchPerformanceJSONForDay("fri")
+        var allPerformancesDictionary: [[String: AnyObject]] = []
+        
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+            if let performancesDictionary = json as? [String: AnyObject] {
+                allPerformancesDictionary.appendContentsOf(performancesDictionary["performances"] as! [[String: AnyObject]])
+            }
+        } catch {
+            //
+        }
+        
+        let filteredDictionary = allPerformancesDictionary.filter {
+            if let artistId = $0["artistId"] {
+                return artistId as! String == artist!.id
+            } else {
+                return false
+            }
+        }
+        
+        for artistPerformance in filteredDictionary {
+            artistPerformances.append(Performance(attributes: artistPerformance))
+        }
+    }
+    
+    func sortPerformances() {
+        artistPerformances.sortInPlace {
+            item1, item2 in
+            let time1 = item1.time
+            let time2 = item2.time
+            return time1!.compare(time2!) == NSComparisonResult.OrderedAscending
+        }
     }
 
     func displayArtist() {
