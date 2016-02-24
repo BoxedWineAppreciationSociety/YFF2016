@@ -17,7 +17,7 @@ class programDayButton: UIButton {
         self.tintColor = UIColor.blackColor()
         
         // Font
-        self.titleLabel?.font = UIFont(name: "BebasNeue", size: 18)
+        self.titleLabel?.font = UIFont(name: "BebasNeueRegular", size: 26)
         
         // Border
         self.layer.borderWidth = 1
@@ -25,6 +25,13 @@ class programDayButton: UIButton {
         
         //Background
         self.backgroundColor = UIColor.whiteColor()
-
+    }
+    
+    func setActive() {
+        self.tintColor = YFFRed
+    }
+    
+    func setInactive() {
+        self.tintColor = UIColor.blackColor()
     }
 }
