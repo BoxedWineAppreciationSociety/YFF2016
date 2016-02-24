@@ -58,7 +58,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let screenWidth = UIScreen.mainScreen().bounds.width
-        let cellWidth = screenWidth * 0.42
+        let cellWidth = screenWidth * 0.40
         
         return CGSizeMake(cellWidth, cellWidth)
     }
@@ -78,7 +78,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
             headerView.headerLabel.font = UIFont(name: "BebasNeueRegular", size: 30)
             return headerView
         default:
-            assert(false, "Unexpected Element Kind")
+            fatalError("Unexpected Element Kind")
         }
     }
     

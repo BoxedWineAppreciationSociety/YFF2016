@@ -12,15 +12,21 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     var selectedArtist: Artist?
 
     @IBAction func selectDay(sender: programDayButton) {
-        if let dayIdentifier = sender.titleLabel?.text?.lowercaseString {
+        if let dayIdentifier = sender.restorationIdentifier {
             clearPerformances()
+            clearActiveButton()
             generatePerformances(dictionaryForDay(dayIdentifier)!)
             programTableView.reloadData()
             scrollToTop()
+            sender.setActive()
         }
     }
     
     @IBOutlet weak var programTableView: UITableView!
+    @IBOutlet weak var fridayPerformancesButton: programDayButton!
+    @IBOutlet weak var saturdayPerformancesButton: programDayButton!
+    @IBOutlet weak var sundayPerformancesButton: programDayButton!
+    
     
     static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true).first!
     let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
@@ -41,7 +47,13 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if let performancesForDay = dictionaryForDay("FRI".lowercaseString) {
             generatePerformances(performancesForDay)
+            fridayPerformancesButton.setActive()
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -133,6 +145,12 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     private func scrollToTop() {
         programTableView.setContentOffset(CGPoint.zero, animated:true)
+    }
+    
+    private func clearActiveButton() {
+        self.fridayPerformancesButton.setInactive()
+        self.saturdayPerformancesButton.setInactive()
+        self.sundayPerformancesButton.setInactive()
     }
     
     
