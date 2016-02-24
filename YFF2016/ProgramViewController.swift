@@ -47,15 +47,12 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if let performancesForDay = dictionaryForDay("FRI".lowercaseString) {
             generatePerformances(performancesForDay)
+            fridayPerformancesButton.setActive()
         }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //applying the line break mode
-        fridayPerformancesButton?.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping;
-        
         
     }
     
