@@ -18,6 +18,9 @@
             <string>BebasNeueRegular</string>
             <string>BebasNeueRegular</string>
             <string>BebasNeueRegular</string>
+            <string>BebasNeueRegular</string>
+            <string>BebasNeueRegular</string>
+            <string>BebasNeueRegular</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
@@ -241,38 +244,12 @@
                                     <action selector="playingTimesButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="JgA-ba-b77"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
-                                <rect key="frame" x="10" y="317" width="560" height="234"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
+                                <rect key="frame" x="-300" y="532" width="560" height="234"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances" customClass="ArtistPer">
-                                <rect key="frame" x="10" y="317" width="580" height="283"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PerformanceCell" id="g76-tb-AZ4">
-                                        <rect key="frame" x="0.0" y="28" width="580" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g76-tb-AZ4" id="3bZ-Cc-ri8">
-                                            <rect key="frame" x="0.0" y="0.0" width="580" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Performance Goes Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-F1-e9e">
-                                                    <rect key="frame" x="188" y="11" width="185" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="KYw-F1-e9e" firstAttribute="centerX" secondItem="3bZ-Cc-ri8" secondAttribute="centerX" id="BQa-0w-AF0"/>
-                                                <constraint firstItem="KYw-F1-e9e" firstAttribute="centerY" secondItem="3bZ-Cc-ri8" secondAttribute="centerY" id="Nsv-6J-UeQ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-9R-a8R" userLabel="About" customClass="ArtistDetailViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="264" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.99595445394515991" green="0.99628978967666626" blue="0.99178355932235718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -285,6 +262,62 @@
                                     <action selector="aboutButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="R45-wZ-aHj"/>
                                 </connections>
                             </button>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances" customClass="ArtistPer">
+                                <rect key="frame" x="10" y="317" width="580" height="283"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PerformanceCell" rowHeight="75" id="g76-tb-AZ4" customClass="ArtistPerformanceTableViewCell" customModule="YFF2016" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="580" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g76-tb-AZ4" id="3bZ-Cc-ri8">
+                                            <rect key="frame" x="0.0" y="0.0" width="580" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8T-FG-L9z">
+                                                    <rect key="frame" x="28" y="49" width="31.5" height="17"/>
+                                                    <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperatorDot" translatesAutoresizingMaskIntoConstraints="NO" id="3bI-uc-Sam">
+                                                    <rect key="frame" x="64.5" y="55.5" width="4" height="4"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="4" id="06j-Eo-TW1"/>
+                                                        <constraint firstAttribute="width" constant="4" id="r7g-aw-bPY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elf-Yw-CDG">
+                                                    <rect key="frame" x="73.5" y="49" width="31.5" height="17"/>
+                                                    <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-F1-e9e">
+                                                    <rect key="frame" x="28" y="15" width="544" height="26"/>
+                                                    <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3bI-uc-Sam" firstAttribute="leading" secondItem="k8T-FG-L9z" secondAttribute="trailing" constant="5" id="F05-BH-2BW"/>
+                                                <constraint firstItem="3bI-uc-Sam" firstAttribute="centerY" secondItem="k8T-FG-L9z" secondAttribute="centerY" id="Qjc-aK-2RW"/>
+                                                <constraint firstItem="elf-Yw-CDG" firstAttribute="leading" secondItem="3bI-uc-Sam" secondAttribute="trailing" constant="5" id="TFs-5c-FKz"/>
+                                                <constraint firstItem="elf-Yw-CDG" firstAttribute="centerY" secondItem="k8T-FG-L9z" secondAttribute="centerY" id="cJq-1g-4na"/>
+                                                <constraint firstItem="KYw-F1-e9e" firstAttribute="top" secondItem="3bZ-Cc-ri8" secondAttribute="topMargin" constant="10" id="cjy-2R-pHB"/>
+                                                <constraint firstItem="k8T-FG-L9z" firstAttribute="top" secondItem="KYw-F1-e9e" secondAttribute="bottom" constant="5" id="epF-is-vw1"/>
+                                                <constraint firstItem="k8T-FG-L9z" firstAttribute="leading" secondItem="3bZ-Cc-ri8" secondAttribute="leadingMargin" constant="20" id="iit-IJ-Deg"/>
+                                                <constraint firstItem="KYw-F1-e9e" firstAttribute="leading" secondItem="3bZ-Cc-ri8" secondAttribute="leadingMargin" constant="20" id="qfg-lP-qCL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistPerformanceDate" destination="k8T-FG-L9z" id="gMD-Y5-KaC"/>
+                                            <outlet property="artistPerformanceStage" destination="elf-Yw-CDG" id="c85-AD-fvK"/>
+                                            <outlet property="artistPerformanceTime" destination="KYw-F1-e9e" id="N0j-FK-mHX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -777,9 +810,10 @@ MAR 20</string>
         <image name="mapTabBarImage" width="20" height="27"/>
         <image name="programIconWhite" width="12" height="19"/>
         <image name="programTabBarImage" width="16" height="27"/>
+        <image name="seperatorDot" width="4" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f9F-Uz-FVe"/>
-        <segue reference="U7J-LC-bvT"/>
+        <segue reference="6VO-9p-S81"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -53,8 +53,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,6 +109,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.selectedArtist = artistFor(indexPath)
         
         performSegueWithIdentifier("programArtistDetailSegue", sender: self)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
     }
     
