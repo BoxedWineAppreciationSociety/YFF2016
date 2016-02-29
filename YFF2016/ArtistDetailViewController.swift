@@ -151,7 +151,11 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         artistImage.contentMode = .ScaleAspectFill
 
         self.artistNameLabel.text = artist?.name
-        self.artistDescriptionView.text = artist?.summary
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSParagraphStyleAttributeName : style]
+        self.artistDescriptionView.attributedText = NSAttributedString(string: (artist?.summary)!, attributes:attributes)
 
         if let imageFileName = artist?.imageName {
             if let imageForArtist = UIImage(named: imageFileName) {
