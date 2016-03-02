@@ -9,7 +9,10 @@
 import UIKit
 
 class ArtistPerformanceTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var artistPerformanceTime: UILabel!
+    @IBOutlet weak var artistPerformanceDate: UILabel!
+    @IBOutlet weak var artistPerformanceStage: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +22,23 @@ class ArtistPerformanceTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setup(performance: Performance) {
+        let timeDateFormatter = NSDateFormatter()
+        timeDateFormatter.dateFormat = "h:mm a"
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE dd MMMM"
+        
+        // Content
+        self.artistPerformanceDate.text = dateFormatter.stringFromDate(performance.time!)
+        self.artistPerformanceTime.text = timeDateFormatter.stringFromDate(performance.time!)
+        self.artistPerformanceStage.text = performance.stage
+        
+        //Colors
+        self.artistPerformanceStage.textColor = YFFOlive
+        self.artistPerformanceDate.textColor = YFFOlive
     }
 
 }

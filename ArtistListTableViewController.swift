@@ -123,6 +123,7 @@ class ArtistListTableViewController: UITableViewController {
         
         performSegueWithIdentifier("artistDetailSegue", sender: self)
         
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

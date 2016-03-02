@@ -22,6 +22,7 @@
 		439680B61C6C9B01008E35A4 /* sun_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 439680B51C6C9B01008E35A4 /* sun_performances.json */; };
 		43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */; };
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
+		43B4C19C1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
 		43C5A6121C25295600222D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6111C25295600222D23 /* ViewController.swift */; };
 		43C5A6151C25295600222D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C5A6131C25295600222D23 /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 		439680B51C6C9B01008E35A4 /* sun_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sun_performances.json; sourceTree = "<group>"; };
 		43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewButton.swift; sourceTree = "<group>"; };
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
+		43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistPerformanceTableViewCell.swift; sourceTree = "<group>"; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C5A6111C25295600222D23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				4322FE631C732EBD003B0775 /* JSONLoader.swift */,
 				4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */,
 				43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */,
+				43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				43EBB8031C4F82690024E713 /* ArtistDetailViewController.swift in Sources */,
 				43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */,
 				43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */,
+				43B4C19C1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift in Sources */,
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
 				439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,

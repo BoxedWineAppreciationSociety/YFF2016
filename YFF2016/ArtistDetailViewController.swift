@@ -52,7 +52,9 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         displayArtist()
         setupView()
         
-        loadPerformances()
+        loadPerformancesForDay("fri")
+        loadPerformancesForDay("sat")
+        loadPerformancesForDay("sun")
         sortPerformances()
 
     }
@@ -77,11 +79,13 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return artistPerformances.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath) as! ArtistPerformanceTableViewCell
+        
+        cell.setup(performanceFor(indexPath))
         
         cell.backgroundColor = UIColor.clearColor()
         return cell
@@ -108,8 +112,8 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 16)
     }
     
-    func loadPerformances() {
-        let jsonData = JSONLoader.fetchPerformanceJSONForDay("fri")
+    func loadPerformancesForDay(day: String) {
+        let jsonData = JSONLoader.fetchPerformanceJSONForDay(day.lowercaseString)
         var allPerformancesDictionary: [[String: AnyObject]] = []
         
         do {
@@ -147,7 +151,11 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         artistImage.contentMode = .ScaleAspectFill
 
         self.artistNameLabel.text = artist?.name
-        self.artistDescriptionView.text = artist?.summary
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSParagraphStyleAttributeName : style]
+        self.artistDescriptionView.attributedText = NSAttributedString(string: (artist?.summary)!, attributes:attributes)
 
         if let imageFileName = artist?.imageName {
             if let imageForArtist = UIImage(named: imageFileName) {
@@ -156,6 +164,11 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
 
     }
+    
+    func performanceFor(indexPath: NSIndexPath) -> Performance! {
+        return artistPerformances[indexPath.item]
+    }
+    
 
     /*
     // MARK: - Navigation
