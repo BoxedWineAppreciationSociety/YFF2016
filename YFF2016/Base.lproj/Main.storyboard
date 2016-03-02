@@ -280,7 +280,7 @@
                                 </subviews>
                             </scrollView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances" customClass="ArtistPer">
-                                <rect key="frame" x="10" y="317" width="580" height="283"/>
+                                <rect key="frame" x="10" y="317" width="580" height="234"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="PerformanceCell" rowHeight="75" id="g76-tb-AZ4" customClass="ArtistPerformanceTableViewCell" customModule="YFF2016" customModuleProvider="target">
@@ -359,6 +359,7 @@
                             <constraint firstAttribute="trailing" secondItem="wH3-D8-jGo" secondAttribute="trailing" constant="-20" id="cEW-hi-TZJ"/>
                             <constraint firstItem="HLk-f2-UnH" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="cIB-Nt-QYl"/>
                             <constraint firstItem="9bm-6i-ds1" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="cr2-tR-udO"/>
+                            <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="Gdc-n6-vv3" secondAttribute="bottom" id="dh6-pg-Knb"/>
                             <constraint firstItem="Fyx-ft-i7k" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="emn-f8-fP2"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="ltO-ct-jHI"/>
                             <constraint firstItem="Srp-v6-1Fe" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="mS9-02-UoA"/>
@@ -367,6 +368,7 @@
                             <constraint firstItem="gHY-9R-a8R" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="stu-qW-CkU"/>
                             <constraint firstItem="qnk-BB-aKr" firstAttribute="leading" secondItem="gHY-9R-a8R" secondAttribute="trailing" id="v66-CF-z3P"/>
                             <constraint firstItem="Fyx-ft-i7k" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="wPW-iE-Nwa"/>
+                            <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="Fyx-ft-i7k" secondAttribute="bottom" id="xOp-Q8-Fkp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Srp-v6-1Fe" secondAttribute="trailing" constant="-20" id="yjW-rF-tz7"/>
                             <constraint firstItem="9bm-6i-ds1" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" constant="-43" id="z1S-oD-xtC"/>
                         </constraints>
@@ -375,7 +377,9 @@
                                 <exclude reference="z1S-oD-xtC"/>
                                 <exclude reference="EO6-TZ-mqx"/>
                                 <exclude reference="7UB-yX-rHB"/>
+                                <exclude reference="PQ9-Qk-ubP"/>
                                 <exclude reference="VQg-q6-b0r"/>
+                                <exclude reference="43p-rU-luC"/>
                             </mask>
                         </variation>
                     </view>

@@ -17,6 +17,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var artistPlayingTimesButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPerformanceTableView: UITableView!
     @IBOutlet weak var artistDetailScrollView: UIScrollView!
+    @IBOutlet weak var artistSocialLinksContentView: UIView!
     
 
     @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
@@ -57,8 +58,22 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         loadPerformancesForDay("sat")
         loadPerformancesForDay("sun")
         sortPerformances()
+        
+        setupSocialButtons()
 
     }
+    
+    func setupSocialButtons() {
+        if let artistSocialLinks = artist?.socialLinks(){
+            for link in artistSocialLinks {
+                if (!link.values.first!!.isEmpty){
+                    print("\(link.keys.first!): \(link.values.first as String!!)")
+                }
+            }
+        }
+    }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
