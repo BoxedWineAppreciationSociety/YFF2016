@@ -16,12 +16,13 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var artistAboutButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPlayingTimesButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPerformanceTableView: UITableView!
+    @IBOutlet weak var artistDetailScrollView: UIScrollView!
     
 
     @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
         sender.setAsActive()
         artistPlayingTimesButton.setAsInactive()
-        self.artistDescriptionView.hidden = false
+        self.artistDetailScrollView.hidden = false
         self.artistPerformanceTableView.hidden = true
     }
     
@@ -29,7 +30,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func playingTimesButtonTouchedUp(sender: ArtistDetailViewButton!) {
         sender.setAsActive()
         artistAboutButton.setAsInactive()
-        self.artistDescriptionView.hidden = true
+        self.artistDetailScrollView.hidden = true
         self.artistPerformanceTableView.hidden = false
     }
     
@@ -63,7 +64,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         super.viewWillAppear(true)
         self.artistAboutButton.setAsActive()
         self.artistPlayingTimesButton.setAsInactive()
-        self.artistDescriptionView.hidden = false
+        self.artistDetailScrollView.hidden = false
         self.artistPerformanceTableView.hidden = true
     }
     
