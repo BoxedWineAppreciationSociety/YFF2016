@@ -16,12 +16,13 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var artistAboutButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPlayingTimesButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPerformanceTableView: UITableView!
+    @IBOutlet weak var artistAboutScrollView: UIScrollView!
     
 
     @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
         sender.setAsActive()
         artistPlayingTimesButton.setAsInactive()
-        self.artistDescriptionView.hidden = false
+        self.artistAboutScrollView.hidden = false
         self.artistPerformanceTableView.hidden = true
     }
     
@@ -29,7 +30,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func playingTimesButtonTouchedUp(sender: ArtistDetailViewButton!) {
         sender.setAsActive()
         artistAboutButton.setAsInactive()
-        self.artistDescriptionView.hidden = true
+        self.artistAboutScrollView.hidden = true
         self.artistPerformanceTableView.hidden = false
     }
     
@@ -61,7 +62,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         super.viewWillAppear(true)
         self.artistAboutButton.setAsActive()
         self.artistPlayingTimesButton.setAsInactive()
-        self.artistDescriptionView.hidden = false
+        self.artistAboutScrollView.hidden = false
         self.artistPerformanceTableView.hidden = true
     }
     
@@ -147,7 +148,17 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         artistImage.contentMode = .ScaleAspectFill
 
         self.artistNameLabel.text = artist?.name
+<<<<<<< Updated upstream
         self.artistDescriptionView.text = artist?.summary
+=======
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSParagraphStyleAttributeName : style]
+        self.artistDescriptionView.attributedText = NSAttributedString(string: (artist?.summary)!, attributes:attributes)
+        
+        
+>>>>>>> Stashed changes
 
         if let imageFileName = artist?.imageName {
             if let imageForArtist = UIImage(named: imageFileName) {

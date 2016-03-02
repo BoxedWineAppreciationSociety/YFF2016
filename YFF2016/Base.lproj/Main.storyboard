@@ -19,9 +19,6 @@
             <string>BebasNeueRegular</string>
             <string>BebasNeueRegular</string>
         </mutableArray>
-        <mutableArray key="SourceSansPro-Regular.ttf">
-            <string>SourceSansPro-Regular</string>
-        </mutableArray>
     </customFonts>
     <scenes>
         <!--Map-->
@@ -241,6 +238,7 @@
                                     <action selector="playingTimesButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="JgA-ba-b77"/>
                                 </connections>
                             </button>
+<<<<<<< Updated upstream
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
                                 <rect key="frame" x="10" y="317" width="560" height="234"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -256,6 +254,64 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g76-tb-AZ4" id="3bZ-Cc-ri8">
                                             <rect key="frame" x="0.0" y="0.0" width="580" height="43.5"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-9R-a8R" userLabel="About" customClass="ArtistDetailViewButton" customModule="YFF2016" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="264" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.99595445394515991" green="0.99628978967666626" blue="0.99178355932235718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uOv-HW-D6s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BebasNeue" family="Bebas Neue" pointSize="18"/>
+                                <state key="normal" title="About"/>
+                                <connections>
+                                    <action selector="aboutButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="R45-wZ-aHj"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="441-9V-kGr" userLabel="Artist About Scroll View">
+                                <rect key="frame" x="20" y="314" width="560" height="237"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBG-BU-9k2" userLabel="Artist About Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="0.0"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-sp-NyK" userLabel="Artist Summary View">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="0.0"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="bpV-sp-NyK" firstAttribute="top" secondItem="KBG-BU-9k2" secondAttribute="top" id="6fP-A5-dQO"/>
+                                            <constraint firstAttribute="bottom" secondItem="bpV-sp-NyK" secondAttribute="bottom" id="Skf-QS-uh1"/>
+                                            <constraint firstAttribute="trailing" secondItem="bpV-sp-NyK" secondAttribute="trailing" id="XLd-zN-ELV"/>
+                                            <constraint firstItem="bpV-sp-NyK" firstAttribute="leading" secondItem="KBG-BU-9k2" secondAttribute="leading" id="bE7-My-f9Y"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KBG-BU-9k2" firstAttribute="leading" secondItem="441-9V-kGr" secondAttribute="leading" id="2eG-r3-aFY"/>
+                                    <constraint firstItem="KBG-BU-9k2" firstAttribute="leading" secondItem="441-9V-kGr" secondAttribute="leading" constant="160" id="ScQ-kv-Qt8"/>
+                                    <constraint firstItem="KBG-BU-9k2" firstAttribute="top" secondItem="441-9V-kGr" secondAttribute="top" id="sPh-Lu-b8x"/>
+                                    <constraint firstAttribute="trailing" secondItem="KBG-BU-9k2" secondAttribute="trailing" id="xfs-hY-8aJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ScQ-kv-Qt8"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances">
+                                <rect key="frame" x="20" y="551" width="560" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="PerformanceCell" rowHeight="75" id="g76-tb-AZ4" customClass="ArtistPerformanceTableViewCell" customModule="YFF2016" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g76-tb-AZ4" id="3bZ-Cc-ri8">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="74"/>
+>>>>>>> Stashed changes
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Performance Goes Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-F1-e9e">
@@ -288,35 +344,56 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="0Ob-U7-AZx"/>
-                            <constraint firstItem="Gdc-n6-vv3" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-10" id="5lC-Yh-okp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KBG-BU-9k2" secondAttribute="trailing" id="5Ej-xp-0Nq"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="7L0-Jn-0rx"/>
+<<<<<<< Updated upstream
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="bottom" secondItem="mzR-ns-5Ca" secondAttribute="bottomMargin" id="7UB-yX-rHB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gdc-n6-vv3" secondAttribute="trailing" constant="-10" id="9aB-ia-eRs"/>
+=======
+                            <constraint firstItem="gHY-9R-a8R" firstAttribute="top" secondItem="Gdc-n6-vv3" secondAttribute="bottom" constant="243" id="7yz-4a-K9D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gdc-n6-vv3" secondAttribute="trailing" id="ANx-T5-ksq"/>
+>>>>>>> Stashed changes
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="leading" secondItem="9bm-6i-ds1" secondAttribute="trailing" id="EO6-TZ-mqx"/>
+                            <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="441-9V-kGr" secondAttribute="bottom" id="Efc-H3-Sod"/>
+                            <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="KBG-BU-9k2" secondAttribute="bottom" id="Gc7-lx-4N6"/>
                             <constraint firstItem="gHY-9R-a8R" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="H17-yO-fiK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qnk-BB-aKr" secondAttribute="trailing" constant="-20" id="NSo-99-Pv7"/>
+<<<<<<< Updated upstream
                             <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="FHK-Wj-6pB" secondAttribute="bottom" id="Nj6-1Y-Zfu"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="bottom" secondItem="mzR-ns-5Ca" secondAttribute="bottomMargin" id="PQ9-Qk-ubP"/>
                             <constraint firstItem="Srp-v6-1Fe" firstAttribute="top" secondItem="XP8-Or-wKh" secondAttribute="bottom" id="TSQ-oP-3qC"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="top" constant="20" id="VQg-q6-b0r"/>
                             <constraint firstItem="FHK-Wj-6pB" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-10" id="Vv7-GZ-mFB"/>
                             <constraint firstItem="9bm-6i-ds1" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" constant="-43" id="ZXy-Fr-5Qh"/>
+=======
+                            <constraint firstAttribute="trailingMargin" secondItem="9bm-6i-ds1" secondAttribute="trailing" constant="70" id="PkV-io-aRO"/>
+                            <constraint firstItem="gHY-9R-a8R" firstAttribute="bottom" secondItem="Gdc-n6-vv3" secondAttribute="top" id="Pla-8H-iA9"/>
+                            <constraint firstItem="Srp-v6-1Fe" firstAttribute="top" secondItem="XP8-Or-wKh" secondAttribute="bottom" id="TSQ-oP-3qC"/>
+                            <constraint firstItem="9bm-6i-ds1" firstAttribute="bottom" secondItem="Srp-v6-1Fe" secondAttribute="bottom" constant="-5" id="ZXy-Fr-5Qh"/>
+>>>>>>> Stashed changes
                             <constraint firstItem="qnk-BB-aKr" firstAttribute="width" secondItem="gHY-9R-a8R" secondAttribute="width" id="a7e-qZ-Lml"/>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="trailing" secondItem="mzR-ns-5Ca" secondAttribute="trailingMargin" constant="-10" id="a8E-Nq-YAt"/>
                             <constraint firstAttribute="trailing" secondItem="wH3-D8-jGo" secondAttribute="trailing" constant="-20" id="cEW-hi-TZJ"/>
                             <constraint firstItem="9bm-6i-ds1" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="cr2-tR-udO"/>
+<<<<<<< Updated upstream
                             <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="fZX-HY-Alm"/>
                             <constraint firstAttribute="bottomMargin" secondItem="FHK-Wj-6pB" secondAttribute="bottom" id="hw5-nz-LA1"/>
                             <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="i0n-aN-cat"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="ltO-ct-jHI"/>
+=======
+                            <constraint firstItem="441-9V-kGr" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="hbj-WB-nlg"/>
+                            <constraint firstItem="441-9V-kGr" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="lTj-L9-DcZ"/>
+>>>>>>> Stashed changes
                             <constraint firstItem="Srp-v6-1Fe" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="mS9-02-UoA"/>
+                            <constraint firstItem="Gdc-n6-vv3" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="mg1-S0-dYz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="441-9V-kGr" secondAttribute="trailing" id="p7w-m6-zu7"/>
                             <constraint firstItem="qnk-BB-aKr" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="pq5-BO-4zF"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="s7Q-Zj-nAR"/>
                             <constraint firstItem="gHY-9R-a8R" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="stu-qW-CkU"/>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="bottom" secondItem="mzR-ns-5Ca" secondAttribute="bottomMargin" id="tMg-mN-5Os"/>
+                            <constraint firstItem="KBG-BU-9k2" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="tAg-b9-cET"/>
                             <constraint firstItem="qnk-BB-aKr" firstAttribute="leading" secondItem="gHY-9R-a8R" secondAttribute="trailing" id="v66-CF-z3P"/>
+                            <constraint firstItem="KBG-BU-9k2" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="wB3-wi-ht9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Srp-v6-1Fe" secondAttribute="trailing" constant="-20" id="yjW-rF-tz7"/>
+<<<<<<< Updated upstream
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -327,13 +404,24 @@
                                 <exclude reference="tMg-mN-5Os"/>
                                 <exclude reference="7UB-yX-rHB"/>
                                 <exclude reference="VQg-q6-b0r"/>
+=======
+                            <constraint firstItem="9bm-6i-ds1" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" constant="-43" id="z1S-oD-xtC"/>
+                            <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="Gdc-n6-vv3" secondAttribute="bottom" id="zNd-Fh-DNB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="z1S-oD-xtC"/>
+                                <exclude reference="7yz-4a-K9D"/>
+                                <exclude reference="EO6-TZ-mqx"/>
+>>>>>>> Stashed changes
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="gWd-t5-MCG"/>
                     <connections>
                         <outlet property="artistAboutButton" destination="gHY-9R-a8R" id="JjV-ph-639"/>
-                        <outlet property="artistDescriptionView" destination="FHK-Wj-6pB" id="h4G-mG-ydd"/>
+                        <outlet property="artistAboutScrollView" destination="441-9V-kGr" id="Uk9-QW-ptm"/>
+                        <outlet property="artistDescriptionView" destination="bpV-sp-NyK" id="FDN-iC-vo8"/>
                         <outlet property="artistImage" destination="Srp-v6-1Fe" id="LfJ-Mm-Egk"/>
                         <outlet property="artistNameLabel" destination="9bm-6i-ds1" id="bSu-zo-Lcz"/>
                         <outlet property="artistPerformanceTableView" destination="Gdc-n6-vv3" id="hiM-Lp-DXP"/>
