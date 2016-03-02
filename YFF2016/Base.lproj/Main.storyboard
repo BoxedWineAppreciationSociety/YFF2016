@@ -244,12 +244,6 @@
                                     <action selector="playingTimesButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="JgA-ba-b77"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
-                                <rect key="frame" x="20" y="317" width="560" height="234"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-9R-a8R" userLabel="About" customClass="ArtistDetailViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="264" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.99595445394515991" green="0.99628978967666626" blue="0.99178355932235718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -262,6 +256,29 @@
                                     <action selector="aboutButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="R45-wZ-aHj"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLk-f2-UnH" userLabel="Artist About Scroll View">
+                                <rect key="frame" x="20" y="317" width="560" height="234"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-ft-i7k" userLabel="Artist About Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="234"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-Wj-6pB">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="234"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="FHK-Wj-6pB" secondAttribute="trailing" id="71l-Zy-Qxh"/>
+                                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="L7q-E3-Us1"/>
+                                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="Fyx-ft-i7k" secondAttribute="top" id="Z2f-Xa-fld"/>
+                                            <constraint firstAttribute="bottom" secondItem="FHK-Wj-6pB" secondAttribute="bottom" id="a93-bi-R4d"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </scrollView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances" customClass="ArtistPer">
                                 <rect key="frame" x="10" y="317" width="580" height="283"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -321,37 +338,35 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="0Ob-U7-AZx"/>
+                            <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="Fyx-ft-i7k" secondAttribute="bottom" id="43p-rU-luC"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-10" id="5lC-Yh-okp"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="7L0-Jn-0rx"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="bottom" secondItem="mzR-ns-5Ca" secondAttribute="bottomMargin" id="7UB-yX-rHB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FHK-Wj-6pB" secondAttribute="trailing" id="8zh-ba-Wuo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gdc-n6-vv3" secondAttribute="trailing" constant="-10" id="9aB-ia-eRs"/>
+                            <constraint firstItem="HLk-f2-UnH" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="AjI-MY-BSR"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="leading" secondItem="9bm-6i-ds1" secondAttribute="trailing" id="EO6-TZ-mqx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HLk-f2-UnH" secondAttribute="trailing" id="Fmb-IK-OuC"/>
                             <constraint firstItem="gHY-9R-a8R" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="H17-yO-fiK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fyx-ft-i7k" secondAttribute="trailing" id="LO1-Rt-7rK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qnk-BB-aKr" secondAttribute="trailing" constant="-20" id="NSo-99-Pv7"/>
-                            <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="FHK-Wj-6pB" secondAttribute="bottom" id="Nj6-1Y-Zfu"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="bottom" secondItem="mzR-ns-5Ca" secondAttribute="bottomMargin" id="PQ9-Qk-ubP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9bm-6i-ds1" secondAttribute="trailing" constant="70" id="PkV-io-aRO"/>
                             <constraint firstItem="Srp-v6-1Fe" firstAttribute="top" secondItem="XP8-Or-wKh" secondAttribute="bottom" id="TSQ-oP-3qC"/>
+                            <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="HLk-f2-UnH" secondAttribute="bottom" id="UZG-QN-lOL"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="top" constant="20" id="VQg-q6-b0r"/>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-10" id="Vv7-GZ-mFB"/>
                             <constraint firstItem="9bm-6i-ds1" firstAttribute="bottom" secondItem="Srp-v6-1Fe" secondAttribute="bottom" constant="-5" id="ZXy-Fr-5Qh"/>
                             <constraint firstItem="qnk-BB-aKr" firstAttribute="width" secondItem="gHY-9R-a8R" secondAttribute="width" id="a7e-qZ-Lml"/>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="trailing" secondItem="mzR-ns-5Ca" secondAttribute="trailingMargin" constant="-10" id="a8E-Nq-YAt"/>
                             <constraint firstAttribute="trailing" secondItem="wH3-D8-jGo" secondAttribute="trailing" constant="-20" id="cEW-hi-TZJ"/>
+                            <constraint firstItem="HLk-f2-UnH" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="cIB-Nt-QYl"/>
                             <constraint firstItem="9bm-6i-ds1" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="cr2-tR-udO"/>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="fZX-HY-Alm"/>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="ffa-fN-R1L"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="FHK-Wj-6pB" secondAttribute="bottom" id="hw5-nz-LA1"/>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="i0n-aN-cat"/>
+                            <constraint firstItem="Fyx-ft-i7k" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="emn-f8-fP2"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="ltO-ct-jHI"/>
                             <constraint firstItem="Srp-v6-1Fe" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="mS9-02-UoA"/>
                             <constraint firstItem="qnk-BB-aKr" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="pq5-BO-4zF"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="s7Q-Zj-nAR"/>
                             <constraint firstItem="gHY-9R-a8R" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" id="stu-qW-CkU"/>
-                            <constraint firstItem="FHK-Wj-6pB" firstAttribute="bottom" secondItem="mzR-ns-5Ca" secondAttribute="bottomMargin" id="tMg-mN-5Os"/>
                             <constraint firstItem="qnk-BB-aKr" firstAttribute="leading" secondItem="gHY-9R-a8R" secondAttribute="trailing" id="v66-CF-z3P"/>
+                            <constraint firstItem="Fyx-ft-i7k" firstAttribute="top" secondItem="gHY-9R-a8R" secondAttribute="bottom" constant="3" id="wPW-iE-Nwa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Srp-v6-1Fe" secondAttribute="trailing" constant="-20" id="yjW-rF-tz7"/>
                             <constraint firstItem="9bm-6i-ds1" firstAttribute="top" secondItem="Srp-v6-1Fe" secondAttribute="bottom" constant="-43" id="z1S-oD-xtC"/>
                         </constraints>
@@ -361,12 +376,6 @@
                                 <exclude reference="EO6-TZ-mqx"/>
                                 <exclude reference="7UB-yX-rHB"/>
                                 <exclude reference="VQg-q6-b0r"/>
-                                <exclude reference="Vv7-GZ-mFB"/>
-                                <exclude reference="a8E-Nq-YAt"/>
-                                <exclude reference="fZX-HY-Alm"/>
-                                <exclude reference="hw5-nz-LA1"/>
-                                <exclude reference="i0n-aN-cat"/>
-                                <exclude reference="tMg-mN-5Os"/>
                             </mask>
                         </variation>
                     </view>
@@ -374,6 +383,7 @@
                     <connections>
                         <outlet property="artistAboutButton" destination="gHY-9R-a8R" id="JjV-ph-639"/>
                         <outlet property="artistDescriptionView" destination="FHK-Wj-6pB" id="h4G-mG-ydd"/>
+                        <outlet property="artistDetailScrollView" destination="HLk-f2-UnH" id="tam-7j-lC1"/>
                         <outlet property="artistImage" destination="Srp-v6-1Fe" id="LfJ-Mm-Egk"/>
                         <outlet property="artistNameLabel" destination="9bm-6i-ds1" id="bSu-zo-Lcz"/>
                         <outlet property="artistPerformanceTableView" destination="Gdc-n6-vv3" id="hiM-Lp-DXP"/>
