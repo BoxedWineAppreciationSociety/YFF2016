@@ -17,7 +17,6 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var artistPlayingTimesButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPerformanceTableView: UITableView!
     @IBOutlet weak var artistDetailScrollView: UIScrollView!
-    @IBOutlet weak var artistSocialLinksContentView: UIView!
     
 
     @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
