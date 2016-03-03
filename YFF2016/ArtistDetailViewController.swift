@@ -12,11 +12,12 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
 
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var artistDescriptionView: UITextView!
     @IBOutlet weak var artistAboutButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPlayingTimesButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPerformanceTableView: UITableView!
     @IBOutlet weak var artistDetailScrollView: UIScrollView!
+    @IBOutlet weak var artistDescriptionView: UILabel!
+    @IBOutlet weak var artistSocialLinksView: UIScrollView!
     
 
     @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
@@ -84,7 +85,6 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        artistDescriptionView.setContentOffset(CGPoint.zero, animated:false)
     }
     
 
@@ -125,6 +125,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistNameLabel.layer.shadowOpacity = 1.0
         
         self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 16)
+        self.artistDescriptionView.backgroundColor = UIColor.clearColor()
     }
     
     func loadPerformancesForDay(day: String) {
@@ -167,10 +168,14 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
 
         self.artistNameLabel.text = artist?.name
         
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 5
-        let attributes = [NSParagraphStyleAttributeName : style]
-        self.artistDescriptionView.attributedText = NSAttributedString(string: (artist?.summary)!, attributes:attributes)
+        // Slightly complicated way to display the description. 
+        // But this gives us the correct line height
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 6
+        let artistDescription = NSMutableAttributedString(string: (artist?.summary)!)
+        artistDescription.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, artistDescription.length))
+        
+        self.artistDescriptionView.attributedText = artistDescription
 
         if let imageFileName = artist?.imageName {
             if let imageForArtist = UIImage(named: imageFileName) {
