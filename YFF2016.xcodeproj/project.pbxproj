@@ -44,6 +44,7 @@
 		43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BE61C2B99450075F92B /* YFFTabBarController.swift */; };
 		43EBB8031C4F82690024E713 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */; };
 		43EBB8051C4F91260024E713 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBB8041C4F91260024E713 /* Artist.swift */; };
+		43F0B0BB1C881EA800A318CC /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F0B0BA1C881EA800A318CC /* SocialButton.swift */; };
 		43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */; };
 		43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA491C44F8B1005E937F /* ProgramViewController.swift */; };
 		43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */; };
@@ -112,6 +113,7 @@
 		43E17BE61C2B99450075F92B /* YFFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFTabBarController.swift; sourceTree = "<group>"; };
 		43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
 		43EBB8041C4F91260024E713 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = ../Artist.swift; sourceTree = "<group>"; };
+		43F0B0BA1C881EA800A318CC /* SocialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+YFFMain.swift"; sourceTree = "<group>"; };
 		43F2DA491C44F8B1005E937F /* ProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewButton.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */,
 				43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */,
 				43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */,
+				43F0B0BA1C881EA800A318CC /* SocialButton.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */,
 				43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */,
 				43EBB8031C4F82690024E713 /* ArtistDetailViewController.swift in Sources */,
+				43F0B0BB1C881EA800A318CC /* SocialButton.swift in Sources */,
 				43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */,
 				43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */,
 				43B4C19C1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift in Sources */,

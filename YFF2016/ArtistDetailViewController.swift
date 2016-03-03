@@ -12,11 +12,13 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
 
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var artistDescriptionView: UITextView!
     @IBOutlet weak var artistAboutButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPlayingTimesButton: ArtistDetailViewButton!
     @IBOutlet weak var artistPerformanceTableView: UITableView!
     @IBOutlet weak var artistDetailScrollView: UIScrollView!
+    @IBOutlet weak var artistDescriptionView: UILabel!
+    @IBOutlet weak var artistSocialLinksView: UIScrollView!
+    @IBOutlet weak var artistLinksLabel: UILabel!
     
 
     @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
@@ -42,6 +44,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     var artist: Artist?
     var artistPerformances = [Performance]()
+    var validArtistSocialLinks = [[String: String]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +60,51 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         loadPerformancesForDay("sat")
         loadPerformancesForDay("sun")
         sortPerformances()
+        
+        setupSocialButtons()
 
     }
+    
+    func setupSocialButtons() {
+        if let artistSocialLinks = artist?.socialLinks(){
+            for link in artistSocialLinks {
+                if (!link.values.first!!.isEmpty){
+                    let key = link.keys.first
+                    let value = link.values.first
+                    validArtistSocialLinks.append([key!: value!!])
+                }
+            }
+        }
+        
+        if validArtistSocialLinks.count > 0 {
+            let buttonViewSpace: CGFloat = 10
+            let buttonWidth: CGFloat = 60
+            
+            for index in 0...(validArtistSocialLinks.count - 1) {
+                let x = CGFloat(index) * (buttonWidth + buttonViewSpace)
+                let socialLink = validArtistSocialLinks[index]
+                
+                let button = SocialButton(frame: CGRectMake(x, 0, buttonWidth, buttonWidth))
+                button.setup(socialLink.keys.first!)
+                button.layer.cornerRadius = buttonWidth / 2
+                button.url = socialLink.values.first!
+                button.addTarget(self, action: "socialButtonTouchedUpInside:", forControlEvents: .TouchUpInside)
+                self.artistSocialLinksView.addSubview(button)
+            }
+            
+            self.artistSocialLinksView.contentSize = CGSizeMake(CGFloat(validArtistSocialLinks.count) * (buttonWidth + buttonViewSpace), buttonWidth)
+            
+        } else {
+            self.artistLinksLabel.hidden = true
+            
+        }
+        
+    }
+    
+    func socialButtonTouchedUpInside(button: SocialButton) {
+        UIApplication.sharedApplication().openURL(NSURL(string: button.url!)!)
+    }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
@@ -70,7 +116,6 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        artistDescriptionView.setContentOffset(CGPoint.zero, animated:false)
     }
     
 
@@ -111,6 +156,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistNameLabel.layer.shadowOpacity = 1.0
         
         self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 16)
+        self.artistDescriptionView.backgroundColor = UIColor.clearColor()
     }
     
     func loadPerformancesForDay(day: String) {
@@ -153,10 +199,14 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
 
         self.artistNameLabel.text = artist?.name
         
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 5
-        let attributes = [NSParagraphStyleAttributeName : style]
-        self.artistDescriptionView.attributedText = NSAttributedString(string: (artist?.summary)!, attributes:attributes)
+        // Slightly complicated way to display the description. 
+        // But this gives us the correct line height
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 6
+        let artistDescription = NSMutableAttributedString(string: (artist?.summary)!)
+        artistDescription.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, artistDescription.length))
+        
+        self.artistDescriptionView.attributedText = artistDescription
 
         if let imageFileName = artist?.imageName {
             if let imageForArtist = UIImage(named: imageFileName) {

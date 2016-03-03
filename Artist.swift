@@ -14,13 +14,26 @@ class Artist {
     var summary = ""
     var imageName: String?
     var facebookURL: String?
+    var instagramURL: String?
+    var websiteURL: String?
+    var youtubeURL: String?
+    var iTunesURL: String?
+    var soundCloudURL: String?
+    var twitterURL: String?
     
     init(attributes: [String: AnyObject]) {
         self.id = attributes["id"] as! String
         self.name = attributes["name"] as! String
         self.summary = attributes["summary"] as! String
         self.imageName = attributes["image_name"] as? String
+        
         self.facebookURL = attributes["facebook"] as? String
+        self.twitterURL = attributes["twitter"] as? String
+        self.instagramURL = attributes["instagram"] as? String
+        self.youtubeURL = attributes["youtube"] as? String
+        self.iTunesURL = attributes["itunes"] as? String
+        self.soundCloudURL = attributes["soundcloud"] as? String
+        self.websiteURL = attributes["website"] as? String
     }
     
     init() {
@@ -46,5 +59,17 @@ class Artist {
         } catch {
             self.init()
         }
+    }
+    
+    func socialLinks() -> [[String: String?]] {
+       return [
+            ["websiteLink": self.websiteURL],
+            ["facebookLink": self.facebookURL],
+            ["twitterLink": self.twitterURL],
+            ["youtubeLink": self.youtubeURL],
+            ["iTunesLink": self.iTunesURL],
+            ["soundCloudLink": self.soundCloudURL],
+            ["instagramLink": self.instagramURL]
+        ]
     }
 }
