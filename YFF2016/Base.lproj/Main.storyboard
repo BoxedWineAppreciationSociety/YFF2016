@@ -46,7 +46,14 @@
                         </connections>
                     </scrollView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="zoW-7H-bKD"/>
+                    <navigationItem key="navigationItem" id="zoW-7H-bKD">
+                        <barButtonItem key="rightBarButtonItem" image="mapShare" id="6Ba-jN-MVG">
+                            <color key="tintColor" red="0.99595445394515991" green="0.99628978967666626" blue="0.99178355932235718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="mapShareButtonTouchedUpInside:" destination="aBm-93-GZr" id="xIR-4K-muZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="0yp-mT-eeR" id="56e-aQ-86J"/>
                     </connections>
@@ -851,6 +858,7 @@ MAR 20</string>
         <image name="feedIconWhite" width="14" height="14"/>
         <image name="feedTabBarImage" width="20" height="20"/>
         <image name="mapIconWhite" width="17" height="22"/>
+        <image name="mapShare" width="19" height="19"/>
         <image name="mapTabBarImage" width="20" height="27"/>
         <image name="programIconWhite" width="12" height="19"/>
         <image name="programTabBarImage" width="16" height="27"/>

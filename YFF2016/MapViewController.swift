@@ -11,6 +11,10 @@ import UIKit
 class MapViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var scrollView: UIScrollView!
     
+    @IBAction func mapShareButtonTouchedUpInside(sender: UIBarButtonItem) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://yackfolkfestival.com")!)
+    }
+    
     var mapImageView: UIImageView!
     
     let enhanceFactor: CGFloat = 1.75
