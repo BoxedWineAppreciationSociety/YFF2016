@@ -78,7 +78,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         
         if validArtistSocialLinks.count > 0 {
             let buttonViewSpace: CGFloat = 10
-            let buttonWidth: CGFloat = 60
+            let buttonWidth: CGFloat = 50
             
             for index in 0...(validArtistSocialLinks.count - 1) {
                 let x = CGFloat(index) * (buttonWidth + buttonViewSpace)
