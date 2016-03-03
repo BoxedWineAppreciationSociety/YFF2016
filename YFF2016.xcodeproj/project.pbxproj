@@ -32,6 +32,7 @@
 		43C5A6281C25295600222D23 /* YFF2016Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6271C25295600222D23 /* YFF2016Tests.swift */; };
 		43C5A6331C25295600222D23 /* YFF2016UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6321C25295600222D23 /* YFF2016UITests.swift */; };
 		43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6411C276F8E00222D23 /* MapViewController.swift */; };
+		43D038651C884490004661C1 /* MadeWithLoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D038641C884490004661C1 /* MadeWithLoveViewController.swift */; };
 		43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */; };
 		43E17BDD1C2B96420075F92B /* Archer Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BD61C2B96420075F92B /* Archer Bold.ttf */; };
 		43E17BDE1C2B96420075F92B /* BebasNeueBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43E17BD71C2B96420075F92B /* BebasNeueBold.otf */; };
@@ -101,6 +102,7 @@
 		43C5A6321C25295600222D23 /* YFF2016UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YFF2016UITests.swift; sourceTree = "<group>"; };
 		43C5A6341C25295600222D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C5A6411C276F8E00222D23 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		43D038641C884490004661C1 /* MadeWithLoveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadeWithLoveViewController.swift; sourceTree = "<group>"; };
 		43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YFFNavigationController.swift; sourceTree = "<group>"; };
 		43E17BD61C2B96420075F92B /* Archer Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Archer Bold.ttf"; sourceTree = "<group>"; };
 		43E17BD71C2B96420075F92B /* BebasNeueBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeueBold.otf; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */,
 				43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */,
 				43F0B0BA1C881EA800A318CC /* SocialButton.swift */,
+				43D038641C884490004661C1 /* MadeWithLoveViewController.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			files = (
 				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
 				4343CE5D1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift in Sources */,
+				43D038651C884490004661C1 /* MadeWithLoveViewController.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
 				439680AC1C6C6BD0008E35A4 /* json.swift in Sources */,
 				4322FE621C732BFF003B0775 /* Constants.swift in Sources */,

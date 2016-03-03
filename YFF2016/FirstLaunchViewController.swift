@@ -14,6 +14,7 @@ class FirstLaunchViewController: UIViewController {
     @IBOutlet weak var artistsButton: UIButton!
     @IBOutlet weak var feedButton: UIButton!
     
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -34,9 +35,16 @@ class FirstLaunchViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationViewController = segue.destinationViewController as! YFFTabBarController
+        let button = sender as! UIButton
         
-        destinationViewController.incomingSegueIdentifier = segue.identifier
+        if button.restorationIdentifier! == "MadeWithLove" {
+            super.prepareForSegue(segue, sender: sender)
+
+        } else {
+            let destinationViewController = segue.destinationViewController as! YFFTabBarController
+            
+            destinationViewController.incomingSegueIdentifier = segue.identifier
+        }
     }
 
     /*
