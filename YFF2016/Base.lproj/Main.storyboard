@@ -21,6 +21,7 @@
             <string>BebasNeueRegular</string>
             <string>BebasNeueRegular</string>
             <string>BebasNeueRegular</string>
+            <string>BebasNeueRegular</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
@@ -244,15 +245,15 @@
                                     <action selector="playingTimesButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="JgA-ba-b77"/>
                                 </connections>
                             </button>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances" customClass="ArtistPer">
-                                <rect key="frame" x="-76" y="60" width="49" height="47"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances">
+                                <rect key="frame" x="-40" y="78" width="11" height="7"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="PerformanceCell" rowHeight="75" id="g76-tb-AZ4" customClass="ArtistPerformanceTableViewCell" customModule="YFF2016" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="49" height="75"/>
+                                        <rect key="frame" x="0.0" y="28" width="11" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g76-tb-AZ4" id="3bZ-Cc-ri8">
-                                            <rect key="frame" x="0.0" y="0.0" width="49" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="11" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8T-FG-L9z">
@@ -318,12 +319,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-ft-i7k" userLabel="Artist About Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="234"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-0K-RDK">
-                                                <rect key="frame" x="0.0" y="141" width="560" height="100"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="fag-vi-oMd"/>
-                                                </constraints>
-                                            </scrollView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcS-6b-70A">
                                                 <rect key="frame" x="0.0" y="20" width="560" height="121"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -331,16 +326,37 @@
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-0K-RDK">
+                                                <rect key="frame" x="0.0" y="197" width="560" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="fag-vi-oMd"/>
+                                                </constraints>
+                                            </scrollView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTm-Ir-qvs">
+                                                <rect key="frame" x="0.0" y="161" width="560" height="26"/>
+                                                <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="UTm-Ir-qvs" secondAttribute="trailing" id="2yB-Zg-7CL"/>
                                             <constraint firstItem="f5K-0K-RDK" firstAttribute="top" secondItem="RcS-6b-70A" secondAttribute="bottom" id="Clg-gP-58U"/>
                                             <constraint firstItem="f5K-0K-RDK" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="Eo4-4E-W1z"/>
                                             <constraint firstItem="RcS-6b-70A" firstAttribute="top" secondItem="Fyx-ft-i7k" secondAttribute="top" constant="20" id="Ku2-8b-YPW"/>
+                                            <constraint firstItem="UTm-Ir-qvs" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="SHm-8C-kwN"/>
                                             <constraint firstAttribute="trailing" secondItem="RcS-6b-70A" secondAttribute="trailing" id="cff-ed-jmH"/>
+                                            <constraint firstItem="f5K-0K-RDK" firstAttribute="top" secondItem="UTm-Ir-qvs" secondAttribute="bottom" constant="10" id="fDK-Oy-H35"/>
                                             <constraint firstAttribute="trailing" secondItem="f5K-0K-RDK" secondAttribute="trailing" id="vaf-5A-bde"/>
                                             <constraint firstItem="RcS-6b-70A" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="vot-1t-bHb"/>
+                                            <constraint firstItem="UTm-Ir-qvs" firstAttribute="top" secondItem="RcS-6b-70A" secondAttribute="bottom" constant="20" id="zmP-GR-3Es"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Clg-gP-58U"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -394,6 +410,7 @@
                         <outlet property="artistDescriptionView" destination="RcS-6b-70A" id="5OC-2F-lu3"/>
                         <outlet property="artistDetailScrollView" destination="HLk-f2-UnH" id="tam-7j-lC1"/>
                         <outlet property="artistImage" destination="Srp-v6-1Fe" id="LfJ-Mm-Egk"/>
+                        <outlet property="artistLinksLabel" destination="UTm-Ir-qvs" id="kGv-00-GKL"/>
                         <outlet property="artistNameLabel" destination="9bm-6i-ds1" id="bSu-zo-Lcz"/>
                         <outlet property="artistPerformanceTableView" destination="Gdc-n6-vv3" id="hiM-Lp-DXP"/>
                         <outlet property="artistPlayingTimesButton" destination="qnk-BB-aKr" id="Xq4-y5-a3D"/>

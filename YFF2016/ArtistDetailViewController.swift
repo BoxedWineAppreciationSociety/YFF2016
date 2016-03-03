@@ -18,6 +18,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var artistDetailScrollView: UIScrollView!
     @IBOutlet weak var artistDescriptionView: UILabel!
     @IBOutlet weak var artistSocialLinksView: UIScrollView!
+    @IBOutlet weak var artistLinksLabel: UILabel!
     
 
     @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
@@ -43,6 +44,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     var artist: Artist?
     var artistPerformances = [Performance]()
+    var validArtistSocialLinks = [[String: String]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,12 +69,41 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         if let artistSocialLinks = artist?.socialLinks(){
             for link in artistSocialLinks {
                 if (!link.values.first!!.isEmpty){
-                    print("\(link.keys.first!): \(link.values.first as String!!)")
+                    let key = link.keys.first
+                    let value = link.values.first
+                    validArtistSocialLinks.append([key!: value!!])
                 }
             }
         }
+        
+        if validArtistSocialLinks.count > 0 {
+            let buttonViewSpace: CGFloat = 10
+            let buttonWidth: CGFloat = 60
+            
+            for index in 0...(validArtistSocialLinks.count - 1) {
+                let x = CGFloat(index) * (buttonWidth + buttonViewSpace)
+                let socialLink = validArtistSocialLinks[index]
+                
+                let button = SocialButton(frame: CGRectMake(x, 0, buttonWidth, buttonWidth))
+                button.setup(socialLink.keys.first!)
+                button.layer.cornerRadius = buttonWidth / 2
+                button.url = socialLink.values.first!
+                button.addTarget(self, action: "socialButtonTouchedUpInside:", forControlEvents: .TouchUpInside)
+                self.artistSocialLinksView.addSubview(button)
+            }
+            
+            self.artistSocialLinksView.contentSize = CGSizeMake(CGFloat(validArtistSocialLinks.count) * (buttonWidth + buttonViewSpace), buttonWidth)
+            
+        } else {
+            self.artistLinksLabel.hidden = true
+            
+        }
+        
     }
     
+    func socialButtonTouchedUpInside(button: SocialButton) {
+        UIApplication.sharedApplication().openURL(NSURL(string: button.url!)!)
+    }
     
     
     override func viewWillAppear(animated: Bool) {
