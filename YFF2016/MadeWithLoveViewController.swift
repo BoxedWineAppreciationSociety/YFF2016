@@ -11,6 +11,10 @@ import UIKit
 @available(iOS 8.0, *)
 class MadeWithLoveViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
+    @IBAction func closePopover(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

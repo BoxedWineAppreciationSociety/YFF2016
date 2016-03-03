@@ -752,10 +752,10 @@ MAR 20</string>
             </objects>
             <point key="canvasLocation" x="-2069" y="185"/>
         </scene>
-        <!--View Controller-->
+        <!--Made With Love View Controller-->
         <scene sceneID="Cx9-ic-y7p">
             <objects>
-                <viewController id="ix4-iC-Ev0" sceneMemberID="viewController">
+                <viewController id="ix4-iC-Ev0" customClass="MadeWithLoveViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yg3-fd-cjk"/>
                         <viewControllerLayoutGuide type="bottom" id="v6s-rA-KFM"/>
@@ -764,8 +764,8 @@ MAR 20</string>
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BoxedWine" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-XD-vgg">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="0.0"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BoxedWine" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-XD-vgg">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="zdC-St-xWC"/>
                                 </constraints>
@@ -784,6 +784,13 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6VN-tH-fC7">
+                                <rect key="frame" x="355" y="10" width="15" height="22"/>
+                                <state key="normal" image="cross"/>
+                                <connections>
+                                    <action selector="closePopover:" destination="ix4-iC-Ev0" eventType="touchUpInside" id="JME-dh-VtU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -793,7 +800,9 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
                             <constraint firstItem="TmS-XD-vgg" firstAttribute="top" secondItem="yg3-fd-cjk" secondAttribute="bottom" id="C8X-Sq-XiI"/>
                             <constraint firstItem="TmS-XD-vgg" firstAttribute="leading" secondItem="8BH-PM-OCL" secondAttribute="leading" id="DQM-8g-39g"/>
                             <constraint firstItem="YIn-0C-Hqy" firstAttribute="top" secondItem="TmS-XD-vgg" secondAttribute="bottom" constant="80" id="FEN-I2-Otx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6VN-tH-fC7" secondAttribute="trailing" constant="10" id="IfW-0M-nkS"/>
                             <constraint firstItem="YIn-0C-Hqy" firstAttribute="leading" secondItem="8BH-PM-OCL" secondAttribute="leadingMargin" id="YHI-Od-Ycd"/>
+                            <constraint firstItem="6VN-tH-fC7" firstAttribute="top" secondItem="yg3-fd-cjk" secondAttribute="bottom" constant="10" id="v1v-wM-Sdg"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -938,6 +947,7 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
         <image name="artistsIconWhite" width="18" height="24"/>
         <image name="artistsTabBarImage" width="20" height="27"/>
         <image name="bunting" width="320" height="121"/>
+        <image name="cross" width="15" height="14"/>
         <image name="feedIconWhite" width="14" height="14"/>
         <image name="feedTabBarImage" width="20" height="20"/>
         <image name="madeWithLove" width="50" height="9"/>
