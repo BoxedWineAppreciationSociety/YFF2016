@@ -58,7 +58,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let screenWidth = UIScreen.mainScreen().bounds.width
-        let cellWidth = screenWidth * 0.40
+        let cellWidth = screenWidth * 0.44
         
         return CGSizeMake(cellWidth, cellWidth)
     }
