@@ -120,7 +120,6 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if let viewController = segue.destinationViewController as? ArtistDetailViewController {
             viewController.artist = self.selectedArtist
         }

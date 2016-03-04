@@ -32,13 +32,19 @@ class PerformanceCell: UITableViewCell {
         self.artistNameLabel.text = nil
         self.performanceTimeLabel.text = nil
         self.performanceStageLabel.text = nil
+        self.performanceCellThumb.image = nil
     }
     
     func setup(performance: Performance) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         
-        self.performanceCellThumb.image = UIImage(named: (performance.artist?.imageName)!)
+        if let artistImage = UIImage(named: (performance.artist?.imageName)!) {
+            self.performanceCellThumb.image = artistImage
+        } else {
+            self.performanceCellThumb.image = UIImage(named: "artistPlaceholder")
+        }
+        
         self.artistNameLabel.text = performance.artist?.name
         self.performanceStageLabel.text = performance.stage
         self.performanceTimeLabel.text = dateFormatter.stringFromDate(performance.time!)

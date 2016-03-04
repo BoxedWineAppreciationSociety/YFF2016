@@ -41,11 +41,10 @@ class Artist {
     }
     
     convenience init(id: String) {
-        let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json")
-        let jsonData = NSData(contentsOfURL: jsonFile!)
+        let jsonData = JSONLoader.fetchArtistData()
         
         do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
             if let artistsDictionary = json["artists"] as? [[String: String]] {
                 let attributes = artistsDictionary.filter({ (dic: [String: String]) -> Bool in
                     return dic["id"] == id
