@@ -139,5 +139,20 @@ class JSONLoader: NSObject {
         }
        fatalError("Failed to find JSON")
     }
+    
+    class func fetchArtistData() -> NSData {
+        let fileName = "artists_remote.json"
+        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
+        let fileManager = NSFileManager.defaultManager()
+        
+        if (fileManager.fileExistsAtPath(jsonFilePath)) {
+            return NSData(contentsOfFile: jsonFilePath)!
+        } else {
+            if let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json") {
+                return NSData(contentsOfURL: jsonFile)!
+            }
+        }
+       fatalError("Failed to find JSON")
+    }
 
 }

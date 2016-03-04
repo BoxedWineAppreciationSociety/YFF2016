@@ -31,22 +31,10 @@ class ArtistListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let fileName = "artists_remote.json"
-        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
-        let fileManager = NSFileManager.defaultManager()
-        var jsonData: NSData?
-        
-        if (fileManager.fileExistsAtPath(jsonFilePath)) {
-            jsonData = NSData(contentsOfFile: jsonFilePath)
-        } else {
-            if let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json") {
-                jsonData = NSData(contentsOfURL: jsonFile)
-            }
-        }
+        let jsonData = JSONLoader.fetchArtistData()
         
         do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
             if let artistsDictionary = json as? [String: AnyObject] {
                 generateArtists(artistsDictionary)
             }
