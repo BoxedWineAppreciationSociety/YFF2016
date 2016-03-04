@@ -133,7 +133,7 @@ class JSONLoader: NSObject {
         if (fileManager.fileExistsAtPath(jsonFilePath)) {
             return NSData(contentsOfFile: jsonFilePath)!
         } else {
-            if let jsonFile = NSBundle.mainBundle().URLForResource("\(day)_performances", withExtension: "json") {
+            if let jsonFile = NSBundle.mainBundle().URLForResource("\(day.lowercaseString)_performances", withExtension: "json") {
                 return NSData(contentsOfURL: jsonFile)!
             }
         }
