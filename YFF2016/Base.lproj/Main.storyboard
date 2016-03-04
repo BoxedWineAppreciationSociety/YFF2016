@@ -539,7 +539,7 @@ MAR 20</string>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-nZ-2eG">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artistPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-nZ-2eG">
                                                     <rect key="frame" x="8" y="16" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="ATR-fw-USk"/>
@@ -752,7 +752,7 @@ MAR 20</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbk-7l-Da4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2069" y="185"/>
+            <point key="canvasLocation" x="-2069" y="163"/>
         </scene>
         <!--Made With Love View Controller-->
         <scene sceneID="bSs-hZ-7Ym">
@@ -997,6 +997,6 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f9F-Uz-FVe"/>
-        <segue reference="6VO-9p-S81"/>
+        <segue reference="U7J-LC-bvT"/>
     </inferredMetricsTieBreakers>
 </document>
