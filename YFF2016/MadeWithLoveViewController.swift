@@ -10,20 +10,34 @@ import UIKit
 
 @available(iOS 8.0, *)
 class MadeWithLoveViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+    
+    @IBOutlet var backgroundView: UIView!
 
     @IBAction func closePopover(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        closeModal()
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: "closeModal")
+        singleTapRecognizer.numberOfTapsRequired = 1
 
-        // Do any additional setup after loading the view.
+        backgroundView.addGestureRecognizer(singleTapRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func closeModal() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     /*

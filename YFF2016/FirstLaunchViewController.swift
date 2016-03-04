@@ -39,6 +39,14 @@ class FirstLaunchViewController: UIViewController {
         
         if button.restorationIdentifier! == "MadeWithLove" {
             super.prepareForSegue(segue, sender: sender)
+            
+            if #available(iOS 8.0, *) {
+                segue.destinationViewController.modalPresentationStyle = .OverCurrentContext
+            } else {
+                segue.destinationViewController.modalPresentationStyle = .CurrentContext
+            }
+            
+            segue.destinationViewController.modalTransitionStyle = .CrossDissolve
 
         } else {
             let destinationViewController = segue.destinationViewController as! YFFTabBarController
