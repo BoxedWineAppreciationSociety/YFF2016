@@ -81,7 +81,7 @@
 		4324437B1C6200890045A661 /* fri_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fri_performances.json; sourceTree = "<group>"; };
 		4324437D1C6203650045A661 /* PerformanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
 		4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionHeaderViewCollectionReusableView.swift; sourceTree = "<group>"; };
-		436C71C31C90E68600E65AC0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		436C71C31C90E68600E65AC0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		439680AB1C6C6BD0008E35A4 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
@@ -92,6 +92,7 @@
 		43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewButton.swift; sourceTree = "<group>"; };
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
 		43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistPerformanceTableViewCell.swift; sourceTree = "<group>"; };
+		43B824D91C90E7E60016EFF8 /* YFF2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YFF2016-Bridging-Header.h"; sourceTree = "<group>"; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C5A6111C25295600222D23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 				43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */,
 				43F0B0BA1C881EA800A318CC /* SocialButton.swift */,
 				43D038641C884490004661C1 /* MadeWithLoveViewController.swift */,
+				43B824D91C90E7E60016EFF8 /* YFF2016-Bridging-Header.h */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -647,6 +649,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yackfolkfestival.yff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b4a7018e-00c1-4432-90a0-965b4ec543b6";
+				SWIFT_OBJC_BRIDGING_HEADER = "YFF2016/YFF2016-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -664,6 +667,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yackfolkfestival.yff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b4a7018e-00c1-4432-90a0-965b4ec543b6";
+				SWIFT_OBJC_BRIDGING_HEADER = "YFF2016/YFF2016-Bridging-Header.h";
 			};
 			name = Release;
 		};
