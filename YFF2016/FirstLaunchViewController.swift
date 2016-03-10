@@ -13,7 +13,11 @@ class FirstLaunchViewController: UIViewController {
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var artistsButton: UIButton!
     @IBOutlet weak var feedButton: UIButton!
+    @IBOutlet weak var termsButton: UIButton!
     
+    @IBAction func termsButtonTouchedUpInside(sender: UIButton) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://yackfolkfestival.com/terms-of-use/")!)
+    }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -27,6 +31,7 @@ class FirstLaunchViewController: UIViewController {
         mapButton.backgroundColor = YFFOrange
         artistsButton.backgroundColor = YFFOlive
         feedButton.backgroundColor = YFFTeal
+        feedButton.titleLabel?.tintColor = YFFOlive
     }
 
     override func didReceiveMemoryWarning() {
