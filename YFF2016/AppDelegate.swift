@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UIApplication.sharedApplication().statusBarStyle = .Default
         JSONLoader.loadRemoteJSON()
+        
+        let mixpanel = Mixpanel.sharedInstanceWithToken("fae80bc076f11cf15deb0be67d83c74b")
         return true
     }
     
