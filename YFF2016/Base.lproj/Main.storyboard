@@ -23,6 +23,8 @@
             <string>BebasNeueRegular</string>
             <string>BebasNeueRegular</string>
             <string>BebasNeueRegular</string>
+            <string>BebasNeueRegular</string>
+            <string>BebasNeueRegular</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
@@ -166,9 +168,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="560" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POST YOUR PHOTOS ON INSTAGRAM WITH #YFF16" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gme-yr-do4">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gme-yr-do4">
                                             <rect key="frame" x="58" y="18" width="444" height="94"/>
-                                            <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="30"/>
+                                            <string key="text">FOLLOW US ON INSTAGRAM
+@YACKFOLKFESTIVAL</string>
+                                            <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -184,6 +188,7 @@
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="Kg8-wo-asU"/>
+                                            <exclude reference="wyR-1s-l7r"/>
                                         </mask>
                                     </variation>
                                     <connections>
@@ -198,8 +203,8 @@
                             <constraint firstItem="TeW-Hk-ToT" firstAttribute="leading" secondItem="0mB-PW-U6e" secondAttribute="leading" id="gK3-Xa-uVi"/>
                             <constraint firstAttribute="trailing" secondItem="TeW-Hk-ToT" secondAttribute="trailing" id="gQM-vo-xYf"/>
                             <constraint firstItem="TeW-Hk-ToT" firstAttribute="top" secondItem="0mB-PW-U6e" secondAttribute="top" constant="57" id="hY5-gn-iKa"/>
-                            <constraint firstItem="pFP-W0-ulm" firstAttribute="top" secondItem="ut4-gQ-tNB" secondAttribute="bottom" id="kBa-87-OdE"/>
-                            <constraint firstItem="ut4-gQ-tNB" firstAttribute="top" secondItem="kc5-0J-K2g" secondAttribute="bottom" id="sfU-oP-6oP"/>
+                            <constraint firstItem="pFP-W0-ulm" firstAttribute="top" secondItem="ut4-gQ-tNB" secondAttribute="bottom" id="iwr-Iv-7t3"/>
+                            <constraint firstItem="ut4-gQ-tNB" firstAttribute="top" secondItem="kc5-0J-K2g" secondAttribute="bottom" id="tV2-f7-stF"/>
                             <constraint firstItem="ut4-gQ-tNB" firstAttribute="leading" secondItem="0mB-PW-U6e" secondAttribute="leadingMargin" id="vIl-xZ-igJ"/>
                         </constraints>
                     </view>
@@ -210,7 +215,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26x-i6-eLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="527"/>
+            <point key="canvasLocation" x="1961" y="521"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NRh-B6-FmM">
+            <objects>
+                <viewController id="Ydw-2u-ffd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xee-K0-cdW"/>
+                        <viewControllerLayoutGuide type="bottom" id="u7r-0u-6WH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="quH-0t-w0X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bunting" translatesAutoresizingMaskIntoConstraints="NO" id="dPm-XG-hbQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="121"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Find Out More Below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIA-73-qhv">
+                                <rect key="frame" x="20" y="20" width="560" height="114"/>
+                                <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOr-mi-c4B">
+                                <rect key="frame" x="277" y="219" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzu-fa-dif">
+                                <rect key="frame" x="287" y="229" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyh-h3-0JV">
+                                <rect key="frame" x="297" y="239" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imD-YJ-cxe">
+                                <rect key="frame" x="307" y="249" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dPm-XG-hbQ" firstAttribute="top" secondItem="quH-0t-w0X" secondAttribute="top" id="FwF-JO-bPW"/>
+                            <constraint firstItem="dPm-XG-hbQ" firstAttribute="leading" secondItem="quH-0t-w0X" secondAttribute="leading" id="VrI-vT-DXa"/>
+                            <constraint firstItem="mIA-73-qhv" firstAttribute="top" secondItem="xee-K0-cdW" secondAttribute="bottom" id="mj5-uT-hCa"/>
+                            <constraint firstAttribute="trailing" secondItem="dPm-XG-hbQ" secondAttribute="trailing" id="qvo-Vh-ftW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mIA-73-qhv" secondAttribute="trailing" id="ujP-pX-Vww"/>
+                            <constraint firstItem="mIA-73-qhv" firstAttribute="leading" secondItem="quH-0t-w0X" secondAttribute="leadingMargin" id="w1Q-nI-GRN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ugv-eH-M0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2275" y="1215"/>
         </scene>
         <!--Artist Detail View Controller-->
         <scene sceneID="c1y-di-Mwy">
@@ -636,7 +694,7 @@ MAR 20</string>
                                 <color key="backgroundColor" red="0.11052503436803818" green="0.082952462136745453" blue="0.028040485456585884" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="programView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="185" y="300" width="230" height="50"/>
+                                <rect key="frame" x="185" y="305" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mGD-c7-A18"/>
                                     <constraint firstAttribute="width" constant="230" id="pPo-VO-GGB"/>
@@ -653,7 +711,7 @@ MAR 20</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="mapView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="185" y="360" width="230" height="50"/>
+                                <rect key="frame" x="185" y="365" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Kgw-Rj-w8H"/>
                                     <constraint firstAttribute="width" constant="230" id="VOd-xM-R4g"/>
@@ -668,10 +726,10 @@ MAR 20</string>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchHeader" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-ff-yVg">
-                                <rect key="frame" x="192" y="70" width="237" height="180"/>
+                                <rect key="frame" x="192" y="70" width="237" height="185"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="feedView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-pO-XIB" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="185" y="480" width="230" height="50"/>
+                                <rect key="frame" x="185" y="485" width="230" height="50"/>
                                 <accessibility key="accessibilityConfiguration" label="Feed">
                                     <accessibilityTraits key="traits" button="YES"/>
                                 </accessibility>
@@ -689,7 +747,7 @@ MAR 20</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ArtistsView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="185" y="420" width="230" height="50"/>
+                                <rect key="frame" x="185" y="425" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Eay-4u-6O1"/>
                                     <constraint firstAttribute="width" constant="230" id="ElW-rW-SCX"/>
@@ -703,42 +761,40 @@ MAR 20</string>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="MadeWithLove" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyY-z5-Imf" userLabel="Made With Love">
-                                <rect key="frame" x="275" y="550" width="50" height="30"/>
-                                <accessibility key="accessibilityConfiguration" identifier="madeWithLove"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="dnS-JO-X7C"/>
-                                </constraints>
-                                <state key="normal" image="madeWithLove"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-ag-6bb">
+                                <rect key="frame" x="20" y="567" width="560" height="23"/>
+                                <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
+                                <state key="normal" title="By using this app you agree to our terms of use">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.59690193970000005" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="WbZ-tF-B9Y" kind="presentation" identifier="ShowCredits" id="Wib-gM-Fv7"/>
+                                    <action selector="termsButtonTouchedUpInside:" destination="8oA-xK-UUq" eventType="touchUpInside" id="VKc-Me-ZEf"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xEF-ag-6bb" firstAttribute="leading" secondItem="xEz-5L-WBZ" secondAttribute="leadingMargin" id="1d2-Hk-S35"/>
                             <constraint firstItem="MDM-pO-XIB" firstAttribute="top" secondItem="c4B-Nv-f3V" secondAttribute="bottom" constant="10" id="7MH-by-zNG"/>
                             <constraint firstItem="Ibr-Vd-cjX" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="7d9-qW-7rb"/>
                             <constraint firstItem="Ibr-Vd-cjX" firstAttribute="top" secondItem="AFe-pM-Y2I" secondAttribute="bottom" constant="10" id="Azy-h1-eSy"/>
                             <constraint firstItem="eDW-ff-yVg" firstAttribute="top" secondItem="VX0-H7-3Kn" secondAttribute="bottom" constant="50" id="Hdv-ro-TDn"/>
                             <constraint firstItem="SXD-8Z-vgb" firstAttribute="top" secondItem="xEz-5L-WBZ" secondAttribute="top" id="SzU-vb-xYo"/>
-                            <constraint firstItem="ytt-WQ-b6e" firstAttribute="top" secondItem="eyY-z5-Imf" secondAttribute="bottom" constant="20" id="ZI2-A9-9sF"/>
-                            <constraint firstItem="eyY-z5-Imf" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="e2L-ZV-rRI"/>
                             <constraint firstItem="eDW-ff-yVg" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" constant="10" id="f2O-lo-FLA"/>
                             <constraint firstItem="c4B-Nv-f3V" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="fFD-cn-cow"/>
                             <constraint firstItem="c4B-Nv-f3V" firstAttribute="top" secondItem="Ibr-Vd-cjX" secondAttribute="bottom" constant="10" id="fw5-sL-9mt"/>
+                            <constraint firstItem="xEF-ag-6bb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MDM-pO-XIB" secondAttribute="bottom" constant="10" id="ic6-PD-ogP"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="xEF-ag-6bb" secondAttribute="bottom" constant="10" id="jTa-Mn-Dvn"/>
                             <constraint firstAttribute="trailing" secondItem="SXD-8Z-vgb" secondAttribute="trailing" id="lpo-bS-aEV"/>
-                            <constraint firstItem="MDM-pO-XIB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eyY-z5-Imf" secondAttribute="top" constant="-50" id="lu0-40-EjC"/>
-                            <constraint firstItem="eyY-z5-Imf" firstAttribute="top" secondItem="MDM-pO-XIB" secondAttribute="bottom" constant="20" id="pbP-ky-q4C"/>
                             <constraint firstItem="MDM-pO-XIB" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="pgz-JA-Hjw"/>
                             <constraint firstItem="AFe-pM-Y2I" firstAttribute="top" secondItem="eDW-ff-yVg" secondAttribute="bottom" constant="50" id="vdh-CP-KC9"/>
                             <constraint firstItem="ytt-WQ-b6e" firstAttribute="top" secondItem="MDM-pO-XIB" secondAttribute="bottom" constant="40" id="vqR-T6-xPv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xEF-ag-6bb" secondAttribute="trailing" id="vvS-IV-8Cy"/>
                             <constraint firstItem="SXD-8Z-vgb" firstAttribute="leading" secondItem="xEz-5L-WBZ" secondAttribute="leading" id="zCM-gx-BR7"/>
                             <constraint firstItem="AFe-pM-Y2I" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="zs0-Je-a8W"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="lu0-40-EjC"/>
                                 <exclude reference="vqR-T6-xPv"/>
                             </mask>
                         </variation>
@@ -748,6 +804,7 @@ MAR 20</string>
                         <outlet property="feedButton" destination="MDM-pO-XIB" id="h84-Bl-95R"/>
                         <outlet property="mapButton" destination="Ibr-Vd-cjX" id="7wo-Xv-IRa"/>
                         <outlet property="programButton" destination="AFe-pM-Y2I" id="ijA-zW-9vn"/>
+                        <outlet property="termsButton" destination="xEF-ag-6bb" id="BE6-bG-J6B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbk-7l-Da4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -757,7 +814,7 @@ MAR 20</string>
         <!--Made With Love View Controller-->
         <scene sceneID="bSs-hZ-7Ym">
             <objects>
-                <viewController id="WbZ-tF-B9Y" customClass="MadeWithLoveViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MadeWithLove" id="WbZ-tF-B9Y" customClass="MadeWithLoveViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="afD-KN-mdC"/>
                         <viewControllerLayoutGuide type="bottom" id="MDK-wd-URy"/>
@@ -824,7 +881,7 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59690193965517246" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="8BH-PM-OCL" secondAttribute="trailing" constant="40" id="SKB-sJ-xkS"/>
                             <constraint firstItem="8BH-PM-OCL" firstAttribute="centerX" secondItem="bY6-aa-FL8" secondAttribute="centerX" id="XHF-vU-MA5"/>
@@ -853,7 +910,7 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQv-MV-a46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2069" y="1087"/>
+            <point key="canvasLocation" x="1711" y="-1024"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">
@@ -987,7 +1044,6 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
         <image name="cross" width="15" height="14"/>
         <image name="feedIconWhite" width="14" height="14"/>
         <image name="feedTabBarImage" width="20" height="20"/>
-        <image name="madeWithLove" width="50" height="9"/>
         <image name="mapIconWhite" width="17" height="22"/>
         <image name="mapShare" width="19" height="19"/>
         <image name="mapTabBarImage" width="20" height="27"/>

@@ -74,8 +74,8 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
             let headerView =
             collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! FeedCollectionHeaderViewCollectionReusableView
             
-            headerView.headerLabel.text = "POST YOUR PHOTOS ON INSTAGRAM WITH #YFF16"
-            headerView.headerLabel.font = UIFont(name: "BebasNeueRegular", size: 30)
+            headerView.headerLabel.text = "FOLLOW US ON INSTAGRAM \n @YACKFOLKFESTIVAL"
+            headerView.headerLabel.font = UIFont(name: "BebasNeueRegular", size: 26)
             return headerView
         default:
             fatalError("Unexpected Element Kind")
