@@ -664,7 +664,14 @@ MAR 20</string>
                             <constraint firstAttribute="trailingMargin" secondItem="xg7-IH-blI" secondAttribute="trailing" constant="-20" id="web-sb-bfv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CMs-V6-rvX"/>
+                    <navigationItem key="navigationItem" id="CMs-V6-rvX">
+                        <barButtonItem key="rightBarButtonItem" title="❤︎" id="uyy-px-L6a">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="WbZ-tF-B9Y" kind="presentation" id="qTj-IZ-Bpi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="fridayPerformancesButton" destination="98x-YB-d23" id="0hR-y0-CpC"/>
                         <outlet property="programTableView" destination="7By-1j-Swu" id="cCC-AP-6wF"/>
@@ -910,7 +917,7 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQv-MV-a46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2069" y="1087"/>
+            <point key="canvasLocation" x="1883" y="-1024"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">

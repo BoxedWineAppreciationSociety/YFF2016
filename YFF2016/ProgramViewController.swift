@@ -119,11 +119,32 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         return performance.artist
     }
 
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
+//            viewController.artist = self.selectedArtist
+//        }
+//    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
-            viewController.artist = self.selectedArtist
+        
+        if let button = sender as! UIBarButtonItem? {
+                super.prepareForSegue(segue, sender: sender)
+                
+                if #available(iOS 8.0, *) {
+                    segue.destinationViewController.modalPresentationStyle = .OverCurrentContext
+                } else {
+                    segue.destinationViewController.modalPresentationStyle = .CurrentContext
+                }
+                
+                segue.destinationViewController.modalTransitionStyle = .CrossDissolve
+
+        } else {
+            if let viewController = segue.destinationViewController as? ArtistDetailViewController {
+                viewController.artist = self.selectedArtist
+            }
         }
     }
+
     
     func performanceFor(indexPath: NSIndexPath) -> Performance! {
         return performances[indexPath.item]
