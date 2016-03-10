@@ -664,14 +664,7 @@ MAR 20</string>
                             <constraint firstAttribute="trailingMargin" secondItem="xg7-IH-blI" secondAttribute="trailing" constant="-20" id="web-sb-bfv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CMs-V6-rvX">
-                        <barButtonItem key="rightBarButtonItem" title="❤︎" id="uyy-px-L6a">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="WbZ-tF-B9Y" kind="presentation" id="qTj-IZ-Bpi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="CMs-V6-rvX"/>
                     <connections>
                         <outlet property="fridayPerformancesButton" destination="98x-YB-d23" id="0hR-y0-CpC"/>
                         <outlet property="programTableView" destination="7By-1j-Swu" id="cCC-AP-6wF"/>
@@ -768,9 +761,9 @@ MAR 20</string>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-ag-6bb">
-                                <rect key="frame" x="20" y="572" width="560" height="23"/>
-                                <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="11"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-ag-6bb">
+                                <rect key="frame" x="20" y="567" width="560" height="23"/>
+                                <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
                                 <state key="normal" title="By using this app you agree to our terms of use">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.59690193970000005" colorSpace="calibratedRGB"/>
                                 </state>
@@ -791,7 +784,7 @@ MAR 20</string>
                             <constraint firstItem="c4B-Nv-f3V" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="fFD-cn-cow"/>
                             <constraint firstItem="c4B-Nv-f3V" firstAttribute="top" secondItem="Ibr-Vd-cjX" secondAttribute="bottom" constant="10" id="fw5-sL-9mt"/>
                             <constraint firstItem="xEF-ag-6bb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MDM-pO-XIB" secondAttribute="bottom" constant="10" id="ic6-PD-ogP"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="xEF-ag-6bb" secondAttribute="bottom" constant="5" id="jTa-Mn-Dvn"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="xEF-ag-6bb" secondAttribute="bottom" constant="10" id="jTa-Mn-Dvn"/>
                             <constraint firstAttribute="trailing" secondItem="SXD-8Z-vgb" secondAttribute="trailing" id="lpo-bS-aEV"/>
                             <constraint firstItem="MDM-pO-XIB" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="pgz-JA-Hjw"/>
                             <constraint firstItem="AFe-pM-Y2I" firstAttribute="top" secondItem="eDW-ff-yVg" secondAttribute="bottom" constant="50" id="vdh-CP-KC9"/>
@@ -821,7 +814,7 @@ MAR 20</string>
         <!--Made With Love View Controller-->
         <scene sceneID="bSs-hZ-7Ym">
             <objects>
-                <viewController id="WbZ-tF-B9Y" customClass="MadeWithLoveViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MadeWithLove" id="WbZ-tF-B9Y" customClass="MadeWithLoveViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="afD-KN-mdC"/>
                         <viewControllerLayoutGuide type="bottom" id="MDK-wd-URy"/>
@@ -888,7 +881,7 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59690193965517246" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="8BH-PM-OCL" secondAttribute="trailing" constant="40" id="SKB-sJ-xkS"/>
                             <constraint firstItem="8BH-PM-OCL" firstAttribute="centerX" secondItem="bY6-aa-FL8" secondAttribute="centerX" id="XHF-vU-MA5"/>
@@ -917,7 +910,7 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQv-MV-a46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1883" y="-1024"/>
+            <point key="canvasLocation" x="1711" y="-1024"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kxc-aM-BtP">

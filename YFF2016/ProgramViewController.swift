@@ -34,6 +34,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     var performances = [Performance]()
     let fridayJsonFile = NSBundle.mainBundle().URLForResource("friday_performances", withExtension: "json")
     
+    // MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,10 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationItem.title = "PROGRAM"
         self.navigationController?.navigationBar.barTintColor = YFFRed
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.Plain, target: self, action: "heartButtonAction")
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        
         
         programTableView.dataSource = self
         programTableView.delegate = self
@@ -55,10 +60,23 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidAppear(animated)
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: Actions
+    
+    func heartButtonAction() {
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MadeWithLove")
+        controller.modalTransitionStyle = .CrossDissolve
+
+        if #available(iOS 8.0, *) {
+            controller.modalPresentationStyle = .OverFullScreen
+        } else {
+            controller.modalPresentationStyle = .FullScreen
+        }
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     func dictionaryForDay(day: String) -> [String:AnyObject]? {
@@ -118,30 +136,10 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         let performance = performances[indexPath.item]
         return performance.artist
     }
-
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
-//            viewController.artist = self.selectedArtist
-//        }
-//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if let button = sender as! UIBarButtonItem? {
-                super.prepareForSegue(segue, sender: sender)
-                
-                if #available(iOS 8.0, *) {
-                    segue.destinationViewController.modalPresentationStyle = .OverCurrentContext
-                } else {
-                    segue.destinationViewController.modalPresentationStyle = .CurrentContext
-                }
-                
-                segue.destinationViewController.modalTransitionStyle = .CrossDissolve
-
-        } else {
-            if let viewController = segue.destinationViewController as? ArtistDetailViewController {
-                viewController.artist = self.selectedArtist
-            }
+        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
+            viewController.artist = self.selectedArtist
         }
     }
 
