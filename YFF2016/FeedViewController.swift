@@ -30,7 +30,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view.
         loadInstagram()
         
-        refreshControl.addTarget(self, action: "startRefresh:", forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(FeedViewController.startRefresh(_:)), forControlEvents: .ValueChanged)
         
         self.instagramFeedCollectionView.addSubview(refreshControl)
         
@@ -40,7 +40,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         clearInstagramCells()
         loadInstagram()
         self.instagramFeedCollectionView.reloadData()
-        refreshControl.performSelector("endRefreshing", withObject: nil, afterDelay: 0.05)
+        refreshControl.performSelector(#selector(UIRefreshControl.endRefreshing), withObject: nil, afterDelay: 0.05)
     }
     
     override func didReceiveMemoryWarning() {

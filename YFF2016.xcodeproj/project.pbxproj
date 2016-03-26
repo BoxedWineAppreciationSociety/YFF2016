@@ -17,6 +17,7 @@
 		436C71C41C90E68600E65AC0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 436C71C31C90E68600E65AC0 /* Podfile */; };
 		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
 		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
+		438839951CA65B1B00925F68 /* StageFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438839941CA65B1B00925F68 /* StageFilterTableViewController.swift */; };
 		439680AC1C6C6BD0008E35A4 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AB1C6C6BD0008E35A4 /* json.swift */; };
 		439680B01C6C870C008E35A4 /* InstagramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */; };
 		439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680B11C6C900D008E35A4 /* programDayButton.swift */; };
@@ -25,8 +26,8 @@
 		43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */; };
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
 		43B4C19C1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */; };
+		43BC46461CA66204005F5E35 /* StageFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC46451CA66204005F5E35 /* StageFilterCell.swift */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
-		43C5A6121C25295600222D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6111C25295600222D23 /* ViewController.swift */; };
 		43C5A6151C25295600222D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C5A6131C25295600222D23 /* Main.storyboard */; };
 		43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6161C25295600222D23 /* YFF2016.xcdatamodeld */; };
 		43C5A61A1C25295600222D23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C5A6191C25295600222D23 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		436C71C31C90E68600E65AC0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
+		438839941CA65B1B00925F68 /* StageFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageFilterTableViewController.swift; sourceTree = "<group>"; };
 		439680AB1C6C6BD0008E35A4 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramCollectionViewCell.swift; sourceTree = "<group>"; };
 		439680B11C6C900D008E35A4 /* programDayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = programDayButton.swift; sourceTree = "<group>"; };
@@ -93,9 +95,9 @@
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
 		43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistPerformanceTableViewCell.swift; sourceTree = "<group>"; };
 		43B824D91C90E7E60016EFF8 /* YFF2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YFF2016-Bridging-Header.h"; sourceTree = "<group>"; };
+		43BC46451CA66204005F5E35 /* StageFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageFilterCell.swift; sourceTree = "<group>"; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43C5A6111C25295600222D23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43C5A6141C25295600222D23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43C5A6171C25295600222D23 /* YFF2016.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YFF2016.xcdatamodel; sourceTree = "<group>"; };
 		43C5A6191C25295600222D23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +167,69 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4388398E1CA6560D00925F68 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				43B3667E1C60AA680097F956 /* artist_json.json */,
+				4324437B1C6200890045A661 /* fri_performances.json */,
+				439680B31C6C99FF008E35A4 /* sat_performances.json */,
+				439680B51C6C9B01008E35A4 /* sun_performances.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		4388398F1CA6562500925F68 /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				43F2DA491C44F8B1005E937F /* ProgramViewController.swift */,
+				432443791C61F14D0045A661 /* Performance.swift */,
+				4324437D1C6203650045A661 /* PerformanceCell.swift */,
+				439680B11C6C900D008E35A4 /* programDayButton.swift */,
+				438839941CA65B1B00925F68 /* StageFilterTableViewController.swift */,
+				43BC46451CA66204005F5E35 /* StageFilterCell.swift */,
+			);
+			name = Program;
+			sourceTree = "<group>";
+		};
+		438839901CA6568000925F68 /* Artists */ = {
+			isa = PBXGroup;
+			children = (
+				43F0B0BA1C881EA800A318CC /* SocialButton.swift */,
+				838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */,
+				43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */,
+				43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */,
+				43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */,
+			);
+			name = Artists;
+			sourceTree = "<group>";
+		};
+		438839911CA656AA00925F68 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				43E17BE41C2B98250075F92B /* FeedViewController.swift */,
+				439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */,
+				4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		438839921CA656E900925F68 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				43C5A6411C276F8E00222D23 /* MapViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		438839931CA6572400925F68 /* Launch View */ = {
+			isa = PBXGroup;
+			children = (
+				835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */,
+				43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */,
+			);
+			name = "Launch View";
+			sourceTree = "<group>";
+		};
 		43C5A6031C25295600222D23 = {
 			isa = PBXGroup;
 			children = (
@@ -191,39 +256,25 @@
 		43C5A60E1C25295600222D23 /* YFF2016 */ = {
 			isa = PBXGroup;
 			children = (
-				43B3667E1C60AA680097F956 /* artist_json.json */,
-				4324437B1C6200890045A661 /* fri_performances.json */,
-				439680B31C6C99FF008E35A4 /* sat_performances.json */,
-				439680B51C6C9B01008E35A4 /* sun_performances.json */,
+				43C5A6191C25295600222D23 /* Assets.xcassets */,
+				438839931CA6572400925F68 /* Launch View */,
+				4388398F1CA6562500925F68 /* Program */,
+				438839921CA656E900925F68 /* Map */,
+				438839901CA6568000925F68 /* Artists */,
+				438839911CA656AA00925F68 /* Feed */,
+				4388398E1CA6560D00925F68 /* JSON */,
 				43E17BD51C2B962F0075F92B /* Fonts */,
 				43C5A60F1C25295600222D23 /* AppDelegate.swift */,
-				43C5A6111C25295600222D23 /* ViewController.swift */,
 				43C5A6131C25295600222D23 /* Main.storyboard */,
-				835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */,
-				43C5A6191C25295600222D23 /* Assets.xcassets */,
 				43C5A61B1C25295600222D23 /* LaunchScreen.storyboard */,
 				43C5A61E1C25295600222D23 /* Info.plist */,
 				43C5A6161C25295600222D23 /* YFF2016.xcdatamodeld */,
-				838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */,
-				43C5A6411C276F8E00222D23 /* MapViewController.swift */,
 				43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */,
-				43E17BE41C2B98250075F92B /* FeedViewController.swift */,
 				439680AB1C6C6BD0008E35A4 /* json.swift */,
 				43E17BE61C2B99450075F92B /* YFFTabBarController.swift */,
 				43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */,
-				43F2DA491C44F8B1005E937F /* ProgramViewController.swift */,
-				43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */,
-				43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */,
-				432443791C61F14D0045A661 /* Performance.swift */,
-				4324437D1C6203650045A661 /* PerformanceCell.swift */,
-				439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */,
-				439680B11C6C900D008E35A4 /* programDayButton.swift */,
 				4322FE611C732BFF003B0775 /* Constants.swift */,
 				4322FE631C732EBD003B0775 /* JSONLoader.swift */,
-				4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */,
-				43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */,
-				43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */,
-				43F0B0BA1C881EA800A318CC /* SocialButton.swift */,
 				43D038641C884490004661C1 /* MadeWithLoveViewController.swift */,
 				43B824D91C90E7E60016EFF8 /* YFF2016-Bridging-Header.h */,
 			);
@@ -478,9 +529,10 @@
 				4322FE621C732BFF003B0775 /* Constants.swift in Sources */,
 				4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */,
 				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,
-				43C5A6121C25295600222D23 /* ViewController.swift in Sources */,
+				43BC46461CA66204005F5E35 /* StageFilterCell.swift in Sources */,
 				835CE5861C3E6CBE0044AA86 /* FirstLaunchViewController.swift in Sources */,
 				43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */,
+				438839951CA65B1B00925F68 /* StageFilterTableViewController.swift in Sources */,
 				4324437A1C61F14D0045A661 /* Performance.swift in Sources */,
 				439680B01C6C870C008E35A4 /* InstagramCollectionViewCell.swift in Sources */,
 				43EBB8051C4F91260024E713 /* Artist.swift in Sources */,

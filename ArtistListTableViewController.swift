@@ -33,6 +33,9 @@ class ArtistListTableViewController: UITableViewController {
         super.viewDidLoad()
         let jsonData = JSONLoader.fetchArtistData()
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.heartButtonAction))
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
             if let artistsDictionary = json as? [String: AnyObject] {
@@ -128,6 +131,18 @@ class ArtistListTableViewController: UITableViewController {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0]
         return documentsDirectory
+    }
+    
+    func heartButtonAction() {
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MadeWithLove")
+        controller.modalTransitionStyle = .CrossDissolve
+
+        if #available(iOS 8.0, *) {
+            controller.modalPresentationStyle = .OverFullScreen
+        } else {
+            controller.modalPresentationStyle = .FullScreen
+        }
+        self.presentViewController(controller, animated: true, completion: nil)
     }
 
 

@@ -88,7 +88,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
                 button.setup(socialLink.keys.first!)
                 button.layer.cornerRadius = buttonWidth / 2
                 button.url = socialLink.values.first!
-                button.addTarget(self, action: "socialButtonTouchedUpInside:", forControlEvents: .TouchUpInside)
+                button.addTarget(self, action: #selector(ArtistDetailViewController.socialButtonTouchedUpInside(_:)), forControlEvents: .TouchUpInside)
                 self.artistSocialLinksView.addSubview(button)
             }
             

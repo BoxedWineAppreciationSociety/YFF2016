@@ -43,7 +43,6 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController?.navigationBar.barTintColor = YFFRed
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.Plain, target: self, action: "heartButtonAction")
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         
         
@@ -66,19 +65,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: Actions
-    
-    func heartButtonAction() {
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MadeWithLove")
-        controller.modalTransitionStyle = .CrossDissolve
-
-        if #available(iOS 8.0, *) {
-            controller.modalPresentationStyle = .OverFullScreen
-        } else {
-            controller.modalPresentationStyle = .FullScreen
-        }
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
-    
+        
     func dictionaryForDay(day: String) -> [String:AnyObject]? {
         let jsonData = JSONLoader.fetchPerformanceJSONForDay(day)
 

@@ -38,12 +38,12 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = mapImage!.size
         
         // Set the double tap gesture on the scroll view
-        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewDoubleTapped:")
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.scrollViewDoubleTapped(_:)))
         doubleTapRecognizer.numberOfTapsRequired = 2
         doubleTapRecognizer.numberOfTouchesRequired = 1
         scrollView.addGestureRecognizer(doubleTapRecognizer)
         
-        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewTapped")
+        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.scrollViewTapped))
         singleTapRecognizer.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(singleTapRecognizer)
         
