@@ -661,7 +661,7 @@ MAR 20</string>
                                     <action selector="closeModalButtonTouchedUpInside:" destination="HMa-a8-ArA" eventType="touchUpInside" id="vwC-eP-354"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R3g-G8-3gM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R3g-G8-3gM">
                                 <rect key="frame" x="0.0" y="80" width="600" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1119,6 +1119,6 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f9F-Uz-FVe"/>
-        <segue reference="U7J-LC-bvT"/>
+        <segue reference="6VO-9p-S81"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,21 +9,27 @@
 import UIKit
 
 class StageFilterTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var delegate = StageFilterDelegate?()
+    
     @IBOutlet weak var filterByStageLabel: UILabel!
     @IBOutlet weak var stageFilterTableView: UITableView!
     @IBOutlet var backgroundView: UIView!
 
     @IBAction func closeModalButtonTouchedUpInside(sender: UIButton) {
-        closeModal()
+        self.delegate!.StageFilterTableViewControllerDidCancel(self)
     }
     
+    
+    
     let stages = [
-        "Public Hall",
-        "Star Hotel",
-        "Marquee",
-        "Clarence Room",
-        "Grace's Place",
-        "Yack Station"
+        "ALL STAGES",
+        "PUBLIC HALL",
+        "THE STAR HOTEL",
+        "MARQUEE",
+        "CLARENCE ROOM",
+        "GRACE'S PLACE",
+        "YACK STATION"
     ]
     
     override func viewDidLoad() {
@@ -66,12 +72,17 @@ class StageFilterTableViewController: UIViewController, UITableViewDataSource, U
         return 50
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let stageString = stages[indexPath.row]
+        self.delegate!.StageFilterTableViewControllerDidFinish(self, data: stageString)
+        closeModal()
+    }
+    
     // MARK: Actions
     
     func closeModal() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

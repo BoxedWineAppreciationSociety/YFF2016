@@ -27,6 +27,7 @@
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
 		43B4C19C1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */; };
 		43BC46461CA66204005F5E35 /* StageFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC46451CA66204005F5E35 /* StageFilterCell.swift */; };
+		43BC46481CA8DB06005F5E35 /* StageFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC46471CA8DB06005F5E35 /* StageFilterDelegate.swift */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
 		43C5A6151C25295600222D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C5A6131C25295600222D23 /* Main.storyboard */; };
 		43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6161C25295600222D23 /* YFF2016.xcdatamodeld */; };
@@ -96,6 +97,7 @@
 		43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistPerformanceTableViewCell.swift; sourceTree = "<group>"; };
 		43B824D91C90E7E60016EFF8 /* YFF2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YFF2016-Bridging-Header.h"; sourceTree = "<group>"; };
 		43BC46451CA66204005F5E35 /* StageFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageFilterCell.swift; sourceTree = "<group>"; };
+		43BC46471CA8DB06005F5E35 /* StageFilterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageFilterDelegate.swift; sourceTree = "<group>"; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C5A6141C25295600222D23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				4322FE631C732EBD003B0775 /* JSONLoader.swift */,
 				43D038641C884490004661C1 /* MadeWithLoveViewController.swift */,
 				43B824D91C90E7E60016EFF8 /* YFF2016-Bridging-Header.h */,
+				43BC46471CA8DB06005F5E35 /* StageFilterDelegate.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */,
+				43BC46481CA8DB06005F5E35 /* StageFilterDelegate.swift in Sources */,
 				4343CE5D1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift in Sources */,
 				43D038651C884490004661C1 /* MadeWithLoveViewController.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,

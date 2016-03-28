@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, StageFilterDelegate {
+    
     var selectedArtist: Artist?
 
     @IBAction func selectDay(sender: programDayButton) {
@@ -65,7 +66,30 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: Actions
+    func StageFilterTableViewControllerDidFinish(controller: StageFilterTableViewController, data: String) {
+        let filteredDictionary = performances.filter {
+            if let performanceStage = $0.stage as String? {
+                print("Found performance")
+                return performanceStage.uppercaseString == data.uppercaseString
+            } else {
+                return false
+            }
+        }
         
+        clearPerformances()
+        
+        for stagePerformance in filteredDictionary {
+            performances.append(stagePerformance)
+        }
+        
+        programTableView.reloadData()
+        scrollToTop()
+    }
+    
+    func StageFilterTableViewControllerDidCancel(controller: StageFilterTableViewController) {
+        print("No Stage selected")
+    }
+    
     func dictionaryForDay(day: String) -> [String:AnyObject]? {
         let jsonData = JSONLoader.fetchPerformanceJSONForDay(day)
 
@@ -127,6 +151,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? ArtistDetailViewController {
             viewController.artist = self.selectedArtist
+        } else if  let viewControler = segue.destinationViewController as? StageFilterTableViewController {
+            viewControler.delegate = self
         }
     }
 
