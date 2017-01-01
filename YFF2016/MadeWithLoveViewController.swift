@@ -13,18 +13,18 @@ class MadeWithLoveViewController: UIViewController, UIPopoverPresentationControl
     
     @IBOutlet var backgroundView: UIView!
 
-    @IBAction func closePopover(sender: UIButton) {
+    @IBAction func closePopover(_ sender: UIButton) {
         closeModal()
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: "closeModal")
+        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MadeWithLoveViewController.closeModal))
         singleTapRecognizer.numberOfTapsRequired = 1
 
         backgroundView.addGestureRecognizer(singleTapRecognizer)
@@ -37,7 +37,7 @@ class MadeWithLoveViewController: UIViewController, UIPopoverPresentationControl
     
     
     func closeModal() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     /*

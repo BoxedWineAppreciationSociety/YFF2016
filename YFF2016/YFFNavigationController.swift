@@ -10,18 +10,18 @@ import UIKit
 
 class YFFNavigationController: UINavigationController {
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return false
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "BebasNeue", size: 22)!]
+        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "BebasNeue", size: 22)!]
 
         // Do any additional setup after loading the view.
     }

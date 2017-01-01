@@ -7,12 +7,23 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class MapViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var scrollView: UIScrollView!
     
-    @IBAction func mapShareButtonTouchedUpInside(sender: UIBarButtonItem) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://yackfolkfestival.com")!)
+    @IBAction func mapShareButtonTouchedUpInside(_ sender: UIBarButtonItem) {
+        UIApplication.shared.openURL(URL(string: "http://yackfolkfestival.com")!)
     }
     
     var mapImageView: UIImageView!
@@ -38,12 +49,12 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = mapImage!.size
         
         // Set the double tap gesture on the scroll view
-        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewDoubleTapped:")
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.scrollViewDoubleTapped(_:)))
         doubleTapRecognizer.numberOfTapsRequired = 2
         doubleTapRecognizer.numberOfTouchesRequired = 1
         scrollView.addGestureRecognizer(doubleTapRecognizer)
         
-        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewTapped")
+        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapViewController.scrollViewTapped))
         singleTapRecognizer.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(singleTapRecognizer)
         
@@ -67,7 +78,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return mapImageView
     }
     
@@ -84,12 +95,12 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     
     // Is the tab bar visible?
     func tabBarIsVisible() ->Bool {
-        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+        return self.tabBarController?.tabBar.frame.origin.y < self.view.frame.maxY
     }
     
     
     // Hide the tab bar when scrolling around
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
             setTabBarVisible(false, animated: true)
     }
     
@@ -100,7 +111,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     
     
     // Function to handle hiding and showing the tab bar
-    func setTabBarVisible(visible:Bool, animated:Bool) {
+    func setTabBarVisible(_ visible:Bool, animated:Bool) {
         
         //* This cannot be called before viewDidLayoutSubviews(), because the frame is not set before this time
         
@@ -113,26 +124,26 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         let offsetY = (visible ? -height! : height)
         
         // zero duration means no animation
-        let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
+        let duration:TimeInterval = (animated ? 0.3 : 0.0)
         
         //  animate the tabBar
         if frame != nil {
-            UIView.animateWithDuration(duration) {
-                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
+            UIView.animate(withDuration: duration, animations: {
+                self.tabBarController?.tabBar.frame = frame!.offsetBy(dx: 0, dy: offsetY!)
                 return
-            }
+            }) 
         }
     }
     
     // Zoom in on the desired area when double tapped
-    func scrollViewDoubleTapped(recognizer: UITapGestureRecognizer) {
+    func scrollViewDoubleTapped(_ recognizer: UITapGestureRecognizer) {
         
         // Hide the tab bar
         setTabBarVisible(false, animated: true)
         
         
         // Where are we zooming to?
-        let pointInView = recognizer.locationInView(mapImageView)
+        let pointInView = recognizer.location(in: mapImageView)
         
         // How far are we zooming?
         var newZoomScale = scrollView.zoomScale * enhanceFactor
@@ -145,10 +156,10 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         let x = pointInView.x - (w / 2.0)
         let y = pointInView.y - (h / 2.0)
         
-        let rectToZoomTo = CGRectMake(x, y, w, h);
+        let rectToZoomTo = CGRect(x: x, y: y, width: w, height: h);
         
         // Do it!
-        scrollView.zoomToRect(rectToZoomTo, animated: true)
+        scrollView.zoom(to: rectToZoomTo, animated: true)
     }
     
 

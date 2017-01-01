@@ -15,11 +15,11 @@ class FirstLaunchViewController: UIViewController {
     @IBOutlet weak var feedButton: UIButton!
     @IBOutlet weak var termsButton: UIButton!
     
-    @IBAction func termsButtonTouchedUpInside(sender: UIButton) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://yackfolkfestival.com/terms-of-use/")!)
+    @IBAction func termsButtonTouchedUpInside(_ sender: UIButton) {
+        UIApplication.shared.openURL(URL(string: "http://yackfolkfestival.com/terms-of-use/")!)
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
@@ -39,22 +39,22 @@ class FirstLaunchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let button = sender as! UIButton
         
         if button.restorationIdentifier! == "MadeWithLove" {
-            super.prepareForSegue(segue, sender: sender)
+            super.prepare(for: segue, sender: sender)
             
             if #available(iOS 8.0, *) {
-                segue.destinationViewController.modalPresentationStyle = .OverCurrentContext
+                segue.destination.modalPresentationStyle = .overCurrentContext
             } else {
-                segue.destinationViewController.modalPresentationStyle = .CurrentContext
+                segue.destination.modalPresentationStyle = .currentContext
             }
             
-            segue.destinationViewController.modalTransitionStyle = .CrossDissolve
+            segue.destination.modalTransitionStyle = .crossDissolve
 
         } else {
-            let destinationViewController = segue.destinationViewController as! YFFTabBarController
+            let destinationViewController = segue.destination as! YFFTabBarController
             
             destinationViewController.incomingSegueIdentifier = segue.identifier
         }

@@ -22,10 +22,10 @@ class YFFTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set tab bar color and text color
-        tabBar.barTintColor = UIColor.whiteColor()
+        tabBar.barTintColor = UIColor.white
         tabBar.tintColor = UIColor(red: 53.0/255.0, green: 43.0/255.0, blue: 31.0/255.0, alpha: 1.0)
         // Set the font and size
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName:UIFont(name: "BebasNeue", size: 10)!], forState: .Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName:UIFont(name: "BebasNeue", size: 10)!], for: UIControlState())
 
         // Select tab based on which launch button was used to get here
         if let identifier = incomingSegueIdentifier {

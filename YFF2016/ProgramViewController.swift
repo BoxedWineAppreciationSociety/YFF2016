@@ -11,7 +11,7 @@ import UIKit
 class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var selectedArtist: Artist?
 
-    @IBAction func selectDay(sender: programDayButton) {
+    @IBAction func selectDay(_ sender: programDayButton) {
         if let dayIdentifier = sender.restorationIdentifier {
             clearPerformances()
             clearActiveButton()
@@ -28,11 +28,11 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var sundayPerformancesButton: programDayButton!
     
     
-    static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true).first!
-    let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+    static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).first!
+    let documentsDirectoryPath = URL(string: documentsDirectoryPathString)!
     
     var performances = [Performance]()
-    let fridayJsonFile = NSBundle.mainBundle().URLForResource("friday_performances", withExtension: "json")
+    let fridayJsonFile = Bundle.main.url(forResource: "friday_performances", withExtension: "json")
     
     // MARK: UIViewController
     
@@ -41,22 +41,22 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.navigationItem.title = "PROGRAM"
         self.navigationController?.navigationBar.barTintColor = YFFRed
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.Plain, target: self, action: "heartButtonAction")
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.heartButtonAction))
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
         
         programTableView.dataSource = self
         programTableView.delegate = self
         
-        if let performancesForDay = dictionaryForDay("FRI".lowercaseString) {
+        if let performancesForDay = dictionaryForDay("FRI".lowercased()) {
             generatePerformances(performancesForDay)
             fridayPerformancesButton.setActive()
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
@@ -68,22 +68,22 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Actions
     
     func heartButtonAction() {
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MadeWithLove")
-        controller.modalTransitionStyle = .CrossDissolve
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "MadeWithLove")
+        controller.modalTransitionStyle = .crossDissolve
 
         if #available(iOS 8.0, *) {
-            controller.modalPresentationStyle = .OverFullScreen
+            controller.modalPresentationStyle = .overFullScreen
         } else {
-            controller.modalPresentationStyle = .FullScreen
+            controller.modalPresentationStyle = .fullScreen
         }
-        self.presentViewController(controller, animated: true, completion: nil)
+        self.present(controller, animated: true, completion: nil)
     }
     
-    func dictionaryForDay(day: String) -> [String:AnyObject]? {
+    func dictionaryForDay(_ day: String) -> [String:AnyObject]? {
         let jsonData = JSONLoader.fetchPerformanceJSONForDay(day)
 
         do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+            let json = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
             if let performancesDictionary = json as? [String: AnyObject] {
                 return performancesDictionary
             }
@@ -93,16 +93,16 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         return nil
     }
     
-    func generatePerformances(dictionary: [String: AnyObject]) {
+    func generatePerformances(_ dictionary: [String: AnyObject]) {
         let performancesDictionary = dictionary["performances"] as! [[String: AnyObject]]
         for performance in performancesDictionary {
             performances.append(Performance(attributes: performance))
         }
-        performances.sortInPlace {
+        performances.sort {
             item1, item2 in
             let time1 = item1.time
             let time2 = item2.time
-            return time1!.compare(time2!) == NSComparisonResult.OrderedAscending
+            return time1!.compare(time2! as Date) == ComparisonResult.orderedAscending
         }
     }
     
@@ -110,8 +110,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         performances.removeAll()
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath) as! PerformanceCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PerformanceCell", for: indexPath) as! PerformanceCell
         
         cell.setup(performanceFor(indexPath))
         cell.performanceTimeLabel.tintColor = YFFOlive
@@ -119,44 +119,44 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!;
         
         self.selectedArtist = artistFor(indexPath)
         
-        performSegueWithIdentifier("programArtistDetailSegue", sender: self)
+        performSegue(withIdentifier: "programArtistDetailSegue", sender: self)
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     
-    func artistFor(indexPath: NSIndexPath) -> Artist? {
-        let performance = performances[indexPath.item]
+    func artistFor(_ indexPath: IndexPath) -> Artist? {
+        let performance = performances[(indexPath as NSIndexPath).item]
         return performance.artist
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? ArtistDetailViewController {
             viewController.artist = self.selectedArtist
         }
     }
 
     
-    func performanceFor(indexPath: NSIndexPath) -> Performance! {
-        return performances[indexPath.item]
+    func performanceFor(_ indexPath: IndexPath) -> Performance! {
+        return performances[(indexPath as NSIndexPath).item]
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return performances.count
     }
     
-    private func scrollToTop() {
+    fileprivate func scrollToTop() {
         programTableView.setContentOffset(CGPoint.zero, animated:true)
     }
     
-    private func clearActiveButton() {
+    fileprivate func clearActiveButton() {
         self.fridayPerformancesButton.setInactive()
         self.saturdayPerformancesButton.setInactive()
         self.sundayPerformancesButton.setInactive()

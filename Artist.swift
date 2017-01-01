@@ -44,14 +44,14 @@ class Artist {
         let jsonData = JSONLoader.fetchArtistData()
         
         do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+            let json = try JSONSerialization.jsonObject(with: jsonData as Data, options: .allowFragments) as! [String:AnyObject]
             if let artistsDictionary = json["artists"] as? [[String: String]] {
                 let attributes = artistsDictionary.filter({ (dic: [String: String]) -> Bool in
                     return dic["id"] == id
                 })
                 let foundArtist = attributes[0]
 
-                self.init(attributes: foundArtist)
+                self.init(attributes: foundArtist as [String : AnyObject])
             } else {
                 self.init()
             }

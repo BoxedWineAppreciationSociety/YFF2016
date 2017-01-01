@@ -18,22 +18,22 @@ class ArtistPerformanceTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setup(performance: Performance) {
-        let timeDateFormatter = NSDateFormatter()
+    func setup(_ performance: Performance) {
+        let timeDateFormatter = DateFormatter()
         timeDateFormatter.dateFormat = "h:mm a"
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE dd MMMM"
         
         // Content
-        self.artistPerformanceDate.text = dateFormatter.stringFromDate(performance.time!)
-        self.artistPerformanceTime.text = timeDateFormatter.stringFromDate(performance.time!)
+        self.artistPerformanceDate.text = dateFormatter.string(from: performance.time! as Date)
+        self.artistPerformanceTime.text = timeDateFormatter.string(from: performance.time! as Date)
         self.artistPerformanceStage.text = performance.stage
         
         //Colors
