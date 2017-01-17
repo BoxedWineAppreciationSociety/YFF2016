@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -56,9 +57,9 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         displayArtist()
         setupView()
         
-        loadPerformancesForDay("fri")
-        loadPerformancesForDay("sat")
-        loadPerformancesForDay("sun")
+        loadPerformancesForDay(day: "fri")
+        loadPerformancesForDay(day: "sat")
+        loadPerformancesForDay(day: "sun")
         sortPerformances()
         
         setupSocialButtons()
@@ -141,7 +142,6 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         // Setup Back Button
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icon_arrow_back")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icon_arrow_back")
-        self.navigationController
         self.navigationController?.navigationBar.tintColor = UIColor.white
 
         // Setup title
@@ -159,29 +159,18 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistDescriptionView.backgroundColor = UIColor.clear
     }
     
-    func loadPerformancesForDay(_ day: String) {
+    func loadPerformancesForDay(day: String) {
         let jsonData = JSONLoader.fetchPerformanceJSONForDay(day.lowercased())
-        var allPerformancesDictionary: [[String: AnyObject]] = []
         
-        do {
-            let json = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
-            if let performancesDictionary = json as? [String: AnyObject] {
-                allPerformancesDictionary.append(contentsOf: performancesDictionary["performances"] as! [[String: AnyObject]])
-            }
-        } catch {
-            //
-        }
+        let json = JSON(data: jsonData)
+        let performances = json["performances"].arrayValue
         
-        let filteredDictionary = allPerformancesDictionary.filter {
-            if let artistId = $0["artistId"] {
-                return artistId as! String == artist!.id
-            } else {
-                return false
-            }
+        let filteredDictionary = performances.filter {
+            $0["artistId"].stringValue == artist?.id
         }
         
         for artistPerformance in filteredDictionary {
-            artistPerformances.append(Performance(attributes: artistPerformance))
+            artistPerformances.append(Performance(json: artistPerformance))
         }
     }
     

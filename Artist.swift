@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class Artist {
     var id = ""
@@ -21,43 +22,37 @@ class Artist {
     var soundCloudURL: String?
     var twitterURL: String?
     
-    init(attributes: [String: AnyObject]) {
-        self.id = attributes["id"] as! String
-        self.name = attributes["name"] as! String
-        self.summary = attributes["summary"] as! String
-        self.imageName = attributes["image_name"] as? String
+    init(json: JSON) {
+       
+        self.id = json["id"].stringValue
+        self.name = json["name"].stringValue
+        self.summary = json["summary"].stringValue
+        self.imageName = json["image_name"].stringValue
+        self.facebookURL = json["facebook"].stringValue
+        self.twitterURL = json["twitter"].stringValue
+        self.instagramURL = json["instagram"].stringValue
+        self.youtubeURL = json["youtube"].stringValue
+        self.iTunesURL = json["itunes"].stringValue
+        self.soundCloudURL = json["soundcloud"].stringValue
+        self.websiteURL = json["website"].stringValue
         
-        self.facebookURL = attributes["facebook"] as? String
-        self.twitterURL = attributes["twitter"] as? String
-        self.instagramURL = attributes["instagram"] as? String
-        self.youtubeURL = attributes["youtube"] as? String
-        self.iTunesURL = attributes["itunes"] as? String
-        self.soundCloudURL = attributes["soundcloud"] as? String
-        self.websiteURL = attributes["website"] as? String
     }
     
     init() {
         assert(false)
     }
     
-    convenience init(id: String) {
+    class func findById(id: String) -> Artist? {
         let jsonData = JSONLoader.fetchArtistData()
+        let json = JSON(data: jsonData)
         
-        do {
-            let json = try JSONSerialization.jsonObject(with: jsonData as Data, options: .allowFragments) as! [String:AnyObject]
-            if let artistsDictionary = json["artists"] as? [[String: String]] {
-                let attributes = artistsDictionary.filter({ (dic: [String: String]) -> Bool in
-                    return dic["id"] == id
-                })
-                let foundArtist = attributes[0]
-
-                self.init(attributes: foundArtist as [String : AnyObject])
-            } else {
-                self.init()
+        let artists = json["artists"]
+        for artist in artists.arrayValue {
+            if artist["id"].stringValue == id {
+                return Artist(json: artist)
             }
-        } catch {
-            self.init()
         }
+        return nil
     }
     
     func socialLinks() -> [[String: String?]] {

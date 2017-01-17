@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var selectedArtist: Artist?
@@ -15,7 +16,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         if let dayIdentifier = sender.restorationIdentifier {
             clearPerformances()
             clearActiveButton()
-            generatePerformances(dictionaryForDay(dayIdentifier)!)
+            generatePerformances(performancesJSON: performancesForDay(dayIdentifier)!)
             programTableView.reloadData()
             scrollToTop()
             sender.setActive()
@@ -50,8 +51,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         programTableView.dataSource = self
         programTableView.delegate = self
         
-        if let performancesForDay = dictionaryForDay("FRI".lowercased()) {
-            generatePerformances(performancesForDay)
+        if let performancesForDay = performancesForDay("FRI".lowercased()) {
+            generatePerformances(performancesJSON: performancesForDay)
             fridayPerformancesButton.setActive()
         }
     }
@@ -79,24 +80,20 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.present(controller, animated: true, completion: nil)
     }
     
-    func dictionaryForDay(_ day: String) -> [String:AnyObject]? {
+    func performancesForDay(_ day: String) -> [JSON]? {
         let jsonData = JSONLoader.fetchPerformanceJSONForDay(day)
 
-        do {
-            let json = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
-            if let performancesDictionary = json as? [String: AnyObject] {
-                return performancesDictionary
-            }
-        } catch {
-            //
-        }
-        return nil
+        let json = JSON(data: jsonData)
+            
+        let performances = json["performances"].arrayValue
+        
+        return performances
     }
     
-    func generatePerformances(_ dictionary: [String: AnyObject]) {
-        let performancesDictionary = dictionary["performances"] as! [[String: AnyObject]]
-        for performance in performancesDictionary {
-            performances.append(Performance(attributes: performance))
+    func generatePerformances(performancesJSON: [JSON]) {
+        
+        for performance in performancesJSON {
+            performances.append(Performance(json: performance))
         }
         performances.sort {
             item1, item2 in

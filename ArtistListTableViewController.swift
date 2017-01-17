@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ArtistListTableViewController: UITableViewController {
     static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).first!
@@ -33,14 +34,10 @@ class ArtistListTableViewController: UITableViewController {
         super.viewDidLoad()
         let jsonData = JSONLoader.fetchArtistData()
         
-        do {
-            let json = try JSONSerialization.jsonObject(with: jsonData as Data, options: .allowFragments)
-            if let artistsDictionary = json as? [String: AnyObject] {
-                generateArtists(artistsDictionary)
-            }
-        } catch {
-            //
-        }
+        let json = JSON(data: jsonData)
+            
+        generateArtists(data: json)
+    
 
         // Setup Navigation Controller
         self.navigationItem.title = "ARTISTS"
@@ -54,11 +51,12 @@ class ArtistListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func generateArtists(_ dictionary: [String: AnyObject]) {
-        let artistsDictionary = dictionary["artists"] as! [[String: AnyObject]]
+    func generateArtists(data: JSON) {
+        let artistsDictionary = data["artists"] 
         
         for artist in artistsDictionary {
-            artists.append(Artist(attributes: artist))
+            
+            artists.append(Artist(json: artist.1))
         }
         
         artists.sort {

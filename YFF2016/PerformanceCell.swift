@@ -39,7 +39,8 @@ class PerformanceCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         
-        if let artistImage = UIImage(named: (performance.artist?.imageName)!) {
+        if let  artistImageName = performance.artist?.imageName {
+            let artistImage = UIImage(named: artistImageName)
             self.performanceCellThumb.image = artistImage
         } else {
             self.performanceCellThumb.image = UIImage(named: "artistPlaceholder")

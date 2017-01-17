@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		170FF0D726305B193884FD77 /* libPods-YFF2016.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC237554C7EBC61F3313EF5 /* libPods-YFF2016.a */; };
 		4322FE621C732BFF003B0775 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322FE611C732BFF003B0775 /* Constants.swift */; };
 		4322FE641C732EBD003B0775 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322FE631C732EBD003B0775 /* JSONLoader.swift */; };
 		4324437A1C61F14D0045A661 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432443791C61F14D0045A661 /* Performance.swift */; };
@@ -17,7 +16,6 @@
 		436C71C41C90E68600E65AC0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 436C71C31C90E68600E65AC0 /* Podfile */; };
 		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
 		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
-		439680AC1C6C6BD0008E35A4 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AB1C6C6BD0008E35A4 /* json.swift */; };
 		439680B01C6C870C008E35A4 /* InstagramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */; };
 		439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680B11C6C900D008E35A4 /* programDayButton.swift */; };
 		439680B41C6C99FF008E35A4 /* sat_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 439680B31C6C99FF008E35A4 /* sat_performances.json */; };
@@ -53,6 +51,7 @@
 		43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */; };
 		835CE5861C3E6CBE0044AA86 /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */; };
 		838F302C1C25385E00D2DA08 /* ArtistListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */; };
+		FA8034898781CB70F3651CE7 /* Pods_YFF2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC49B5A0718E19FA25AE706E /* Pods_YFF2016.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +81,6 @@
 		436C71C31C90E68600E65AC0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
-		439680AB1C6C6BD0008E35A4 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramCollectionViewCell.swift; sourceTree = "<group>"; };
 		439680B11C6C900D008E35A4 /* programDayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = programDayButton.swift; sourceTree = "<group>"; };
 		439680B31C6C99FF008E35A4 /* sat_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sat_performances.json; sourceTree = "<group>"; };
@@ -123,11 +121,11 @@
 		43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+YFFMain.swift"; sourceTree = "<group>"; };
 		43F2DA491C44F8B1005E937F /* ProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewButton.swift; sourceTree = "<group>"; };
-		5EC237554C7EBC61F3313EF5 /* libPods-YFF2016.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YFF2016.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewController.swift; sourceTree = "<group>"; };
 		838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistListTableViewController.swift; path = ../ArtistListTableViewController.swift; sourceTree = "<group>"; };
 		8424415BD0EF22AA1364546C /* Pods-YFF2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFF2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-YFF2016/Pods-YFF2016.release.xcconfig"; sourceTree = "<group>"; };
 		F1266C607A218A777ABC7B40 /* Pods-YFF2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFF2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YFF2016/Pods-YFF2016.debug.xcconfig"; sourceTree = "<group>"; };
+		FC49B5A0718E19FA25AE706E /* Pods_YFF2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YFF2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170FF0D726305B193884FD77 /* libPods-YFF2016.a in Frameworks */,
+				FA8034898781CB70F3651CE7 /* Pods_YFF2016.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +168,7 @@
 		4371FF1E1E18C7ED0096620D /* Artists */ = {
 			isa = PBXGroup;
 			children = (
+				43EBB8041C4F91260024E713 /* Artist.swift */,
 				838F302B1C25385E00D2DA08 /* ArtistListTableViewController.swift */,
 				43EBB8021C4F82690024E713 /* ArtistDetailViewController.swift */,
 				43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */,
@@ -239,7 +238,6 @@
 				43C5A6161C25295600222D23 /* YFF2016.xcdatamodeld */,
 				43E17BD31C2B944F0075F92B /* YFFNavigationController.swift */,
 				43E17BE41C2B98250075F92B /* FeedViewController.swift */,
-				439680AB1C6C6BD0008E35A4 /* json.swift */,
 				43E17BE61C2B99450075F92B /* YFFTabBarController.swift */,
 				43F2DA471C44F6FA005E937F /* UIColor+YFFMain.swift */,
 				43F2DA4B1C4511D1005E937F /* LaunchViewButton.swift */,
@@ -274,7 +272,6 @@
 		43E17BD51C2B962F0075F92B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				43EBB8041C4F91260024E713 /* Artist.swift */,
 				43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */,
 				43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */,
 				43E17BD61C2B96420075F92B /* Archer Bold.ttf */,
@@ -300,7 +297,7 @@
 		FA297E33D29225280ED44161 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5EC237554C7EBC61F3313EF5 /* libPods-YFF2016.a */,
+				FC49B5A0718E19FA25AE706E /* Pods_YFF2016.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -509,7 +506,6 @@
 				4343CE5D1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift in Sources */,
 				43D038651C884490004661C1 /* MadeWithLoveViewController.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
-				439680AC1C6C6BD0008E35A4 /* json.swift in Sources */,
 				4322FE621C732BFF003B0775 /* Constants.swift in Sources */,
 				4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */,
 				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,

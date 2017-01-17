@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var instagramFeedCollectionView: UICollectionView!
@@ -101,14 +102,14 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
             json = JSON(url: url)
         }
         
-        let imagesJson = json!["data"] as JSON
-        for imageJson in imagesJson {
-            let image = imageJson.1
-            
-            let imageUrl = image["images"]["standard_resolution"]["url"].asString
-            
-            imageUrls.append(imageUrl!)
-        }
+//        let imagesJson = json!["data"] as JSON
+//        for imageJson in imagesJson {
+//            let image = imageJson.1
+//            
+//            let imageUrl = image["images"]["standard_resolution"]["url"].stringValue
+//            
+//            imageUrls.append(imageUrl!)
+//        }
     }
     
     func clearInstagramCells() {
