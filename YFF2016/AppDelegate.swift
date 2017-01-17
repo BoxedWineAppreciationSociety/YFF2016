@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

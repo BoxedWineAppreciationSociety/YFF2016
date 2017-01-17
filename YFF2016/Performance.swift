@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Performance {
     var id = ""
@@ -15,12 +16,11 @@ class Performance {
     var time: Date?
 
     
-    init(attributes: [String: AnyObject]) {
-        self.id = attributes["id"] as! String
-        self.stage = attributes["stage"] as! String
-        self.artist = Artist(id: attributes["artistId"] as! String)
-        self.time = Date(timeIntervalSince1970: (attributes["time"] as? Double)!)
-        // TODO time
+    init(json: JSON) {
+        self.id = json["id"].stringValue
+        self.stage = json["stage"].stringValue
+        self.artist = Artist.findById(id: json["artistId"].stringValue)
+        self.time = Date(timeIntervalSince1970: (json["time"].doubleValue))
     }
 
 }
