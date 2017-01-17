@@ -57,9 +57,10 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         displayArtist()
         setupView()
         
-        loadPerformancesForDay(day: "fri")
-        loadPerformancesForDay(day: "sat")
-        loadPerformancesForDay(day: "sun")
+        JSONLoader.fetchPerformances(day: "fri")
+        JSONLoader.fetchPerformances(day: "sat")
+        JSONLoader.fetchPerformances(day: "sun")
+        
         sortPerformances()
         
         setupSocialButtons()
@@ -158,22 +159,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 16)
         self.artistDescriptionView.backgroundColor = UIColor.clear
     }
-    
-    func loadPerformancesForDay(day: String) {
-        let jsonData = JSONLoader.fetchPerformanceJSONForDay(day.lowercased())
         
-        let json = JSON(data: jsonData)
-        let performances = json["performances"].arrayValue
-        
-        let filteredDictionary = performances.filter {
-            $0["artistId"].stringValue == artist?.id
-        }
-        
-        for artistPerformance in filteredDictionary {
-            artistPerformances.append(Performance(json: artistPerformance))
-        }
-    }
-    
     func sortPerformances() {
         artistPerformances.sort {
             item1, item2 in

@@ -32,11 +32,9 @@ class ArtistListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let jsonData = JSONLoader.fetchArtistData()
         
-        let json = JSON(data: jsonData)
-            
-        generateArtists(data: json)
+        artists.append(contentsOf: JSONLoader.fetchArtists())
+        sortArtists()
     
 
         // Setup Navigation Controller
@@ -51,14 +49,7 @@ class ArtistListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func generateArtists(data: JSON) {
-        let artistsDictionary = data["artists"] 
-        
-        for artist in artistsDictionary {
-            
-            artists.append(Artist(json: artist.1))
-        }
-        
+    func sortArtists() {
         artists.sort {
             artist1, artist2 in
             let name1 = artist1.name

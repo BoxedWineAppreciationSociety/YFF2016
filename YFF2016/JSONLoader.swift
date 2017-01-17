@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class JSONLoader: NSObject {
     static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).first!
     static let documentsDirectoryPath = URL(string: documentsDirectoryPathString)!
     
     class func loadRemoteJSON() {
-        loadArtists()
+        loadArtistsJSON()
         loadInstagram()
         
         loadFridayPerformances()
@@ -22,7 +23,17 @@ class JSONLoader: NSObject {
         
     }
     
-    class func loadArtists() {
+    
+    class func fetchArtists() -> [Artist] {
+        return generateArtists(data: fetchArtistData())
+    }
+    
+    class func fetchPerformances(day: String) -> [Performance] {
+        return generatePerformances(data: fetchPerformanceJSONForDay(day: day))
+    }
+    
+    
+    class func loadArtistsJSON() {
         let request = NSMutableURLRequest(url: URL(string: artistsJsonUrl)!)
         
         httpGet(request as URLRequest!){
@@ -126,33 +137,56 @@ class JSONLoader: NSObject {
         task.resume()
     }
     
-    class func fetchPerformanceJSONForDay(_ day: String) -> Data {
+    class func fetchPerformanceJSONForDay(day: String) -> JSON {
         let fileName = "\(day.lowercased())_performances_remote.json"
         let jsonFilePath = getDocumentsDirectory().appendingPathComponent(fileName)
         let fileManager = FileManager.default
         if (fileManager.fileExists(atPath: jsonFilePath)) {
-            return (try! Data(contentsOf: URL(fileURLWithPath: jsonFilePath)))
+            return JSON(data: try! Data(contentsOf: URL(fileURLWithPath: jsonFilePath)))
         } else {
             if let jsonFile = Bundle.main.url(forResource: "\(day.lowercased())_performances", withExtension: "json") {
-                return (try! Data(contentsOf: jsonFile))
+                return JSON(data: try! Data(contentsOf: jsonFile))
             }
         }
        fatalError("Failed to find JSON")
     }
-    
-    class func fetchArtistData() -> Data {
+
+    class func fetchArtistData() -> JSON {
         let fileName = "artists_remote.json"
         let jsonFilePath = getDocumentsDirectory().appendingPathComponent(fileName)
         let fileManager = FileManager.default
         
         if (fileManager.fileExists(atPath: jsonFilePath)) {
-            return (try! Data(contentsOf: URL(fileURLWithPath: jsonFilePath)))
+            return JSON(data: try! Data(contentsOf: URL(fileURLWithPath: jsonFilePath)))
         } else {
             if let jsonFile = Bundle.main.url(forResource: "artist_json", withExtension: "json") {
-                return (try! Data(contentsOf: jsonFile))
+                return JSON(data: try! Data(contentsOf: jsonFile))
             }
         }
        fatalError("Failed to find JSON")
+    }
+    
+    class func generateArtists(data: JSON) -> [Artist] {
+        var artists: [Artist] = []
+        let artistsDictionary = data["artists"]
+        
+        for artist in artistsDictionary {
+            
+            artists.append(Artist(json: artist.1))
+        }
+        
+        return artists
+    }
+    
+    class func generatePerformances(data: JSON) -> [Performance] {
+        var performances: [Performance] = []
+        let performancesDictionary = data["performances"]
+        
+        for performance in performancesDictionary {
+            performances.append(Performance(json: performance.1))
+        }
+        
+        return performances
     }
 
 }
