@@ -11,30 +11,30 @@ import UIKit
 class SocialButton: UIButton {
     var url: String?
     
-    func setup(buttonType: String) {
+    func setup(_ buttonType: String) {
 
         switch buttonType {
         case "facebookLink":
             self.backgroundColor = facebookBlue
-            self.setImage(UIImage(named: "facebookLogo"), forState: .Normal)
+            self.setImage(UIImage(named: "facebookLogo"), for: UIControlState())
         case "twitterLink":
             self.backgroundColor = twitterBlue
-            self.setImage(UIImage(named: "twitterLogo"), forState: .Normal)
+            self.setImage(UIImage(named: "twitterLogo"), for: UIControlState())
         case "youtubeLink":
             self.backgroundColor = youtubeRed
-            self.setImage(UIImage(named: "youtubeLogo"), forState: .Normal)
+            self.setImage(UIImage(named: "youtubeLogo"), for: UIControlState())
         case "instagramLink":
             self.backgroundColor = instagramBlue
-            self.setImage(UIImage(named: "feedIconWhite"), forState: .Normal)
+            self.setImage(UIImage(named: "feedIconWhite"), for: UIControlState())
         case "iTunesLink":
             self.backgroundColor = iTunesGrey
-            self.setImage(UIImage(named: "appleLogo"), forState: .Normal)
+            self.setImage(UIImage(named: "appleLogo"), for: UIControlState())
         case "soundCloudLink":
             self.backgroundColor = soundCloudOrange
-            self.setImage(UIImage(named: "soundcloudLogo"), forState: .Normal)
+            self.setImage(UIImage(named: "soundcloudLogo"), for: UIControlState())
         default:
             self.backgroundColor = YFFOlive
-            self.setImage(UIImage(named: "websiteLinkImage"), forState: .Normal)
+            self.setImage(UIImage(named: "websiteLinkImage"), for: UIControlState())
             
         }
     }

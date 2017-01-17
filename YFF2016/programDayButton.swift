@@ -14,32 +14,32 @@ class programDayButton: UIButton {
         super.init(coder: aDecoder)
         
         // Text Color
-        self.tintColor = UIColor.blackColor()
+        self.tintColor = UIColor.black
         
         // Font
         self.titleLabel?.font = UIFont(name: "BebasNeueRegular", size: 26)
-        self.titleLabel?.textAlignment = .Center
+        self.titleLabel?.textAlignment = .center
         
         // Border
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(red: 201.0/255.0, green: 201.0/255.0, blue: 203.0/255.0, alpha: 1.0).CGColor
+        self.layer.borderColor = UIColor(red: 201.0/255.0, green: 201.0/255.0, blue: 203.0/255.0, alpha: 1.0).cgColor
         
         //Background
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
         // Find the button's label
-        let buttonText: NSString = self.titleLabel!.text!
+        let buttonText: NSString = self.titleLabel!.text! as NSString
         
         //getting the range to separate the button title strings
-        let newlineRange: NSRange = buttonText.rangeOfString("\n")
+        let newlineRange: NSRange = buttonText.range(of: "\n")
         
         //getting both substrings
         var substring1: NSString = ""
         var substring2: NSString = ""
         
         if(newlineRange.location != NSNotFound) {
-            substring1 = buttonText.substringToIndex(newlineRange.location)
-            substring2 = buttonText.substringFromIndex(newlineRange.location)
+            substring1 = buttonText.substring(to: newlineRange.location) as NSString
+            substring2 = buttonText.substring(from: newlineRange.location) as NSString
         }
         
         //assigning diffrent fonts to both substrings
@@ -48,20 +48,20 @@ class programDayButton: UIButton {
             string: substring1 as String,
             attributes: NSDictionary(
                 object: font!,
-                forKey: NSFontAttributeName) as? [String : AnyObject])
+                forKey: NSFontAttributeName as NSCopying) as? [String : AnyObject])
         
         let font1:UIFont? = UIFont(name: "BebasNeueRegular", size: 16.0)
         let attrString1 = NSMutableAttributedString(
             string: substring2 as String,
             attributes: NSDictionary(
                 object: font1!,
-                forKey: NSFontAttributeName) as? [String : AnyObject])
+                forKey: NSFontAttributeName as NSCopying) as? [String : AnyObject])
         
         //appending both attributed strings
-        attrString.appendAttributedString(attrString1)
+        attrString.append(attrString1)
         
         //assigning the resultant attributed strings to the button
-        self.setAttributedTitle(attrString, forState: UIControlState.Normal)
+        self.setAttributedTitle(attrString, for: UIControlState())
     }
     
     func setActive() {
@@ -69,6 +69,6 @@ class programDayButton: UIButton {
     }
     
     func setInactive() {
-        self.titleLabel?.textColor = UIColor.blackColor()
+        self.titleLabel?.textColor = UIColor.black
     }
 }

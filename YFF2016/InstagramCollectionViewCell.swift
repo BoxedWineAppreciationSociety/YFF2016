@@ -22,26 +22,26 @@ class InstagramCollectionViewCell: UICollectionViewCell {
         self.instagramImage.image = nil
     }
     
-    func setup(url: String) {
+    func setup(_ url: String) {
         addBorder()
         
-        if let checkedUrl = NSURL(string: url) {
-            self.instagramImage.contentMode = .ScaleAspectFill
+        if let checkedUrl = URL(string: url) {
+            self.instagramImage.contentMode = .scaleAspectFill
             downloadImage(checkedUrl)
         }
     }
     
     func addBorder() {
-        self.layer.borderColor = UIColor(red: 201.0/255.0, green: 201.0/255.0, blue: 203.0/255.0, alpha: 1.0).CGColor
+        self.layer.borderColor = UIColor(red: 201.0/255.0, green: 201.0/255.0, blue: 203.0/255.0, alpha: 1.0).cgColor
         self.layer.borderWidth = 1
     }
     
-    func downloadImage(url: NSURL){
+    func downloadImage(_ url: URL){
         print("Download Started")
-        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        print("lastPathComponent: " + (url.lastPathComponent))
         getDataFromUrl(url) { (data, response, error)  in
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                guard let data = data where error == nil else { return }
+            DispatchQueue.main.async { () -> Void in
+                guard let data = data , error == nil else { return }
                 print(response?.suggestedFilename ?? "")
                 print("Download Finished")
                 self.instagramImage.image = UIImage(data: data)
@@ -49,9 +49,9 @@ class InstagramCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
-            completion(data: data, response: response, error: error)
-            }.resume()
+    func getDataFromUrl(_ url:URL, completion: @escaping ((_ data: Data?, _ response: URLResponse?, _ error: NSError? ) -> Void)) {
+        URLSession.shared.dataTask(with: url, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+            completion(data, response, error as NSError?)
+            }) .resume()
     }
 }

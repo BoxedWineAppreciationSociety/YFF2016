@@ -9,8 +9,8 @@
 import UIKit
 
 class JSONLoader: NSObject {
-    static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true).first!
-    static let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+    static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).first!
+    static let documentsDirectoryPath = URL(string: documentsDirectoryPathString)!
     
     class func loadRemoteJSON() {
         loadArtists()
@@ -23,9 +23,9 @@ class JSONLoader: NSObject {
     }
     
     class func loadArtists() {
-        let request = NSMutableURLRequest(URL: NSURL(string: artistsJsonUrl)!)
+        let request = NSMutableURLRequest(url: URL(string: artistsJsonUrl)!)
         
-        httpGet(request){
+        httpGet(request as URLRequest!){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -36,9 +36,9 @@ class JSONLoader: NSObject {
     }
     
     class func loadInstagram() {
-        let request = NSMutableURLRequest(URL: NSURL(string: instagramUrl)!)
+        let request = NSMutableURLRequest(url: URL(string: instagramUrl)!)
         
-        httpGet(request){
+        httpGet(request as URLRequest!){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -50,9 +50,9 @@ class JSONLoader: NSObject {
     }
     
     class func loadFridayPerformances() {
-        let request = NSMutableURLRequest(URL: NSURL(string: friPerformancesJsonUrl)!)
+        let request = NSMutableURLRequest(url: URL(string: friPerformancesJsonUrl)!)
         
-        httpGet(request){
+        httpGet(request as URLRequest!){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -63,9 +63,9 @@ class JSONLoader: NSObject {
     }
     
     class func loadSaturdayPerformances() {
-        let request = NSMutableURLRequest(URL: NSURL(string: satPerformancesJsonUrl)!)
+        let request = NSMutableURLRequest(url: URL(string: satPerformancesJsonUrl)!)
         
-        httpGet(request){
+        httpGet(request as URLRequest!){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -77,9 +77,9 @@ class JSONLoader: NSObject {
     
     
     class func loadSundayPerformances() {
-        let request = NSMutableURLRequest(URL: NSURL(string: sunPerformancesJsonUrl)!)
+        let request = NSMutableURLRequest(url: URL(string: sunPerformancesJsonUrl)!)
         
-        httpGet(request){
+        httpGet(request as URLRequest!){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -90,19 +90,19 @@ class JSONLoader: NSObject {
     }
     
     class func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
-        return documentsDirectory
+        return documentsDirectory as NSString
     }
     
     
-    class func writeStringToFile(data: String, fileName: String) {
-        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
+    class func writeStringToFile(_ data: String, fileName: String) {
+        let jsonFilePath = getDocumentsDirectory().appendingPathComponent(fileName)
         
         do {
-            try data.writeToFile(jsonFilePath, atomically: true, encoding: NSUTF8StringEncoding)
+            try data.write(toFile: jsonFilePath, atomically: true, encoding: String.Encoding.utf8)
             do {
-                try print(String(contentsOfFile: jsonFilePath, encoding: NSUTF8StringEncoding))
+                try print(String(contentsOfFile: jsonFilePath, encoding: String.Encoding.utf8))
             } catch {
                 
             }
@@ -111,45 +111,45 @@ class JSONLoader: NSObject {
         }
     }
     
-    class func httpGet(request: NSURLRequest!, callback: (String, String?) -> Void) {
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request){
+    class func httpGet(_ request: URLRequest!, callback: @escaping (String, String?) -> Void) {
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: {
             (data, response, error) -> Void in
             if error != nil {
                 callback("", error!.localizedDescription)
             } else {
                 let result = NSString(data: data!, encoding:
-                    NSASCIIStringEncoding)!
+                    String.Encoding.ascii.rawValue)!
                 callback(result as String, nil)
             }
-        }
+        })
         task.resume()
     }
     
-    class func fetchPerformanceJSONForDay(day: String) -> NSData {
-        let fileName = "\(day.lowercaseString)_performances_remote.json"
-        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
-        let fileManager = NSFileManager.defaultManager()
-        if (fileManager.fileExistsAtPath(jsonFilePath)) {
-            return NSData(contentsOfFile: jsonFilePath)!
+    class func fetchPerformanceJSONForDay(_ day: String) -> Data {
+        let fileName = "\(day.lowercased())_performances_remote.json"
+        let jsonFilePath = getDocumentsDirectory().appendingPathComponent(fileName)
+        let fileManager = FileManager.default
+        if (fileManager.fileExists(atPath: jsonFilePath)) {
+            return (try! Data(contentsOf: URL(fileURLWithPath: jsonFilePath)))
         } else {
-            if let jsonFile = NSBundle.mainBundle().URLForResource("\(day.lowercaseString)_performances", withExtension: "json") {
-                return NSData(contentsOfURL: jsonFile)!
+            if let jsonFile = Bundle.main.url(forResource: "\(day.lowercased())_performances", withExtension: "json") {
+                return (try! Data(contentsOf: jsonFile))
             }
         }
        fatalError("Failed to find JSON")
     }
     
-    class func fetchArtistData() -> NSData {
+    class func fetchArtistData() -> Data {
         let fileName = "artists_remote.json"
-        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
-        let fileManager = NSFileManager.defaultManager()
+        let jsonFilePath = getDocumentsDirectory().appendingPathComponent(fileName)
+        let fileManager = FileManager.default
         
-        if (fileManager.fileExistsAtPath(jsonFilePath)) {
-            return NSData(contentsOfFile: jsonFilePath)!
+        if (fileManager.fileExists(atPath: jsonFilePath)) {
+            return (try! Data(contentsOf: URL(fileURLWithPath: jsonFilePath)))
         } else {
-            if let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json") {
-                return NSData(contentsOfURL: jsonFile)!
+            if let jsonFile = Bundle.main.url(forResource: "artist_json", withExtension: "json") {
+                return (try! Data(contentsOf: jsonFile))
             }
         }
        fatalError("Failed to find JSON")

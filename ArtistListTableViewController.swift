@@ -9,22 +9,22 @@
 import UIKit
 
 class ArtistListTableViewController: UITableViewController {
-    static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true).first!
-    let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+    static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).first!
+    let documentsDirectoryPath = URL(string: documentsDirectoryPathString)!
 
     
     var artistSectionTitles:Array<NSString> = []
     var selectedArtist: Artist?
     
-    let jsonFile = NSBundle.mainBundle().URLForResource("artist_json", withExtension: "json")
+    let jsonFile = Bundle.main.url(forResource: "artist_json", withExtension: "json")
     
     var artists = [Artist]()
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         // Set status bar for update
         self.setNeedsStatusBarAppearanceUpdate()
     }
@@ -34,7 +34,7 @@ class ArtistListTableViewController: UITableViewController {
         let jsonData = JSONLoader.fetchArtistData()
         
         do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+            let json = try JSONSerialization.jsonObject(with: jsonData as Data, options: .allowFragments)
             if let artistsDictionary = json as? [String: AnyObject] {
                 generateArtists(artistsDictionary)
             }
@@ -45,7 +45,7 @@ class ArtistListTableViewController: UITableViewController {
         // Setup Navigation Controller
         self.navigationItem.title = "ARTISTS"
         self.navigationController?.navigationBar.barTintColor = YFFOlive
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -54,14 +54,14 @@ class ArtistListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func generateArtists(dictionary: [String: AnyObject]) {
+    func generateArtists(_ dictionary: [String: AnyObject]) {
         let artistsDictionary = dictionary["artists"] as! [[String: AnyObject]]
         
         for artist in artistsDictionary {
             artists.append(Artist(attributes: artist))
         }
         
-        artists.sortInPlace {
+        artists.sort {
             artist1, artist2 in
             let name1 = artist1.name
             let name2 = artist2.name
@@ -76,12 +76,12 @@ class ArtistListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 //
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return artists.count
     }
@@ -90,8 +90,8 @@ class ArtistListTableViewController: UITableViewController {
 //        return (artistSectionTitles[section] as String).capitalizedString
 //    }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
         // Style the cell
         
@@ -102,32 +102,32 @@ class ArtistListTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!;
         
         self.selectedArtist = artistFor(indexPath)
         
-        performSegueWithIdentifier("artistDetailSegue", sender: self)
+        performSegue(withIdentifier: "artistDetailSegue", sender: self)
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let viewController = segue.destinationViewController as? ArtistDetailViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? ArtistDetailViewController {
             viewController.artist = self.selectedArtist
         }
     }
     
-    func artistFor(indexPath: NSIndexPath) -> Artist? {
-        return artists[indexPath.item]
+    func artistFor(_ indexPath: IndexPath) -> Artist? {
+        return artists[(indexPath as NSIndexPath).item]
     }
     
-    private func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    fileprivate func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
-        return documentsDirectory
+        return documentsDirectory as NSString
     }
 
 

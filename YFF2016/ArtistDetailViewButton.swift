@@ -9,7 +9,7 @@
 import UIKit
 
 class ArtistDetailViewButton: UIButton {
-    let screenWidth = UIScreen.mainScreen().bounds.width
+    let screenWidth = UIScreen.main.bounds.width
     
     var lineView: UIView?
     
@@ -17,13 +17,13 @@ class ArtistDetailViewButton: UIButton {
         super.init(coder: aDecoder)
         
         // Text Color
-        self.tintColor = UIColor.blackColor()
+        self.tintColor = UIColor.black
         
         // Font
         self.titleLabel?.font = UIFont(name: "BebasNeueRegular", size: 18)
         
         //Background
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
     }
     
@@ -34,11 +34,11 @@ class ArtistDetailViewButton: UIButton {
     
     func setAsInactive() {
         removeUnderline()
-        self.tintColor = UIColor.blackColor()
+        self.tintColor = UIColor.black
     }
     
     func setUnderline() {
-        let lineView = UIView(frame: CGRectMake(0, self.frame.size.height, self.frame.size.width, 3))
+        let lineView = UIView(frame: CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: 3))
         removeUnderline()
         lineView.backgroundColor = YFFOlive
         lineView.tag = 100
@@ -52,7 +52,7 @@ class ArtistDetailViewButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.lineView?.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, 3)
+        self.lineView?.frame = CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: 3)
     }
     
 }

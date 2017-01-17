@@ -21,24 +21,24 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var artistLinksLabel: UILabel!
     
 
-    @IBAction func aboutButtonTouchedUp(sender: ArtistDetailViewButton!) {
+    @IBAction func aboutButtonTouchedUp(_ sender: ArtistDetailViewButton!) {
         sender.setAsActive()
         artistPlayingTimesButton.setAsInactive()
-        self.artistDetailScrollView.hidden = false
-        self.artistPerformanceTableView.hidden = true
+        self.artistDetailScrollView.isHidden = false
+        self.artistPerformanceTableView.isHidden = true
     }
     
     
-    @IBAction func playingTimesButtonTouchedUp(sender: ArtistDetailViewButton!) {
+    @IBAction func playingTimesButtonTouchedUp(_ sender: ArtistDetailViewButton!) {
         sender.setAsActive()
         artistAboutButton.setAsInactive()
-        self.artistDetailScrollView.hidden = true
-        self.artistPerformanceTableView.hidden = false
+        self.artistDetailScrollView.isHidden = true
+        self.artistPerformanceTableView.isHidden = false
     }
     
-    @IBAction func facebookButtonTouchedUp(sender: UIButton) {
-        if let url = NSURL(string: (artist?.facebookURL)!) {
-            UIApplication.sharedApplication().openURL(url)
+    @IBAction func facebookButtonTouchedUp(_ sender: UIButton) {
+        if let url = URL(string: (artist?.facebookURL)!) {
+            UIApplication.shared.openURL(url)
         }
     }
     
@@ -84,34 +84,34 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
                 let x = CGFloat(index) * (buttonWidth + buttonViewSpace)
                 let socialLink = validArtistSocialLinks[index]
                 
-                let button = SocialButton(frame: CGRectMake(x, 0, buttonWidth, buttonWidth))
+                let button = SocialButton(frame: CGRect(x: x, y: 0, width: buttonWidth, height: buttonWidth))
                 button.setup(socialLink.keys.first!)
                 button.layer.cornerRadius = buttonWidth / 2
                 button.url = socialLink.values.first!
-                button.addTarget(self, action: "socialButtonTouchedUpInside:", forControlEvents: .TouchUpInside)
+                button.addTarget(self, action: #selector(ArtistDetailViewController.socialButtonTouchedUpInside(_:)), for: .touchUpInside)
                 self.artistSocialLinksView.addSubview(button)
             }
             
-            self.artistSocialLinksView.contentSize = CGSizeMake(CGFloat(validArtistSocialLinks.count) * (buttonWidth + buttonViewSpace), buttonWidth)
+            self.artistSocialLinksView.contentSize = CGSize(width: CGFloat(validArtistSocialLinks.count) * (buttonWidth + buttonViewSpace), height: buttonWidth)
             
         } else {
-            self.artistLinksLabel.hidden = true
+            self.artistLinksLabel.isHidden = true
             
         }
         
     }
     
-    func socialButtonTouchedUpInside(button: SocialButton) {
-        UIApplication.sharedApplication().openURL(NSURL(string: button.url!)!)
+    func socialButtonTouchedUpInside(_ button: SocialButton) {
+        UIApplication.shared.openURL(URL(string: button.url!)!)
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.artistAboutButton.setAsActive()
         self.artistPlayingTimesButton.setAsInactive()
-        self.artistDetailScrollView.hidden = false
-        self.artistPerformanceTableView.hidden = true
+        self.artistDetailScrollView.isHidden = false
+        self.artistPerformanceTableView.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -124,16 +124,16 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return artistPerformances.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PerformanceCell", forIndexPath: indexPath) as! ArtistPerformanceTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PerformanceCell", for: indexPath) as! ArtistPerformanceTableViewCell
         
         cell.setup(performanceFor(indexPath))
         
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         return cell
     }
 
@@ -142,31 +142,31 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "icon_arrow_back")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "icon_arrow_back")
         self.navigationController
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
 
         // Setup title
         self.navigationItem.title = "ARTIST"
     }
     
     func setupView() {
-        self.artistNameLabel.tintColor = UIColor.whiteColor()
+        self.artistNameLabel.tintColor = UIColor.white
         self.artistNameLabel.font = UIFont(name: "BebasNeue", size: 30)
         self.artistNameLabel.layer.shadowRadius = 3.0
-        self.artistNameLabel.layer.shadowOffset = CGSizeMake(0, 0)
+        self.artistNameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.artistNameLabel.layer.shadowOpacity = 1.0
         
         self.artistDescriptionView.font = UIFont(name: "SourceSansPro-Regular", size: 16)
-        self.artistDescriptionView.backgroundColor = UIColor.clearColor()
+        self.artistDescriptionView.backgroundColor = UIColor.clear
     }
     
-    func loadPerformancesForDay(day: String) {
-        let jsonData = JSONLoader.fetchPerformanceJSONForDay(day.lowercaseString)
+    func loadPerformancesForDay(_ day: String) {
+        let jsonData = JSONLoader.fetchPerformanceJSONForDay(day.lowercased())
         var allPerformancesDictionary: [[String: AnyObject]] = []
         
         do {
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+            let json = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
             if let performancesDictionary = json as? [String: AnyObject] {
-                allPerformancesDictionary.appendContentsOf(performancesDictionary["performances"] as! [[String: AnyObject]])
+                allPerformancesDictionary.append(contentsOf: performancesDictionary["performances"] as! [[String: AnyObject]])
             }
         } catch {
             //
@@ -186,16 +186,16 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func sortPerformances() {
-        artistPerformances.sortInPlace {
+        artistPerformances.sort {
             item1, item2 in
             let time1 = item1.time
             let time2 = item2.time
-            return time1!.compare(time2!) == NSComparisonResult.OrderedAscending
+            return time1!.compare(time2! as Date) == ComparisonResult.orderedAscending
         }
     }
 
     func displayArtist() {
-        artistImage.contentMode = .ScaleAspectFill
+        artistImage.contentMode = .scaleAspectFill
 
         self.artistNameLabel.text = artist?.name
         
@@ -216,8 +216,8 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
 
     }
     
-    func performanceFor(indexPath: NSIndexPath) -> Performance! {
-        return artistPerformances[indexPath.item]
+    func performanceFor(_ indexPath: IndexPath) -> Performance! {
+        return artistPerformances[(indexPath as NSIndexPath).item]
     }
     
 

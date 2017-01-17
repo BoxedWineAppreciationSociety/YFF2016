@@ -30,17 +30,17 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view.
         loadInstagram()
         
-        refreshControl.addTarget(self, action: "startRefresh:", forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(FeedViewController.startRefresh(_:)), for: .valueChanged)
         
         self.instagramFeedCollectionView.addSubview(refreshControl)
         
     }
     
-    func startRefresh(sender: AnyObject?) {
+    func startRefresh(_ sender: AnyObject?) {
         clearInstagramCells()
         loadInstagram()
         self.instagramFeedCollectionView.reloadData()
-        refreshControl.performSelector("endRefreshing", withObject: nil, afterDelay: 0.05)
+        refreshControl.perform(#selector(UIRefreshControl.endRefreshing), with: nil, afterDelay: 0.05)
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,31 +48,31 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Dispose of any resources that can be recreated.
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("InstagramCell", forIndexPath: indexPath) as! InstagramCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InstagramCell", for: indexPath) as! InstagramCollectionViewCell
         
-        cell.setup(imageUrls[indexPath.row])
+        cell.setup(imageUrls[(indexPath as NSIndexPath).row])
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenWidth = UIScreen.mainScreen().bounds.width
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
         let cellWidth = screenWidth * 0.44
         
-        return CGSizeMake(cellWidth, cellWidth)
+        return CGSize(width: cellWidth, height: cellWidth)
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageUrls.count
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
         case UICollectionElementKindSectionHeader:
             let headerView =
-            collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! FeedCollectionHeaderViewCollectionReusableView
+            collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! FeedCollectionHeaderViewCollectionReusableView
             
             headerView.headerLabel.text = "FOLLOW US ON INSTAGRAM \n @YACKFOLKFESTIVAL"
             headerView.headerLabel.font = UIFont(name: "BebasNeueRegular", size: 26)
@@ -87,13 +87,13 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func loadInstagram() {
         let fileName = "instagram_remote.json"
-        let jsonFilePath = getDocumentsDirectory().stringByAppendingPathComponent(fileName)
-        let fileManager = NSFileManager.defaultManager()
+        let jsonFilePath = getDocumentsDirectory().appendingPathComponent(fileName)
+        let fileManager = FileManager.default
         var json: JSON?
         
-        if (fileManager.fileExistsAtPath(jsonFilePath)) {
+        if (fileManager.fileExists(atPath: jsonFilePath)) {
             do {
-                json = try JSON(string: String(contentsOfFile: jsonFilePath, encoding: NSUTF8StringEncoding))
+                json = try JSON(string: String(contentsOfFile: jsonFilePath, encoding: String.Encoding.utf8))
             } catch {
                 json = JSON(url: url)
             }
@@ -115,10 +115,10 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         imageUrls.removeAll()
     }
     
-    private func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    fileprivate func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
-        return documentsDirectory
+        return documentsDirectory as NSString
     }
     
     /*

@@ -21,7 +21,7 @@ class PerformanceCell: UITableViewCell {
         // Initialization code
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -35,8 +35,8 @@ class PerformanceCell: UITableViewCell {
         self.performanceCellThumb.image = nil
     }
     
-    func setup(performance: Performance) {
-        let dateFormatter = NSDateFormatter()
+    func setup(_ performance: Performance) {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         
         if let artistImage = UIImage(named: (performance.artist?.imageName)!) {
@@ -47,7 +47,7 @@ class PerformanceCell: UITableViewCell {
         
         self.artistNameLabel.text = performance.artist?.name
         self.performanceStageLabel.text = performance.stage
-        self.performanceTimeLabel.text = dateFormatter.stringFromDate(performance.time!)
+        self.performanceTimeLabel.text = dateFormatter.string(from: performance.time! as Date)
         
         self.performanceStageLabel.textColor = YFFOlive
         self.performanceTimeLabel.textColor = YFFOlive

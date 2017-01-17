@@ -22,7 +22,7 @@ class LaunchViewButton: UIButton {
         super.init(coder: aDecoder)
         
         // Text Color
-        self.tintColor = UIColor.whiteColor()
+        self.tintColor = UIColor.white
         
         // Font
         self.titleLabel?.font = UIFont(name: "SourceSansPro-Semibold", size: 18)
