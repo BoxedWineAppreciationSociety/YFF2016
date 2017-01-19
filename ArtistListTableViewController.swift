@@ -42,11 +42,8 @@ class ArtistListTableViewController: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = YFFOlive
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFOlive
     }
     
     func sortArtists() {

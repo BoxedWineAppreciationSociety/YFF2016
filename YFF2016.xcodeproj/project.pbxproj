@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4308734A1E309D8300174CF5 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430873491E309D8300174CF5 /* MoreTableViewController.swift */; };
 		4322FE621C732BFF003B0775 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322FE611C732BFF003B0775 /* Constants.swift */; };
 		4322FE641C732EBD003B0775 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322FE631C732EBD003B0775 /* JSONLoader.swift */; };
 		4324437A1C61F14D0045A661 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432443791C61F14D0045A661 /* Performance.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		430873491E309D8300174CF5 /* MoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		4322FE611C732BFF003B0775 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4322FE631C732EBD003B0775 /* JSONLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		432443791C61F14D0045A661 /* Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
@@ -154,6 +156,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		430873481E309D6200174CF5 /* Overflow */ = {
+			isa = PBXGroup;
+			children = (
+				430873491E309D8300174CF5 /* MoreTableViewController.swift */,
+			);
+			name = Overflow;
+			sourceTree = "<group>";
+		};
 		4371FF1D1E18C7DE0096620D /* Local JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +233,7 @@
 		43C5A60E1C25295600222D23 /* YFF2016 */ = {
 			isa = PBXGroup;
 			children = (
+				430873481E309D6200174CF5 /* Overflow */,
 				4371FF201E18C8740096620D /* Map */,
 				4371FF1F1E18C8130096620D /* Program */,
 				4371FF1E1E18C7ED0096620D /* Artists */,
@@ -526,6 +537,7 @@
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
 				439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,
+				4308734A1E309D8300174CF5 /* MoreTableViewController.swift in Sources */,
 				4322FE641C732EBD003B0775 /* JSONLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -57,14 +57,26 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         displayArtist()
         setupView()
         
-        JSONLoader.fetchPerformances(day: "fri")
-        JSONLoader.fetchPerformances(day: "sat")
-        JSONLoader.fetchPerformances(day: "sun")
-        
+        DispatchQueue.main.async {
+            self.generatePerformancesForArtist()
+            self.artistPerformanceTableView.reloadData()
+        }
         sortPerformances()
         
         setupSocialButtons()
 
+    }
+    
+    func generatePerformancesForArtist() {
+        var allPerformances = [Performance]()
+        
+        allPerformances.append(contentsOf: JSONLoader.fetchPerformances(day: "fri"))
+        allPerformances.append(contentsOf: JSONLoader.fetchPerformances(day: "sat"))
+        allPerformances.append(contentsOf: JSONLoader.fetchPerformances(day: "sun"))
+        
+        artistPerformances = allPerformances.filter {
+            $0.artist?.id == artist?.id
+        }
     }
     
     func setupSocialButtons() {

@@ -38,6 +38,9 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         self.navigationItem.title = "EVENT MAP"
         self.navigationController?.navigationBar.barTintColor = YFFOrange
         
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFOrange
+        
         
         //Set up the image inside the scroll view
         let mapImage = UIImage(named: "mapImage")

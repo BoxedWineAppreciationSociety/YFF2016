@@ -47,6 +47,9 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.heartButtonAction))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFRed
+        
         
         programTableView.dataSource = self
         programTableView.delegate = self
