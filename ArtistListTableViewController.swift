@@ -26,8 +26,13 @@ class ArtistListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Set status bar for update
         self.setNeedsStatusBarAppearanceUpdate()
+        
+        
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFOlive
     }
     
     override func viewDidLoad() {
@@ -41,9 +46,6 @@ class ArtistListTableViewController: UITableViewController {
         self.navigationItem.title = "ARTISTS"
         self.navigationController?.navigationBar.barTintColor = YFFOlive
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-        
-        // Setup Tab Bar
-        self.tabBarController!.tabBar.tintColor = YFFOlive
     }
     
     func sortArtists() {

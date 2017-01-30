@@ -9,7 +9,16 @@
 import UIKit
 
 class MoreTableViewController: UITableViewController {
-    let allLinks = ["http://facebook.com"]
+    let allLinks = [
+        ["Website": "http://yackfolkfestival.com"],
+        ["Facebook": "https://www.facebook.com/yackfolkfestival/"],
+        ["Instagram": "https://www.instagram.com/yackfolkfestival/"],
+        ["Twitter": "https://twitter.com/yackfolkfest/"],
+        ["YouTube": "https://www.youtube.com/user/YackandandahFolkFest/"]
+        
+    ]
+    
+    var selectedLink: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +28,6 @@ class MoreTableViewController: UITableViewController {
         self.navigationItem.title = "MORE"
         self.navigationController?.navigationBar.barTintColor = YFFTeal
         
-        // Setup Tab Bar
-        self.tabBarController!.tabBar.tintColor = YFFTeal
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,10 +35,28 @@ class MoreTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFTeal
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Get Cell Label
+        let indexPath = tableView.indexPathForSelectedRow!;
+        
+        let selectedLink = allLinks[(indexPath as NSIndexPath).item].values.first!
+        
+        UIApplication.shared.openURL(URL(string: selectedLink)!)
     }
 
     // MARK: - Table view data source
@@ -47,22 +72,23 @@ class MoreTableViewController: UITableViewController {
     }
 
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-//
-//        // Configure the cell...
-//        
-//        let linkText = allLinks[(indexPath as NSIndexPath).item]
-//        
-//        cell.textLabel?.text = linkText
-//
-//        return cell
-//    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+        
+        let linkText = allLinks[(indexPath as NSIndexPath).item]
+        
+        cell.textLabel?.font = UIFont(name: "BebasNeueBold", size: CGFloat(26.0))
+        cell.textLabel?.text = linkText.keys.first
+
+        return cell
+    }
 
     /*
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+
+     // Return false if you do not want the specified item to be editable.
         return true
     }
     */

@@ -37,10 +37,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
         self.navigationItem.title = "EVENT MAP"
         self.navigationController?.navigationBar.barTintColor = YFFOrange
-        
-        // Setup Tab Bar
-        self.tabBarController!.tabBar.tintColor = YFFOrange
-        
+
         
         //Set up the image inside the scroll view
         let mapImage = UIImage(named: "mapImage")
@@ -74,6 +71,13 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         
         // Start at the center
         centerScrollViewContents()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFOrange
     }
 
     override func didReceiveMemoryWarning() {
