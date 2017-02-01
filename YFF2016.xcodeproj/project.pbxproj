@@ -14,6 +14,7 @@
 		4324437C1C6200890045A661 /* fri_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 4324437B1C6200890045A661 /* fri_performances.json */; };
 		4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4324437D1C6203650045A661 /* PerformanceCell.swift */; };
 		4343CE5D1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */; };
+		435B0EE31E41D6A60091B2DA /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435B0EE21E41D6A60091B2DA /* NotificationScheduler.swift */; };
 		436C71C41C90E68600E65AC0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 436C71C31C90E68600E65AC0 /* Podfile */; };
 		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
 		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
@@ -80,6 +81,7 @@
 		4324437B1C6200890045A661 /* fri_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fri_performances.json; sourceTree = "<group>"; };
 		4324437D1C6203650045A661 /* PerformanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
 		4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionHeaderViewCollectionReusableView.swift; sourceTree = "<group>"; };
+		435B0EE21E41D6A60091B2DA /* NotificationScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		436C71C31C90E68600E65AC0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */,
 				43F0B0BA1C881EA800A318CC /* SocialButton.swift */,
 				43B824D91C90E7E60016EFF8 /* YFF2016-Bridging-Header.h */,
+				435B0EE21E41D6A60091B2DA /* NotificationScheduler.swift */,
 			);
 			path = YFF2016;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				4343CE5D1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift in Sources */,
 				43D038651C884490004661C1 /* MadeWithLoveViewController.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
+				435B0EE31E41D6A60091B2DA /* NotificationScheduler.swift in Sources */,
 				4322FE621C732BFF003B0775 /* Constants.swift in Sources */,
 				4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */,
 				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,

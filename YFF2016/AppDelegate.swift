@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Mixpanel
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         JSONLoader.loadRemoteJSON()
         
         let mixpanel = Mixpanel.sharedInstance(withToken: "fae80bc076f11cf15deb0be67d83c74b")
+
+        if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
+        }
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
     
