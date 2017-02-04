@@ -43,13 +43,10 @@ class Artist {
     }
     
     class func findById(id: String) -> Artist? {
-        let jsonData = JSONLoader.fetchArtistData()
-        let json = JSON(data: jsonData)
-        
-        let artists = json["artists"]
-        for artist in artists.arrayValue {
-            if artist["id"].stringValue == id {
-                return Artist(json: artist)
+        let artists = JSONLoader.fetchArtists()
+        for artist in artists {
+            if artist.id == id {
+                return artist
             }
         }
         return nil

@@ -7,4 +7,5 @@ use_frameworks!
 target 'YFF2016' do
     pod 'Mixpanel'
     pod 'SwiftyJSON'
+    pod 'Alamofire'
 end

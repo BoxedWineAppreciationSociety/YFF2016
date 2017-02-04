@@ -28,6 +28,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationItem.title = "FEED"
         self.navigationController?.navigationBar.barTintColor = YFFTeal
         
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFTeal
+        
         // Do any additional setup after loading the view.
         loadInstagram()
         
@@ -102,14 +105,14 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
             json = JSON(url: url)
         }
         
-//        let imagesJson = json!["data"] as JSON
-//        for imageJson in imagesJson {
-//            let image = imageJson.1
-//            
-//            let imageUrl = image["images"]["standard_resolution"]["url"].stringValue
-//            
-//            imageUrls.append(imageUrl!)
-//        }
+        let imagesJson = json!["data"] as JSON
+        for imageJson in imagesJson {
+            let image = imageJson.1
+            
+            let imageUrl = image["images"]["standard_resolution"]["url"].stringValue
+            
+            imageUrls.append(imageUrl)
+        }
     }
     
     func clearInstagramCells() {

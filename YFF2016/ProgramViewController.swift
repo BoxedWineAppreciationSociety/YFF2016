@@ -16,7 +16,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         if let dayIdentifier = sender.restorationIdentifier {
             clearPerformances()
             clearActiveButton()
-            generatePerformances(performancesJSON: performancesForDay(dayIdentifier)!)
+            performances = JSONLoader.fetchPerformances(day: dayIdentifier)
             programTableView.reloadData()
             scrollToTop()
             sender.setActive()
@@ -47,18 +47,22 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.heartButtonAction))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
-        
         programTableView.dataSource = self
         programTableView.delegate = self
         
-        if let performancesForDay = performancesForDay("FRI".lowercased()) {
-            generatePerformances(performancesJSON: performancesForDay)
-            fridayPerformancesButton.setActive()
-        }
+        performances.append(contentsOf: JSONLoader.fetchPerformances(day: "FRI".lowercased()))
+        fridayPerformancesButton.setActive()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFRed
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,15 +84,6 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.present(controller, animated: true, completion: nil)
     }
     
-    func performancesForDay(_ day: String) -> [JSON]? {
-        let jsonData = JSONLoader.fetchPerformanceJSONForDay(day)
-
-        let json = JSON(data: jsonData)
-            
-        let performances = json["performances"].arrayValue
-        
-        return performances
-    }
     
     func generatePerformances(performancesJSON: [JSON]) {
         

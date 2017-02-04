@@ -26,39 +26,29 @@ class ArtistListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Set status bar for update
         self.setNeedsStatusBarAppearanceUpdate()
+        
+        
+        // Setup Tab Bar
+        self.tabBarController!.tabBar.tintColor = YFFOlive
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let jsonData = JSONLoader.fetchArtistData()
         
-        let json = JSON(data: jsonData)
-            
-        generateArtists(data: json)
+        artists.append(contentsOf: JSONLoader.fetchArtists())
+        sortArtists()
     
 
         // Setup Navigation Controller
         self.navigationItem.title = "ARTISTS"
         self.navigationController?.navigationBar.barTintColor = YFFOlive
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func generateArtists(data: JSON) {
-        let artistsDictionary = data["artists"] 
-        
-        for artist in artistsDictionary {
-            
-            artists.append(Artist(json: artist.1))
-        }
-        
+    func sortArtists() {
         artists.sort {
             artist1, artist2 in
             let name1 = artist1.name
