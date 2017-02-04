@@ -45,7 +45,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController?.navigationBar.barTintColor = YFFRed
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.heartButtonAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_alert_selected"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.heartButtonAction))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
         programTableView.dataSource = self
@@ -74,13 +74,12 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Actions
 
     func heartButtonAction() {
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "MadeWithLove")
-        controller.modalTransitionStyle = .crossDissolve
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "MyItinerary")
         
         if #available(iOS 8.0, *) {
-            controller.modalPresentationStyle = .overFullScreen
+//            controller.modalPresentationStyle = .overFullScreen
         } else {
-            controller.modalPresentationStyle = .fullScreen
+//            controller.modalPresentationStyle = .fullScreen
         }
         self.present(controller, animated: true, completion: nil)
     }

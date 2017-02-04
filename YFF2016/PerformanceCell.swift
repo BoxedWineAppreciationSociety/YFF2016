@@ -68,11 +68,14 @@ class PerformanceCell: UITableViewCell {
             }
         }
         
-        if scheduled {
-            self.remindMeButton.setTitle("Exists", for: .normal)
-        } else {
-            self.remindMeButton.setTitle("Remind Me", for: .normal)
+        UIView.animate(withDuration: 0.3) { 
+            if scheduled {
+                self.remindMeButton.setImage(UIImage(named: "ic_alert_selected"), for: .normal)
+            } else {
+                self.remindMeButton.setImage(UIImage(named: "ic_alert"), for: .normal)
+            }
         }
+        
     }
     
     func setup(_ performance: Performance) {
