@@ -1069,26 +1069,92 @@ if you like the app, let us know or buy us a beer. we’ll see you at the festiv
         <scene sceneID="lBu-D3-WxY">
             <objects>
                 <tableViewController id="GEb-Mo-NyV" customClass="MyItineraryTableViewController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sDW-32-hbe" customClass="MyIte">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="sDW-32-hbe" customClass="MyIte">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lbn-1g-Y5f">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduledPerformanceCell" rowHeight="104" id="6PU-w7-wRy" customClass="PerformanceCell" customModule="YFF2016" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lbn-1g-Y5f" id="gjp-bw-iza">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6PU-w7-wRy" id="acT-sL-WjS">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scott Cook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDy-Ul-8VK">
+                                            <rect key="frame" x="88" y="18" width="239" height="30"/>
+                                            <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="30"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:00pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3E-PQ-jC9">
+                                            <rect key="frame" x="88" y="53" width="279" height="16"/>
+                                            <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Courthouse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80l-xP-k9m">
+                                            <rect key="frame" x="88" y="74" width="279" height="16"/>
+                                            <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artistPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="CBb-xE-bht">
+                                            <rect key="frame" x="8" y="17" width="70" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="cR3-1a-81K"/>
+                                                <constraint firstAttribute="height" constant="70" id="lH0-Xe-PoP"/>
+                                                <constraint firstAttribute="height" constant="70" id="mGc-vV-i81"/>
+                                                <constraint firstAttribute="width" constant="70" id="vkx-X6-RXg"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="mGc-vV-i81"/>
+                                                    <exclude reference="vkx-X6-RXg"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4v-bx-eXF">
+                                            <rect key="frame" x="339" y="22" width="18" height="22"/>
+                                            <state key="normal" image="ic_alert"/>
+                                            <connections>
+                                                <action selector="remindMe:" destination="6PU-w7-wRy" eventType="touchUpInside" id="yzn-89-QGa"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="S4v-bx-eXF" secondAttribute="trailing" constant="10" id="DB0-e3-Nc5"/>
+                                        <constraint firstItem="Y3E-PQ-jC9" firstAttribute="top" secondItem="oDy-Ul-8VK" secondAttribute="bottom" constant="5" id="G33-3q-MwR"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Y3E-PQ-jC9" secondAttribute="trailing" id="GZ5-NS-YDj"/>
+                                        <constraint firstItem="80l-xP-k9m" firstAttribute="leading" secondItem="Y3E-PQ-jC9" secondAttribute="trailing" constant="-464" id="IGJ-iM-TAB"/>
+                                        <constraint firstAttribute="bottom" secondItem="CBb-xE-bht" secondAttribute="bottom" constant="8" id="MXx-w2-J7d"/>
+                                        <constraint firstItem="Y3E-PQ-jC9" firstAttribute="leading" secondItem="CBb-xE-bht" secondAttribute="trailing" constant="10" id="Olc-ej-5yq"/>
+                                        <constraint firstItem="CBb-xE-bht" firstAttribute="centerY" secondItem="acT-sL-WjS" secondAttribute="centerY" id="Rfu-29-WVG"/>
+                                        <constraint firstItem="CBb-xE-bht" firstAttribute="width" secondItem="acT-sL-WjS" secondAttribute="height" multiplier="1:1" id="RwV-yn-wF9"/>
+                                        <constraint firstItem="oDy-Ul-8VK" firstAttribute="trailing" secondItem="acT-sL-WjS" secondAttribute="trailingMargin" constant="-40" id="VWd-zu-F98"/>
+                                        <constraint firstItem="80l-xP-k9m" firstAttribute="top" secondItem="Y3E-PQ-jC9" secondAttribute="bottom" constant="5" id="XP5-mt-XUI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="80l-xP-k9m" secondAttribute="trailing" id="Xj1-03-LBm"/>
+                                        <constraint firstItem="80l-xP-k9m" firstAttribute="leading" secondItem="CBb-xE-bht" secondAttribute="trailing" constant="10" id="Z6o-ZY-Eai"/>
+                                        <constraint firstItem="oDy-Ul-8VK" firstAttribute="leading" secondItem="CBb-xE-bht" secondAttribute="trailing" constant="10" id="ZIe-UD-bzn"/>
+                                        <constraint firstItem="S4v-bx-eXF" firstAttribute="top" secondItem="acT-sL-WjS" secondAttribute="topMargin" constant="14" id="aRE-bz-WTJ"/>
+                                        <constraint firstItem="CBb-xE-bht" firstAttribute="leading" secondItem="acT-sL-WjS" secondAttribute="leading" constant="8" id="aUN-q7-RSn"/>
+                                        <constraint firstItem="oDy-Ul-8VK" firstAttribute="top" secondItem="acT-sL-WjS" secondAttribute="topMargin" constant="10" id="eM9-Ac-80g"/>
+                                        <constraint firstItem="CBb-xE-bht" firstAttribute="top" secondItem="acT-sL-WjS" secondAttribute="top" constant="8" id="qV4-ay-OBX"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="MXx-w2-J7d"/>
+                                            <exclude reference="qV4-ay-OBX"/>
+                                            <exclude reference="RwV-yn-wF9"/>
+                                            <exclude reference="IGJ-iM-TAB"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XJM-xF-GTR">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XJM-xF-GTR" id="PbJ-nD-SZg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="artistNameLabel" destination="oDy-Ul-8VK" id="kJH-jo-P3J"/>
+                                    <outlet property="performanceCellThumb" destination="CBb-xE-bht" id="tC5-XL-WkO"/>
+                                    <outlet property="performanceStageLabel" destination="80l-xP-k9m" id="0ZN-tm-7jg"/>
+                                    <outlet property="performanceTimeLabel" destination="Y3E-PQ-jC9" id="pwM-ox-Qsu"/>
+                                    <outlet property="remindMeButton" destination="S4v-bx-eXF" id="AyU-bw-atB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

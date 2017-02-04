@@ -14,6 +14,8 @@ let YFFOrange = UIColor(red: 228.0/255.0, green: 117.0/255.0, blue: 48.0/255.0, 
 let YFFOlive = UIColor(red: 154.0/255.0, green: 155.0/255.0, blue: 82.0/255.0, alpha: 1.0)
 let YFFTeal = UIColor(red: 76.0/255.0, green: 133.0/255.0, blue: 121.0/255.0, alpha: 1.0)
 
+let YFFGrey = UIColor(red: 53.0/255.0, green: 43.0/255.0, blue: 31.0/255.0, alpha: 1.0)
+
 let facebookBlue = UIColor(red: 0.23137254901960785, green: 0.3568627450980393, blue: 0.596078431372549, alpha: 1)
 let twitterBlue = UIColor(red: 89.0/255.0, green: 174.0/255.0, blue: 238.0/255.0, alpha: 1)
 let instagramBlue = UIColor(red: 18.0/255.0, green: 86.0/255.0, blue: 136.0/255.0, alpha: 1)

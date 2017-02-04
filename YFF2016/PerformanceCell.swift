@@ -11,7 +11,7 @@ import UIKit
 class PerformanceCell: UITableViewCell {
     
     var performance: Performance?
-    var tableViewController: ProgramViewController?
+    var tableViewController: UIViewController?
     
     @IBOutlet weak var performanceCellThumb: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!

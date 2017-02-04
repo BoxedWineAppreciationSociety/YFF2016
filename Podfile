@@ -8,4 +8,5 @@ target 'YFF2016' do
     pod 'Mixpanel'
     pod 'SwiftyJSON'
     pod 'Alamofire'
+    pod 'DZNEmptyDataSet'
 end
