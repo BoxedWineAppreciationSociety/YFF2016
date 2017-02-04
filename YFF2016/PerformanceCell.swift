@@ -10,10 +10,29 @@ import UIKit
 
 class PerformanceCell: UITableViewCell {
     
+    var performance: Performance?
+    var tableViewController: UIViewController?
+    
     @IBOutlet weak var performanceCellThumb: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var performanceTimeLabel: UILabel!
     @IBOutlet weak var performanceStageLabel: UILabel!
+    @IBOutlet weak var remindMeButton: UIButton!
+    
+    @IBAction func remindMe(_ sender: UIButton) {
+        if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
+            let message = "You've just added a song to your alerts. We'll let you know 15 minutes before this artist is playing so you don't miss any of the action!"
+            
+            let alert = UIAlertController(title: "🎉", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.tableViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        NotificationScheduler.toggleNotification(performance: self.performance!)
+        
+        toggleNotificationButton()
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,7 +54,34 @@ class PerformanceCell: UITableViewCell {
         self.performanceCellThumb.image = nil
     }
     
+    func toggleNotificationButton() {
+        let existingNotications = UIApplication.shared.scheduledLocalNotifications
+        
+        var scheduled = false
+        
+        for existingNotification in existingNotications! {
+            let userInfoCurrent = existingNotification.userInfo! as! [String:AnyObject]
+            let performanceId = userInfoCurrent["performanceId"]! as! String
+            if performanceId == self.performance?.id {
+                scheduled = true
+                break;
+            }
+        }
+        
+        UIView.animate(withDuration: 0.3) { 
+            if scheduled {
+                self.remindMeButton.setImage(UIImage(named: "ic_alert_selected"), for: .normal)
+            } else {
+                self.remindMeButton.setImage(UIImage(named: "ic_alert"), for: .normal)
+            }
+        }
+        
+    }
+    
     func setup(_ performance: Performance) {
+        self.performance = performance
+        toggleNotificationButton()
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         

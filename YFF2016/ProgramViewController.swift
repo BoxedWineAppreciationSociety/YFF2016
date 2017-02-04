@@ -8,10 +8,11 @@
 
 import UIKit
 import SwiftyJSON
+import UserNotifications
 
 class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var selectedArtist: Artist?
-
+    
     @IBAction func selectDay(_ sender: programDayButton) {
         if let dayIdentifier = sender.restorationIdentifier {
             clearPerformances()
@@ -44,7 +45,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController?.navigationBar.barTintColor = YFFRed
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.heartButtonAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_alert_selected"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.heartButtonAction))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
         programTableView.dataSource = self
@@ -71,15 +72,14 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: Actions
-    
-    func heartButtonAction() {
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "MadeWithLove")
-        controller.modalTransitionStyle = .crossDissolve
 
+    func heartButtonAction() {
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "MyItinerary")
+        
         if #available(iOS 8.0, *) {
-            controller.modalPresentationStyle = .overFullScreen
+//            controller.modalPresentationStyle = .overFullScreen
         } else {
-            controller.modalPresentationStyle = .fullScreen
+//            controller.modalPresentationStyle = .fullScreen
         }
         self.present(controller, animated: true, completion: nil)
     }
@@ -104,8 +104,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PerformanceCell", for: indexPath) as! PerformanceCell
-        
         cell.setup(performanceFor(indexPath))
+        cell.tableViewController = self
         cell.performanceTimeLabel.tintColor = YFFOlive
         cell.performanceStageLabel.tintColor = YFFOlive
         return cell
@@ -134,7 +134,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
             viewController.artist = self.selectedArtist
         }
     }
-
+    
     
     func performanceFor(_ indexPath: IndexPath) -> Performance! {
         return performances[(indexPath as NSIndexPath).item]
@@ -155,13 +155,13 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }
