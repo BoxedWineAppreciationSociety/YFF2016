@@ -23,6 +23,7 @@
 		439680B41C6C99FF008E35A4 /* sat_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 439680B31C6C99FF008E35A4 /* sat_performances.json */; };
 		439680B61C6C9B01008E35A4 /* sun_performances.json in Resources */ = {isa = PBXBuildFile; fileRef = 439680B51C6C9B01008E35A4 /* sun_performances.json */; };
 		43A5B4401E45DD0A00C969B9 /* MyItineraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A5B43F1E45DD0A00C969B9 /* MyItineraryTableViewController.swift */; };
+		43A895521E45F7330050771F /* OverflowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A895511E45F7330050771F /* OverflowCell.swift */; };
 		43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */; };
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
 		43B4C19C1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */; };
@@ -91,6 +92,7 @@
 		439680B31C6C99FF008E35A4 /* sat_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sat_performances.json; sourceTree = "<group>"; };
 		439680B51C6C9B01008E35A4 /* sun_performances.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sun_performances.json; sourceTree = "<group>"; };
 		43A5B43F1E45DD0A00C969B9 /* MyItineraryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyItineraryTableViewController.swift; sourceTree = "<group>"; };
+		43A895511E45F7330050771F /* OverflowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverflowCell.swift; sourceTree = "<group>"; };
 		43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewButton.swift; sourceTree = "<group>"; };
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
 		43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistPerformanceTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				430873491E309D8300174CF5 /* MoreTableViewController.swift */,
+				43A895511E45F7330050771F /* OverflowCell.swift */,
 			);
 			name = Overflow;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				43C5A6181C25295600222D23 /* YFF2016.xcdatamodeld in Sources */,
 				439680B21C6C900D008E35A4 /* programDayButton.swift in Sources */,
 				43E17BE51C2B98250075F92B /* FeedViewController.swift in Sources */,
+				43A895521E45F7330050771F /* OverflowCell.swift in Sources */,
 				4308734A1E309D8300174CF5 /* MoreTableViewController.swift in Sources */,
 				4322FE641C732EBD003B0775 /* JSONLoader.swift in Sources */,
 			);

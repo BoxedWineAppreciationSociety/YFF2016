@@ -10,12 +10,41 @@ import UIKit
 
 class MoreTableViewController: UITableViewController {
     let allLinks = [
-        ["Website": "http://yackfolkfestival.com"],
-        ["Facebook": "https://www.facebook.com/yackfolkfestival/"],
-        ["Instagram": "https://www.instagram.com/yackfolkfestival/"],
-        ["Twitter": "https://twitter.com/yackfolkfest/"],
-        ["YouTube": "https://www.youtube.com/user/YackandandahFolkFest/"]
-        
+        [
+            "label": "Festival Info",
+            "website": "http://yackfolkfestival.com/festival-info/",
+            "image-name": "ic_festival_info"
+        ],
+        [
+            "label": "Buy Tickets",
+            "website": "http://yackfolkfestival.com/festival-info/tickets/",
+            "image-name": "ic_buy_tickets"
+        ],
+        [
+            "label": "News",
+            "website": "http://yackfolkfestival.com/festival-info/news/",
+            "image-name": "ic_news"
+        ],
+        [
+            "label": "Our Website",
+            "website": "http://yackfolkfestival.com",
+            "image-name": "ic_website"
+        ],
+        [
+            "label": "Facebook",
+            "website": "https://www.facebook.com/yackfolkfestival/",
+            "image-name": "ic_facebook"
+        ],
+        [
+            "label": "Instagram",
+            "website": "https://www.instagram.com/yackfolkfestival/",
+            "image-name": "ic_instagram"
+        ],
+        [
+            "label": "Twitter",
+            "website": "https://twitter.com/yackfolkfest/",
+            "image-name": "ic_twitter"
+        ]
     ]
     
     var selectedLink: String = ""
@@ -54,9 +83,9 @@ class MoreTableViewController: UITableViewController {
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!;
         
-        let selectedLink = allLinks[(indexPath as NSIndexPath).item].values.first!
+        let selectedLink = allLinks[(indexPath as NSIndexPath).item]["website"]
         
-        UIApplication.shared.openURL(URL(string: selectedLink)!)
+        UIApplication.shared.openURL(URL(string: selectedLink!)!)
     }
 
     // MARK: - Table view data source
@@ -72,15 +101,16 @@ class MoreTableViewController: UITableViewController {
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> OverflowCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "overflowCell", for: indexPath) as! OverflowCell
 
         // Configure the cell...
         
-        let linkText = allLinks[(indexPath as NSIndexPath).item]
+        let link = allLinks[(indexPath as NSIndexPath).item]
         
-        cell.textLabel?.font = UIFont(name: "BebasNeueBold", size: CGFloat(26.0))
-        cell.textLabel?.text = linkText.keys.first
+        cell.linkLabel?.font = UIFont(name: "BebasNeueRegular", size: CGFloat(26.0))
+        cell.linkLabel?.text = link["label"]
+        cell.linkImage.image = UIImage(named: link["image-name"]!)
 
         return cell
     }

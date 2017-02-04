@@ -12,7 +12,6 @@ class FirstLaunchViewController: UIViewController {
     @IBOutlet weak var programButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var artistsButton: UIButton!
-    @IBOutlet weak var feedButton: UIButton!
     @IBOutlet weak var termsButton: UIButton!
     
     @IBAction func termsButtonTouchedUpInside(_ sender: UIButton) {
@@ -20,7 +19,7 @@ class FirstLaunchViewController: UIViewController {
     }
     
     override var prefersStatusBarHidden : Bool {
-        return true
+        return false
     }
     
     override func viewDidLoad() {
@@ -30,8 +29,6 @@ class FirstLaunchViewController: UIViewController {
         programButton.backgroundColor = YFFRed
         mapButton.backgroundColor = YFFOrange
         artistsButton.backgroundColor = YFFOlive
-        feedButton.backgroundColor = YFFTeal
-        feedButton.titleLabel?.tintColor = YFFOlive
     }
 
     override func didReceiveMemoryWarning() {
