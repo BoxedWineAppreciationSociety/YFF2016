@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4308734A1E309D8300174CF5 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430873491E309D8300174CF5 /* MoreTableViewController.swift */; };
+		431C19181E46963B00E30EA2 /* UIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C19171E46963B00E30EA2 /* UIView+Borders.swift */; };
 		4322FE621C732BFF003B0775 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322FE611C732BFF003B0775 /* Constants.swift */; };
 		4322FE641C732EBD003B0775 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322FE631C732EBD003B0775 /* JSONLoader.swift */; };
 		4324437A1C61F14D0045A661 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432443791C61F14D0045A661 /* Performance.swift */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		430873491E309D8300174CF5 /* MoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
+		431C19171E46963B00E30EA2 /* UIView+Borders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
 		4322FE611C732BFF003B0775 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4322FE631C732EBD003B0775 /* JSONLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		432443791C61F14D0045A661 /* Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				430873491E309D8300174CF5 /* MoreTableViewController.swift */,
 				43A895511E45F7330050771F /* OverflowCell.swift */,
+				43D038641C884490004661C1 /* MadeWithLoveViewController.swift */,
 			);
 			name = Overflow;
 			sourceTree = "<group>";
@@ -201,7 +204,6 @@
 				432443791C61F14D0045A661 /* Performance.swift */,
 				4324437D1C6203650045A661 /* PerformanceCell.swift */,
 				439680B11C6C900D008E35A4 /* programDayButton.swift */,
-				43D038641C884490004661C1 /* MadeWithLoveViewController.swift */,
 			);
 			name = Program;
 			sourceTree = "<group>";
@@ -258,6 +260,7 @@
 				43C5A60F1C25295600222D23 /* AppDelegate.swift */,
 				43C5A6111C25295600222D23 /* ViewController.swift */,
 				43C5A6131C25295600222D23 /* Main.storyboard */,
+				431C19171E46963B00E30EA2 /* UIView+Borders.swift */,
 				835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */,
 				43C5A6191C25295600222D23 /* Assets.xcassets */,
 				43C5A61B1C25295600222D23 /* LaunchScreen.storyboard */,
@@ -544,6 +547,7 @@
 				4324437A1C61F14D0045A661 /* Performance.swift in Sources */,
 				439680B01C6C870C008E35A4 /* InstagramCollectionViewCell.swift in Sources */,
 				43EBB8051C4F91260024E713 /* Artist.swift in Sources */,
+				431C19181E46963B00E30EA2 /* UIView+Borders.swift in Sources */,
 				43F2DA481C44F6FA005E937F /* UIColor+YFFMain.swift in Sources */,
 				43A5B4401E45DD0A00C969B9 /* MyItineraryTableViewController.swift in Sources */,
 				43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */,

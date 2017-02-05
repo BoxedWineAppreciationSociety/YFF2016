@@ -28,7 +28,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var fridayPerformancesButton: programDayButton!
     @IBOutlet weak var saturdayPerformancesButton: programDayButton!
     @IBOutlet weak var sundayPerformancesButton: programDayButton!
-    
+    @IBOutlet weak var selectDayView: UIView!
     
     static let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).first!
     let documentsDirectoryPath = URL(string: documentsDirectoryPathString)!
@@ -45,7 +45,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController?.navigationBar.barTintColor = YFFRed
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_alert_selected"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.heartButtonAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_alert_selected"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.myItineraryAction))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
         programTableView.dataSource = self
@@ -53,6 +53,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         performances.append(contentsOf: JSONLoader.fetchPerformances(day: "FRI".lowercased()))
         fridayPerformancesButton.setActive()
+        
+        selectDayView.addBottomBorderWithColor(color: programTableView.separatorColor!, width: 0.5)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,14 +75,9 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: Actions
 
-    func heartButtonAction() {
+    func myItineraryAction() {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "MyItinerary")
-        
-        if #available(iOS 8.0, *) {
-//            controller.modalPresentationStyle = .overFullScreen
-        } else {
-//            controller.modalPresentationStyle = .fullScreen
-        }
+
         self.present(controller, animated: true, completion: nil)
     }
     
