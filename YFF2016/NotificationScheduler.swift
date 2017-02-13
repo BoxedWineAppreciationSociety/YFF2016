@@ -19,6 +19,13 @@ class NotificationScheduler {
     
             notification.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
             UIApplication.shared.scheduleLocalNotification(notification)
+            
+            if #available(iOS 10.0, *) {
+                let feedbackGenerator = UISelectionFeedbackGenerator()
+                feedbackGenerator.prepare()
+                feedbackGenerator.selectionChanged()
+            }
+
         }
         
         return

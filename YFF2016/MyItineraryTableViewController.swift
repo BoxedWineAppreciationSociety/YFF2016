@@ -9,10 +9,11 @@
 import UIKit
 import DZNEmptyDataSet
 
-class MyItineraryTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     var notifications = UIApplication.shared.scheduledLocalNotifications
     var performanceIds: [String] = []
     var performances: [Performance] = []
+    var selectedArtist: Artist?
     
     @IBAction func closeModal(_ sender: UIBarButtonItem) {
         self.navigationController!.popViewController(animated: true)
@@ -98,6 +99,26 @@ class MyItineraryTableViewController: UITableViewController, DZNEmptyDataSetSour
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Get Cell Label
+        let indexPath = tableView.indexPathForSelectedRow!;
+        
+        self.selectedArtist = performanceFor(indexPath).artist
+        
+        performSegue(withIdentifier: "showArtistFromInitinerary", sender: self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? ArtistDetailViewController {
+            viewController.artist = self.selectedArtist
+        }
+    }
+
     
     func performanceFor(_ indexPath: IndexPath) -> Performance! {
         return performances[(indexPath as NSIndexPath).item]
