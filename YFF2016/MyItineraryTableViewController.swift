@@ -17,6 +17,7 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
     
     @IBAction func closeModal(_ sender: UIBarButtonItem) {
         self.navigationController!.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
         self.dismiss(animated: true, completion: nil)
     }
     

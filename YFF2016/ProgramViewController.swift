@@ -13,14 +13,18 @@ import UserNotifications
 class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var selectedArtist: Artist?
     
+    let allFridayPerformances = JSONLoader.fetchPerformances(day: "fri")
+    let allSaturdayPerformances = JSONLoader.fetchPerformances(day: "sat")
+    let allSundayPerformances = JSONLoader.fetchPerformances(day: "sun")
+    
     @IBAction func selectDay(_ sender: programDayButton) {
         if let dayIdentifier = sender.restorationIdentifier {
             clearPerformances()
             clearActiveButton()
-            performances = JSONLoader.fetchPerformances(day: dayIdentifier)
+            sender.setActive()
+            performances = performancesForDay(day: dayIdentifier.lowercased())
             programTableView.reloadData()
             scrollToTop()
-            sender.setActive()
         }
     }
     
@@ -55,6 +59,12 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         fridayPerformancesButton.setActive()
         
         selectDayView.addBottomBorderWithColor(color: programTableView.separatorColor!, width: 0.5)
+        
+        NotificationCenter.default.addObserver(self, selector: "reload:",name: NSNotification.Name(rawValue: "reload"), object: nil)
+    }
+    
+    func reload(_ notification: NSNotification) {
+        programTableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,7 +84,16 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: Actions
-
+    func performancesForDay(day: String) -> [Performance] {
+        switch day {
+            case "fri": return allFridayPerformances
+            case "sat": return allSaturdayPerformances
+            case "sun": return allSundayPerformances
+        default: return allFridayPerformances
+        }
+        
+    }
+    
     func myItineraryAction() {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "MyItinerary")
 
