@@ -82,7 +82,8 @@ class ArtistListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
         // Style the cell
-        
+        cell.textLabel?.font = UIFont(name: "BebasNeueRegular", size: CGFloat(26.0))
+
         // Setup the artist
         let artist = artistFor(indexPath)
         cell.textLabel?.text = artist?.name

@@ -52,6 +52,10 @@ class MoreTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Add Made With Love Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.heartButtonAction))
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        
         // Change title for NavBar
         // Setup Navigation Controller
         self.navigationItem.title = "MORE"
@@ -86,6 +90,7 @@ class MoreTableViewController: UITableViewController {
         let selectedLink = allLinks[(indexPath as NSIndexPath).item]["website"]
         
         UIApplication.shared.openURL(URL(string: selectedLink!)!)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Table view data source
@@ -113,6 +118,17 @@ class MoreTableViewController: UITableViewController {
         cell.linkImage.image = UIImage(named: link["image-name"]!)
 
         return cell
+    }
+    
+    // MARK: Actions
+    
+    func heartButtonAction() {
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "MadeWithLove")
+        
+        controller.modalPresentationStyle = .overFullScreen
+        controller.modalTransitionStyle = .crossDissolve
+        
+        self.present(controller, animated: true, completion: nil)
     }
 
     /*

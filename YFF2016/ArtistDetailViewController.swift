@@ -64,7 +64,6 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         sortPerformances()
         
         setupSocialButtons()
-
     }
     
     func generatePerformancesForArtist() {

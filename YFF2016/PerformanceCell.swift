@@ -26,7 +26,9 @@ class PerformanceCell: UITableViewCell {
             let alert = UIAlertController(title: "🎉", message: message, preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.tableViewController?.present(alert, animated: true, completion: nil)
+            
         }
+        
         
         NotificationScheduler.toggleNotification(performance: self.performance!)
         

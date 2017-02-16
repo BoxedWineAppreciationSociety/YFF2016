@@ -24,10 +24,10 @@ class MadeWithLoveViewController: UIViewController, UIPopoverPresentationControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MadeWithLoveViewController.closeModal))
-        singleTapRecognizer.numberOfTapsRequired = 1
+//        let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MadeWithLoveViewController.closeModal))
+//        singleTapRecognizer.numberOfTapsRequired = 1
 
-        backgroundView.addGestureRecognizer(singleTapRecognizer)
+//        backgroundView.addGestureRecognizer(singleTapRecognizer)
     }
 
     override func didReceiveMemoryWarning() {

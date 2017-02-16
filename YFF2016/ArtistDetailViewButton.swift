@@ -25,6 +25,11 @@ class ArtistDetailViewButton: UIButton {
         //Background
         self.backgroundColor = UIColor.white
         
+        self.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        self.layer.shadowRadius = 0.5
+        self.layer.shadowOpacity = 0.1
+        self.layer.masksToBounds = false
+        
     }
     
     func setAsActive() {

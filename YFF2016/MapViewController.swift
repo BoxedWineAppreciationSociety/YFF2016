@@ -22,10 +22,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 class MapViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var scrollView: UIScrollView!
     
-    @IBAction func mapShareButtonTouchedUpInside(_ sender: UIBarButtonItem) {
-        UIApplication.shared.openURL(URL(string: "http://yackfolkfestival.com")!)
-    }
-    
     var mapImageView: UIImageView!
     
     let enhanceFactor: CGFloat = 1.75
