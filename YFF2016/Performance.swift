@@ -22,5 +22,15 @@ class Performance {
         self.artist = Artist.findById(id: json["artistId"].stringValue)
         self.time = Date(timeIntervalSince1970: (json["time"].doubleValue))
     }
+    
+    class func findById(id: String) -> Performance? {
+        let performances = JSONLoader.fetchAllPerformances()
+        for performance in performances {
+            if performance.id == id {
+                return performance
+            }
+        }
+        return nil
+    }
 
 }

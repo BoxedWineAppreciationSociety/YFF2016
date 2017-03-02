@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.2.0)
+  - AZDropdownMenu (1.1.2)
   - DZNEmptyDataSet (1.8.1)
   - Mixpanel (2.9.4):
     - Mixpanel/Mixpanel (= 2.9.4)
@@ -8,16 +9,18 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AZDropdownMenu
   - DZNEmptyDataSet
   - Mixpanel
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AZDropdownMenu: 411c1b445fd29bb1e56b219131aaf294ba21b9b6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Mixpanel: 80d2ca9bb38ae91c1044d738e80fe448377ac89f
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 5e4d72d7c5d64f366cbf8c55ab64e78860c7b55e
+PODFILE CHECKSUM: ca87249c81a54614b8a4d4b1c07303bf9142289b
 
 COCOAPODS: 1.1.1

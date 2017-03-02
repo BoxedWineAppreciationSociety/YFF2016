@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Mixpanel
 import UserNotifications
+import AudioToolbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +31,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.applicationIconBadgeNumber = 0
         return true
+    }
+    
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        if application.applicationState == .active {
+            print("Print entire notification message for preview:  \(notification)")
+            
+            // Extract message alertBody
+            let messageToDisplay = notification.alertBody
+            
+            // Display message alert body in a alert dialog window
+            let alertController = UIAlertController(title: "🎉", message: messageToDisplay, preferredStyle: .alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                
+                print("Ok button tapped");
+                
+            }
+            alertController.addAction(OKAction)
+            AudioServicesPlaySystemSound(1315);
+            
+            // Present dialog window to user
+            topMostController().present(alertController, animated: true, completion:nil)
+        }
+    }
+    
+    func topMostController() -> UIViewController {
+        var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+        while (topController.presentedViewController != nil) {
+            topController = topController.presentedViewController!
+        }
+        return topController
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
