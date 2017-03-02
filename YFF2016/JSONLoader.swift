@@ -32,6 +32,14 @@ class JSONLoader: NSObject {
         return generatePerformances(data: fetchPerformanceJSONForDay(day: day))
     }
     
+    class func fetchAllPerformances() -> [Performance] {
+        var performances: [Performance] = []
+        performances.append(contentsOf: fetchPerformances(day: "fri"))
+        performances.append(contentsOf: fetchPerformances(day: "sat"))
+        performances.append(contentsOf: fetchPerformances(day: "sun"))
+        return performances
+    }
+    
     
     class func loadArtistsJSON() {
         let request = NSMutableURLRequest(url: URL(string: artistsJsonUrl)!)

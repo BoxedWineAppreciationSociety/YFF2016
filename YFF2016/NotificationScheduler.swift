@@ -58,12 +58,17 @@ class NotificationScheduler {
         
         let formattedTime = dateFormatter.string(from: performance.time! as Date)
         
+        let formattedNotificationTime = performance.time!.addingTimeInterval(-15.0 * 60).timeIntervalSince1970
+    
+        
         localNotification.userInfo = ["performanceId": scheduledPerformance.id]
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 60) as Date
+        localNotification.fireDate = NSDate(timeIntervalSince1970: formattedNotificationTime) as Date
         if #available(iOS 8.2, *) {
             localNotification.alertTitle = "Performance Alert"
         }
-        localNotification.alertBody = "\(scheduledPerformance.artist!.name) is on at \(scheduledPerformance.stage) at \(formattedTime)"
+        
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.alertBody = "\(scheduledPerformance.artist!.name) starts in 15 minutes at \(scheduledPerformance.stage)"
         localNotification.timeZone = NSTimeZone.default
         
         return localNotification

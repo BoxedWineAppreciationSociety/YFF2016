@@ -18,10 +18,11 @@ class PerformanceCell: UITableViewCell {
     @IBOutlet weak var performanceTimeLabel: UILabel!
     @IBOutlet weak var performanceStageLabel: UILabel!
     @IBOutlet weak var remindMeButton: UIButton!
+    @IBOutlet weak var performanceDayLabel: UILabel?
     
     @IBAction func remindMe(_ sender: UIButton) {
         if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
-            let message = "You've just added a song to your alerts. We'll let you know 15 minutes before this artist is playing so you don't miss any of the action!"
+            let message = "You've just added a performance to your alerts. We'll let you know 15 minutes before this artist is playing so you don't miss any of the action!"
             
             let alert = UIAlertController(title: "🎉", message: message, preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -100,6 +101,12 @@ class PerformanceCell: UITableViewCell {
         
         self.performanceStageLabel.textColor = YFFOlive
         self.performanceTimeLabel.textColor = YFFOlive
+        
+        let dayDateFormatter = DateFormatter()
+        dayDateFormatter.dateFormat = "EEEE dd MMMM"
+        
+        self.performanceDayLabel?.textColor = YFFOlive
+        self.performanceDayLabel?.text = dayDateFormatter.string(from: performance.time! as Date)
     }
     
 }
