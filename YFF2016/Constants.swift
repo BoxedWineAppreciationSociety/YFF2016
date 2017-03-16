@@ -15,4 +15,4 @@ let instagramUrl = "https://api.instagram.com/v1/users/1663732194/media/recent/?
 
 let friPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/fri_performances_remote.json"
 let satPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/sat_performances_remote.json"
-let sunPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/master/sun_performances_remote.json"
+let sunPerformancesJsonUrl = "https://raw.githubusercontent.com/RustComet/YFFJSON/staging/sun_performances_remote.json"

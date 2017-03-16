@@ -124,6 +124,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.tableViewController = self
         cell.performanceTimeLabel.tintColor = YFFOlive
         cell.performanceStageLabel.tintColor = YFFOlive
+        cell.artistNameLabel?.font = UIFont(name: "BebasNeueRegular", size: CGFloat(26.0))
+        
         return cell
     }
     

@@ -334,7 +334,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperatorDot" translatesAutoresizingMaskIntoConstraints="NO" id="3bI-uc-Sam">
-                                                    <rect key="frame" x="64.666666666666671" y="56.333333333333336" width="4" height="4"/>
+                                                    <rect key="frame" x="64.666666666666671" y="55.666666666666664" width="4" height="4"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="4" id="06j-Eo-TW1"/>
                                                         <constraint firstAttribute="width" constant="4" id="r7g-aw-bPY"/>
@@ -976,13 +976,13 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scott Cook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDy-Ul-8VK">
-                                            <rect key="frame" x="88" y="18" width="278" height="30"/>
-                                            <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="30"/>
+                                            <rect key="frame" x="88" y="18" width="278" height="26"/>
+                                            <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Courthouse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80l-xP-k9m">
-                                            <rect key="frame" x="88" y="74" width="318" height="16"/>
+                                            <rect key="frame" x="88" y="70" width="318" height="16"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1009,20 +1009,20 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUh-wg-xbW">
-                                            <rect key="frame" x="88" y="49" width="31.666666666666671" height="17"/>
+                                            <rect key="frame" x="88" y="45.666666666666664" width="31.666666666666671" height="17"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperatorDot" translatesAutoresizingMaskIntoConstraints="NO" id="KmQ-14-1jo">
-                                            <rect key="frame" x="124" y="56" width="4" height="4"/>
+                                            <rect key="frame" x="124.66666666666666" y="52" width="3.9999999999999716" height="4"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="4" id="1iU-aw-9Vc"/>
                                                 <constraint firstAttribute="height" constant="4" id="VMN-21-OWn"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bje-1u-nq2">
-                                            <rect key="frame" x="133" y="49" width="31.666666666666657" height="17"/>
+                                            <rect key="frame" x="133.66666666666666" y="45.666666666666664" width="31.666666666666686" height="17"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
