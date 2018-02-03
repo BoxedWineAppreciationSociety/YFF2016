@@ -266,30 +266,30 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLk-f2-UnH" userLabel="Artist About Scroll View">
-                                <rect key="frame" x="20" y="317" width="374" height="370"/>
+                                <rect key="frame" x="0.0" y="317" width="414" height="370"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-ft-i7k" userLabel="Artist About Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="370"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="370"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-0K-RDK">
-                                                <rect key="frame" x="0.0" y="262.66666666666663" width="394" height="100"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="fag-vi-oMd"/>
-                                                </constraints>
-                                            </scrollView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTm-Ir-qvs">
-                                                <rect key="frame" x="0.0" y="221.33333333333337" width="374" height="31.333333333333343"/>
+                                                <rect key="frame" x="20" y="221.33333333333337" width="394" height="31.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcS-6b-70A">
-                                                <rect key="frame" x="0.0" y="20" width="374" height="181.33333333333334"/>
+                                                <rect key="frame" x="20" y="20" width="374" height="181.33333333333334"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <string key="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</string>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-0K-RDK">
+                                                <rect key="frame" x="0.0" y="262" width="414" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="fag-vi-oMd"/>
+                                                </constraints>
+                                            </scrollView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -297,11 +297,11 @@
                                             <constraint firstItem="f5K-0K-RDK" firstAttribute="top" secondItem="RcS-6b-70A" secondAttribute="bottom" id="Clg-gP-58U"/>
                                             <constraint firstItem="f5K-0K-RDK" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="Eo4-4E-W1z"/>
                                             <constraint firstItem="RcS-6b-70A" firstAttribute="top" secondItem="Fyx-ft-i7k" secondAttribute="top" constant="20" id="Ku2-8b-YPW"/>
-                                            <constraint firstItem="UTm-Ir-qvs" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="SHm-8C-kwN"/>
-                                            <constraint firstAttribute="trailing" secondItem="RcS-6b-70A" secondAttribute="trailing" id="cff-ed-jmH"/>
+                                            <constraint firstItem="UTm-Ir-qvs" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" constant="20" id="SHm-8C-kwN"/>
+                                            <constraint firstAttribute="trailing" secondItem="RcS-6b-70A" secondAttribute="trailing" constant="20" id="cff-ed-jmH"/>
                                             <constraint firstItem="f5K-0K-RDK" firstAttribute="top" secondItem="UTm-Ir-qvs" secondAttribute="bottom" constant="10" id="fDK-Oy-H35"/>
-                                            <constraint firstAttribute="trailing" secondItem="f5K-0K-RDK" secondAttribute="trailing" constant="-20" id="vaf-5A-bde"/>
-                                            <constraint firstItem="RcS-6b-70A" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="vot-1t-bHb"/>
+                                            <constraint firstAttribute="trailing" secondItem="f5K-0K-RDK" secondAttribute="trailing" id="vaf-5A-bde"/>
+                                            <constraint firstItem="RcS-6b-70A" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" constant="20" id="vot-1t-bHb"/>
                                             <constraint firstItem="UTm-Ir-qvs" firstAttribute="top" secondItem="RcS-6b-70A" secondAttribute="bottom" constant="20" id="zmP-GR-3Es"/>
                                         </constraints>
                                         <variation key="default">
@@ -312,10 +312,10 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Fyx-ft-i7k" secondAttribute="trailing" id="4df-NF-ecd"/>
                                     <constraint firstItem="Fyx-ft-i7k" firstAttribute="width" secondItem="HLk-f2-UnH" secondAttribute="width" id="8iF-pD-aTy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fyx-ft-i7k" secondAttribute="trailing" id="OnZ-Uu-0TQ"/>
+                                    <constraint firstItem="Fyx-ft-i7k" firstAttribute="leading" secondItem="HLk-f2-UnH" secondAttribute="leading" id="RCG-V3-Wcr"/>
                                     <constraint firstItem="Fyx-ft-i7k" firstAttribute="top" secondItem="HLk-f2-UnH" secondAttribute="top" id="VJB-g2-hyA"/>
-                                    <constraint firstItem="Fyx-ft-i7k" firstAttribute="leading" secondItem="HLk-f2-UnH" secondAttribute="leading" id="fGQ-Sp-rbN"/>
                                     <constraint firstAttribute="bottom" secondItem="f5K-0K-RDK" secondAttribute="bottom" constant="-7" id="pAj-3Z-sPv"/>
                                 </constraints>
                             </scrollView>
@@ -331,26 +331,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8T-FG-L9z">
-                                                    <rect key="frame" x="35" y="56.333333333333343" width="31.666666666666671" height="20"/>
+                                                    <rect key="frame" x="35" y="57.333333333333343" width="31.666666666666671" height="20"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperatorDot" translatesAutoresizingMaskIntoConstraints="NO" id="3bI-uc-Sam">
-                                                    <rect key="frame" x="71.666666666666671" y="64.666666666666671" width="4" height="4"/>
+                                                    <rect key="frame" x="71.666666666666671" y="65.666666666666671" width="4" height="4"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="4" id="06j-Eo-TW1"/>
                                                         <constraint firstAttribute="width" constant="4" id="r7g-aw-bPY"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elf-Yw-CDG">
-                                                    <rect key="frame" x="80.666666666666671" y="56.333333333333343" width="31.666666666666671" height="20"/>
+                                                    <rect key="frame" x="80.666666666666671" y="57.333333333333343" width="31.666666666666671" height="20"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-F1-e9e">
-                                                    <rect key="frame" x="35" y="21" width="304" height="30.333333333333329"/>
+                                                    <rect key="frame" x="35" y="21" width="304" height="31.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -382,9 +382,9 @@
                             <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="Fyx-ft-i7k" secondAttribute="bottom" id="43p-rU-luC"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="7L0-Jn-0rx"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="9f8-gB-Hyt"/>
-                            <constraint firstItem="HLk-f2-UnH" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="AjI-MY-BSR"/>
+                            <constraint firstItem="HLk-f2-UnH" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="AjI-MY-BSR"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="leading" secondItem="9bm-6i-ds1" secondAttribute="trailing" id="EO6-TZ-mqx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HLk-f2-UnH" secondAttribute="trailing" id="Fmb-IK-OuC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HLk-f2-UnH" secondAttribute="trailing" constant="-20" id="Fmb-IK-OuC"/>
                             <constraint firstItem="gHY-9R-a8R" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="H17-yO-fiK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qnk-BB-aKr" secondAttribute="trailing" constant="-20" id="NSo-99-Pv7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9bm-6i-ds1" secondAttribute="trailing" constant="70" id="PkV-io-aRO"/>
@@ -980,13 +980,13 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scott Cook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDy-Ul-8VK">
-                                            <rect key="frame" x="88" y="21" width="266" height="30.333333333333329"/>
+                                            <rect key="frame" x="88" y="21" width="266" height="31.333333333333329"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Courthouse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80l-xP-k9m">
-                                            <rect key="frame" x="88" y="77.333333333333329" width="306" height="19.333333333333329"/>
+                                            <rect key="frame" x="88" y="78.333333333333329" width="306" height="19.333333333333329"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1013,20 +1013,20 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUh-wg-xbW">
-                                            <rect key="frame" x="88" y="51.666666666666664" width="31.666666666666671" height="19.999999999999993"/>
+                                            <rect key="frame" x="88" y="52.666666666666664" width="31.666666666666671" height="19.999999999999993"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperatorDot" translatesAutoresizingMaskIntoConstraints="NO" id="KmQ-14-1jo">
-                                            <rect key="frame" x="124.66666666666667" y="59.333333333333336" width="4.0000000000000142" height="4"/>
+                                            <rect key="frame" x="124.66666666666667" y="60.333333333333336" width="4.0000000000000142" height="4.0000000000000071"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="4" id="1iU-aw-9Vc"/>
                                                 <constraint firstAttribute="height" constant="4" id="VMN-21-OWn"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bje-1u-nq2">
-                                            <rect key="frame" x="133.66666666666666" y="51.666666666666664" width="31.666666666666657" height="19.999999999999993"/>
+                                            <rect key="frame" x="133.66666666666666" y="52.666666666666664" width="31.666666666666657" height="19.999999999999993"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
