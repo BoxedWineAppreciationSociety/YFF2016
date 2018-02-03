@@ -612,7 +612,6 @@ MAR 25</string>
                             <constraint firstItem="7By-1j-Swu" firstAttribute="leading" secondItem="xg7-IH-blI" secondAttribute="leading" id="Vzq-SD-Lyy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7By-1j-Swu" secondAttribute="trailing" constant="-20" id="XvZ-1z-jKt"/>
                             <constraint firstItem="xg7-IH-blI" firstAttribute="leading" secondItem="uap-3d-iGW" secondAttribute="leadingMargin" constant="-20" id="coP-sP-oCD"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="7By-1j-Swu" secondAttribute="bottom" constant="49" id="g12-bN-5Md"/>
                             <constraint firstItem="7By-1j-Swu" firstAttribute="leading" secondItem="uap-3d-iGW" secondAttribute="leading" id="hIf-2X-AjN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xg7-IH-blI" secondAttribute="trailing" constant="-20" id="web-sb-bfv"/>
                         </constraints>
