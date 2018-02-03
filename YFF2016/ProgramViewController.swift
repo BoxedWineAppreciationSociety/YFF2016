@@ -60,7 +60,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         selectDayView.addBottomBorderWithColor(color: programTableView.separatorColor!, width: 0.5)
         
-        NotificationCenter.default.addObserver(self, selector: "reload:",name: NSNotification.Name(rawValue: "reload"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ProgramViewController.reload(_:)),name: NSNotification.Name(rawValue: "reload"), object: nil)
     }
     
     func reload(_ notification: NSNotification) {

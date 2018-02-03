@@ -50,6 +50,9 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide scroll bar. It overlaps text
+        artistDetailScrollView.scrollIndicatorInsets = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: -10)
+        
         artistPerformanceTableView.dataSource = self
         artistPerformanceTableView.delegate = self
         
@@ -61,8 +64,8 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
             self.generatePerformancesForArtist()
             self.artistPerformanceTableView.reloadData()
         }
-        sortPerformances()
         
+        sortPerformances()
         setupSocialButtons()
     }
     
