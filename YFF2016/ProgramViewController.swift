@@ -69,6 +69,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        programTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

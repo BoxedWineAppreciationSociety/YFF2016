@@ -355,8 +355,22 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaj-Mw-EYG">
+                                                    <rect key="frame" x="325" y="17.333333333333329" width="54" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="8ea-hv-aHG"/>
+                                                        <constraint firstAttribute="height" constant="40" id="N4t-E2-mM5"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="PIx-EE-3ZS"/>
+                                                        <constraint firstAttribute="width" constant="54" id="aio-WX-XYy"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic_alert"/>
+                                                    <connections>
+                                                        <action selector="artistCellRemindMe:" destination="g76-tb-AZ4" eventType="touchUpInside" id="QPl-He-ZWl"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Uaj-Mw-EYG" firstAttribute="centerY" secondItem="3bZ-Cc-ri8" secondAttribute="centerY" id="152-dx-KPe"/>
                                                 <constraint firstItem="3bI-uc-Sam" firstAttribute="leading" secondItem="k8T-FG-L9z" secondAttribute="trailing" constant="5" id="F05-BH-2BW"/>
                                                 <constraint firstItem="3bI-uc-Sam" firstAttribute="centerY" secondItem="k8T-FG-L9z" secondAttribute="centerY" id="Qjc-aK-2RW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="KYw-F1-e9e" secondAttribute="trailing" constant="20" id="ROy-l2-1cl"/>
@@ -365,11 +379,13 @@
                                                 <constraint firstItem="KYw-F1-e9e" firstAttribute="top" secondItem="3bZ-Cc-ri8" secondAttribute="topMargin" constant="10" id="cjy-2R-pHB"/>
                                                 <constraint firstItem="k8T-FG-L9z" firstAttribute="top" secondItem="KYw-F1-e9e" secondAttribute="bottom" constant="5" id="epF-is-vw1"/>
                                                 <constraint firstItem="k8T-FG-L9z" firstAttribute="leading" secondItem="3bZ-Cc-ri8" secondAttribute="leadingMargin" constant="20" id="iit-IJ-Deg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Uaj-Mw-EYG" secondAttribute="trailing" constant="-20" id="jPW-UW-roN"/>
                                                 <constraint firstItem="KYw-F1-e9e" firstAttribute="leading" secondItem="3bZ-Cc-ri8" secondAttribute="leadingMargin" constant="20" id="qfg-lP-qCL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistPerformanceDate" destination="k8T-FG-L9z" id="gMD-Y5-KaC"/>
+                                            <outlet property="artistPerformanceRemindMeButton" destination="Uaj-Mw-EYG" id="Qli-QA-afX"/>
                                             <outlet property="artistPerformanceStage" destination="elf-Yw-CDG" id="c85-AD-fvK"/>
                                             <outlet property="artistPerformanceTime" destination="KYw-F1-e9e" id="N0j-FK-mHX"/>
                                         </connections>

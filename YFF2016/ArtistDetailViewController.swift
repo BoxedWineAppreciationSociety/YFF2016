@@ -105,7 +105,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
                 self.artistSocialLinksView.addSubview(button)
             }
             
-            self.artistSocialLinksView.contentSize = CGSize(width: CGFloat(validArtistSocialLinks.count) * (buttonWidth + buttonViewSpace), height: buttonWidth)
+            self.artistSocialLinksView.contentSize = CGSize(width: CGFloat(validArtistSocialLinks.count) * (buttonWidth + buttonViewSpace) + 20, height: buttonWidth)
             
         } else {
             self.artistLinksLabel.isHidden = true
