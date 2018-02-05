@@ -61,8 +61,8 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
             self.generatePerformancesForArtist()
             self.artistPerformanceTableView.reloadData()
         }
-        sortPerformances()
         
+        sortPerformances()
         setupSocialButtons()
     }
     
@@ -91,10 +91,10 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         
         if validArtistSocialLinks.count > 0 {
             let buttonViewSpace: CGFloat = 10
-            let buttonWidth: CGFloat = 50
+            let buttonWidth: CGFloat = 55
             
             for index in 0...(validArtistSocialLinks.count - 1) {
-                let x = CGFloat(index) * (buttonWidth + buttonViewSpace)
+                let x = CGFloat(index) * (buttonWidth + buttonViewSpace) + 20
                 let socialLink = validArtistSocialLinks[index]
                 
                 let button = SocialButton(frame: CGRect(x: x, y: 0, width: buttonWidth, height: buttonWidth))
@@ -105,7 +105,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
                 self.artistSocialLinksView.addSubview(button)
             }
             
-            self.artistSocialLinksView.contentSize = CGSize(width: CGFloat(validArtistSocialLinks.count) * (buttonWidth + buttonViewSpace), height: buttonWidth)
+            self.artistSocialLinksView.contentSize = CGSize(width: CGFloat(validArtistSocialLinks.count) * (buttonWidth + buttonViewSpace) + 20, height: buttonWidth)
             
         } else {
             self.artistLinksLabel.isHidden = true

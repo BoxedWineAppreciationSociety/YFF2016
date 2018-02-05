@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8oA-xK-UUq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8oA-xK-UUq">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +16,9 @@
         </array>
         <array key="BebasNeueRegular.otf">
             <string>BebasNeueRegular</string>
+        </array>
+        <array key="Helvetica.ttc">
+            <string>Helvetica-Bold</string>
         </array>
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
@@ -31,7 +34,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Pem-3q-JxK"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" id="0yp-mT-eeR">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <gestureRecognizers/>
                         <connections>
@@ -68,11 +71,11 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iJ0-P7-iup" id="oQa-a1-Wn0">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="59.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="59.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9GG-M7-WN5">
-                                            <rect key="frame" x="15" y="0.0" width="364" height="59.666666666666664"/>
+                                            <rect key="frame" x="20" y="0.0" width="356" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="BebasNeue" family="Bebas Neue" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,7 +113,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJG-mt-7cm" id="VEg-l1-hYD">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="61.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="61.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gHc-1f-KHH">
@@ -121,7 +124,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrJ-wP-6RX">
-                                            <rect key="frame" x="66" y="20" width="305" height="20"/>
+                                            <rect key="frame" x="66" y="20" width="300" height="20"/>
                                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -168,7 +171,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Out More Below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIA-73-qhv">
-                                <rect key="frame" x="20" y="20" width="374" height="30"/>
+                                <rect key="frame" x="20" y="20" width="374" height="36"/>
                                 <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -262,31 +265,31 @@
                                     <action selector="aboutButtonTouchedUp:" destination="wsM-4u-j0Y" eventType="touchUpInside" id="R45-wZ-aHj"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLk-f2-UnH" userLabel="Artist About Scroll View">
-                                <rect key="frame" x="20" y="317" width="374" height="370"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLk-f2-UnH" userLabel="Artist About Scroll View">
+                                <rect key="frame" x="0.0" y="317" width="414" height="370"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-ft-i7k" userLabel="Artist About Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="370"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="370"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-0K-RDK">
-                                                <rect key="frame" x="0.0" y="248.33333333333337" width="394" height="100"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="fag-vi-oMd"/>
-                                                </constraints>
-                                            </scrollView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTm-Ir-qvs">
-                                                <rect key="frame" x="0.0" y="208" width="374" height="30.333333333333371"/>
+                                                <rect key="frame" x="20" y="221.33333333333337" width="394" height="31.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcS-6b-70A">
-                                                <rect key="frame" x="0.0" y="20" width="374" height="168"/>
+                                                <rect key="frame" x="20" y="20" width="374" height="181.33333333333334"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <string key="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</string>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-0K-RDK">
+                                                <rect key="frame" x="0.0" y="262" width="414" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="fag-vi-oMd"/>
+                                                </constraints>
+                                            </scrollView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -294,11 +297,11 @@
                                             <constraint firstItem="f5K-0K-RDK" firstAttribute="top" secondItem="RcS-6b-70A" secondAttribute="bottom" id="Clg-gP-58U"/>
                                             <constraint firstItem="f5K-0K-RDK" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="Eo4-4E-W1z"/>
                                             <constraint firstItem="RcS-6b-70A" firstAttribute="top" secondItem="Fyx-ft-i7k" secondAttribute="top" constant="20" id="Ku2-8b-YPW"/>
-                                            <constraint firstItem="UTm-Ir-qvs" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="SHm-8C-kwN"/>
-                                            <constraint firstAttribute="trailing" secondItem="RcS-6b-70A" secondAttribute="trailing" id="cff-ed-jmH"/>
+                                            <constraint firstItem="UTm-Ir-qvs" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" constant="20" id="SHm-8C-kwN"/>
+                                            <constraint firstAttribute="trailing" secondItem="RcS-6b-70A" secondAttribute="trailing" constant="20" id="cff-ed-jmH"/>
                                             <constraint firstItem="f5K-0K-RDK" firstAttribute="top" secondItem="UTm-Ir-qvs" secondAttribute="bottom" constant="10" id="fDK-Oy-H35"/>
-                                            <constraint firstAttribute="trailing" secondItem="f5K-0K-RDK" secondAttribute="trailing" constant="-20" id="vaf-5A-bde"/>
-                                            <constraint firstItem="RcS-6b-70A" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" id="vot-1t-bHb"/>
+                                            <constraint firstAttribute="trailing" secondItem="f5K-0K-RDK" secondAttribute="trailing" id="vaf-5A-bde"/>
+                                            <constraint firstItem="RcS-6b-70A" firstAttribute="leading" secondItem="Fyx-ft-i7k" secondAttribute="leading" constant="20" id="vot-1t-bHb"/>
                                             <constraint firstItem="UTm-Ir-qvs" firstAttribute="top" secondItem="RcS-6b-70A" secondAttribute="bottom" constant="20" id="zmP-GR-3Es"/>
                                         </constraints>
                                         <variation key="default">
@@ -309,10 +312,10 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Fyx-ft-i7k" secondAttribute="trailing" id="4df-NF-ecd"/>
                                     <constraint firstItem="Fyx-ft-i7k" firstAttribute="width" secondItem="HLk-f2-UnH" secondAttribute="width" id="8iF-pD-aTy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fyx-ft-i7k" secondAttribute="trailing" id="OnZ-Uu-0TQ"/>
+                                    <constraint firstItem="Fyx-ft-i7k" firstAttribute="leading" secondItem="HLk-f2-UnH" secondAttribute="leading" id="RCG-V3-Wcr"/>
                                     <constraint firstItem="Fyx-ft-i7k" firstAttribute="top" secondItem="HLk-f2-UnH" secondAttribute="top" id="VJB-g2-hyA"/>
-                                    <constraint firstItem="Fyx-ft-i7k" firstAttribute="leading" secondItem="HLk-f2-UnH" secondAttribute="leading" id="fGQ-Sp-rbN"/>
                                     <constraint firstAttribute="bottom" secondItem="f5K-0K-RDK" secondAttribute="bottom" constant="-7" id="pAj-3Z-sPv"/>
                                 </constraints>
                             </scrollView>
@@ -328,44 +331,61 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8T-FG-L9z">
-                                                    <rect key="frame" x="28" y="53.333333333333329" width="41.666666666666671" height="19.999999999999986"/>
+                                                    <rect key="frame" x="35" y="57.333333333333343" width="31.666666666666671" height="20"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperatorDot" translatesAutoresizingMaskIntoConstraints="NO" id="3bI-uc-Sam">
-                                                    <rect key="frame" x="74.666666666666671" y="61.666666666666671" width="4" height="4.0000000000000142"/>
+                                                    <rect key="frame" x="71.666666666666671" y="65.666666666666671" width="4" height="4"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="4" id="06j-Eo-TW1"/>
                                                         <constraint firstAttribute="width" constant="4" id="r7g-aw-bPY"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elf-Yw-CDG">
-                                                    <rect key="frame" x="83.666666666666671" y="53.333333333333329" width="41.666666666666657" height="19.999999999999986"/>
+                                                    <rect key="frame" x="80.666666666666671" y="57.333333333333343" width="31.666666666666671" height="20"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-F1-e9e">
-                                                    <rect key="frame" x="27.999999999999993" y="18.000000000000004" width="97.333333333333314" height="30.333333333333339"/>
+                                                    <rect key="frame" x="35" y="21" width="304" height="31.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uaj-Mw-EYG">
+                                                    <rect key="frame" x="325" y="17.333333333333329" width="54" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="8ea-hv-aHG"/>
+                                                        <constraint firstAttribute="height" constant="40" id="N4t-E2-mM5"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="PIx-EE-3ZS"/>
+                                                        <constraint firstAttribute="width" constant="54" id="aio-WX-XYy"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic_alert"/>
+                                                    <connections>
+                                                        <action selector="artistCellRemindMe:" destination="g76-tb-AZ4" eventType="touchUpInside" id="QPl-He-ZWl"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Uaj-Mw-EYG" firstAttribute="centerY" secondItem="3bZ-Cc-ri8" secondAttribute="centerY" id="152-dx-KPe"/>
                                                 <constraint firstItem="3bI-uc-Sam" firstAttribute="leading" secondItem="k8T-FG-L9z" secondAttribute="trailing" constant="5" id="F05-BH-2BW"/>
                                                 <constraint firstItem="3bI-uc-Sam" firstAttribute="centerY" secondItem="k8T-FG-L9z" secondAttribute="centerY" id="Qjc-aK-2RW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="KYw-F1-e9e" secondAttribute="trailing" constant="20" id="ROy-l2-1cl"/>
                                                 <constraint firstItem="elf-Yw-CDG" firstAttribute="leading" secondItem="3bI-uc-Sam" secondAttribute="trailing" constant="5" id="TFs-5c-FKz"/>
                                                 <constraint firstItem="elf-Yw-CDG" firstAttribute="centerY" secondItem="k8T-FG-L9z" secondAttribute="centerY" id="cJq-1g-4na"/>
                                                 <constraint firstItem="KYw-F1-e9e" firstAttribute="top" secondItem="3bZ-Cc-ri8" secondAttribute="topMargin" constant="10" id="cjy-2R-pHB"/>
                                                 <constraint firstItem="k8T-FG-L9z" firstAttribute="top" secondItem="KYw-F1-e9e" secondAttribute="bottom" constant="5" id="epF-is-vw1"/>
                                                 <constraint firstItem="k8T-FG-L9z" firstAttribute="leading" secondItem="3bZ-Cc-ri8" secondAttribute="leadingMargin" constant="20" id="iit-IJ-Deg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Uaj-Mw-EYG" secondAttribute="trailing" constant="-20" id="jPW-UW-roN"/>
                                                 <constraint firstItem="KYw-F1-e9e" firstAttribute="leading" secondItem="3bZ-Cc-ri8" secondAttribute="leadingMargin" constant="20" id="qfg-lP-qCL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistPerformanceDate" destination="k8T-FG-L9z" id="gMD-Y5-KaC"/>
+                                            <outlet property="artistPerformanceRemindMeButton" destination="Uaj-Mw-EYG" id="Qli-QA-afX"/>
                                             <outlet property="artistPerformanceStage" destination="elf-Yw-CDG" id="c85-AD-fvK"/>
                                             <outlet property="artistPerformanceTime" destination="KYw-F1-e9e" id="N0j-FK-mHX"/>
                                         </connections>
@@ -378,9 +398,9 @@
                             <constraint firstItem="WgC-Hf-P10" firstAttribute="top" secondItem="Fyx-ft-i7k" secondAttribute="bottom" id="43p-rU-luC"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="7L0-Jn-0rx"/>
                             <constraint firstItem="Gdc-n6-vv3" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="9f8-gB-Hyt"/>
-                            <constraint firstItem="HLk-f2-UnH" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" id="AjI-MY-BSR"/>
+                            <constraint firstItem="HLk-f2-UnH" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="AjI-MY-BSR"/>
                             <constraint firstItem="wH3-D8-jGo" firstAttribute="leading" secondItem="9bm-6i-ds1" secondAttribute="trailing" id="EO6-TZ-mqx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HLk-f2-UnH" secondAttribute="trailing" id="Fmb-IK-OuC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HLk-f2-UnH" secondAttribute="trailing" constant="-20" id="Fmb-IK-OuC"/>
                             <constraint firstItem="gHY-9R-a8R" firstAttribute="leading" secondItem="mzR-ns-5Ca" secondAttribute="leadingMargin" constant="-20" id="H17-yO-fiK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qnk-BB-aKr" secondAttribute="trailing" constant="-20" id="NSo-99-Pv7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9bm-6i-ds1" secondAttribute="trailing" constant="70" id="PkV-io-aRO"/>
@@ -456,7 +476,7 @@
                                         </constraints>
                                         <state key="normal">
                                             <string key="title">SAT
-MAR 25</string>
+MAR 24</string>
                                         </state>
                                         <connections>
                                             <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="eef-Wb-HMs"/>
@@ -470,7 +490,7 @@ MAR 25</string>
                                         </constraints>
                                         <state key="normal">
                                             <string key="title">FRI
-MAR 24</string>
+MAR 23</string>
                                         </state>
                                         <connections>
                                             <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="eF0-s4-ouP"/>
@@ -484,7 +504,7 @@ MAR 24</string>
                                         </constraints>
                                         <state key="normal">
                                             <string key="title">SUN
-MAR 26</string>
+MAR 25</string>
                                         </state>
                                         <connections>
                                             <action selector="selectDay:" destination="UPc-SU-Dkc" eventType="touchUpInside" id="dtE-pw-KaJ"/>
@@ -521,18 +541,18 @@ MAR 26</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scott Cook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-gn-woS">
-                                                    <rect key="frame" x="88" y="18" width="278" height="30"/>
+                                                    <rect key="frame" x="88" y="21" width="271" height="36"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="30"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:00pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nY-OE-KJT">
-                                                    <rect key="frame" x="88" y="53" width="318" height="16"/>
+                                                    <rect key="frame" x="88" y="62.000000000000007" width="311" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Courthouse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9W6-GJ-LdC">
-                                                    <rect key="frame" x="88" y="74" width="318" height="16"/>
+                                                    <rect key="frame" x="88" y="86.333333333333329" width="311" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -551,8 +571,12 @@ MAR 26</string>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emz-Nk-F0u">
-                                                    <rect key="frame" x="378" y="22" width="18" height="22"/>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emz-Nk-F0u">
+                                                    <rect key="frame" x="345" y="25" width="54" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="1jm-jl-yVI"/>
+                                                        <constraint firstAttribute="width" constant="54" id="gI7-Nl-PFh"/>
+                                                    </constraints>
                                                     <state key="normal" image="ic_alert"/>
                                                     <connections>
                                                         <action selector="remindMe:" destination="HFO-kL-1s0" eventType="touchUpInside" id="0Lg-9f-4Vh"/>
@@ -565,7 +589,7 @@ MAR 26</string>
                                                 <constraint firstItem="9W6-GJ-LdC" firstAttribute="leading" secondItem="6Yw-nZ-2eG" secondAttribute="trailing" constant="10" id="6Jy-cq-3zx"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9W6-GJ-LdC" secondAttribute="trailing" id="7Fk-DL-omM"/>
                                                 <constraint firstItem="0fd-gn-woS" firstAttribute="leading" secondItem="6Yw-nZ-2eG" secondAttribute="trailing" constant="10" id="C87-VH-2QB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Emz-Nk-F0u" secondAttribute="trailing" constant="10" id="EFT-Fh-Wej"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Emz-Nk-F0u" secondAttribute="trailing" id="EFT-Fh-Wej"/>
                                                 <constraint firstItem="2nY-OE-KJT" firstAttribute="leading" secondItem="6Yw-nZ-2eG" secondAttribute="trailing" constant="10" id="J9P-kT-UAk"/>
                                                 <constraint firstItem="6Yw-nZ-2eG" firstAttribute="top" secondItem="qg1-7C-PwD" secondAttribute="top" constant="8" id="LHr-cE-VSn"/>
                                                 <constraint firstItem="2nY-OE-KJT" firstAttribute="top" secondItem="0fd-gn-woS" secondAttribute="bottom" constant="5" id="OA2-iB-SCo"/>
@@ -608,7 +632,6 @@ MAR 26</string>
                             <constraint firstItem="7By-1j-Swu" firstAttribute="leading" secondItem="xg7-IH-blI" secondAttribute="leading" id="Vzq-SD-Lyy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7By-1j-Swu" secondAttribute="trailing" constant="-20" id="XvZ-1z-jKt"/>
                             <constraint firstItem="xg7-IH-blI" firstAttribute="leading" secondItem="uap-3d-iGW" secondAttribute="leadingMargin" constant="-20" id="coP-sP-oCD"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="7By-1j-Swu" secondAttribute="bottom" constant="49" id="g12-bN-5Md"/>
                             <constraint firstItem="7By-1j-Swu" firstAttribute="leading" secondItem="uap-3d-iGW" secondAttribute="leading" id="hIf-2X-AjN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xg7-IH-blI" secondAttribute="trailing" constant="-20" id="web-sb-bfv"/>
                         </constraints>
@@ -685,7 +708,7 @@ MAR 26</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-ag-6bb">
-                                <rect key="frame" x="20" y="693" width="374" height="33"/>
+                                <rect key="frame" x="20" y="692" width="374" height="34"/>
                                 <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="18"/>
                                 <state key="normal" title="By using this app you agree to our terms of use">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.59690193970000005" colorSpace="custom" customColorSpace="sRGB"/>
@@ -740,7 +763,7 @@ MAR 26</string>
                                 <rect key="frame" x="60" y="193" width="294" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="YIn-0C-Hqy">
-                                        <rect key="frame" x="18" y="215" width="258" height="105.66666666666663"/>
+                                        <rect key="frame" x="18" y="214.99999999999997" width="258" height="105.66666666666666"/>
                                         <string key="text">This app was made with love by a local Yackandandarian, a Liverpudlian and a girl from Ballarat.
 
 If you like the app, let us know or buy us a beer. we’ll see you at the festival!</string>
@@ -872,7 +895,7 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Tt-7K-WVv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -897,7 +920,7 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rdH-YT-AO3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -921,8 +944,8 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qRi-9V-BCj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="qRi-9V-BCj">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -946,8 +969,8 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aXk-TY-bz9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aXk-TY-bz9">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -976,13 +999,13 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scott Cook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDy-Ul-8VK">
-                                            <rect key="frame" x="88" y="18.000000000000004" width="278" height="30.333333333333339"/>
+                                            <rect key="frame" x="88" y="21" width="266" height="31.333333333333329"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Courthouse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80l-xP-k9m">
-                                            <rect key="frame" x="88" y="74.333333333333314" width="318" height="18.666666666666671"/>
+                                            <rect key="frame" x="88" y="78.333333333333329" width="306" height="19.333333333333329"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1002,27 +1025,27 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                             </variation>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4v-bx-eXF">
-                                            <rect key="frame" x="378" y="22" width="18" height="22"/>
+                                            <rect key="frame" x="366" y="25" width="18" height="22"/>
                                             <state key="normal" image="ic_alert"/>
                                             <connections>
                                                 <action selector="remindMe:" destination="6PU-w7-wRy" eventType="touchUpInside" id="yzn-89-QGa"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUh-wg-xbW">
-                                            <rect key="frame" x="88" y="48.666666666666671" width="41.666666666666657" height="20.000000000000014"/>
+                                            <rect key="frame" x="88" y="52.666666666666664" width="31.666666666666671" height="19.999999999999993"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperatorDot" translatesAutoresizingMaskIntoConstraints="NO" id="KmQ-14-1jo">
-                                            <rect key="frame" x="134.66666666666666" y="56.333333333333336" width="4" height="4"/>
+                                            <rect key="frame" x="124.66666666666667" y="60.333333333333336" width="4.0000000000000142" height="4.0000000000000071"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="4" id="1iU-aw-9Vc"/>
                                                 <constraint firstAttribute="height" constant="4" id="VMN-21-OWn"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bje-1u-nq2">
-                                            <rect key="frame" x="143.66666666666666" y="48.666666666666671" width="41.666666666666686" height="20.000000000000014"/>
+                                            <rect key="frame" x="133.66666666666666" y="52.666666666666664" width="31.666666666666657" height="19.999999999999993"/>
                                             <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1094,7 +1117,7 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                 <navigationController storyboardIdentifier="MyItinerary" automaticallyAdjustsScrollViewInsets="NO" id="hRa-2p-bfB" customClass="YFFNavigationController" customModule="YFF2016" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FgT-uL-Ar9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

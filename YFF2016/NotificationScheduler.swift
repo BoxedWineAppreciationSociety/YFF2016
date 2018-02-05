@@ -13,7 +13,11 @@ class NotificationScheduler {
         let cancelledNotification = cancelExistingNotificationForPerformance(performance: performance)
         
         if cancelledNotification {
-            
+            if #available(iOS 10.0, *) {
+                let feedbackGenerator = UISelectionFeedbackGenerator()
+                feedbackGenerator.prepare()
+                feedbackGenerator.selectionChanged()
+            }
         } else {
             let notification = localNotificationForPerformance(performance: performance)
     
