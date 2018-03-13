@@ -138,7 +138,7 @@ class JSONLoader: NSObject {
                 callback("", error!.localizedDescription)
             } else {
                 let result = NSString(data: data!, encoding:
-                    String.Encoding.ascii.rawValue)!
+                    String.Encoding.utf8.rawValue)!
                 callback(result as String, nil)
             }
         })

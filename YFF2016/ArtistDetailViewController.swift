@@ -189,7 +189,9 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         // But this gives us the correct line height
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 6
+        
         let artistDescription = NSMutableAttributedString(string: (artist?.summary)!)
+        
         artistDescription.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, artistDescription.length))
         
         self.artistDescriptionView.attributedText = artistDescription
