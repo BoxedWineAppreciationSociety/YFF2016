@@ -19,12 +19,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func selectDay(_ sender: programDayButton) {
         if let dayIdentifier = sender.restorationIdentifier {
-            clearPerformances()
-            clearActiveButton()
             sender.setActive()
-            performances = performancesForDay(day: dayIdentifier.lowercased())
-            programTableView.reloadData()
-            scrollToTop()
+            loadPerformancesForDay(dayIdentifier)
         }
     }
     
@@ -56,7 +52,9 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         programTableView.delegate = self
         
         performances.append(contentsOf: JSONLoader.fetchPerformances(day: "FRI".lowercased()))
-        fridayPerformancesButton.setActive()
+
+        setCurrentDay()
+        scrollToCurrentTime()
         
         selectDayView.addBottomBorderWithColor(color: programTableView.separatorColor!, width: 0.5)
         
@@ -154,7 +152,6 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    
     func performanceFor(_ indexPath: IndexPath) -> Performance! {
         return performances[(indexPath as NSIndexPath).item]
     }
@@ -171,6 +168,46 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.fridayPerformancesButton.setInactive()
         self.saturdayPerformancesButton.setInactive()
         self.sundayPerformancesButton.setInactive()
+    }
+    
+    //    TODO: We need to work out how to make this work at the end of the day
+    fileprivate func scrollToCurrentTime() {
+        let currentTime = Calendar.current.component(.hour, from: Date())
+            Calendar.current.component(.hour, from: Date())
+        let futurePeformances = performances.filter { Calendar.current.component(.hour, from: $0.time!) >= currentTime }
+        let nextPerformance = futurePeformances.first
+        let indexRow = performances.index{ $0 === nextPerformance }
+        let index = IndexPath(row: indexRow!, section: 0)
+        
+        programTableView.scrollToRow(at: index, at: UITableViewScrollPosition.top, animated: true)
+    }
+    
+    fileprivate func setCurrentDay() {
+        clearActiveButton()
+        
+        let currentDay = Calendar.current.component(.weekday, from: Date())
+        
+        switch currentDay {
+        case 6:
+            fridayPerformancesButton.setActive()
+            loadPerformancesForDay("FRI")
+        case 7:
+            saturdayPerformancesButton.setActive()
+            loadPerformancesForDay("SAT")
+        case 1:
+            sundayPerformancesButton.setActive()
+            loadPerformancesForDay("SUN")
+        default:
+            fridayPerformancesButton.setActive()
+            loadPerformancesForDay("FRI")
+        }
+    }
+    
+    fileprivate func loadPerformancesForDay(_ dayIdentifier: String) {
+        clearPerformances()
+        performances = performancesForDay(day: dayIdentifier.lowercased())
+        programTableView.reloadData()
+        scrollToTop()
     }
     
     /*

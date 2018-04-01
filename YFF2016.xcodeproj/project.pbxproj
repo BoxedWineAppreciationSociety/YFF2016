@@ -17,6 +17,7 @@
 		4343CE5D1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */; };
 		435B0EE31E41D6A60091B2DA /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435B0EE21E41D6A60091B2DA /* NotificationScheduler.swift */; };
 		436C71C41C90E68600E65AC0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 436C71C31C90E68600E65AC0 /* Podfile */; };
+		4376E9A420706FD500D82FF5 /* UIView+DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376E9A320706FD500D82FF5 /* UIView+DateFormatters.swift */; };
 		43828C661C3F998D00DE4C70 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */; };
 		43828C671C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */; };
 		439680B01C6C870C008E35A4 /* InstagramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */; };
@@ -87,6 +88,7 @@
 		4343CE5C1C75B03A00F48E5E /* FeedCollectionHeaderViewCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionHeaderViewCollectionReusableView.swift; sourceTree = "<group>"; };
 		435B0EE21E41D6A60091B2DA /* NotificationScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		436C71C31C90E68600E65AC0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4376E9A320706FD500D82FF5 /* UIView+DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DateFormatters.swift"; sourceTree = "<group>"; };
 		43828C641C3F998D00DE4C70 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		43828C651C3F998D00DE4C70 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
 		439680AF1C6C870C008E35A4 /* InstagramCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				43C5A6111C25295600222D23 /* ViewController.swift */,
 				43C5A6131C25295600222D23 /* Main.storyboard */,
 				431C19171E46963B00E30EA2 /* UIView+Borders.swift */,
+				4376E9A320706FD500D82FF5 /* UIView+DateFormatters.swift */,
 				835CE5851C3E6CBE0044AA86 /* FirstLaunchViewController.swift */,
 				43C5A6191C25295600222D23 /* Assets.xcassets */,
 				43C5A61B1C25295600222D23 /* LaunchScreen.storyboard */,
@@ -549,6 +552,7 @@
 				43D038651C884490004661C1 /* MadeWithLoveViewController.swift in Sources */,
 				43E17BE71C2B99450075F92B /* YFFTabBarController.swift in Sources */,
 				435B0EE31E41D6A60091B2DA /* NotificationScheduler.swift in Sources */,
+				4376E9A420706FD500D82FF5 /* UIView+DateFormatters.swift in Sources */,
 				4322FE621C732BFF003B0775 /* Constants.swift in Sources */,
 				4324437E1C6203650045A661 /* PerformanceCell.swift in Sources */,
 				43E17BD41C2B944F0075F92B /* YFFNavigationController.swift in Sources */,
