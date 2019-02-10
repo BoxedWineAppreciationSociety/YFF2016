@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Mixpanel. All rights reserved.
 //
 
+#import "MixpanelPrivate.h"
 #import "MPSwizzler.h"
 #import "MPUIControlBinding.h"
+#import "NSThread+MPHelpers.h"
 
 @interface MPUIControlBinding()
 
@@ -35,23 +37,23 @@
 + (MPEventBinding *)bindingWithJSONObject:(NSDictionary *)object
 {
     NSString *path = object[@"path"];
-    if (![path isKindOfClass:[NSString class]] || [path length] < 1) {
+    if (![path isKindOfClass:[NSString class]] || path.length < 1) {
         NSLog(@"must supply a view path to bind by");
         return nil;
     }
 
     NSString *eventName = object[@"event_name"];
-    if (![eventName isKindOfClass:[NSString class]] || [eventName length] < 1 ) {
+    if (![eventName isKindOfClass:[NSString class]] || eventName.length < 1 ) {
         NSLog(@"binding requires an event name");
         return nil;
     }
 
-    if (!(object[@"control_event"] && ([object[@"control_event"] unsignedIntegerValue] & UIControlEventAllEvents))) {
+    if (!([object[@"control_event"] unsignedIntegerValue] & UIControlEventAllEvents)) {
         NSLog(@"must supply a valid UIControlEvents value for control_event");
         return nil;
     }
 
-    UIControlEvents verifyEvent = object[@"verify_event"] ? [object[@"verify_event"] unsignedIntegerValue] : 0;
+    UIControlEvents verifyEvent = [object[@"verify_event"] unsignedIntegerValue];
     return [[MPUIControlBinding alloc] initWithEventName:eventName
                                         onPath:path
                               withControlEvent:[object[@"control_event"] unsignedIntegerValue]
@@ -72,13 +74,19 @@
          andVerifyEvent:(UIControlEvents)verifyEvent
 {
     if (self = [super initWithEventName:eventName onPath:path]) {
-        [self setSwizzleClass:[UIControl class]];
+        // iOS 12: UITextField now implements -didMoveToWindow, without calling the parent implementation. so Swizzle UIControl won't work
+        if (@available(iOS 12, *)) {
+            [self setSwizzleClass:[path containsString:@"UITextField"] ? [UITextField class] : [UIControl class]];
+        }
+        else {
+            [self setSwizzleClass:[UIControl class]];
+        }
         _controlEvent = controlEvent;
-
+        
         if (verifyEvent == 0) {
             if (controlEvent & UIControlEventAllTouchEvents) {
                 verifyEvent = UIControlEventTouchDown;
-            } else if (controlEvent & UIControlEventAllTouchEvents) {
+            } else if (controlEvent & UIControlEventAllEditingEvents) {
                 verifyEvent = UIControlEventEditingDidBegin;
             }
         }
@@ -104,42 +112,48 @@
 
 - (void)execute
 {
+    if (!self.appliedTo) {
+        [self resetAppliedTo];
+    }
+    
     if (!self.running) {
         void (^executeBlock)(id, SEL) = ^(id view, SEL command) {
-            NSArray *objects;
-            NSObject *root = [[UIApplication sharedApplication] keyWindow].rootViewController;
-            if (view && [self.appliedTo containsObject:view]) {
-                if (![self.path fuzzyIsLeafSelected:view fromRoot:root]) {
-                    [self stopOnView:view];
-                    [self.appliedTo removeObject:view];
-                }
-            } else {
-                // select targets based off path
-                if (view) {
-                    if ([self.path fuzzyIsLeafSelected:view fromRoot:root]) {
-                        objects = @[view];
-                    } else {
-                        objects = @[];
+            [NSThread mp_safelyRunOnMainThreadSync:^{
+                NSArray *objects;
+                NSObject *root = [[Mixpanel sharedUIApplication] keyWindow].rootViewController;
+                if (view && [self.appliedTo containsObject:view]) {
+                    if (![self.path fuzzyIsLeafSelected:view fromRoot:root]) {
+                        [self stopOnView:view];
+                        [self.appliedTo removeObject:view];
                     }
                 } else {
-                    objects = [self.path fuzzySelectFromRoot:root];
-                }
-
-                for (UIControl *control in objects) {
-                    if ([control isKindOfClass:[UIControl class]]) {
-                        if (self.verifyEvent != 0 && self.verifyEvent != self.controlEvent) {
-                            [control addTarget:self
-                                        action:@selector(preVerify:forEvent:)
-                              forControlEvents:self.verifyEvent];
+                    // select targets based off path
+                    if (view) {
+                        if ([self.path fuzzyIsLeafSelected:view fromRoot:root]) {
+                            objects = @[view];
+                        } else {
+                            objects = @[];
                         }
+                    } else {
+                        objects = [self.path fuzzySelectFromRoot:root];
+                    }
 
-                        [control addTarget:self
-                                    action:@selector(execute:forEvent:)
-                          forControlEvents:self.controlEvent];
-                        [self.appliedTo addObject:control];
+                    for (UIControl *control in objects) {
+                        if ([control isKindOfClass:[UIControl class]]) {
+                            if (self.verifyEvent != 0 && self.verifyEvent != self.controlEvent) {
+                                [control addTarget:self
+                                            action:@selector(preVerify:forEvent:)
+                                  forControlEvents:self.verifyEvent];
+                            }
+
+                            [control addTarget:self
+                                        action:@selector(execute:forEvent:)
+                              forControlEvents:self.controlEvent];
+                            [self.appliedTo addObject:control];
+                        }
                     }
                 }
-            }
+            }];
         };
 
         executeBlock(nil, _cmd);
@@ -168,9 +182,11 @@
                               named:self.name];
 
         // remove target-action pairs
-        for (UIControl *control in [self.appliedTo allObjects]) {
+        for (UIControl *control in self.appliedTo.allObjects) {
             if (control && [control isKindOfClass:[UIControl class]]) {
-                [self stopOnView:control];
+                [NSThread mp_safelyRunOnMainThreadSync:^{
+                    [self stopOnView:control];
+                }];
             }
         }
         [self resetAppliedTo];
@@ -194,7 +210,7 @@
 
 - (BOOL)verifyControlMatchesPath:(id)control
 {
-    NSObject *root = [[UIApplication sharedApplication] keyWindow].rootViewController;
+    NSObject *root = [[Mixpanel sharedUIApplication] keyWindow].rootViewController;
     return [self.path isLeafSelected:control fromRoot:root];
 }
 
@@ -236,6 +252,20 @@
         _verifyEvent = [[aDecoder decodeObjectForKey:@"verifyEvent"] unsignedIntegerValue];
     }
     return self;
+}
+
+- (BOOL)isEqual:(id)other {
+    if (other == self) {
+        return YES;
+    } else if (![other isKindOfClass:[MPUIControlBinding class]]) {
+        return NO;
+    } else {
+        return [super isEqual:other] && self.controlEvent == ((MPUIControlBinding *)other).controlEvent && self.verifyEvent == ((MPUIControlBinding *)other).verifyEvent;
+    }
+}
+
+- (NSUInteger)hash {
+    return [super hash] ^ self.controlEvent ^ self.verifyEvent;
 }
 
 @end

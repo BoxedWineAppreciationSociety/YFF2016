@@ -16,25 +16,25 @@ class SocialButton: UIButton {
         switch buttonType {
         case "facebookLink":
             self.backgroundColor = facebookBlue
-            self.setImage(UIImage(named: "facebookLogo"), for: UIControlState())
+            self.setImage(UIImage(named: "facebookLogo"), for: UIControl.State())
         case "twitterLink":
             self.backgroundColor = twitterBlue
-            self.setImage(UIImage(named: "twitterLogo"), for: UIControlState())
+            self.setImage(UIImage(named: "twitterLogo"), for: UIControl.State())
         case "youtubeLink":
             self.backgroundColor = youtubeRed
-            self.setImage(UIImage(named: "youtubeLogo"), for: UIControlState())
+            self.setImage(UIImage(named: "youtubeLogo"), for: UIControl.State())
         case "instagramLink":
             self.backgroundColor = instagramBlue
-            self.setImage(UIImage(named: "feedIconWhite"), for: UIControlState())
+            self.setImage(UIImage(named: "feedIconWhite"), for: UIControl.State())
         case "iTunesLink":
             self.backgroundColor = iTunesGrey
-            self.setImage(UIImage(named: "appleLogo"), for: UIControlState())
+            self.setImage(UIImage(named: "appleLogo"), for: UIControl.State())
         case "soundCloudLink":
             self.backgroundColor = soundCloudOrange
-            self.setImage(UIImage(named: "soundcloudLogo"), for: UIControlState())
+            self.setImage(UIImage(named: "soundcloudLogo"), for: UIControl.State())
         default:
             self.backgroundColor = YFFOlive
-            self.setImage(UIImage(named: "websiteLinkImage"), for: UIControlState())
+            self.setImage(UIImage(named: "websiteLinkImage"), for: UIControl.State())
             
         }
     }

@@ -46,22 +46,22 @@ class programDayButton: UIButton {
         let font:UIFont? = UIFont(name: "BebasNeueRegular", size: 30)
         let attrString = NSMutableAttributedString(
             string: substring1 as String,
-            attributes: NSDictionary(
+            attributes: convertToOptionalNSAttributedStringKeyDictionary(NSDictionary(
                 object: font!,
-                forKey: NSFontAttributeName as NSCopying) as? [String : AnyObject])
+                forKey: convertFromNSAttributedStringKey(NSAttributedString.Key.font) as NSCopying) as? [String : AnyObject]))
         
         let font1:UIFont? = UIFont(name: "BebasNeueRegular", size: 16.0)
         let attrString1 = NSMutableAttributedString(
             string: substring2 as String,
-            attributes: NSDictionary(
+            attributes: convertToOptionalNSAttributedStringKeyDictionary(NSDictionary(
                 object: font1!,
-                forKey: NSFontAttributeName as NSCopying) as? [String : AnyObject])
+                forKey: convertFromNSAttributedStringKey(NSAttributedString.Key.font) as NSCopying) as? [String : AnyObject]))
         
         //appending both attributed strings
         attrString.append(attrString1)
         
         //assigning the resultant attributed strings to the button
-        self.setAttributedTitle(attrString, for: UIControlState())
+        self.setAttributedTitle(attrString, for: UIControl.State())
     }
     
     func setActive() {
@@ -71,4 +71,15 @@ class programDayButton: UIButton {
     func setInactive() {
         self.titleLabel?.textColor = UIColor.black
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

@@ -150,10 +150,14 @@ class JSONLoader: NSObject {
         let jsonFilePath = getDocumentsDirectory().appendingPathComponent(fileName)
         let fileManager = FileManager.default
         if (fileManager.fileExists(atPath: jsonFilePath)) {
-            return JSON(data: try! Data(contentsOf: URL(fileURLWithPath: jsonFilePath)))
+            if let jsonData = try? JSON(data: Data(contentsOf: URL(fileURLWithPath: jsonFilePath))) {
+                return jsonData
+            }
         } else {
             if let jsonFile = Bundle.main.url(forResource: "\(day.lowercased())_performances", withExtension: "json") {
-                return JSON(data: try! Data(contentsOf: jsonFile))
+                if let jsonData = try? JSON(data: Data(contentsOf: jsonFile)) {
+                    return jsonData
+                }
             }
         }
        fatalError("Failed to find JSON")
@@ -165,10 +169,14 @@ class JSONLoader: NSObject {
         let fileManager = FileManager.default
         
         if (fileManager.fileExists(atPath: jsonFilePath)) {
-            return JSON(data: try! Data(contentsOf: URL(fileURLWithPath: jsonFilePath)))
+            if let jsonData = try? JSON(data: Data(contentsOf: URL(fileURLWithPath: jsonFilePath))) {
+                return jsonData
+            }
         } else {
             if let jsonFile = Bundle.main.url(forResource: "artist_json", withExtension: "json") {
-                return JSON(data: try! Data(contentsOf: jsonFile))
+                if let jsonData = try? JSON(data: Data(contentsOf: jsonFile)) {
+                    return jsonData
+                }
             }
         }
        fatalError("Failed to find JSON")

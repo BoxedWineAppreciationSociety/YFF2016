@@ -108,7 +108,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // Toggle the tab bar on tap
-    func scrollViewTapped() {
+    @objc func scrollViewTapped() {
         setTabBarVisible(!tabBarIsVisible(), animated: true)
     }
     
@@ -139,7 +139,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // Zoom in on the desired area when double tapped
-    func scrollViewDoubleTapped(_ recognizer: UITapGestureRecognizer) {
+    @objc func scrollViewDoubleTapped(_ recognizer: UITapGestureRecognizer) {
         
         // Hide the tab bar
         setTabBarVisible(false, animated: true)

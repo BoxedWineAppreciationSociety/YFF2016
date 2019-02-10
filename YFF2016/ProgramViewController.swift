@@ -47,9 +47,9 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.navigationItem.title = "PROGRAM"
         self.navigationController?.navigationBar.barTintColor = YFFRed
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_alert_selected"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.myItineraryAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_alert_selected"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(ProgramViewController.myItineraryAction))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
         programTableView.dataSource = self
@@ -63,7 +63,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(ProgramViewController.reload(_:)),name: NSNotification.Name(rawValue: "reload"), object: nil)
     }
     
-    func reload(_ notification: NSNotification) {
+    @objc func reload(_ notification: NSNotification) {
         programTableView.reloadData()
     }
     
@@ -95,7 +95,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
-    func myItineraryAction() {
+    @objc func myItineraryAction() {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "MyItinerary")
 
         self.present(controller, animated: true, completion: nil)

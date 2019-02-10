@@ -17,7 +17,7 @@ NSString *const MPABTestDesignerClearRequestMessageType = @"clear_request";
 
 + (instancetype)message
 {
-    return [[self alloc] initWithType:MPABTestDesignerClearRequestMessageType];
+    return [(MPABTestDesignerClearRequestMessage *)[self alloc] initWithType:MPABTestDesignerClearRequestMessageType];
 }
 
 - (NSOperation *)responseCommandWithConnection:(MPABTestDesignerConnection *)connection
@@ -28,12 +28,10 @@ NSString *const MPABTestDesignerClearRequestMessageType = @"clear_request";
 
         MPVariant *variant = [conn sessionObjectForKey:kSessionVariantKey];
         if (variant) {
-            NSArray *actions = (self.payload)[@"actions"];
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                for (NSString *name in actions) {
-                    [variant removeActionWithName:name];
-                }
-            });
+            NSArray *actions = [self payload][@"actions"];
+            for (NSString *name in actions) {
+                [variant removeActionWithName:name];
+            }
         }
 
         MPABTestDesignerClearResponseMessage *clearResponseMessage = [MPABTestDesignerClearResponseMessage message];

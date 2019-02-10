@@ -53,7 +53,7 @@ class MoreTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Add Made With Love Button
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.heartButtonAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "❤︎", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.heartButtonAction))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
         // Change title for NavBar
@@ -122,7 +122,7 @@ class MoreTableViewController: UITableViewController {
     
     // MARK: Actions
     
-    func heartButtonAction() {
+    @objc func heartButtonAction() {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "MadeWithLove")
         
         controller.modalPresentationStyle = .overFullScreen

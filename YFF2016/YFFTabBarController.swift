@@ -30,7 +30,7 @@ class YFFTabBarController: UITabBarController {
             
         }
         // Set the font and size
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName:UIFont(name: "BebasNeue", size: 10)!], for: UIControlState())
+        UITabBarItem.appearance().setTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font):UIFont(name: "BebasNeue", size: 10)!]), for: UIControl.State())
 
         // Select tab based on which launch button was used to get here
         if let identifier = incomingSegueIdentifier {
@@ -55,4 +55,15 @@ class YFFTabBarController: UITabBarController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

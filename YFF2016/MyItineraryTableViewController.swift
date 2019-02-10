@@ -30,7 +30,7 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
         
         self.navigationItem.title = "MY ITINERARY"
         self.navigationController?.navigationBar.barTintColor = YFFRed
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
@@ -129,8 +129,8 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
     //Add title for empty dataset
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "You haven’t added any \n performances to your \n itinerary yet."
-        let attrs = [NSFontAttributeName: UIFont(name: "BebasNeueRegular", size: 26)!, NSForegroundColorAttributeName: YFFGrey]
-        return NSAttributedString(string: str.uppercased(), attributes: attrs)
+        let attrs = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont(name: "BebasNeueRegular", size: 26)!, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): YFFGrey]
+        return NSAttributedString(string: str.uppercased(), attributes: convertToOptionalNSAttributedStringKeyDictionary(attrs))
     }
 
     //Add your image
@@ -188,4 +188,15 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
      }
      */
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

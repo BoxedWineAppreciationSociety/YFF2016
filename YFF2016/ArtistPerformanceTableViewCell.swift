@@ -20,8 +20,8 @@ class ArtistPerformanceTableViewCell: UITableViewCell {
         if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
             let message = "You've just added a performance to your alerts. We'll let you know 15 minutes before this artist is playing so you don't miss any of the action!"
             
-            let alert = UIAlertController(title: "🎉", message: message, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "🎉", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.tableViewController?.present(alert, animated: true, completion: nil)
             
         }
