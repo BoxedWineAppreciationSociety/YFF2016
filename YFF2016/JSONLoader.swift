@@ -44,7 +44,7 @@ class JSONLoader: NSObject {
     class func loadArtistsJSON() {
         let request = NSMutableURLRequest(url: URL(string: artistsJsonUrl)!)
         
-        httpGet(request as URLRequest!){
+        httpGet(request as URLRequest){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -57,7 +57,7 @@ class JSONLoader: NSObject {
     class func loadInstagram() {
         let request = NSMutableURLRequest(url: URL(string: instagramUrl)!)
         
-        httpGet(request as URLRequest!){
+        httpGet(request as URLRequest){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -71,7 +71,7 @@ class JSONLoader: NSObject {
     class func loadFridayPerformances() {
         let request = NSMutableURLRequest(url: URL(string: friPerformancesJsonUrl)!)
         
-        httpGet(request as URLRequest!){
+        httpGet(request as URLRequest){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -84,7 +84,7 @@ class JSONLoader: NSObject {
     class func loadSaturdayPerformances() {
         let request = NSMutableURLRequest(url: URL(string: satPerformancesJsonUrl)!)
         
-        httpGet(request as URLRequest!){
+        httpGet(request as URLRequest){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
@@ -98,7 +98,7 @@ class JSONLoader: NSObject {
     class func loadSundayPerformances() {
         let request = NSMutableURLRequest(url: URL(string: sunPerformancesJsonUrl)!)
         
-        httpGet(request as URLRequest!){
+        httpGet(request as URLRequest){
             (data, error) -> Void in
             if error != nil {
                 print(error!)
