@@ -6,8 +6,9 @@
 //  Copyright © 2016 Yackandandah Folk Festival. All rights reserved.
 //
 import UIKit
+import EasyTipView
 
-class FirstLaunchViewController: UIViewController {
+class FirstLaunchViewController: UIViewController{
 
     @IBOutlet weak var programButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
@@ -17,6 +18,8 @@ class FirstLaunchViewController: UIViewController {
     @IBAction func termsButtonTouchedUpInside(_ sender: UIButton) {
         UIApplication.shared.openURL(URL(string: "http://yackfolkfestival.com/terms-of-use/")!)
     }
+    
+    @IBOutlet var firstLaunchView: UIView!
     
     override var prefersStatusBarHidden : Bool {
         return false

@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import UserNotifications
+import EasyTipView
 
 class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var selectedArtist: Artist?
@@ -41,6 +42,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     let fridayJsonFile = Bundle.main.url(forResource: "friday_performances", withExtension: "json")
     
     // MARK: UIViewController
+    @IBOutlet weak var daySelectButton: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,6 +128,10 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.performanceTimeLabel.tintColor = YFFOlive
         cell.performanceStageLabel.tintColor = YFFOlive
         cell.artistNameLabel?.font = UIFont(name: "BebasNeueRegular", size: CGFloat(26.0))
+        if (indexPath.row == 0) {
+            cell.showTooltip = true
+        }
+        
         
         return cell
     }
@@ -171,6 +177,18 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.fridayPerformancesButton.setInactive()
         self.saturdayPerformancesButton.setInactive()
         self.sundayPerformancesButton.setInactive()
+    }
+    
+    fileprivate func isAppAlreadyLaunchedOnce() -> Bool {
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
+            print("App already launched")
+            return true
+        } else {
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
     }
     
     /*

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import EasyTipView
 
 class PerformanceCell: UITableViewCell {
     
     var performance: Performance?
     var tableViewController: UIViewController?
+    var showTooltip: Bool = false
     
     @IBOutlet weak var performanceCellThumb: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
@@ -29,7 +31,6 @@ class PerformanceCell: UITableViewCell {
             self.tableViewController?.present(alert, animated: true, completion: nil)
             
         }
-        
         
         NotificationScheduler.toggleNotification(performance: self.performance!)
         
@@ -89,7 +90,7 @@ class PerformanceCell: UITableViewCell {
         dateFormatter.dateFormat = "h:mm a"
         
         if let artistImageName = performance.artist?.imageName, !(performance.artist?.imageName?.isEmpty)!, (UIImage(named: artistImageName) != nil) {
-            let artistImage = UIImage(named: artistImageName) 
+            let artistImage = UIImage(named: artistImageName)
             self.performanceCellThumb.image = artistImage
         } else {
             self.performanceCellThumb.image = UIImage(named: "artistPlaceholder")
@@ -107,6 +108,34 @@ class PerformanceCell: UITableViewCell {
         
         self.performanceDayLabel?.textColor = YFFOlive
         self.performanceDayLabel?.text = dayDateFormatter.string(from: performance.time! as Date)
+        
+        if (showTooltip) {
+            var preferences = EasyTipView.Preferences()
+            preferences.drawing.font = UIFont(name: "Source Sans Pro", size: 16)!
+            preferences.drawing.foregroundColor = UIColor.white
+            preferences.drawing.backgroundColor = YFFTeal
+            preferences.drawing.arrowPosition = .top
+            preferences.animating.dismissDuration = 1.0
+            
+            /*
+             * Optionally you can make these preferences global for all future EasyTipViews
+             */
+            EasyTipView.globalPreferences = preferences
+            
+            let performanceTip = EasyTipView(text: "Tap the bell to be notified 15 minutes before the performance")
+            
+            //        if isAppAlreadyLaunchedOnce() {
+            performanceTip.show(forView: remindMeButton)
+            //        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                performanceTip.dismiss()
+                
+            }
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
 }

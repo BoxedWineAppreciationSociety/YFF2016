@@ -627,6 +627,7 @@ MAR 24</string>
                     </view>
                     <navigationItem key="navigationItem" id="CMs-V6-rvX"/>
                     <connections>
+                        <outlet property="daySelectButton" destination="wXC-KJ-id3" id="Lvx-oz-0oS"/>
                         <outlet property="fridayPerformancesButton" destination="98x-YB-d23" id="0hR-y0-CpC"/>
                         <outlet property="programTableView" destination="7By-1j-Swu" id="cCC-AP-6wF"/>
                         <outlet property="saturdayPerformancesButton" destination="X61-39-lxu" id="OVW-Hh-y4U"/>
@@ -713,13 +714,13 @@ MAR 24</string>
                             <constraint firstItem="xEF-ag-6bb" firstAttribute="top" secondItem="c4B-Nv-f3V" secondAttribute="bottom" constant="50" id="6va-ze-g9k"/>
                             <constraint firstItem="Ibr-Vd-cjX" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="7d9-qW-7rb"/>
                             <constraint firstItem="Ibr-Vd-cjX" firstAttribute="top" secondItem="AFe-pM-Y2I" secondAttribute="bottom" constant="10" id="Azy-h1-eSy"/>
-                            <constraint firstItem="eDW-ff-yVg" firstAttribute="top" secondItem="VX0-H7-3Kn" secondAttribute="bottom" constant="100" id="Hdv-ro-TDn"/>
                             <constraint firstItem="SXD-8Z-vgb" firstAttribute="top" secondItem="xEz-5L-WBZ" secondAttribute="top" id="SzU-vb-xYo"/>
                             <constraint firstItem="eDW-ff-yVg" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" constant="10" id="f2O-lo-FLA"/>
                             <constraint firstItem="c4B-Nv-f3V" firstAttribute="centerX" secondItem="xEz-5L-WBZ" secondAttribute="centerX" id="fFD-cn-cow"/>
                             <constraint firstItem="c4B-Nv-f3V" firstAttribute="top" secondItem="Ibr-Vd-cjX" secondAttribute="bottom" constant="10" id="fw5-sL-9mt"/>
                             <constraint firstAttribute="bottomMargin" secondItem="xEF-ag-6bb" secondAttribute="bottom" constant="10" id="jTa-Mn-Dvn"/>
                             <constraint firstAttribute="trailing" secondItem="SXD-8Z-vgb" secondAttribute="trailing" id="lpo-bS-aEV"/>
+                            <constraint firstItem="eDW-ff-yVg" firstAttribute="top" secondItem="VX0-H7-3Kn" secondAttribute="bottom" constant="100" id="sY8-fV-jsJ"/>
                             <constraint firstItem="AFe-pM-Y2I" firstAttribute="top" secondItem="eDW-ff-yVg" secondAttribute="bottom" constant="90" id="vdh-CP-KC9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xEF-ag-6bb" secondAttribute="trailing" id="vvS-IV-8Cy"/>
                             <constraint firstItem="SXD-8Z-vgb" firstAttribute="leading" secondItem="xEz-5L-WBZ" secondAttribute="leading" id="zCM-gx-BR7"/>
@@ -728,6 +729,7 @@ MAR 24</string>
                     </view>
                     <connections>
                         <outlet property="artistsButton" destination="c4B-Nv-f3V" id="oS1-JN-uRp"/>
+                        <outlet property="firstLaunchView" destination="xEz-5L-WBZ" id="eOc-kM-kRT"/>
                         <outlet property="mapButton" destination="Ibr-Vd-cjX" id="7wo-Xv-IRa"/>
                         <outlet property="programButton" destination="AFe-pM-Y2I" id="ijA-zW-9vn"/>
                         <outlet property="termsButton" destination="xEF-ag-6bb" id="BE6-bG-J6B"/>
@@ -1145,6 +1147,6 @@ We hope to see you at the festival!
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TOW-rU-DPh"/>
-        <segue reference="U7J-LC-bvT"/>
+        <segue reference="6VO-9p-S81"/>
     </inferredMetricsTieBreakers>
 </document>
