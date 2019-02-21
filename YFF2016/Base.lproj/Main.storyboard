@@ -560,8 +560,8 @@ MAR 24</string>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emz-Nk-F0u">
-                                                    <rect key="frame" x="324" y="25" width="60" height="50"/>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emz-Nk-F0u">
+                                                    <rect key="frame" x="334" y="27" width="60" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="1jm-jl-yVI"/>
                                                         <constraint firstAttribute="width" constant="60" id="gI7-Nl-PFh"/>
@@ -573,15 +573,15 @@ MAR 24</string>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Emz-Nk-F0u" firstAttribute="top" secondItem="qg1-7C-PwD" secondAttribute="topMargin" constant="14" id="24l-fO-Waz"/>
                                                 <constraint firstAttribute="bottom" secondItem="6Yw-nZ-2eG" secondAttribute="bottom" constant="8" id="40P-a7-Pbu"/>
                                                 <constraint firstItem="9W6-GJ-LdC" firstAttribute="leading" secondItem="6Yw-nZ-2eG" secondAttribute="trailing" constant="10" id="6Jy-cq-3zx"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9W6-GJ-LdC" secondAttribute="trailing" id="7Fk-DL-omM"/>
                                                 <constraint firstItem="0fd-gn-woS" firstAttribute="leading" secondItem="6Yw-nZ-2eG" secondAttribute="trailing" constant="10" id="C87-VH-2QB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Emz-Nk-F0u" secondAttribute="trailing" constant="10" id="EFT-Fh-Wej"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Emz-Nk-F0u" secondAttribute="trailing" id="EFT-Fh-Wej"/>
                                                 <constraint firstItem="2nY-OE-KJT" firstAttribute="leading" secondItem="6Yw-nZ-2eG" secondAttribute="trailing" constant="10" id="J9P-kT-UAk"/>
                                                 <constraint firstItem="6Yw-nZ-2eG" firstAttribute="top" secondItem="qg1-7C-PwD" secondAttribute="top" constant="8" id="LHr-cE-VSn"/>
                                                 <constraint firstItem="2nY-OE-KJT" firstAttribute="top" secondItem="0fd-gn-woS" secondAttribute="bottom" constant="5" id="OA2-iB-SCo"/>
+                                                <constraint firstItem="Emz-Nk-F0u" firstAttribute="centerY" secondItem="qg1-7C-PwD" secondAttribute="centerY" id="STq-Mc-ayC"/>
                                                 <constraint firstItem="6Yw-nZ-2eG" firstAttribute="width" secondItem="qg1-7C-PwD" secondAttribute="height" multiplier="1:1" id="ZtH-d6-taE"/>
                                                 <constraint firstItem="0fd-gn-woS" firstAttribute="trailing" secondItem="qg1-7C-PwD" secondAttribute="trailingMargin" constant="-40" id="fpO-zq-NeH"/>
                                                 <constraint firstItem="9W6-GJ-LdC" firstAttribute="leading" secondItem="2nY-OE-KJT" secondAttribute="trailing" constant="-464" id="heJ-eN-tTg"/>
