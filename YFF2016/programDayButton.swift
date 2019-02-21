@@ -9,7 +9,8 @@
 import UIKit
 
 class programDayButton: UIButton {
-
+    var active: Bool = false
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -65,10 +66,18 @@ class programDayButton: UIButton {
     }
     
     func setActive() {
+        if (active) {
+            return
+        }
+        self.active = true
         self.titleLabel?.textColor = YFFRed
     }
     
     func setInactive() {
+        if (!active) {
+            return
+        }
+        self.active = false
         self.titleLabel?.textColor = UIColor.black
     }
 }

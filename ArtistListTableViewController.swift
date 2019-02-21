@@ -51,8 +51,8 @@ class ArtistListTableViewController: UITableViewController {
     func sortArtists() {
         artists.sort {
             artist1, artist2 in
-            let name1 = artist1.name
-            let name2 = artist2.name
+            let name1 = artist1.sortName
+            let name2 = artist2.sortName
             return name1 < name2
         }
     }

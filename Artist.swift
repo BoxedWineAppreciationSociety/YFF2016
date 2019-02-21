@@ -14,6 +14,7 @@ class Artist {
     var name = ""
     var summary = ""
     var imageName: String?
+    var sortName = ""
     var facebookURL: String?
     var instagramURL: String?
     var websiteURL: String?
@@ -26,6 +27,7 @@ class Artist {
        
         self.id = json["id"].stringValue
         self.name = json["name"].stringValue
+        self.sortName = json["sort_name"].stringValue
         self.summary = json["summary"].stringValue
         self.imageName = json["image_name"].stringValue
         self.facebookURL = json["facebook"].stringValue

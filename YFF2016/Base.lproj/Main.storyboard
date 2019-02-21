@@ -750,13 +750,18 @@ MAR 24</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BH-PM-OCL">
-                                <rect key="frame" x="60" y="193" width="294" height="350"/>
+                                <rect key="frame" x="60" y="143" width="294" height="450"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="YIn-0C-Hqy">
-                                        <rect key="frame" x="18" y="214.99999999999997" width="258" height="105.66666666666666"/>
-                                        <string key="text">This app was made with love by a local Yackandandarian, a Liverpudlian and a girl from Ballarat.
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="YIn-0C-Hqy">
+                                        <rect key="frame" x="18" y="215" width="258" height="141"/>
+                                        <mutableString key="text">This was made with love by a local Yackandandarian, and his friends from Ballarat and Liverpool.
 
-If you like the app, let us know or buy us a beer. we’ll see you at the festival!</string>
+If you're enjoying the app, or if there's anything you'd like to see next year, come have a chat to us!
+We also accept donations of beer to support further updates.
+
+We hope to see you at the festival!
+
+❤</mutableString>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -768,7 +773,7 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                             <action selector="closePopover:" destination="WbZ-tF-B9Y" eventType="touchUpInside" id="k5g-oh-Wpo"/>
                                         </connections>
                                     </button>
-                                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BoxedWine" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-XD-vgg">
+                                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="BoxedWine" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-XD-vgg">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="195"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="zdC-St-xWC"/>
@@ -795,7 +800,7 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                     <constraint firstAttribute="trailing" secondItem="6VN-tH-fC7" secondAttribute="trailing" constant="10" id="arw-5r-yug"/>
                                     <constraint firstAttribute="width" constant="400" id="q7P-kH-PLj"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YIn-0C-Hqy" secondAttribute="bottom" constant="10" id="qzQ-xD-Hmp"/>
-                                    <constraint firstAttribute="height" constant="350" id="z6M-43-91z"/>
+                                    <constraint firstAttribute="height" constant="450" id="z6M-43-91z"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -807,7 +812,7 @@ If you like the app, let us know or buy us a beer. we’ll see you at the festiv
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N63-2S-Oqp">
-                                <rect key="frame" x="188" y="583" width="38" height="38"/>
+                                <rect key="frame" x="188" y="633" width="38" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="4p5-H3-dLJ"/>
                                     <constraint firstAttribute="width" constant="38" id="GcT-h7-edP"/>
