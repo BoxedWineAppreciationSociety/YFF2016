@@ -9,4 +9,5 @@ target 'YFF2016' do
     pod 'SwiftyJSON'
     pod 'DZNEmptyDataSet'
     pod 'EasyTipView', '~> 2.0.0'
+    pod 'HGRippleRadarView'
 end

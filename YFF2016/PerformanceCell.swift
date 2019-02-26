@@ -8,12 +8,16 @@
 
 import UIKit
 import EasyTipView
+import HGRippleRadarView
 
 class PerformanceCell: UITableViewCell {
     
     var performance: Performance?
     var tableViewController: UIViewController?
     var showTooltip: Bool = false
+    
+    var performanceTip: EasyTipView?
+    var tooltipPreferences = EasyTipView.Preferences()
     
     @IBOutlet weak var performanceCellThumb: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
@@ -24,11 +28,39 @@ class PerformanceCell: UITableViewCell {
     
     @IBAction func remindMe(_ sender: UIButton) {
         if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
-            let message = "You've just added a performance to your alerts. We'll let you know 15 minutes before this artist is playing so you don't miss any of the action!"
+            let message = "You've just added a performance to your alerts! \n\n We'll let you know 15 minutes before this artist is playing so you don't miss any of the action! \n\n Just make sure you have notifications enabled 😉"
             
-            let alert = UIAlertController(title: "🎉", message: message, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
+                UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
+            }
+
+            
+            let alert = UIAlertController(title: "🎉", message: message, preferredStyle: .alert)
+
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                            print("Settings opened: \(success)") // Prints true
+                        })
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                }
+            }
+            
+            
+            if #available(iOS 10.0, *) {
+                alert.addAction(settingsAction)
+            }
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
             self.tableViewController?.present(alert, animated: true, completion: nil)
+
             
         }
         
@@ -56,6 +88,8 @@ class PerformanceCell: UITableViewCell {
         self.performanceTimeLabel.text = nil
         self.performanceStageLabel.text = nil
         self.performanceCellThumb.image = nil
+        self.performanceTip?.dismiss()
+        self.performanceTip = nil
     }
     
     func toggleNotificationButton() {
@@ -82,9 +116,16 @@ class PerformanceCell: UITableViewCell {
         
     }
     
+    func dismissTooltip() {
+        print("Removing tooltip")
+        self.performanceTip?.dismiss()
+        self.performanceTip = nil
+    }
+    
     func setup(_ performance: Performance) {
         self.performance = performance
         toggleNotificationButton()
+        setupTooltip()
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
@@ -110,32 +151,29 @@ class PerformanceCell: UITableViewCell {
         self.performanceDayLabel?.text = dayDateFormatter.string(from: performance.time! as Date)
         
         if (showTooltip) {
-            var preferences = EasyTipView.Preferences()
-            preferences.drawing.font = UIFont(name: "Source Sans Pro", size: 16)!
-            preferences.drawing.foregroundColor = UIColor.white
-            preferences.drawing.backgroundColor = YFFTeal
-            preferences.drawing.arrowPosition = .top
-            preferences.animating.dismissDuration = 1.0
+            performanceTip = EasyTipView(text: "Get notified 15 minutes before the performance", preferences: tooltipPreferences)
+            performanceTip?.show(forView: remindMeButton)
             
-            /*
-             * Optionally you can make these preferences global for all future EasyTipViews
-             */
-            EasyTipView.globalPreferences = preferences
+//          Make sure we set the default here so that we don't show the tooltip again
+            self.showTooltip = false
+            UserDefaults.standard.set(true, forKey: "isAppAlreadyLaunchedOnce")
             
-            let performanceTip = EasyTipView(text: "Tap the bell to be notified 15 minutes before the performance")
-            
-            //        if isAppAlreadyLaunchedOnce() {
-            performanceTip.show(forView: remindMeButton)
-            //        }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                performanceTip.dismiss()
-                
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                self.dismissTooltip()
             }
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    func setupTooltip() {
+        tooltipPreferences.drawing.font = UIFont(name: "Source Sans Pro", size: 16)!
+        tooltipPreferences.drawing.foregroundColor = UIColor.white
+        tooltipPreferences.drawing.backgroundColor = YFFTeal
+        tooltipPreferences.drawing.arrowPosition = .top
+        tooltipPreferences.animating.dismissDuration = 1.0
+        
+        tooltipPreferences.positioning.textHInset = 25
+        tooltipPreferences.positioning.textVInset = 20
+        tooltipPreferences.positioning.bubbleHInset = 25
+        tooltipPreferences.positioning.maxWidth = 300
     }
-    
 }

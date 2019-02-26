@@ -121,6 +121,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         performances.removeAll()
     }
     
+    var tooltipCell: PerformanceCell?
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PerformanceCell", for: indexPath) as! PerformanceCell
         cell.setup(performanceFor(indexPath))
@@ -128,18 +130,22 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.performanceTimeLabel.tintColor = YFFOlive
         cell.performanceStageLabel.tintColor = YFFOlive
         cell.artistNameLabel?.font = UIFont(name: "BebasNeueRegular", size: CGFloat(26.0))
-        if (indexPath.row == 0) {
+        if (indexPath.row == 0 && !isAppAlreadyLaunchedOnce()) {
             cell.showTooltip = true
+            self.tooltipCell = cell
         }
         
         
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!;
+        
+        tooltipCell?.dismissTooltip()
         
         self.selectedArtist = artistFor(indexPath)
         
@@ -179,7 +185,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.sundayPerformancesButton.setInactive()
     }
     
-    fileprivate func isAppAlreadyLaunchedOnce() -> Bool {
+    func isAppAlreadyLaunchedOnce() -> Bool {
         let defaults = UserDefaults.standard
         if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
             print("App already launched")

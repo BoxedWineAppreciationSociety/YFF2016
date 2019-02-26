@@ -155,12 +155,14 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/HGRippleRadarView/HGRippleRadarView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/HGRippleRadarView/HGRippleRadarView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi

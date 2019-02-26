@@ -27,10 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         mixpanel.createAlias(mixpanel.distinctId, forDistinctID: mixpanel.distinctId)
         mixpanel.identify(mixpanel.distinctId)
-
-        if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
-            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
-        }
         
         UIApplication.shared.applicationIconBadgeNumber = 0
         return true
