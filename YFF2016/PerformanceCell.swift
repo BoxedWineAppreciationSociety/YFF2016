@@ -8,7 +8,7 @@
 
 import UIKit
 import EasyTipView
-import HGRippleRadarView
+
 
 class PerformanceCell: UITableViewCell {
     
@@ -28,7 +28,7 @@ class PerformanceCell: UITableViewCell {
     
     @IBAction func remindMe(_ sender: UIButton) {
         if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
-            let message = "You've just added a performance to your alerts! \n\n We'll let you know 15 minutes before this artist is playing so you don't miss any of the action! \n\n Just make sure you have notifications enabled 😉"
+            let message = "Added to your lineup! \n\n We’ll alert you 15 minutes before the first pluck of the violin, guitar or heartstring. \n\n"
             
             if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
                 UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
@@ -36,27 +36,7 @@ class PerformanceCell: UITableViewCell {
 
             
             let alert = UIAlertController(title: "🎉", message: message, preferredStyle: .alert)
-
-            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
-                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                    return
-                }
-                
-                if UIApplication.shared.canOpenURL(settingsUrl) {
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                            print("Settings opened: \(success)") // Prints true
-                        })
-                    } else {
-                        // Fallback on earlier versions
-                    }
-                }
-            }
             
-            
-            if #available(iOS 10.0, *) {
-                alert.addAction(settingsAction)
-            }
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
             self.tableViewController?.present(alert, animated: true, completion: nil)
@@ -83,6 +63,8 @@ class PerformanceCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
+        
         self.textLabel?.text = nil
         self.artistNameLabel.text = nil
         self.performanceTimeLabel.text = nil
@@ -90,6 +72,7 @@ class PerformanceCell: UITableViewCell {
         self.performanceCellThumb.image = nil
         self.performanceTip?.dismiss()
         self.performanceTip = nil
+        
     }
     
     func toggleNotificationButton() {

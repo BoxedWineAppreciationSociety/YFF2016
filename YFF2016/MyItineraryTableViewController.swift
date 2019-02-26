@@ -15,6 +15,8 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
     var performances: [Performance] = []
     var selectedArtist: Artist?
     
+    @IBOutlet weak var lineupFooterView: lineupFooterView!
+    
     @IBAction func closeModal(_ sender: UIBarButtonItem) {
         self.navigationController!.popViewController(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
@@ -28,7 +30,7 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
         
-        self.navigationItem.title = "MY ITINERARY"
+        self.navigationItem.title = "MY LINEUP"
         self.navigationController?.navigationBar.barTintColor = YFFRed
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         
@@ -39,7 +41,18 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
         pluckPerformanceIds()
         fetchPerformances()
         sortPerformances()
-        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        let notificationType = UIApplication.shared.currentUserNotificationSettings!.types
+        if notificationType == [] {
+            lineupFooterView.isHidden = false
+            lineupFooterView.footerViewTitleLabel.text =  "Not working? \n Head to your Settings to make sure you have Notifications turned on."
+            lineupFooterView.footerViewButton.setTitleColor(YFFTeal, for: .normal)
+        } else {
+            lineupFooterView.isHidden = true
+            lineupFooterView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,6 +70,48 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
         // #warning Incomplete implementation, return the number of rows
         return performances.count
     }
+    
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let footerView = lineupFooterView
+//        
+//        footerView?.backgroundColor = UIColor.green
+//        
+////        footerView?.frame = CGRect(x: 0, y: 50, width: tableView.frame.width, height: 500)
+////        let label = UILabel(frame: footerView.frame)
+////        label.text = "Not working? Head to your Settings to make sure you have Notifications turned on."
+////        label.font = UIFont(name: "BebasNeueRegular", size: 20.0)
+////
+////        let button = UIButton(frame: CGRect(x: 30, y: footerView.center.y - 50, width: paddedWidth, height: 100))
+////        button.backgroundColor = .white
+////        button.setTitleColor(YFFGrey, for: .normal)
+////        button.setTitle("Go to Settings", for: .normal)
+////        button.titleLabel?.font = UIFont(name: "BebasNeueRegular", size: 20.0)
+////        button.titleLabel?.numberOfLines = 0
+////        button.titleLabel?.textAlignment = .center
+////        button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+////
+////        button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
+////
+////        footerView.addSubview(label)
+////        footerView.addSubview(button)
+//        
+//        return footerView
+//    }
+
+    func sizeFooterToFit() {
+        if let footerView = tableView.tableFooterView {
+            footerView.setNeedsLayout()
+            footerView.layoutIfNeeded()
+            
+            let height = footerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+            var frame = footerView.frame
+            frame.size.height = height
+            footerView.frame = frame
+            
+            tableView.tableFooterView = footerView
+        }
+    }
+    
     
     func pluckPerformanceIds() {
         for notification in notifications! {
@@ -128,7 +183,7 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
     // MARK: - Deal with the empty data set
     //Add title for empty dataset
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let str = "You haven’t added any \n performances to your \n itinerary yet."
+        let str = "You haven’t added any \n performances to your \n lineup yet."
         let attrs = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont(name: "BebasNeueRegular", size: 26)!, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): YFFGrey]
         return NSAttributedString(string: str.uppercased(), attributes: convertToOptionalNSAttributedStringKeyDictionary(attrs))
     }

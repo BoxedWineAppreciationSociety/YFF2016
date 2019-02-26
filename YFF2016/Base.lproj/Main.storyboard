@@ -255,10 +255,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLk-f2-UnH" userLabel="Artist About Scroll View">
-                                <rect key="frame" x="0.0" y="367" width="414" height="320"/>
+                                <rect key="frame" x="0.0" y="367" width="414" height="369"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-ft-i7k" userLabel="Artist About Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="369"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTm-Ir-qvs">
                                                 <rect key="frame" x="20" y="221.33333333333337" width="394" height="26"/>
@@ -309,7 +309,7 @@
                                 </constraints>
                             </scrollView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-n6-vv3" userLabel="Artist Performances">
-                                <rect key="frame" x="20" y="361" width="374" height="326"/>
+                                <rect key="frame" x="20" y="361" width="374" height="375"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="PerformanceCell" rowHeight="75" id="g76-tb-AZ4" customClass="ArtistPerformanceTableViewCell" customModule="YFF2016" customModuleProvider="target">
@@ -320,26 +320,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8T-FG-L9z">
-                                                    <rect key="frame" x="20" y="52" width="31.666666666666671" height="17"/>
+                                                    <rect key="frame" x="19.999999999999996" y="56.333333333333343" width="41.666666666666657" height="20"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperatorDot" translatesAutoresizingMaskIntoConstraints="NO" id="3bI-uc-Sam">
-                                                    <rect key="frame" x="56.666666666666664" y="58.666666666666664" width="4" height="4"/>
+                                                    <rect key="frame" x="66.666666666666671" y="64.333333333333329" width="4" height="4"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="4" id="06j-Eo-TW1"/>
                                                         <constraint firstAttribute="width" constant="4" id="r7g-aw-bPY"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elf-Yw-CDG">
-                                                    <rect key="frame" x="65.666666666666671" y="52" width="31.666666666666671" height="17"/>
+                                                    <rect key="frame" x="75.666666666666671" y="56.333333333333343" width="41.666666666666671" height="20"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-F1-e9e">
-                                                    <rect key="frame" x="20" y="21" width="314" height="26"/>
+                                                    <rect key="frame" x="20" y="21" width="314" height="30.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="26"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -756,14 +756,14 @@ MAR 24</string>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="YIn-0C-Hqy">
                                         <rect key="frame" x="18" y="215" width="258" height="141"/>
-                                        <mutableString key="text">This was made with love by a local Yackandandarian, and his friends from Ballarat and Liverpool.
+                                        <string key="text">This was made with love by a local Yackandandarian, and his friends from Ballarat and Liverpool.
 
 If you're enjoying the app, or if there's anything you'd like to see next year, come have a chat to us!
 We also accept donations of beer to support further updates.
 
 We hope to see you at the festival!
 
-❤</mutableString>
+❤</string>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -987,9 +987,42 @@ We hope to see you at the festival!
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Aom-sV-f2U" customClass="lineupFooterView" customModule="YFF2016" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not working? Head to your Settings to make sure you have Notifications turned on." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcT-Y6-iQP">
+                                    <rect key="frame" x="20" y="20.000000000000004" width="374" height="50.333333333333343"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxS-E6-jbY">
+                                    <rect key="frame" x="154" y="80.333333333333329" width="106" height="35"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                                    <state key="normal" title="Go to Settings"/>
+                                    <connections>
+                                        <action selector="footerViewButtonTouchedUpInside:" destination="Aom-sV-f2U" eventType="touchUpInside" id="8ge-Fb-XoA"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="pxS-E6-jbY" firstAttribute="centerX" secondItem="Aom-sV-f2U" secondAttribute="centerX" id="ASI-w5-AMa"/>
+                                <constraint firstItem="pxS-E6-jbY" firstAttribute="top" secondItem="HcT-Y6-iQP" secondAttribute="bottom" constant="10" id="Cq3-PZ-shy"/>
+                                <constraint firstItem="HcT-Y6-iQP" firstAttribute="leading" secondItem="Aom-sV-f2U" secondAttribute="leading" constant="20" id="aVn-Vz-ELs"/>
+                                <constraint firstItem="HcT-Y6-iQP" firstAttribute="top" secondItem="Aom-sV-f2U" secondAttribute="top" constant="20" id="roX-NC-VNI"/>
+                                <constraint firstItem="HcT-Y6-iQP" firstAttribute="centerX" secondItem="Aom-sV-f2U" secondAttribute="centerX" id="t1j-8L-ZrS"/>
+                                <constraint firstAttribute="trailing" secondItem="HcT-Y6-iQP" secondAttribute="trailing" constant="20" id="xED-dg-Cmv"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="footerViewButton" destination="pxS-E6-jbY" id="wef-lt-wcS"/>
+                                <outlet property="footerViewTitleLabel" destination="HcT-Y6-iQP" id="GEH-yL-fAY"/>
+                            </connections>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduledPerformanceCell" rowHeight="104" id="6PU-w7-wRy" customClass="PerformanceCell" customModule="YFF2016" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="104"/>
+                                <rect key="frame" x="0.0" y="174" width="414" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6PU-w7-wRy" id="acT-sL-WjS">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="103.66666666666667"/>
@@ -1101,12 +1134,13 @@ We hope to see you at the festival!
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lineupFooterView" destination="Aom-sV-f2U" id="7EN-RK-jt2"/>
                         <segue destination="wsM-4u-j0Y" kind="show" identifier="showArtistFromInitinerary" id="148-xf-Tpl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIa-qA-Jb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4348" y="-1022.3388305847077"/>
+            <point key="canvasLocation" x="4347.826086956522" y="-1023.0978260869566"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pLg-Ym-dlJ">
@@ -1147,6 +1181,6 @@ We hope to see you at the festival!
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TOW-rU-DPh"/>
-        <segue reference="6VO-9p-S81"/>
+        <segue reference="148-xf-Tpl"/>
     </inferredMetricsTieBreakers>
 </document>

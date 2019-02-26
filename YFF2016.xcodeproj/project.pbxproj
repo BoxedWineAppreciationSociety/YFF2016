@@ -28,6 +28,7 @@
 		43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B250951C76C3C40032973B /* ArtistDetailViewButton.swift */; };
 		43B3667F1C60AA680097F956 /* artist_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B3667E1C60AA680097F956 /* artist_json.json */; };
 		43B4C19C1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */; };
+		43C137D322256233000CC0CB /* lineupFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C137D222256233000CC0CB /* lineupFooterView.swift */; };
 		43C5A6101C25295600222D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A60F1C25295600222D23 /* AppDelegate.swift */; };
 		43C5A6121C25295600222D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C5A6111C25295600222D23 /* ViewController.swift */; };
 		43C5A6151C25295600222D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C5A6131C25295600222D23 /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		43B3667E1C60AA680097F956 /* artist_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artist_json.json; sourceTree = "<group>"; usesTabs = 0; };
 		43B4C19B1C7DBED800913C61 /* ArtistPerformanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistPerformanceTableViewCell.swift; sourceTree = "<group>"; };
 		43B824D91C90E7E60016EFF8 /* YFF2016-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YFF2016-Bridging-Header.h"; sourceTree = "<group>"; };
+		43C137D222256233000CC0CB /* lineupFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineupFooterView.swift; sourceTree = "<group>"; };
 		43C5A60C1C25295600222D23 /* YFF2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFF2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C5A60F1C25295600222D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C5A6111C25295600222D23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				43A5B43F1E45DD0A00C969B9 /* MyItineraryTableViewController.swift */,
+				43C137D222256233000CC0CB /* lineupFooterView.swift */,
 			);
 			name = Itinerary;
 			sourceTree = "<group>";
@@ -508,7 +511,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-YFF2016/Pods-YFF2016-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework",
-				"${BUILT_PRODUCTS_DIR}/HGRippleRadarView/HGRippleRadarView.framework",
 				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -516,7 +518,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyTipView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HGRippleRadarView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -552,6 +553,7 @@
 				43F2DA4C1C4511D1005E937F /* LaunchViewButton.swift in Sources */,
 				43C5A6421C276F8E00222D23 /* MapViewController.swift in Sources */,
 				43EBB8031C4F82690024E713 /* ArtistDetailViewController.swift in Sources */,
+				43C137D322256233000CC0CB /* lineupFooterView.swift in Sources */,
 				43F0B0BB1C881EA800A318CC /* SocialButton.swift in Sources */,
 				43F2DA4A1C44F8B1005E937F /* ProgramViewController.swift in Sources */,
 				43B250961C76C3C40032973B /* ArtistDetailViewButton.swift in Sources */,
