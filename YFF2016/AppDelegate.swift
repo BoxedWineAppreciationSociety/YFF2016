@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .default
         JSONLoader.loadRemoteJSON()
@@ -27,10 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         mixpanel.createAlias(mixpanel.distinctId, forDistinctID: mixpanel.distinctId)
         mixpanel.identify(mixpanel.distinctId)
-
-        if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
-            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
-        }
         
         UIApplication.shared.applicationIconBadgeNumber = 0
         return true

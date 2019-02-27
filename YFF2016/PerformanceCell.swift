@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import EasyTipView
+
 
 class PerformanceCell: UITableViewCell {
     
     var performance: Performance?
     var tableViewController: UIViewController?
+    var showTooltip: Bool = false
+    
+    var performanceTip: EasyTipView?
+    var tooltipPreferences = EasyTipView.Preferences()
     
     @IBOutlet weak var performanceCellThumb: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
@@ -21,15 +27,18 @@ class PerformanceCell: UITableViewCell {
     @IBOutlet weak var performanceDayLabel: UILabel?
     
     @IBAction func remindMe(_ sender: UIButton) {
-        if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
-            let message = "You've just added a performance to your alerts. We'll let you know 15 minutes before this artist is playing so you don't miss any of the action!"
-            
-            let alert = UIAlertController(title: "🎉", message: message, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.tableViewController?.present(alert, animated: true, completion: nil)
-            
+        if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
         }
         
+        if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
+            let message = "Added to your lineup! \n\n We’ll alert you 15 minutes before the first pluck of the violin, guitar or heartstring."
+            let alert = UIAlertController(title: "🎉", message: message, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.tableViewController?.present(alert, animated: true, completion: nil)
+        }
         
         NotificationScheduler.toggleNotification(performance: self.performance!)
         
@@ -50,11 +59,16 @@ class PerformanceCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
+        
         self.textLabel?.text = nil
         self.artistNameLabel.text = nil
         self.performanceTimeLabel.text = nil
         self.performanceStageLabel.text = nil
         self.performanceCellThumb.image = nil
+        self.performanceTip?.dismiss()
+        self.performanceTip = nil
+        
     }
     
     func toggleNotificationButton() {
@@ -81,14 +95,21 @@ class PerformanceCell: UITableViewCell {
         
     }
     
+    func dismissTooltip() {
+        print("Removing tooltip")
+        self.performanceTip?.dismiss()
+        self.performanceTip = nil
+    }
+    
     func setup(_ performance: Performance) {
         self.performance = performance
         toggleNotificationButton()
+        setupTooltip()
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         
-        if let  artistImageName = performance.artist?.imageName, !(performance.artist?.imageName?.isEmpty)! {
+        if let artistImageName = performance.artist?.imageName, !(performance.artist?.imageName?.isEmpty)!, (UIImage(named: artistImageName) != nil) {
             let artistImage = UIImage(named: artistImageName)
             self.performanceCellThumb.image = artistImage
         } else {
@@ -107,6 +128,31 @@ class PerformanceCell: UITableViewCell {
         
         self.performanceDayLabel?.textColor = YFFOlive
         self.performanceDayLabel?.text = dayDateFormatter.string(from: performance.time! as Date)
+        
+        if (showTooltip) {
+            performanceTip = EasyTipView(text: "Get notified 15 minutes before the performance", preferences: tooltipPreferences)
+            performanceTip?.show(forView: remindMeButton)
+            
+//          Make sure we set the default here so that we don't show the tooltip again
+            self.showTooltip = false
+            UserDefaults.standard.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                self.dismissTooltip()
+            }
+        }
     }
     
+    func setupTooltip() {
+        tooltipPreferences.drawing.font = UIFont(name: "Source Sans Pro", size: 16)!
+        tooltipPreferences.drawing.foregroundColor = UIColor.white
+        tooltipPreferences.drawing.backgroundColor = YFFTeal
+        tooltipPreferences.drawing.arrowPosition = .top
+        tooltipPreferences.animating.dismissDuration = 1.0
+        
+        tooltipPreferences.positioning.textHInset = 25
+        tooltipPreferences.positioning.textVInset = 20
+        tooltipPreferences.positioning.bubbleHInset = 25
+        tooltipPreferences.positioning.maxWidth = 300
+    }
 }

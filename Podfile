@@ -8,4 +8,5 @@ target 'YFF2016' do
     pod 'Mixpanel'
     pod 'SwiftyJSON'
     pod 'DZNEmptyDataSet'
+    pod 'EasyTipView', '~> 2.0.0'
 end

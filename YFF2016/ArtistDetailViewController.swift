@@ -114,7 +114,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
-    func socialButtonTouchedUpInside(_ button: SocialButton) {
+    @objc func socialButtonTouchedUpInside(_ button: SocialButton) {
         UIApplication.shared.openURL(URL(string: button.url!)!)
     }
     
@@ -192,7 +192,7 @@ class ArtistDetailViewController: UIViewController, UITableViewDataSource, UITab
         
         let artistDescription = NSMutableAttributedString(string: (artist?.summary)!)
         
-        artistDescription.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, artistDescription.length))
+        artistDescription.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, artistDescription.length))
         
         self.artistDescriptionView.attributedText = artistDescription
 

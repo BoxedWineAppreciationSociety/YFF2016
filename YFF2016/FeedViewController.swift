@@ -31,22 +31,11 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Setup Tab Bar
         self.tabBarController!.tabBar.tintColor = YFFTeal
         
-        // Do any additional setup after loading the view.
-        loadInstagram()
-        
-        refreshControl.addTarget(self, action: #selector(FeedViewController.startRefresh(_:)), for: .valueChanged)
         
         self.instagramFeedCollectionView.addSubview(refreshControl)
         
     }
-    
-    func startRefresh(_ sender: AnyObject?) {
-        clearInstagramCells()
-        loadInstagram()
-        self.instagramFeedCollectionView.reloadData()
-        refreshControl.perform(#selector(UIRefreshControl.endRefreshing), with: nil, afterDelay: 0.05)
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -74,7 +63,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
-        case UICollectionElementKindSectionHeader:
+        case UICollectionView.elementKindSectionHeader:
             let headerView =
             collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! FeedCollectionHeaderViewCollectionReusableView
             
@@ -84,39 +73,6 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         default:
             fatalError("Unexpected Element Kind")
         }
-    }
-    
-    
-    
-    
-    func loadInstagram() {
-        let fileName = "instagram_remote.json"
-        let jsonFilePath = getDocumentsDirectory().appendingPathComponent(fileName)
-        let fileManager = FileManager.default
-        var json: JSON?
-        
-        if (fileManager.fileExists(atPath: jsonFilePath)) {
-            do {
-                json = try JSON(string: String(contentsOfFile: jsonFilePath, encoding: String.Encoding.utf8))
-            } catch {
-                json = JSON(url: url)
-            }
-        } else {
-            json = JSON(url: url)
-        }
-        
-        let imagesJson = json!["data"] as JSON
-        for imageJson in imagesJson {
-            let image = imageJson.1
-            
-            let imageUrl = image["images"]["standard_resolution"]["url"].stringValue
-            
-            imageUrls.append(imageUrl)
-        }
-    }
-    
-    func clearInstagramCells() {
-        imageUrls.removeAll()
     }
     
     fileprivate func getDocumentsDirectory() -> NSString {

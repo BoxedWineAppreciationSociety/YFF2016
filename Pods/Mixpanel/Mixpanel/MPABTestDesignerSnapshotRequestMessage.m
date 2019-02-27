@@ -1,6 +1,7 @@
 //
 // Copyright (c) 2014 Mixpanel. All rights reserved.
 
+#import "MixpanelPrivate.h"
 #import "MPABTestDesignerConnection.h"
 #import "MPABTestDesignerSnapshotRequestMessage.h"
 #import "MPABTestDesignerSnapshotResponseMessage.h"
@@ -17,19 +18,12 @@ static NSString * const kObjectIdentityProviderKey = @"object_identity_provider"
 
 + (instancetype)message
 {
-    return [[self alloc] initWithType:MPABTestDesignerSnapshotRequestMessageType];
+    return [(MPABTestDesignerSnapshotRequestMessage *)[self alloc] initWithType:MPABTestDesignerSnapshotRequestMessageType];
 }
 
 - (MPObjectSerializerConfig *)configuration
 {
-    NSDictionary *config =
-#if 1
-    [self payloadObjectForKey:@"config"];
-#else
-    [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"snapshot_config" withExtension:@"json"]]
-                                    options:0 error:nil];
-#endif
-
+    NSDictionary *config = [self payloadObjectForKey:@"config"];
     return config ? [[MPObjectSerializerConfig alloc] initWithDictionary:config] : nil;
 }
 
@@ -45,7 +39,7 @@ static NSString * const kObjectIdentityProviderKey = @"object_identity_provider"
         // Update the class descriptions in the connection session if provided as part of the message.
         if (serializerConfig) {
             [connection setSessionObject:serializerConfig forKey:kSnapshotSerializerConfigKey];
-        } else if ([connection sessionObjectForKey:kSnapshotSerializerConfigKey]){
+        } else if ([connection sessionObjectForKey:kSnapshotSerializerConfigKey]) {
             // Get the class descriptions from the connection session store.
             serializerConfig = [connection sessionObjectForKey:kSnapshotSerializerConfigKey];
         } else {
@@ -60,7 +54,7 @@ static NSString * const kObjectIdentityProviderKey = @"object_identity_provider"
             [connection setSessionObject:objectIdentityProvider forKey:kObjectIdentityProviderKey];
         }
 
-        MPApplicationStateSerializer *serializer = [[MPApplicationStateSerializer alloc] initWithApplication:[UIApplication sharedApplication]
+        MPApplicationStateSerializer *serializer = [[MPApplicationStateSerializer alloc] initWithApplication:[Mixpanel sharedUIApplication]
                                                                                                configuration:serializerConfig
                                                                                       objectIdentityProvider:objectIdentityProvider];
 
@@ -73,7 +67,7 @@ static NSString * const kObjectIdentityProviderKey = @"object_identity_provider"
         });
         snapshotMessage.screenshot = screenshot;
 
-        if (imageHash && [imageHash isEqualToString:snapshotMessage.imageHash]) {
+        if ([imageHash isEqualToString:snapshotMessage.imageHash]) {
             serializedObjects = [connection sessionObjectForKey:@"snapshot_hierarchy"];
         } else {
             dispatch_sync(dispatch_get_main_queue(), ^{

@@ -21,7 +21,7 @@ class YFFNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "BebasNeue", size: 22)!]
+        self.navigationBar.titleTextAttributes = convertToOptionalNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue: UIColor.white, NSAttributedString.Key.font.rawValue: UIFont(name: "BebasNeue", size: 22)!])
 
         // Do any additional setup after loading the view.
     }
@@ -42,4 +42,10 @@ class YFFNavigationController: UINavigationController {
     }
     */
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

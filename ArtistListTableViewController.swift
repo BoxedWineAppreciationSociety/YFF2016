@@ -45,14 +45,14 @@ class ArtistListTableViewController: UITableViewController {
         // Setup Navigation Controller
         self.navigationItem.title = "ARTISTS"
         self.navigationController?.navigationBar.barTintColor = YFFOlive
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
     }
     
     func sortArtists() {
         artists.sort {
             artist1, artist2 in
-            let name1 = artist1.name
-            let name2 = artist2.name
+            let name1 = artist1.sortName
+            let name2 = artist2.sortName
             return name1 < name2
         }
     }

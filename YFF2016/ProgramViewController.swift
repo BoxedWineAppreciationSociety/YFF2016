@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import UserNotifications
+import EasyTipView
 
 class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var selectedArtist: Artist?
@@ -41,15 +42,16 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     let fridayJsonFile = Bundle.main.url(forResource: "friday_performances", withExtension: "json")
     
     // MARK: UIViewController
+    @IBOutlet weak var daySelectButton: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "PROGRAM"
         self.navigationController?.navigationBar.barTintColor = YFFRed
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_alert_selected"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProgramViewController.myItineraryAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_alert_selected"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(ProgramViewController.myItineraryAction))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
         programTableView.dataSource = self
@@ -63,7 +65,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(ProgramViewController.reload(_:)),name: NSNotification.Name(rawValue: "reload"), object: nil)
     }
     
-    func reload(_ notification: NSNotification) {
+    @objc func reload(_ notification: NSNotification) {
         programTableView.reloadData()
     }
     
@@ -95,7 +97,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
-    func myItineraryAction() {
+    @objc func myItineraryAction() {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "MyItinerary")
 
         self.present(controller, animated: true, completion: nil)
@@ -119,6 +121,8 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         performances.removeAll()
     }
     
+    var tooltipCell: PerformanceCell?
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PerformanceCell", for: indexPath) as! PerformanceCell
         cell.setup(performanceFor(indexPath))
@@ -126,14 +130,22 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.performanceTimeLabel.tintColor = YFFOlive
         cell.performanceStageLabel.tintColor = YFFOlive
         cell.artistNameLabel?.font = UIFont(name: "BebasNeueRegular", size: CGFloat(26.0))
+        if (indexPath.row == 0 && !isAppAlreadyLaunchedOnce()) {
+            cell.showTooltip = true
+            self.tooltipCell = cell
+        }
+        
         
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!;
+        
+        tooltipCell?.dismissTooltip()
         
         self.selectedArtist = artistFor(indexPath)
         
@@ -171,6 +183,18 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         self.fridayPerformancesButton.setInactive()
         self.saturdayPerformancesButton.setInactive()
         self.sundayPerformancesButton.setInactive()
+    }
+    
+    func isAppAlreadyLaunchedOnce() -> Bool {
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
+            print("App already launched")
+            return true
+        } else {
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
     }
     
     /*
