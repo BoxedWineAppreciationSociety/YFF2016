@@ -27,21 +27,17 @@ class PerformanceCell: UITableViewCell {
     @IBOutlet weak var performanceDayLabel: UILabel?
     
     @IBAction func remindMe(_ sender: UIButton) {
+        if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
+        }
+        
         if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
-            let message = "Added to your lineup! \n\n We’ll alert you 15 minutes before the first pluck of the violin, guitar or heartstring. \n\n"
-            
-            if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
-                UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
-            }
-
-            
+            let message = "Added to your lineup! \n\n We’ll alert you 15 minutes before the first pluck of the violin, guitar or heartstring."
             let alert = UIAlertController(title: "🎉", message: message, preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
             self.tableViewController?.present(alert, animated: true, completion: nil)
-
-            
         }
         
         NotificationScheduler.toggleNotification(performance: self.performance!)
