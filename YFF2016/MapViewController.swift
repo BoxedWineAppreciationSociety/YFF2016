@@ -91,7 +91,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
         contentsFrame.origin.x = 0.0
 
-        contentsFrame.origin.y = 0.0
+        contentsFrame.origin.y = 60.0
         
         mapImageView.frame = contentsFrame
     }
