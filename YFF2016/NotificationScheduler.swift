@@ -60,7 +60,7 @@ class NotificationScheduler {
         
         dateFormatter.dateFormat = "h:mm a"
         
-        let formattedTime = dateFormatter.string(from: performance.time! as Date)
+        let _ = dateFormatter.string(from: performance.time! as Date)
         
         let formattedNotificationTime = performance.time!.addingTimeInterval(-15.0 * 60).timeIntervalSince1970
     

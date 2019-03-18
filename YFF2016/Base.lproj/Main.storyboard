@@ -145,63 +145,6 @@
             </objects>
             <point key="canvasLocation" x="2093.5999999999999" y="526.6866566716642"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="NRh-B6-FmM">
-            <objects>
-                <viewController id="Ydw-2u-ffd" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xee-K0-cdW"/>
-                        <viewControllerLayoutGuide type="bottom" id="u7r-0u-6WH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="quH-0t-w0X">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bunting" translatesAutoresizingMaskIntoConstraints="NO" id="dPm-XG-hbQ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Out More Below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIA-73-qhv">
-                                <rect key="frame" x="20" y="20" width="374" height="30"/>
-                                <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOr-mi-c4B">
-                                <rect key="frame" x="277" y="219" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzu-fa-dif">
-                                <rect key="frame" x="287" y="229" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyh-h3-0JV">
-                                <rect key="frame" x="297" y="239" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imD-YJ-cxe">
-                                <rect key="frame" x="307" y="249" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="dPm-XG-hbQ" firstAttribute="top" secondItem="quH-0t-w0X" secondAttribute="top" id="FwF-JO-bPW"/>
-                            <constraint firstItem="dPm-XG-hbQ" firstAttribute="leading" secondItem="quH-0t-w0X" secondAttribute="leading" id="VrI-vT-DXa"/>
-                            <constraint firstItem="mIA-73-qhv" firstAttribute="top" secondItem="xee-K0-cdW" secondAttribute="bottom" id="mj5-uT-hCa"/>
-                            <constraint firstAttribute="trailing" secondItem="dPm-XG-hbQ" secondAttribute="trailing" id="qvo-Vh-ftW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mIA-73-qhv" secondAttribute="trailing" id="ujP-pX-Vww"/>
-                            <constraint firstItem="mIA-73-qhv" firstAttribute="leading" secondItem="quH-0t-w0X" secondAttribute="leadingMargin" id="w1Q-nI-GRN"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ugv-eH-M0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2275" y="1215"/>
-        </scene>
         <!--Artist Detail View Controller-->
         <scene sceneID="c1y-di-Mwy">
             <objects>
