@@ -11,7 +11,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - DZNEmptyDataSet
     - EasyTipView
     - Mixpanel
@@ -25,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 70a973c825cec039b5225ff407b45b12576de9d2
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.8.4
