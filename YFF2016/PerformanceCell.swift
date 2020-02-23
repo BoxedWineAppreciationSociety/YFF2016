@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyTipView
+import UserNotifications
 
 
 class PerformanceCell: UITableViewCell {
@@ -27,24 +28,47 @@ class PerformanceCell: UITableViewCell {
     @IBOutlet weak var performanceDayLabel: UILabel?
     
     @IBAction func remindMe(_ sender: UIButton) {
-        if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
-            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: nil))
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
+            if (granted) {
+                
+                DispatchQueue.global(qos: .userInitiated).sync {
+                    NotificationScheduler.toggleNotification(performance: self.performance!)
+                    
+                    center.getPendingNotificationRequests { requests in
+                        var scheduled = false
+                        for existingNotification in requests {
+                            if existingNotification.identifier == self.performance!.id {
+                                scheduled = true
+                                break
+                            }
+                        }
+                        
+                        if (requests.count == 0) {
+                            DispatchQueue.main.async {
+                                let message = "Added to your lineup! \n\n We’ll alert you 15 minutes before the first pluck of the violin, guitar or heartstring."
+                                let alert = UIAlertController(title: "🎉", message: message, preferredStyle: .alert)
+                                
+                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                                
+                                self.tableViewController?.present(alert, animated: true, completion: nil)
+                            }
+                        }
+                        
+                        DispatchQueue.main.sync {
+                            UIView.animate(withDuration: 0.3) {
+                                if !scheduled {
+                                    self.remindMeButton.setImage(UIImage(named: "ic_alert_selected"), for: .normal)
+                                } else {
+                                    self.remindMeButton.setImage(UIImage(named: "ic_alert"), for: .normal)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-        
-        if (UIApplication.shared.scheduledLocalNotifications?.count)! < 1 {
-            let message = "Added to your lineup! \n\n We’ll alert you 15 minutes before the first pluck of the violin, guitar or heartstring."
-            let alert = UIAlertController(title: "🎉", message: message, preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-            self.tableViewController?.present(alert, animated: true, completion: nil)
-        }
-        
-        NotificationScheduler.toggleNotification(performance: self.performance!)
-        
-        toggleNotificationButton()
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -72,27 +96,32 @@ class PerformanceCell: UITableViewCell {
     }
     
     func toggleNotificationButton() {
-        let existingNotications = UIApplication.shared.scheduledLocalNotifications
-        
         var scheduled = false
         
-        for existingNotification in existingNotications! {
-            let userInfoCurrent = existingNotification.userInfo! as! [String:AnyObject]
-            let performanceId = userInfoCurrent["performanceId"]! as! String
-            if performanceId == self.performance?.id {
-                scheduled = true
-                break;
+        let center = UNUserNotificationCenter.current()
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            center.getPendingNotificationRequests { requests in
+                DispatchQueue.global(qos: .userInitiated).async {
+                    for existingNotification in requests {
+                        if existingNotification.identifier == self.performance?.id {
+                            scheduled = true
+                            break
+                        }
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.3) {
+                        if scheduled {
+                            self.remindMeButton.setImage(UIImage(named: "ic_alert_selected"), for: .normal)
+                        } else {
+                            self.remindMeButton.setImage(UIImage(named: "ic_alert"), for: .normal)
+                        }
+                    }
+                }
             }
         }
-        
-        UIView.animate(withDuration: 0.3) { 
-            if scheduled {
-                self.remindMeButton.setImage(UIImage(named: "ic_alert_selected"), for: .normal)
-            } else {
-                self.remindMeButton.setImage(UIImage(named: "ic_alert"), for: .normal)
-            }
-        }
-        
     }
     
     func dismissTooltip() {
@@ -133,7 +162,7 @@ class PerformanceCell: UITableViewCell {
             performanceTip = EasyTipView(text: "Get notified 15 minutes before the performance", preferences: tooltipPreferences)
             performanceTip?.show(forView: remindMeButton)
             
-//          Make sure we set the default here so that we don't show the tooltip again
+            //          Make sure we set the default here so that we don't show the tooltip again
             self.showTooltip = false
             UserDefaults.standard.set(true, forKey: "isAppAlreadyLaunchedOnce")
             
@@ -150,8 +179,8 @@ class PerformanceCell: UITableViewCell {
         tooltipPreferences.drawing.arrowPosition = .top
         tooltipPreferences.animating.dismissDuration = 1.0
         
-        tooltipPreferences.positioning.textHInset = 25
-        tooltipPreferences.positioning.textVInset = 20
+        tooltipPreferences.positioning.contentHInset = 25
+        tooltipPreferences.positioning.contentVInset = 20
         tooltipPreferences.positioning.bubbleHInset = 25
         tooltipPreferences.positioning.maxWidth = 300
     }

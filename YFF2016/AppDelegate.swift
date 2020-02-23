@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UIApplication.shared.statusBarStyle = .default
+//        UIApplication.shared.statusBarStyle = .default
         JSONLoader.loadRemoteJSON()
         
         let mixpanel = Mixpanel.sharedInstance(withToken: "fae80bc076f11cf15deb0be67d83c74b")
@@ -29,31 +29,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mixpanel.identify(mixpanel.distinctId)
         
         UIApplication.shared.applicationIconBadgeNumber = 0
+        let center = UNUserNotificationCenter.current()
+
+        center.delegate = self as? UNUserNotificationCenterDelegate
         return true
     }
     
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        if application.applicationState == .active {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions)
+        -> Void) {
             print("Print entire notification message for preview:  \(notification)")
             
-            // Extract message alertBody
-            let messageToDisplay = notification.alertBody
-            
-            // Display message alert body in a alert dialog window
-            let alertController = UIAlertController(title: "🎉", message: messageToDisplay, preferredStyle: .alert)
-            
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                
-                print("Ok button tapped");
-                
-            }
-            alertController.addAction(OKAction)
-            AudioServicesPlaySystemSound(1315);
-            
-            // Present dialog window to user
-            topMostController().present(alertController, animated: true, completion:nil)
+//            // Extract message alertBody
+//            let messageToDisplay = notification.request.content.body
+//
+//            // Display message alert body in a alert dialog window
+//            let alertController = UIAlertController(title: "🎉", message: messageToDisplay, preferredStyle: .alert)
+//
+//            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+//
+//                print("Ok button tapped");
+//
+//            }
+//            alertController.addAction(OKAction)
+//            AudioServicesPlaySystemSound(1315);
+//
+//            // Present dialog window to user
+//            topMostController().present(alertController, animated: true, completion:nil)
         }
-    }
     
     func topMostController() -> UIViewController {
         var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!

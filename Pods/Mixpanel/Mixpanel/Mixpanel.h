@@ -5,6 +5,9 @@
 #import <Cocoa/Cocoa.h>
 #endif
 #import "MixpanelPeople.h"
+#import "MixpanelType.h"
+
+#import <UserNotifications/UserNotifications.h>
 
 #if defined(MIXPANEL_WATCHOS)
 #define MIXPANEL_FLUSH_IMMEDIATELY 1
@@ -23,6 +26,7 @@
 #endif
 
 @class    MixpanelPeople;
+@class    MixpanelGroup;
 @protocol MixpanelDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -420,7 +424,9 @@ extern NSString *const MPNotificationTypeTakeover;
  Mixpanel will use the IFV as the default distinct ID.
 
  If we are unable to get an IFA or IFV, we will fall back to generating a
- random persistent UUID.
+ random persistent UUID. If you want to always use a random persistent UUID
+ you can define the <code>MIXPANEL_RANDOM_DISTINCT_ID</code> preprocessor flag
+ in your build settings.
 
  For tracking events, you do not need to call <code>identify:</code> if you
  want to use the default.  However, <b>Mixpanel People always requires an
@@ -450,6 +456,68 @@ extern NSString *const MPNotificationTypeTakeover;
  @param usePeople bool controls whether or not to set the people distinctId to the event distinctId
  */
 - (void)identify:(NSString *)distinctId usePeople:(BOOL)usePeople;
+
+/*!
+ Add a group to this user's membership for a particular group key.
+ The groupKey must be an NSString. The groupID should be a legal MixpanelType value.
+ 
+ @param groupKey        the group key
+ @param groupID         the group ID
+ */
+- (void)addGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID;
+
+/*!
+ Remove a group from this user's membership for a particular group key.
+ The groupKey must be an NSString. The groupID should be a legal MixpanelType value.
+ 
+ @param groupKey        the group key
+ @param groupID         the group ID
+ */
+- (void)removeGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID;
+
+/*!
+ Set the group to which the user belongs.
+ The groupKey must be an NSString. The groupID should be an array
+ of MixpanelTypes.
+ 
+ @param groupKey        the group key
+ @param groupIDs        the group IDs
+ */
+- (void)setGroup:(NSString *)groupKey groupIDs:(NSArray<id<MixpanelType>> *)groupIDs;
+
+/*!
+ Convenience method to set a single group ID for the current user.
+ 
+ @param groupKey        the group key
+ @param groupID         the group ID
+ */
+- (void)setGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID;
+
+/*!
+ Tracks an event with specific groups.
+ 
+ Similar to track(), the data will also be sent to the specific group
+ datasets. Group key/value pairs are upserted into the property map
+ before tracking.
+ The keys in groups must be NSString objects. values can be any legal
+ MixpanelType objects. If the event is being timed, the timer will
+ stop and be added as a property.
+ 
+ @param event               event name
+ @param properties          properties dictionary
+ @param groups              groups dictionary, which contains key-value pairs
+ for this event
+ */
+- (void)trackWithGroups:(NSString *)event properties:(NSDictionary *)properties groups:(NSDictionary *)groups;
+
+/*!
+ Get a MixpanelGroup identifier from groupKey and groupID.
+ The groupKey must be an NSString. The groupID should be a legal MixpanelType value.
+ 
+ @param groupKey    the group key
+ @param groupID     the group ID
+ */
+- (MixpanelGroup *)getGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID;
 
 /*!
  Tracks an event.
@@ -725,6 +793,29 @@ extern NSString *const MPNotificationTypeTakeover;
  */
 + (NSString *)libVersion;
 
+#if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
+#pragma mark - Mixpanel Push Notifications
+
+/*!
+ Detects if a UNNotification is from Mixpanel
+ */
++ (BOOL)isMixpanelPushNotification:(UNNotificationContent *)notification API_AVAILABLE(ios(10.0), macos(10.14), watchos(6.0)) API_UNAVAILABLE(tvos);
+
+/*!
+ Tracks and executes the appropriate action when a Mixpanel push notification is tapped
+ */
++ (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler API_AVAILABLE(ios(10.0), macos(10.14), watchos(6.0)) API_UNAVAILABLE(tvos);
+
+/*!
+ Internal utility for push notification-related event tracking using the project token from the push payload
+ */
++ (void)trackPushNotificationEventFromRequest:(UNNotificationRequest *)request event:(NSString *)event properties:(NSDictionary *)additionalProperties;
+
+/*!
+ Internal utility for push notification-related event tracking
+ */
+- (void)trackPushNotification:(NSDictionary *)userInfo event:(NSString *)event properties:(NSDictionary *)additionalProperties;
+#endif
 
 #if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
 #pragma mark - Mixpanel Notifications

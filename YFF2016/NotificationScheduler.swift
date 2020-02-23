@@ -10,72 +10,58 @@ import Foundation
 
 class NotificationScheduler {
     class func toggleNotification(performance: Performance) {
-        let cancelledNotification = cancelExistingNotificationForPerformance(performance: performance)
+        let center = UNUserNotificationCenter.current()
         
-        if cancelledNotification {
-            if #available(iOS 10.0, *) {
-                let feedbackGenerator = UISelectionFeedbackGenerator()
-                feedbackGenerator.prepare()
-                feedbackGenerator.selectionChanged()
-            }
-        } else {
-            let notification = localNotificationForPerformance(performance: performance)
-    
-            notification.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
-            UIApplication.shared.scheduleLocalNotification(notification)
-            
-            if #available(iOS 10.0, *) {
-                let feedbackGenerator = UISelectionFeedbackGenerator()
-                feedbackGenerator.prepare()
-                feedbackGenerator.selectionChanged()
-            }
-
-        }
-        
-        return
-    }
-    
-    class func cancelExistingNotificationForPerformance(performance: Performance) -> Bool {
-        var existed = false
-        let existingNotifications = UIApplication.shared.scheduledLocalNotifications
-        
-        for existingNotification in existingNotifications! {
-            let userInfoCurrent = existingNotification.userInfo! as! [String:AnyObject]
-            let performanceId = userInfoCurrent["performanceId"]! as! String
-            if performanceId == performance.id {
-                UIApplication.shared.cancelLocalNotification(existingNotification)
-                existed = true
-                break;
+        DispatchQueue.global(qos: .userInitiated).sync {
+            center.getPendingNotificationRequests { requests in
+                var existed = false
+                for existingNotification in requests {
+                    if existingNotification.identifier == performance.id {
+                        existed = true
+                        center.removePendingNotificationRequests(withIdentifiers: [existingNotification.identifier])
+                        break
+                    }
+                }
                 
+                if existed {
+                    let feedbackGenerator = UISelectionFeedbackGenerator()
+                    feedbackGenerator.prepare()
+                    feedbackGenerator.selectionChanged()
+                } else {
+                    let notification = localNotificationForPerformance(performance: performance)
+                    
+                    let center = UNUserNotificationCenter.current()
+                    center.add(notification, withCompletionHandler: { (error) in
+                    })
+                    
+                    let feedbackGenerator = UISelectionFeedbackGenerator()
+                    feedbackGenerator.prepare()
+                    feedbackGenerator.selectionChanged()
+                    
+                }
             }
+            
         }
-        return existed
     }
     
-    class func localNotificationForPerformance(performance: Performance) -> UILocalNotification {
-        let localNotification = UILocalNotification()
-        
+    class func localNotificationForPerformance(performance: Performance) -> UNNotificationRequest {
         let scheduledPerformance = performance
-        let dateFormatter = DateFormatter()
+        //        let formattedNotificationTime = performance.time!.addingTimeInterval(-15.0 * 60).timeIntervalSince1970
         
-        dateFormatter.dateFormat = "h:mm a"
-        
-        let formattedTime = dateFormatter.string(from: performance.time! as Date)
-        
-        let formattedNotificationTime = performance.time!.addingTimeInterval(-15.0 * 60).timeIntervalSince1970
-    
-        
+        let localNotification = UNMutableNotificationContent.init()
         localNotification.userInfo = ["performanceId": scheduledPerformance.id]
-        localNotification.fireDate = NSDate(timeIntervalSince1970: formattedNotificationTime) as Date
-        if #available(iOS 8.2, *) {
-            localNotification.alertTitle = "Performance Alert"
-        }
+        localNotification.title = "Performance Alert"
+        localNotification.body = "\(scheduledPerformance.artist!.name) starts in 15 minutes at \(scheduledPerformance.stage)"
+        localNotification.sound = UNNotificationSound.default
         
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.alertBody = "\(scheduledPerformance.artist!.name) starts in 15 minutes at \(scheduledPerformance.stage)"
-        localNotification.timeZone = NSTimeZone.default
         
-        return localNotification
+        let date = Date(timeIntervalSinceNow: 300) // NSDate(timeIntervalSince1970: formattedNotificationTime) as Date
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+        
+        let localNotificationRequest = UNNotificationRequest.init(identifier: scheduledPerformance.id, content: localNotification, trigger: trigger)
+        
+        return localNotificationRequest
         
     }
 }

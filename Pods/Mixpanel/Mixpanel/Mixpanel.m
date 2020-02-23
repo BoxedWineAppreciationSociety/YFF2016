@@ -8,10 +8,13 @@
 #import "Mixpanel.h"
 #import "MixpanelPeople.h"
 #import "MixpanelPeoplePrivate.h"
+#import "MixpanelGroup.h"
+#import "MixpanelGroupPrivate.h"
 #import "MixpanelPrivate.h"
 #import "MPFoundation.h"
 #import "MPLogger.h"
 #import "MPNetworkPrivate.h"
+
 
 #import <UserNotifications/UserNotifications.h>
 #if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
@@ -28,10 +31,14 @@
 #error The Mixpanel library must be compiled with ARC enabled
 #endif
 
-#define VERSION @"3.3.9"
+#define VERSION @"3.6.0"
 
 NSString *const MPNotificationTypeMini = @"mini";
 NSString *const MPNotificationTypeTakeover = @"takeover";
+
+NSString *const MPPushTapActionTypeBrowser = @"browser";
+NSString *const MPPushTapActionTypeDeeplink = @"deeplink";
+NSString *const MPPushTapActionTypeHomescreen = @"homescreen";
 
 @implementation Mixpanel
 
@@ -92,6 +99,8 @@ static NSString *defaultProjectToken;
     if (self = [super init]) {
         self.eventsQueue = [NSMutableArray array];
         self.peopleQueue = [NSMutableArray array];
+        self.groupsQueue = [NSMutableArray array];
+        self.cachedGroups = [NSMutableDictionary dictionary];
         self.timedEvents = [NSMutableDictionary dictionary];
         self.shownNotifications = [NSMutableSet set];
         static dispatch_once_t onceToken;
@@ -168,7 +177,10 @@ static NSString *defaultProjectToken;
         [self setUpListeners];
         [self unarchive];
 
-        if (optOutTrackingByDefault) {
+        // check whether we should opt out by default
+        // note: we don't override opt out persistence here since opt-out default state is often
+        // used as an initial state while GDPR information is being collected
+        if (optOutTrackingByDefault && ([self hasOptedOutTracking] || self.optOutStatusNotSet)) {
             [self optOutTracking];
         }
 
@@ -188,7 +200,7 @@ static NSString *defaultProjectToken;
                 [self setupAutomaticPushTracking];
                 NSDictionary *remoteNotification = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
                 if (remoteNotification) {
-                    [self trackPushNotification:remoteNotification event:@"$app_open"];
+                    [self trackPushNotification:remoteNotification event:@"$app_open" properties:@{}];
                 }
             }
 #endif
@@ -398,7 +410,9 @@ static NSString *defaultProjectToken;
 - (NSString *)defaultDistinctId
 {
     NSString *distinctId;
-#if defined(MIXPANEL_MACOS)
+#if defined(MIXPANEL_RANDOM_DISTINCT_ID)
+    distinctId = [[NSUUID UUID] UUIDString];
+#elif defined(MIXPANEL_MACOS)
     distinctId = [self macOSIdentifier];
 #else
     distinctId = [self IFA];
@@ -416,13 +430,12 @@ static NSString *defaultProjectToken;
     return distinctId;
 }
 
-
-- (void)identify:(NSString *)distinctId;
+- (void)identify:(NSString *)distinctId
 {
     [self identify:distinctId usePeople:YES];
 }
 
-- (void)identify:(NSString *)distinctId usePeople:(BOOL)usePeople;
+- (void)identify:(NSString *)distinctId usePeople:(BOOL)usePeople
 {
     if ([self hasOptedOutTracking]) {
         return;
@@ -442,9 +455,11 @@ static NSString *defaultProjectToken;
         // if it's new, blow away the alias as well.
         if (![distinctId isEqualToString:self.alias]) {
             if (![distinctId isEqualToString:self.distinctId]) {
+                NSString *oldDistinctId = [self.distinctId copy];
                 self.alias = nil;
                 self.distinctId = distinctId;
                 self.userId = distinctId;
+                [self track:@"$identify" properties:@{@"$anon_distinct_id": oldDistinctId}];
             }
             if (usePeople) {
                 self.people.distinctId = distinctId;
@@ -478,7 +493,7 @@ static NSString *defaultProjectToken;
     [self createAlias:alias forDistinctID:distinctID usePeople:YES];
 }
 
-- (void)createAlias:(NSString *)alias forDistinctID:(NSString *)distinctID usePeople:(BOOL)usePeople;
+- (void)createAlias:(NSString *)alias forDistinctID:(NSString *)distinctID usePeople:(BOOL)usePeople
 {
     if ([self hasOptedOutTracking]) {
         return;
@@ -587,7 +602,16 @@ static NSString *defaultProjectToken;
                 [self.eventsQueue removeObjectAtIndex:0];
             }
         }
-
+#if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
+#if !TARGET_OS_WATCH
+        for (MPNotification *notif in self.triggeredNotifications) {
+            if ([notif matchesEvent:e]) {
+                [self showNotificationWithObject:notif];
+                break;
+            }
+        }
+#endif
+#endif //MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
         // Always archive
         [self archiveEvents];
     });
@@ -598,6 +622,125 @@ static NSString *defaultProjectToken;
         [self flush];
     }
 #endif
+}
+
+- (void)trackWithGroups:(NSString *)event
+             properties:(NSDictionary *)properties
+                 groups:(NSDictionary *)groups {
+    if ([self hasOptedOutTracking]) {
+        return;
+    }
+    if (properties == nil) {
+        [self track:event properties:groups];
+        return;
+    }
+    if (groups == nil) {
+        [self track:event properties:properties];
+        return;
+    }
+    NSMutableDictionary *mergedProps = [properties mutableCopy];
+    [groups enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+        if (value != nil)
+            [mergedProps setObject:value forKey:key];
+    }];
+    [self track:event properties:mergedProps];
+}
+
+- (void)addGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID {
+    if ([self hasOptedOutTracking]) {
+        return;
+    }
+
+    [self addValuesToGroupSuperProperty:groupKey groupID:groupID];
+    [self.people union:@{groupKey : @[groupID]}];
+}
+
+- (void)addValuesToGroupSuperProperty:(NSString *)groupKey
+                              groupID:(id<MixpanelType>)groupID {
+    [self updateSuperPropertiesAsync:^NSDictionary *(NSDictionary *superProps) {
+        NSMutableDictionary *mutableSuperProps = [superProps mutableCopy];
+        NSMutableArray<id<MixpanelType>> *values =
+        [NSMutableArray arrayWithArray:mutableSuperProps[groupKey]];
+        BOOL exist = NO;
+        for (NSUInteger i = 0; i < [values count]; ++i) {
+            if ([values[i] equalToMixpanelType:groupID]) {
+                exist = YES;
+                break;
+            }
+        }
+        if (!exist) {
+            [values addObject:groupID];
+        }
+        mutableSuperProps[groupKey] = [values copy];
+        return mutableSuperProps;
+    }];
+}
+
+- (void)removeGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID {
+    if ([self hasOptedOutTracking]) {
+        return;
+    }
+    [self updateSuperPropertiesAsync:^NSDictionary *(NSDictionary *superProps) {
+        NSMutableDictionary *mutableSuperProps = [superProps mutableCopy];
+        NSObject *oldValue = superProps[groupKey];
+        if (oldValue == nil) {
+            return superProps;
+        }
+        if (![oldValue isKindOfClass:[NSArray<MixpanelType> class]]) {
+            [mutableSuperProps removeObjectForKey:groupKey];
+            [self.people unset:@[groupKey]];
+            return mutableSuperProps;
+        }
+        NSMutableArray *vals =
+        [NSMutableArray arrayWithArray:mutableSuperProps[groupKey]];
+
+        for (NSUInteger i = 0; i < [vals count]; ++i) {
+            if ([vals[i] equalToMixpanelType:groupID]) {
+                [vals removeObjectAtIndex:i];
+                break;
+            }
+        }
+        if (![vals count]) {
+            [mutableSuperProps removeObjectForKey:groupKey];
+        } else {
+            mutableSuperProps[groupKey] = vals;
+        }
+        [self.people remove:@{groupKey : groupID}];
+        return mutableSuperProps;
+    }];
+}
+
+- (void)setGroup:(NSString *)groupKey
+        groupIDs:(NSArray<id<MixpanelType>> *)groupIDs {
+    if ([self hasOptedOutTracking]) {
+        return;
+    }
+    NSDictionary *properties = @{groupKey : groupIDs};
+    [self registerSuperProperties:properties];
+    [self.people set:properties];
+}
+
+- (void)setGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID {
+    NSArray *groupIDs = @[ groupID ];
+    [self setGroup:groupKey groupIDs:groupIDs];
+}
+- (NSString *)keyForGroup:(NSString *)groupKey
+                  groupID:(id<MixpanelType>)groupID {
+    return [NSString stringWithFormat:@"%@_%@", groupKey, groupID];
+}
+- (MixpanelGroup *)getGroup:(NSString *)groupKey
+                    groupID:(id<MixpanelType>)groupID {
+    NSString *mapKey = [self keyForGroup:groupKey groupID:groupID];
+    @synchronized(self.cachedGroups) {
+        MixpanelGroup *group = self.cachedGroups[mapKey];
+        if (!group || group.groupKey != groupKey ||
+            ![groupID equalToMixpanelType:group.groupID]) {
+            group = [[MixpanelGroup alloc] init:self groupKey:groupKey groupID:groupID];
+            // if key collision happens, the old entry will be evicted
+            self.cachedGroups[mapKey] = group;
+        }
+        return group;
+    }
 }
 
 #if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
@@ -661,17 +804,25 @@ static NSString *defaultProjectToken;
     }
 }
 
-- (void)trackPushNotification:(NSDictionary *)userInfo event:(NSString *)event
+- (void)trackPushNotification:(NSDictionary *)userInfo event:(NSString *)event properties:(NSDictionary *)additionalProperties
 {
     MPLogInfo(@"%@ tracking push payload %@", self, userInfo);
 
     id rawMp = userInfo[@"mp"];
     if (rawMp) {
+        NSDictionary *mpPayload = [rawMp isKindOfClass:[NSDictionary class]] ? rawMp : @{};
+        NSMutableDictionary *properties = [mpPayload mutableCopy];
 
-        NSDictionary *mpPayload = [rawMp isKindOfClass:[NSDictionary class]] ? rawMp : nil;
+        // "token" and "distinct_id" are sent with the Mixpanel push payload but we don't need to track them
+        // they are handled upstream to initialize the mixpanel instance and "distinct_id" will be passed in
+        // explicitly in "additionalProperties"
+        [properties removeObjectForKey:@"token"];
+        [properties removeObjectForKey:@"distinct_id"];
+
+        // merge in additional properties we explicitly want to include
+        [properties addEntriesFromDictionary:additionalProperties];
 
         if (mpPayload[@"m"] && mpPayload[@"c"]) {
-            NSMutableDictionary *properties = [mpPayload mutableCopy];
             properties[@"campaign_id"] = mpPayload[@"c"];
             properties[@"message_id"] = mpPayload[@"m"];
             properties[@"message_type"] = @"push";
@@ -685,11 +836,53 @@ static NSString *defaultProjectToken;
     }
 }
 
+
++ (void)trackPushNotificationEventFromRequest:(UNNotificationRequest *)request event:(NSString *)event properties:(NSDictionary *)additionalProperties
+{
+    NSDictionary* userInfo = request.content.userInfo;
+
+    id mpPayload = userInfo[@"mp"];
+    if (!mpPayload) {
+        NSLog(@"%@ Malformed mixpanel push payload, not tracking %@", self, event);
+        return;
+    }
+
+    NSString *distinctId = mpPayload[@"distinct_id"];
+    if (!distinctId) {
+        NSLog(@"%@ \"distinct_id\" not found in mixpanel push payload, not tracking %@", self, event);
+        return;
+    }
+
+    NSString *projectToken = mpPayload[@"token"];
+    if (!projectToken) {
+        NSLog(@"%@ \"token\" not found in mixpanel push payload, not tracking %@", self, event);
+        return;
+    }
+
+    NSMutableDictionary *properties = [additionalProperties mutableCopy];
+    [properties addEntriesFromDictionary:@{@"distinct_id": distinctId, @"$ios_notification_id": request.identifier}];
+
+    // Track using project token and distinct_id from push payload
+    Mixpanel *instance = [Mixpanel sharedInstanceWithToken:projectToken];
+    [instance trackPushNotification:userInfo event:event properties:properties];
+    [instance flush];
+}
+
 - (void)trackPushNotification:(NSDictionary *)userInfo
 {
-    [self trackPushNotification:userInfo event:@"$campaign_received"];
+    [self trackPushNotification:userInfo event:@"$campaign_received" properties:@{}];
 }
 #endif
+
+typedef NSDictionary*(^PropertyUpdate)(NSDictionary*);
+
+- (void)updateSuperPropertiesAsync:(PropertyUpdate) update{
+    dispatch_async(self.serialQueue, ^{
+        NSDictionary* newSuperProp = update(self.currentSuperProperties);
+        [self setSuperProperties:newSuperProp];
+        [self archiveProperties];
+    });
+}
 
 - (void)registerSuperProperties:(NSDictionary *)properties
 {
@@ -805,6 +998,8 @@ static NSString *defaultProjectToken;
             self.people.unidentifiedQueue = [NSMutableArray array];
             self.eventsQueue = [NSMutableArray array];
             self.peopleQueue = [NSMutableArray array];
+            self.groupsQueue = [NSMutableArray array];
+            self.cachedGroups = [NSMutableDictionary dictionary];
             self.timedEvents = [NSMutableDictionary dictionary];
             self.shownNotifications = [NSMutableSet set];
             self.decideResponseCached = NO;
@@ -838,6 +1033,7 @@ static NSString *defaultProjectToken;
     dispatch_async(self.serialQueue, ^{
         [self.eventsQueue removeAllObjects];
         [self.peopleQueue removeAllObjects];
+        [self.groupsQueue removeAllObjects];
     });
     if (self.people.distinctId) {
         [self.people deleteUser];
@@ -958,7 +1154,8 @@ static NSString *defaultProjectToken;
 
         [self.network flushEventQueue:self.eventsQueue];
         [self.network flushPeopleQueue:self.peopleQueue];
-
+        [self.network flushGroupsQueue:self.groupsQueue];
+        
         [self archive];
 
         if (handler) {
@@ -992,6 +1189,11 @@ static NSString *defaultProjectToken;
     return [self filePathFor:@"people"];
 }
 
+- (NSString *)groupsFilePath
+{
+    return [self filePathFor:@"groups"];
+}
+
 - (NSString *)propertiesFilePath
 {
     return [self filePathFor:@"properties"];
@@ -1016,6 +1218,7 @@ static NSString *defaultProjectToken;
 {
     [self archiveEvents];
     [self archivePeople];
+    [self archiveGroups];
     [self archiveProperties];
     [self archiveVariants];
     [self archiveEventBindings];
@@ -1025,7 +1228,11 @@ static NSString *defaultProjectToken;
 {
     NSString *filePath = [self eventsFilePath];
     MPLogInfo(@"%@ archiving events data to %@: %@", self, filePath, self.eventsQueue);
-    if (![self archiveObject:[self.eventsQueue copy] withFilePath:filePath]) {
+    NSArray *shadowEventsQueue = [NSArray new];
+    @synchronized (self) {
+        shadowEventsQueue = [self.eventsQueue copy];
+    }
+    if (![self archiveObject:shadowEventsQueue withFilePath:filePath]) {
         MPLogError(@"%@ unable to archive event data", self);
     }
 }
@@ -1034,8 +1241,25 @@ static NSString *defaultProjectToken;
 {
     NSString *filePath = [self peopleFilePath];
     MPLogInfo(@"%@ archiving people data to %@: %@", self, filePath, self.peopleQueue);
-    if (![self archiveObject:[self.peopleQueue copy] withFilePath:filePath]) {
+    NSArray *shadowPeopleQueue = [NSArray new];
+    @synchronized (self) {
+        shadowPeopleQueue = [self.peopleQueue copy];
+    }
+    if (![self archiveObject:shadowPeopleQueue withFilePath:filePath]) {
         MPLogError(@"%@ unable to archive people data", self);
+    }
+}
+
+- (void)archiveGroups
+{
+    NSString *filePath = [self groupsFilePath];
+    MPLogInfo(@"%@ archiving groups data to %@: %@", self, filePath, self.groupsQueue);
+    NSArray *shadowGroupQueue = [NSArray new];
+    @synchronized (self) {
+        shadowGroupQueue = [self.groupsQueue copy];
+    }
+    if (![self archiveObject:shadowGroupQueue withFilePath:filePath]) {
+        MPLogError(@"%@ unable to archive groups data", self);
     }
 }
 
@@ -1043,6 +1267,17 @@ static NSString *defaultProjectToken;
 {
     NSString *filePath = [self propertiesFilePath];
     NSMutableDictionary *p = [NSMutableDictionary dictionary];
+    
+    NSArray *shadowUnidentifiedQueue = [NSArray new];
+    NSArray *shadowShownNotifications = [NSArray new];
+    NSArray *shadowTimeEvents = [NSArray new];
+    
+    @synchronized (self) {
+        shadowUnidentifiedQueue = [self.people.unidentifiedQueue copy];
+        shadowShownNotifications = [self.shownNotifications copy];
+        shadowTimeEvents = [self.timedEvents copy];
+    }
+    
     [p setValue:self.anonymousId forKey:@"anonymousId"];
     [p setValue:self.distinctId forKey:@"distinctId"];
     [p setValue:self.userId forKey:@"userId"];
@@ -1050,9 +1285,9 @@ static NSString *defaultProjectToken;
     [p setValue:[NSNumber numberWithBool:self.hadPersistedDistinctId] forKey:@"hadPersistedDistinctId"];
     [p setValue:self.superProperties forKey:@"superProperties"];
     [p setValue:self.people.distinctId forKey:@"peopleDistinctId"];
-    [p setValue:[self.people.unidentifiedQueue copy] forKey:@"peopleUnidentifiedQueue"];
-    [p setValue:[self.shownNotifications copy] forKey:@"shownNotifications"];
-    [p setValue:[self.timedEvents copy] forKey:@"timedEvents"];
+    [p setValue:shadowUnidentifiedQueue forKey:@"peopleUnidentifiedQueue"];
+    [p setValue:shadowShownNotifications forKey:@"shownNotifications"];
+    [p setValue:shadowTimeEvents forKey:@"timedEvents"];
     [p setValue:self.automaticEventsEnabled forKey:@"automaticEvents"];
     MPLogInfo(@"%@ archiving properties data to %@: %@", self, filePath, p);
     if (![self archiveObject:p withFilePath:filePath]) {
@@ -1117,6 +1352,7 @@ static NSString *defaultProjectToken;
 {
     [self unarchiveEvents];
     [self unarchivePeople];
+    [self unarchiveGroups];
     [self unarchiveProperties];
     [self unarchiveVariants];
     [self unarchiveEventBindings];
@@ -1163,6 +1399,11 @@ static NSString *defaultProjectToken;
     self.peopleQueue = [NSMutableArray arrayWithArray:(NSArray *)[Mixpanel unarchiveOrDefaultFromFile:[self peopleFilePath] asClass:[NSArray class]]];
 }
 
+- (void)unarchiveGroups
+{
+    self.groupsQueue = [NSMutableArray arrayWithArray:(NSArray *)[Mixpanel unarchiveOrDefaultFromFile:[self groupsFilePath] asClass:[NSArray class]]];
+}
+
 - (void)unarchiveProperties
 {
     NSDictionary *properties = (NSDictionary *)[Mixpanel unarchiveFromFile:[self propertiesFilePath] asClass:[NSDictionary class]];
@@ -1203,6 +1444,7 @@ static NSString *defaultProjectToken;
 {
     NSNumber *optOutStatus = (NSNumber *)[Mixpanel unarchiveOrDefaultFromFile:[self optOutFilePath] asClass:[NSNumber class]];
     self.optOutStatus = [optOutStatus boolValue];
+    self.optOutStatusNotSet = (optOutStatus == nil);
 }
 
 #pragma mark - Application Helpers
@@ -1225,30 +1467,6 @@ static NSString *defaultProjectToken;
         MPLogError(@"Failed fetch hw.machine from sysctl.");
     }
     return results;
-}
-
-- (NSString *)watchModel
-{
-    NSString *model = nil;
-    Class WKInterfaceDeviceClass = NSClassFromString(@"WKInterfaceDevice");
-    if (WKInterfaceDeviceClass) {
-        SEL currentDeviceSelector = NSSelectorFromString(@"currentDevice");
-        id device = ((id (*)(id, SEL))[WKInterfaceDeviceClass methodForSelector:currentDeviceSelector])(WKInterfaceDeviceClass, currentDeviceSelector);
-        SEL screenBoundsSelector = NSSelectorFromString(@"screenBounds");
-        if (device && [device respondsToSelector:screenBoundsSelector]) {
-            NSInvocation *screenBoundsInvocation = [NSInvocation invocationWithMethodSignature:[device methodSignatureForSelector:screenBoundsSelector]];
-            [screenBoundsInvocation setSelector:screenBoundsSelector];
-            [screenBoundsInvocation invokeWithTarget:device];
-            CGRect screenBounds;
-            [screenBoundsInvocation getReturnValue:(void *)&screenBounds];
-            if (screenBounds.size.width == 136.0f) {
-                model = @"Apple Watch 38mm";
-            } else if (screenBounds.size.width == 156.0f) {
-                model = @"Apple Watch 42mm";
-            }
-        }
-    }
-    return model;
 }
 
 - (NSString *)IFA
@@ -1679,6 +1897,108 @@ static void MixpanelReachabilityCallback(SCNetworkReachabilityRef target, SCNetw
 }
 
 #if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
+#pragma mark - Mixpanel Push Notifications
+
++ (BOOL)isMixpanelPushNotification:(UNNotificationContent *)content {
+    if ([content userInfo] == nil) {
+        MPLogInfo(@"%@ userInfo was nil, returning false");
+        return false;
+    }
+    return [content.userInfo objectForKey:@"mp"] != nil;
+}
+
++ (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+
+    if (![self isMixpanelPushNotification:response.notification.request.content]) {
+        MPLogWarning(@"%@Calling MixpanelPushNotifications.handleResponse on a non-Mixpanel push notification is a noop", self);
+        completionHandler();
+        return;
+    }
+
+    UNNotificationRequest *request = response.notification.request;
+    NSDictionary *userInfo = request.content.userInfo;
+
+    MPLogInfo(@"%@ didReceiveNotificationResponse action: %@", self, response.actionIdentifier);
+
+    // If the notification was dismissed, just track and return
+    if ([response.actionIdentifier isEqualToString:UNNotificationDismissActionIdentifier]) {
+        [Mixpanel trackPushNotificationEventFromRequest:request event:@"$push_notification_dismissed" properties:@{}];
+        completionHandler();
+        return;
+    }
+
+    // Initialize additonal properties to track to Mixpanel with the $push_notification_tap event
+    NSMutableDictionary *additionalTrackingProps = [[NSMutableDictionary alloc] init];
+
+    NSDictionary *ontap = nil;
+
+    if ([response.actionIdentifier isEqualToString:UNNotificationDefaultActionIdentifier]) {
+        // The action that indicates the user opened the app from the notification interface.
+        additionalTrackingProps[@"$tap_target"] = @"notification";
+        if (userInfo[@"mp_ontap"]) {
+            ontap = userInfo[@"mp_ontap"];
+        }
+    } else {
+        // Non-default, non-dismiss action -- probably a button tap
+        BOOL wasButtonTapped = [response.actionIdentifier containsString:@"MP_ACTION_"];
+        if (wasButtonTapped) {
+            NSArray *buttons = userInfo[@"mp_buttons"];
+            NSInteger idx = [[response.actionIdentifier stringByReplacingOccurrencesOfString:@"MP_ACTION_" withString:@""] integerValue];
+            NSDictionary *buttonDict = buttons[idx];
+            ontap = buttonDict[@"ontap"];
+            [additionalTrackingProps addEntriesFromDictionary:@{
+                @"$button_id": buttonDict[@"id"],
+                @"$button_label": buttonDict[@"lbl"],
+                @"$tap_target": @"button",
+            }];
+        }
+    }
+
+    // Add additional tracking props
+    if (ontap != nil && ontap != (id)[NSNull null]) {
+        NSString *tapActionType = ontap[@"type"];
+        if (tapActionType != nil) {
+            additionalTrackingProps[@"$tap_action_type"] = tapActionType;
+        }
+        NSString *tapActionUri = ontap[@"uri"];
+        if (tapActionUri != nil) {
+            additionalTrackingProps[@"$tap_action_uri"] = tapActionUri;
+        }
+    }
+
+    // Track tap event
+    [Mixpanel trackPushNotificationEventFromRequest:request event:@"$push_notification_tap" properties:additionalTrackingProps];
+
+    if (ontap == nil || ontap == (id)[NSNull null]) {
+        // Default to homescreen if no ontap info
+        MPLogInfo(@"%@ No tap instructions found.", self);
+        completionHandler();
+    } else {
+
+        NSString *type = ontap[@"type"];
+
+        if ([type isEqualToString:MPPushTapActionTypeHomescreen]) {
+           // Do nothing, already going to be at homescreen
+           completionHandler();
+        } else if ([type isEqualToString:MPPushTapActionTypeBrowser] || [type isEqualToString:MPPushTapActionTypeDeeplink]) {
+#if !MIXPANEL_NO_UIAPPLICATION_ACCESS
+           NSURL *url = [[NSURL alloc] initWithString: ontap[@"uri"]];
+           UIApplication *sharedApplication = [Mixpanel sharedUIApplication];
+           if ([sharedApplication respondsToSelector:@selector(openURL:)]) {
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   [sharedApplication performSelector:@selector(openURL:) withObject:url];
+                   completionHandler();
+               });
+           } else {
+               completionHandler();
+           }
+#endif
+        }
+    }
+}
+#endif
+
+#if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
 
 #pragma mark - Decide
 
@@ -1776,7 +2096,7 @@ static void MixpanelReachabilityCallback(SCNetworkReachabilityRef target, SCNetw
                     }
                 }
 #endif
-
+                
                 id rawNotifications = object[@"notifications"];
                 NSMutableArray *parsedNotifications = [NSMutableArray array];
                 if ([rawNotifications isKindOfClass:[NSArray class]]) {
@@ -1871,7 +2191,19 @@ static void MixpanelReachabilityCallback(SCNetworkReachabilityRef target, SCNetw
                 NSMutableSet *allEventBindings = [self.eventBindings mutableCopy];
                 [allEventBindings unionSet:newEventBindings];
 
-                self.notifications = [NSArray arrayWithArray:parsedNotifications];
+                NSMutableArray *notifications = [NSMutableArray array];
+                NSMutableArray *triggeredNotifications = [NSMutableArray array];
+                
+                for (MPNotification *notif in parsedNotifications) {
+                    if ([notif hasDisplayTriggers]) {
+                        [triggeredNotifications addObject:notif];
+                    } else {
+                        [notifications addObject:notif];
+                    }
+                }
+                
+                self.notifications = [NSArray arrayWithArray:notifications];
+                self.triggeredNotifications = [NSArray arrayWithArray:triggeredNotifications];
                 self.variants = [allVariants copy];
                 self.eventBindings = [allEventBindings copy];
 
@@ -1896,9 +2228,15 @@ static void MixpanelReachabilityCallback(SCNetworkReachabilityRef target, SCNetw
             NSArray *unseenNotifications = [self.notifications objectsAtIndexes:[self.notifications indexesOfObjectsPassingTest:^BOOL(MPNotification *obj, NSUInteger idx, BOOL *stop) {
                 return [self.shownNotifications member:@(obj.ID)] == nil;
             }]];
+            
+            self.triggeredNotifications = [self.triggeredNotifications objectsAtIndexes:[self.triggeredNotifications indexesOfObjectsPassingTest:^BOOL(MPNotification *obj, NSUInteger idx, BOOL *stop) {
+                return [self.shownNotifications member:@(obj.ID)] == nil;
+            }]];
 
             MPLogInfo(@"%@ decide check found %lu available notifs out of %lu total: %@", self, (unsigned long)unseenNotifications.count,
                       (unsigned long)self.notifications.count, unseenNotifications);
+            MPLogInfo(@"%@ decide check found %lu total triggered notifications %@", self, (unsigned long)self.triggeredNotifications.count,
+                      self.triggeredNotifications);
             MPLogInfo(@"%@ decide check found %lu variants: %@", self, (unsigned long)self.variants.count, self.variants);
             MPLogInfo(@"%@ decide check found %lu tracking events: %@", self, (unsigned long)self.eventBindings.count, self.eventBindings);
 
@@ -1970,9 +2308,15 @@ static void MixpanelReachabilityCallback(SCNetworkReachabilityRef target, SCNetw
 
     // if images fail to load, remove the notification from the queue
     if (!image) {
-        NSMutableArray *notifications = [NSMutableArray arrayWithArray:_notifications];
-        [notifications removeObject:notification];
-        self.notifications = [NSArray arrayWithArray:notifications];
+        if ([notification hasDisplayTriggers]) {
+            NSMutableArray *notifications = [NSMutableArray arrayWithArray:_triggeredNotifications];
+            [notifications removeObject:notification];
+            self.triggeredNotifications = [NSArray arrayWithArray:notifications];
+        } else {
+            NSMutableArray *notifications = [NSMutableArray arrayWithArray:_notifications];
+            [notifications removeObject:notification];
+            self.notifications = [NSArray arrayWithArray:notifications];
+        }        
         return;
     }
 
@@ -2098,6 +2442,11 @@ static void MixpanelReachabilityCallback(SCNetworkReachabilityRef target, SCNetw
 
     dispatch_async(self.serialQueue, ^{
         [self.shownNotifications addObject:@(notification.ID)];
+        if ([notification hasDisplayTriggers]) {
+            NSMutableArray *notifications = [NSMutableArray arrayWithArray: self.triggeredNotifications];
+            [notifications removeObject:notification];
+            self.triggeredNotifications = [NSArray arrayWithArray:notifications];
+        }
         [self archiveProperties];
     });
 
