@@ -46,7 +46,7 @@ class NotificationScheduler {
     
     class func localNotificationForPerformance(performance: Performance) -> UNNotificationRequest {
         let scheduledPerformance = performance
-        //        let formattedNotificationTime = performance.time!.addingTimeInterval(-15.0 * 60).timeIntervalSince1970
+        let formattedNotificationTime = performance.time!.addingTimeInterval(-15.0 * 60).timeIntervalSince1970
         
         let localNotification = UNMutableNotificationContent.init()
         localNotification.userInfo = ["performanceId": scheduledPerformance.id]
@@ -55,7 +55,7 @@ class NotificationScheduler {
         localNotification.sound = UNNotificationSound.default
         
         
-        let date = Date(timeIntervalSinceNow: 300) // NSDate(timeIntervalSince1970: formattedNotificationTime) as Date
+        let date = NSDate(timeIntervalSince1970: formattedNotificationTime) as Date
         let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         

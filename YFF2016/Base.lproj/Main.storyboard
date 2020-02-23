@@ -652,10 +652,10 @@ MAR 22</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchBunting" translatesAutoresizingMaskIntoConstraints="NO" id="SXD-8Z-vgb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="197.00000000000006"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
                                 <color key="backgroundColor" red="0.084248997271060944" green="0.066862113773822784" blue="0.033342551440000534" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="programView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="programView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-pM-Y2I" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="92" y="375" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mGD-c7-A18"/>
@@ -669,7 +669,7 @@ MAR 22</string>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Program Segue" id="0gS-nP-AoY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="mapView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="mapView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Vd-cjX" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="92" y="435" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Kgw-Rj-w8H"/>
@@ -681,10 +681,10 @@ MAR 22</string>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Map Segue" id="TOW-rU-DPh"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YFFLaunchHeader" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-ff-yVg">
-                                <rect key="frame" x="98.666666666666657" y="100" width="237.00000000000003" height="185"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="YFFLaunchHeader" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-ff-yVg">
+                                <rect key="frame" x="-20" y="100" width="474" height="185"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ArtistsView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="ArtistsView" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-Nv-f3V" customClass="LaunchViewButton" customModule="YFF2016" customModuleProvider="target">
                                 <rect key="frame" x="92" y="495" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Eay-4u-6O1"/>
@@ -696,7 +696,7 @@ MAR 22</string>
                                     <segue destination="IUe-Z7-fzU" kind="presentation" identifier="Artists Segue" id="N8z-6Z-Tqv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-ag-6bb">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-ag-6bb">
                                 <rect key="frame" x="20" y="595" width="374" height="131"/>
                                 <fontDescription key="fontDescription" name="BebasNeueRegular" family="Bebas Neue" pointSize="18"/>
                                 <state key="normal" title="By using this app you agree to our terms of use">
@@ -755,14 +755,14 @@ MAR 22</string>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="YIn-0C-Hqy">
                                         <rect key="frame" x="18" y="215" width="258" height="141"/>
-                                        <string key="text">This was made with love by a local Yackandandarian, and his friends from Ballarat and Liverpool.
+                                        <mutableString key="text">This was made with love by a local Yackandandarian, and his friends from Ballarat and Liverpool.
 
 If you're enjoying the app, or if there's anything you'd like to see next year, come have a chat to us!
 We also accept donations of beer to support further updates.
 
 We hope to see you at the festival!
 
-❤</string>
+❤</mutableString>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1180,7 +1180,7 @@ We hope to see you at the festival!
         <image name="seperatorDot" width="4" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0gS-nP-AoY"/>
+        <segue reference="TOW-rU-DPh"/>
         <segue reference="U7J-LC-bvT"/>
     </inferredMetricsTieBreakers>
 </document>
