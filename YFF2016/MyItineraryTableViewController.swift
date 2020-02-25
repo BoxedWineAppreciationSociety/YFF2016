@@ -114,10 +114,13 @@ class MyItineraryTableViewController: UITableViewController,  DZNEmptyDataSetSou
     
     
     func pluckPerformanceIds() {
-        for notification in notifications! {
-            let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
-            let performanceId = userInfoCurrent["performanceId"]! as! String
-            performanceIds.append(performanceId)
+        let center = UNUserNotificationCenter.current()
+        center.getPendingNotificationRequests { requests in
+            for notification in requests {
+                let userInfoCurrent = notification.content.userInfo as! [String:AnyObject]
+                let performanceId = userInfoCurrent["performanceId"]! as! String
+                self.performanceIds.append(performanceId)
+            }
         }
     }
     
